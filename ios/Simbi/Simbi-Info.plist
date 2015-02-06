@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundleExecutable</key>
+	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.simbisocial.simbi.com</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>${PRODUCT_NAME}</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1378602369095327</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1378602369095327</string>
+	<key>FacebookDisplayName</key>
+	<string>Simbi</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Simbi only keeps your location when you check in and does not store your location otherwise.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Simbi only keeps your location when you check in and does not store your location otherwise.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DINOT-Black.otf</string>
+		<string>DINOT-BlackItalic.otf</string>
+		<string>DINOT-Bold.otf</string>
+		<string>DINOT-BoldItalic.otf</string>
+		<string>DINOT-CondBlack.otf</string>
+		<string>DINOT-CondBold.otf</string>
+		<string>DINOT-CondLight.otf</string>
+		<string>DINOT-CondMedium.otf</string>
+		<string>DINOT-CondRegular.otf</string>
+		<string>DINOT-Light.otf</string>
+		<string>DINOT-LightItalic.otf</string>
+		<string>DINOT-Medium.otf</string>
+		<string>DINOT-MediumItalic.otf</string>
+		<string>DINOT-Regular.otf</string>
+		<string>DINOT-RegularItalic.otf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+</dict>
+</plist>

@@ -1,0 +1,183 @@
+{ "results": [
+	{
+        "accepted": false,
+        "challengeInfo": {
+            "pokeCount": 0
+        },
+        "challengeName": "Poke-O-Rama",
+        "challengeType": "Poke-O-Rama",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "t8Qo0gvUnQ"
+        },
+        "createdAt": "2014-10-03T19:17:23.901Z",
+        "declined": true,
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "objectId": "1i2T4nuelI",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T19:41:23.577Z"
+    },
+	{
+        "accepted": false,
+        "challengeInfo": {
+            "pokeCount": 0
+        },
+        "challengeName": "Poke-O-Rama",
+        "challengeType": "Poke-O-Rama",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "g4cSImcmmn"
+        },
+        "createdAt": "2014-10-03T22:42:52.866Z",
+        "declined": true,
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "objectId": "9oOibyhowa",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-06T03:24:59.366Z"
+    },
+	{
+        "accepted": false,
+        "challengeInfo": {
+            "pokeCount": 0
+        },
+        "challengeName": "Poke-O-Rama",
+        "challengeType": "Poke-O-Rama",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "9fdFNPOZeY"
+        },
+        "createdAt": "2014-10-03T22:48:00.174Z",
+        "declined": true,
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "objectId": "WuBeVIoA2P",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-06T03:25:04.310Z"
+    },
+	{
+        "challengeInfo": {
+            "drinks": 0
+        },
+        "challengeName": "Drink Roulette",
+        "challengeType": "DrinkRoulette",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "JMhTJE34KV"
+        },
+        "createdAt": "2014-11-07T21:29:09.994Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "objectId": "LN3W4mElQn",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-11-19T21:27:44.778Z"
+    },
+	{
+        "challengeInfo": {
+            "pokeCount": 0
+        },
+        "challengeName": "Poke-O-Rama",
+        "challengeType": "Poke-O-Rama",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "FbUCMcabE3"
+        },
+        "createdAt": "2014-11-08T05:58:18.229Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "objectId": "0jrKicWskl",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "zaGBQ5xGDU"
+        },
+        "updatedAt": "2014-11-08T05:58:18.884Z"
+    },
+	{
+        "challengeInfo": {
+            "pokeCount": 0
+        },
+        "challengeName": "Poke-O-Rama",
+        "challengeType": "Poke-O-Rama",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "jAYXWDgnmK"
+        },
+        "createdAt": "2014-11-16T03:18:15.275Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "objectId": "zsGMkNKVAB",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-11-16T03:18:16.211Z"
+    },
+	{
+        "challengeInfo": {
+            "drinks": 0
+        },
+        "challengeName": "Drink Roulette",
+        "challengeType": "DrinkRoulette",
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "FMsdtfAOky"
+        },
+        "createdAt": "2014-11-16T04:03:02.147Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "objectId": "U0YKpD2F23",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-16T04:03:02.828Z"
+    }
+] }

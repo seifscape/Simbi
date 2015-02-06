@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
+pod "AFNetworking", "~> 2.0"
+pod 'Facebook-iOS-SDK'
+pod 'iCarousel', '~> 1.7.6'
+pod 'MBProgressHUD', '~> 0.8'
+pod 'MMDrawerController', '~> 0.5.7'
+pod 'Parse', '~> 1.5'
+pod 'ParseUI'
+pod 'ParseFacebookUtils'
+pod 'NMRangeSlider'
+link_with 'Simbi', 'SimbiTests'

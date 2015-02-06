@@ -1,0 +1,206 @@
+{ "results": [
+	{
+        "createdAt": "2014-09-22T14:50:23.166Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "isAccepted": true,
+        "objectId": "qmvVe0U61d",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-09-22T14:53:51.438Z"
+    },
+	{
+        "createdAt": "2014-09-25T18:26:00.205Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAccepted": true,
+        "objectId": "2FylX6PtYE",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-01T04:06:35.372Z"
+    },
+	{
+        "createdAt": "2014-09-25T18:26:16.229Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAccepted": true,
+        "objectId": "KrSdy7FNXE",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-12T15:23:40.509Z"
+    },
+	{
+        "createdAt": "2014-10-12T15:41:14.227Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "AndAelxtXd"
+        },
+        "isAccepted": true,
+        "objectId": "tQ5F4H1kw9",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-12T15:42:48.230Z"
+    },
+	{
+        "createdAt": "2014-10-12T15:56:16.618Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "07rbqBRscx"
+        },
+        "isAccepted": true,
+        "objectId": "jiUMpZb8t5",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-12T15:57:19.617Z"
+    },
+	{
+        "createdAt": "2014-10-13T14:09:33.912Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAccepted": true,
+        "objectId": "9j0KUqiDPu",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-13T14:56:01.634Z"
+    },
+	{
+        "createdAt": "2014-10-13T14:09:48.630Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAccepted": true,
+        "objectId": "l2XA4UFrNa",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-13T14:26:14.637Z"
+    },
+	{
+        "createdAt": "2014-10-23T23:07:33.748Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "isAccepted": true,
+        "objectId": "BLb073GGbF",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:07:47.433Z"
+    },
+	{
+        "createdAt": "2014-10-27T19:29:33.842Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "isAccepted": true,
+        "objectId": "ApnMdDif0s",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "updatedAt": "2014-10-27T19:30:29.346Z"
+    },
+	{
+        "createdAt": "2014-10-27T19:30:49.890Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "isAccepted": false,
+        "objectId": "IIF5icdLfh",
+        "status": "Pending",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "zaGBQ5xGDU"
+        },
+        "updatedAt": "2014-10-27T19:30:49.890Z"
+    },
+	{
+        "createdAt": "2014-10-28T21:23:10.717Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAccepted": true,
+        "objectId": "wNOvXsYomm",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-30T20:39:04.733Z"
+    },
+	{
+        "createdAt": "2014-10-28T21:23:27.808Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAccepted": true,
+        "objectId": "3dx3gN718r",
+        "status": "Accepted",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "updatedAt": "2014-11-07T15:33:48.336Z"
+    }
+] }

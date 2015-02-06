@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Simbi Social": {
+            "applicationId": "mwpk2PsstIHMd7JG6mW3rGi8jIGJ0BI8X92C6up0", 
+            "masterKey": "5d5WUAa3tC1QUHMxdv22lP3o9E1dKb2CDKIfqUhX"
+        }, 
+        "_default": {
+            "link": "Simbi Social"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.3"
+    }
+}

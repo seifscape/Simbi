@@ -1,0 +1,183 @@
+{ "results": [
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "createdAt": "2014-09-21T18:07:19.647Z",
+        "deviceType": "ios",
+        "installationId": "8dc9c6d8-7257-42d2-8b9a-8321e58f7e59",
+        "objectId": "qu8mwVZ01z",
+        "parseVersion": "1.4.1",
+        "timeZone": "America/New_York",
+        "updatedAt": "2014-10-12T15:27:26.455Z"
+    },
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "createdAt": "2014-10-12T15:31:56.914Z",
+        "deviceType": "ios",
+        "installationId": "aeea5a55-385c-4c04-82a6-c2110245792c",
+        "objectId": "MeesvBAnmd",
+        "parseVersion": "1.4.1",
+        "timeZone": "America/New_York",
+        "updatedAt": "2014-10-13T14:33:58.902Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        }
+    },
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "channels": [
+            "test"
+        ],
+        "createdAt": "2014-10-13T13:57:36.206Z",
+        "deviceToken": "86df21f2b468a6fad3c7c3df04c70fad14e43a66687e5cedfc5a84e61218a3e5",
+        "deviceType": "ios",
+        "installationId": "36db795c-a825-45d2-ba12-428aee625051",
+        "objectId": "Dtbr1aBzU8",
+        "parseVersion": "1.5.0",
+        "timeZone": "America/Chicago",
+        "updatedAt": "2014-11-22T05:09:58.166Z"
+    },
+	{
+        "createdAt": "2014-10-22T22:18:56.703Z",
+        "deviceType": "ios",
+        "installationId": "b0725bdd-3007-43bd-955d-21a0d72338a9",
+        "objectId": "HvcqDc8nDI",
+        "updatedAt": "2014-10-23T22:39:12.702Z"
+    },
+	{
+        "createdAt": "2014-10-23T22:47:19.326Z",
+        "deviceType": "ios",
+        "installationId": "b6bb4ea2-d220-4dbe-8a57-37d70b74a31c",
+        "objectId": "DzPHzuF2Fi",
+        "updatedAt": "2014-10-30T12:53:33.177Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "createdAt": "2014-10-24T22:32:41.436Z",
+        "deviceType": "ios",
+        "installationId": "ecfaa1cf-0a6c-4b99-add3-d397360c8d96",
+        "objectId": "S6O20JRSkS",
+        "updatedAt": "2014-10-25T01:46:12.838Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        }
+    },
+	{
+        "createdAt": "2014-10-30T15:26:12.891Z",
+        "deviceType": "ios",
+        "installationId": "fc4345e1-5484-4b64-bb3c-83474da56ac3",
+        "objectId": "Q9nTdZbUPZ",
+        "updatedAt": "2014-10-30T15:26:12.891Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "createdAt": "2014-10-30T20:21:03.294Z",
+        "deviceType": "ios",
+        "installationId": "8a1079ce-9067-4643-a7ba-088064cc18a5",
+        "objectId": "cuTu231vWt",
+        "updatedAt": "2014-10-30T20:21:03.294Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "channels": [
+            "test"
+        ],
+        "createdAt": "2014-10-25T21:25:10.721Z",
+        "deviceToken": "33a8f9b677688bf7fb1fe8badcf26c303d2f8316d88107601254d850c961807d",
+        "deviceType": "ios",
+        "installationId": "136dedb6-76ae-4d47-807a-ff876e65458f",
+        "objectId": "eTdWFEi9Hh",
+        "updatedAt": "2014-11-13T19:40:32.163Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "QnRr5Kq4wu"
+        }
+    },
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "channels": [
+            "test"
+        ],
+        "createdAt": "2014-11-10T15:17:52.731Z",
+        "deviceToken": "811fbaed43644d17477ce8b75d3214febdbd2cd224fda6fb215c7f32b217e6f1",
+        "deviceType": "ios",
+        "installationId": "d3451923-9f87-4c47-b1e1-673f178d6fb2",
+        "objectId": "Kht36RUlpq",
+        "parseVersion": "1.5.0",
+        "timeZone": "America/New_York",
+        "updatedAt": "2014-11-22T00:05:15.792Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "ZvaqvjpAY6"
+        }
+    },
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "createdAt": "2014-10-30T18:40:32.943Z",
+        "deviceType": "ios",
+        "installationId": "7dd732dc-64df-4da5-9698-20d31c8c4144",
+        "objectId": "Uf2q5Foz5k",
+        "parseVersion": "1.5.0",
+        "timeZone": "America/New_York",
+        "updatedAt": "2014-11-16T23:40:44.716Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        }
+    },
+	{
+        "appIdentifier": "com.simbisocial.simbi",
+        "appName": "Simbi",
+        "appVersion": "1.0",
+        "badge": 0,
+        "channels": [
+            "test"
+        ],
+        "createdAt": "2014-10-27T19:27:56.407Z",
+        "deviceToken": "fec1a7eb70e4163b13af687c4650fb4bbf7e9a05958340582132b433760ee8a9",
+        "deviceType": "ios",
+        "installationId": "70669033-5a3a-46c7-b67a-98bbf63446a8",
+        "objectId": "9gt7sjky1p",
+        "parseVersion": "1.5.0",
+        "timeZone": "America/New_York",
+        "updatedAt": "2014-11-22T03:37:41.472Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        }
+    }
+] }

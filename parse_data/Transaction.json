@@ -1,0 +1,1594 @@
+{ "results": [
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T22:54:25.094Z",
+        "information": "Debug Purchase",
+        "objectId": "2BVjl4AZM3",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "CPpMJLUMyw"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T22:54:25.094Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T22:59:05.005Z",
+        "information": "Debug Purchase",
+        "objectId": "uxG4TbLaf8",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "zOFgc1DoPf"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T22:59:05.005Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-14T22:59:10.176Z",
+        "information": "Debug Purchase",
+        "objectId": "flGwrWEW4S",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "pA2H0R61ma"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T22:59:10.176Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-14T22:59:14.164Z",
+        "information": "Debug Spend",
+        "objectId": "DRcc1ckbKN",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T22:59:14.164Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-14T22:59:17.045Z",
+        "information": "Debug Spend",
+        "objectId": "JgNNNpnYZd",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T22:59:17.045Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T22:59:20.007Z",
+        "information": "Debug Purchase",
+        "objectId": "KofWwBOu8G",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "7ISyPBCirQ"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T22:59:20.007Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-14T22:59:22.340Z",
+        "information": "Debug Spend",
+        "objectId": "zVpug05Rja",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T22:59:22.340Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 180,
+        "createdAt": "2014-11-14T23:01:17.157Z",
+        "information": "Debug Purchase",
+        "objectId": "Em461dRR5W",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "myEbwCrQqY"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:17.157Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-14T23:01:20.296Z",
+        "information": "Debug Purchase",
+        "objectId": "mwdboIdKPU",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "LGKq1rigCm"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:20.296Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T23:01:23.039Z",
+        "information": "Debug Purchase",
+        "objectId": "X9qjiNxAQ0",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "JQ47NQIPJ1"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:23.039Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 180,
+        "createdAt": "2014-11-14T23:01:25.914Z",
+        "information": "Debug Purchase",
+        "objectId": "H7i86YFhd1",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "URotiGpOEo"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:25.914Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-14T23:01:28.765Z",
+        "information": "Debug Purchase",
+        "objectId": "sCQRov5l7v",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "NQrxUdS33v"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:28.765Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T23:01:31.520Z",
+        "information": "Debug Purchase",
+        "objectId": "J92wPfMdud",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "4ToMFGo6WY"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:31.520Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-14T23:01:34.540Z",
+        "information": "Debug Purchase",
+        "objectId": "qAgHITyYDn",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "kgkQwK0MDZ"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:34.540Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 180,
+        "createdAt": "2014-11-14T23:01:37.254Z",
+        "information": "Debug Purchase",
+        "objectId": "avev2CsBOJ",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "anKQYialUx"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:37.254Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-14T23:01:40.071Z",
+        "information": "Debug Purchase",
+        "objectId": "dZgFnt31cS",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "at7PzmzBWs"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:01:40.071Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-14T23:02:10.329Z",
+        "information": "Debug Spend",
+        "objectId": "9hoJlybPpw",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:10.329Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-14T23:02:13.133Z",
+        "information": "Debug Spend",
+        "objectId": "QXWVyMdPEQ",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:13.133Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-14T23:02:16.118Z",
+        "information": "Debug Spend",
+        "objectId": "SvNYXWIuJO",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:16.118Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-14T23:02:19.374Z",
+        "information": "Debug Spend",
+        "objectId": "owH2tY6hBk",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:19.374Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-14T23:02:23.112Z",
+        "information": "Debug Spend",
+        "objectId": "JvuA1gIO1a",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:23.112Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-14T23:02:26.237Z",
+        "information": "Debug Spend",
+        "objectId": "a2lDLA9LcT",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:26.237Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-14T23:02:29.512Z",
+        "information": "Debug Purchase",
+        "objectId": "SRDO7fiwlR",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "MyxPSVMHzT"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-14T23:02:29.512Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-14T23:02:32.287Z",
+        "information": "Debug Spend",
+        "objectId": "JJ7IBXzbCy",
+        "type": "Spend",
+        "updatedAt": "2014-11-14T23:02:32.287Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-15T15:16:54.523Z",
+        "information": "Debug Purchase",
+        "objectId": "S1t2J0JclN",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "KSGQd0QKPC"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T15:16:54.523Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T15:17:09.356Z",
+        "information": "Debug Purchase",
+        "objectId": "vjD6y7HsOo",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "W2s2qw7enG"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T15:17:09.356Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-15T19:43:57.995Z",
+        "information": "Debug Spend",
+        "objectId": "GoIZ43B5fQ",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T19:43:57.995Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-15T19:44:00.899Z",
+        "information": "Debug Spend",
+        "objectId": "LCypbPcOpb",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T19:44:00.899Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T19:48:52.217Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "Dr0nHcFHxh",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "9BcHEsbrdJ"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T19:48:52.217Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T20:00:02.217Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "PL1hYlonm1",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "MATl9r7tbd"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:00:02.217Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T20:05:51.495Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "Qbe2hfwaMF",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "hmhWtrec9N"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:05:51.495Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T20:05:58.181Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "cat8f27yZo",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "24Vq0Fh3YD"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:05:58.181Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T20:06:03.402Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "lRApuFkPct",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "IK5pHrdRwG"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:06:03.402Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-15T20:06:17.388Z",
+        "information": "Debug Spend",
+        "objectId": "s1XB6put5P",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T20:06:17.388Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-15T20:06:20.752Z",
+        "information": "Debug Spend",
+        "objectId": "0USFTajMXh",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T20:06:20.752Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-15T20:06:23.797Z",
+        "information": "Debug Spend",
+        "objectId": "E7eBHQ2BBK",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T20:06:23.797Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -100,
+        "createdAt": "2014-11-15T20:06:26.711Z",
+        "information": "Debug Spend",
+        "objectId": "wS2GFqoZjc",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T20:06:26.711Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T20:11:08.196Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "u8TZpeB1BC",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "oOwJbtaEci"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:11:08.196Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-15T20:13:17.144Z",
+        "information": "Debug Spend",
+        "objectId": "xfk9NDV01H",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T20:13:17.144Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 60,
+        "createdAt": "2014-11-15T20:13:22.551Z",
+        "information": "Debug Purchase",
+        "objectId": "fJMPESrD3s",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "1zW7cR5bJ9"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:13:22.551Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T20:18:05.250Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "M2h1cAUZdR",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "ejRCvy9sNh"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:18:05.250Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T20:18:11.114Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "Cf0vRKpT4w",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "XEHJ4LY6Xz"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:18:11.114Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T20:18:15.942Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "zn7npiJ8FT",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "qrEPGIuDjW"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T20:18:15.942Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T21:47:34.597Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "9QVwJN7h6n",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "nwW8OSTcr3"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:47:34.597Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T21:47:48.014Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "zu6mpUcH5h",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "POaGYdoFUd"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:47:48.014Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T21:47:58.346Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "Qtmzkz3zhr",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "JnrVMQ9lfG"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:47:58.346Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-15T21:48:10.338Z",
+        "information": "Debug Spend",
+        "objectId": "fy23q8cSxG",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T21:48:10.338Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-15T21:48:13.253Z",
+        "information": "Debug Spend",
+        "objectId": "25iFcBtwe4",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T21:48:13.253Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -200,
+        "createdAt": "2014-11-15T21:48:16.207Z",
+        "information": "Debug Spend",
+        "objectId": "qSwUmcd2QX",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T21:48:16.207Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-15T21:48:19.231Z",
+        "information": "Debug Spend",
+        "objectId": "jHuxzMwwPh",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T21:48:19.231Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": -50,
+        "createdAt": "2014-11-15T21:48:22.033Z",
+        "information": "Debug Spend",
+        "objectId": "cQlF6P11LC",
+        "type": "Spend",
+        "updatedAt": "2014-11-15T21:48:22.033Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T21:55:56.221Z",
+        "information": "Debug Purchase",
+        "objectId": "mByU3BOwAX",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "XFoStZeF1y"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:55:56.221Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T21:56:05.286Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "61aQMhboN3",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "tJsCqJ6nod"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:56:05.286Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T21:56:11.143Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "iIMZargJEA",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "jzJ9wpIHAA"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:56:11.143Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T21:56:16.381Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "BFUqg1CdoZ",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "ZYBy6IXDcL"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:56:16.381Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T21:56:22.553Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "xewkxCjGSD",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "QjPcWM4GWI"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:56:22.553Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T21:58:48.732Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "JwpWcle5sz",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "NUJI6wfE95"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T21:58:48.732Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T22:08:04.316Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "d08tTTQv2z",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "NwHl7cO0eP"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:08:04.316Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T22:08:41.400Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "5XQtIYivQY",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "qF89Yf6RKm"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:08:41.400Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:11:55.025Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "O4pMAgx14x",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "S8VFjvPQbk"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:11:55.025Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:11:55.719Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "InXBkCvLvb",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "S8VFjvPQbk"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:11:55.719Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:12:02.752Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "kxHm7rGLG7",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "Rerm6QqfKN"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:02.752Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:12:03.642Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "DMa34JoBRB",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "Rerm6QqfKN"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:03.642Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T22:12:10.817Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "umFY59ol91",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "ka6VAqACUe"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:10.817Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 200,
+        "createdAt": "2014-11-15T22:12:11.419Z",
+        "information": "Apple IAP 200 Credits",
+        "objectId": "8yNVBjXQQm",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "ka6VAqACUe"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:11.419Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T22:12:33.588Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "C06mVJ3RNT",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "0cTb7Gud3A"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:33.588Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T22:12:34.123Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "8X97ZzoNCf",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "0cTb7Gud3A"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:12:34.123Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:17:09.263Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "wwzBgTQnku",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "62YFvkQWf6"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:17:09.263Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:17:10.186Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "xlzJMBwIUR",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "62YFvkQWf6"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:17:10.186Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:18:30.800Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "RuLUDot5Nu",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "zAKuDndQZo"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:18:30.800Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 100,
+        "createdAt": "2014-11-15T22:18:31.479Z",
+        "information": "Apple IAP 100 Credits",
+        "objectId": "HKRlD2HycU",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "zAKuDndQZo"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:18:31.479Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T22:19:24.076Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "4EiLtdOL07",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "0VX0TbKvcN"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:19:24.076Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "GgvAiH7AXZ": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-15T22:19:24.885Z",
+        "information": "Apple IAP 50 Credits",
+        "objectId": "RSpJdofqIP",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "0VX0TbKvcN"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-15T22:19:24.885Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        }
+    },
+	{
+        "ACL": {
+            "VwV4pFuUoG": {
+                "read": true
+            }
+        },
+        "amount": 50,
+        "createdAt": "2014-11-18T01:57:01.892Z",
+        "information": "Debug Purchase",
+        "objectId": "lVlgbpejDO",
+        "receipt": {
+            "__type": "Pointer",
+            "className": "Receipt",
+            "objectId": "mo1pDpmCFD"
+        },
+        "type": "Purchase",
+        "updatedAt": "2014-11-18T01:57:01.892Z",
+        "user": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        }
+    }
+] }

@@ -1,0 +1,1337 @@
+{ "results": [
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "E8AXeJohC3"
+        },
+        "createdAt": "2014-10-25T15:23:34.537Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "messageText": "The fact I can get it right away with the best of the day before I get a follow back on my way home from work to be the first half of the day before I get a Ty and I don't",
+        "objectId": "l47R8qt7mD",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:23:34.537Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "5AmAHYYscy"
+        },
+        "createdAt": "2014-11-07T18:56:00.995Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "GptmpES5Vd",
+        "questionId": "A16lVNSryg",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-07T18:56:02.423Z"
+    },
+	{
+        "createdAt": "2014-10-01T04:07:45.217Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "RgK2cgp9RJ",
+        "questionId": "pzqTYwzXKp",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-01T04:07:45.217Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "TaYNbb94gI"
+        },
+        "createdAt": "2014-10-03T00:24:26.150Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "Y4uAsPnrjY",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-03T00:24:26.150Z"
+    },
+	{
+        "challengeId": "1i2T4nuelI",
+        "createdAt": "2014-10-03T19:17:24.409Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Poke-O-Rama!",
+        "objectId": "2dMkkk1O2B",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T19:17:24.409Z"
+    },
+	{
+        "createdAt": "2014-10-03T19:45:31.808Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "mdnTtlrx2S",
+        "questionId": "MOaqvl8Fzb",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-03T19:45:31.808Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "KuF4e336N3"
+        },
+        "createdAt": "2014-10-03T19:45:59.358Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "O07Mz1IQws",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T19:45:59.358Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "KuF4e336N3"
+        },
+        "createdAt": "2014-10-03T19:46:03.900Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "messageText": "Hhhh",
+        "objectId": "LoxJdBSmC5",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T19:46:03.900Z"
+    },
+	{
+        "challengeId": "9oOibyhowa",
+        "createdAt": "2014-10-03T22:42:53.524Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Poke-O-Rama!",
+        "objectId": "igkdtYpZgP",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T22:42:53.524Z"
+    },
+	{
+        "challengeId": "WuBeVIoA2P",
+        "createdAt": "2014-10-03T22:48:00.577Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Poke-O-Rama!",
+        "objectId": "XRXAM6ykjQ",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T22:48:00.577Z"
+    },
+	{
+        "createdAt": "2014-10-03T22:48:22.311Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "Vaf7Repp5l",
+        "questionId": "8UBDeppZbF",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-03T22:48:22.311Z"
+    },
+	{
+        "createdAt": "2014-10-10T02:25:45.056Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "DelhKdoEHT",
+        "questionId": "SKjnKEg92Z",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-10T02:25:45.056Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "3vx7JkG0Dc"
+        },
+        "createdAt": "2014-10-10T02:34:42.833Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "GqDWHEMEdT",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-10T02:34:42.833Z"
+    },
+	{
+        "createdAt": "2014-10-10T23:12:02.387Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "Rb9i2UM5qf",
+        "questionId": "5dYFqt6cdv",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-10T23:12:02.387Z"
+    },
+	{
+        "createdAt": "2014-10-11T01:31:15.446Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "Czbup9bmTP",
+        "questionId": "XeWxi1ZyGD",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-11T01:31:15.446Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "ontUmkPBse"
+        },
+        "createdAt": "2014-10-11T01:31:31.928Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "2XuobcQu81",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-11T01:31:31.928Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "ontUmkPBse"
+        },
+        "createdAt": "2014-10-11T01:32:07.642Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "messageText": "I'm showing a buff",
+        "objectId": "dCE1XivsSW",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-11T01:32:07.642Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "dLrkoFGM7G"
+        },
+        "createdAt": "2014-10-11T02:11:01.416Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "Tm6CvII7ZR",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-11T02:11:01.416Z"
+    },
+	{
+        "createdAt": "2014-10-17T04:44:22.685Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "2j7NYlJPd2",
+        "questionId": "HufItAdgBf",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-17T04:44:22.685Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "NV8zkKfvOo"
+        },
+        "createdAt": "2014-10-20T18:09:03.643Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAction": true,
+        "messageText": "Revealed!",
+        "objectId": "OMJacgkpNL",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-20T18:09:03.643Z"
+    },
+	{
+        "createdAt": "2014-10-20T18:10:11.453Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "Ugw0bzdYf0",
+        "questionId": "06D3oIQ43z",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-20T18:10:11.453Z"
+    },
+	{
+        "createdAt": "2014-10-20T18:11:09.106Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "vTv7h08W7I",
+        "questionId": "B4BCa4sag6",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "updatedAt": "2014-10-20T18:11:09.106Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "P0pTib1etG"
+        },
+        "createdAt": "2014-10-20T18:21:15.284Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "0iqmhq0mYG",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-20T18:21:15.284Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "P0pTib1etG"
+        },
+        "createdAt": "2014-10-20T18:21:22.521Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "messageText": "@",
+        "objectId": "CAoYLr7FZT",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "updatedAt": "2014-10-20T18:21:22.521Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "09Cg7kl4lq"
+        },
+        "createdAt": "2014-10-23T21:50:16.948Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "EoI42aJV3o",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-23T21:50:16.948Z"
+    },
+	{
+        "createdAt": "2014-10-23T23:08:42.665Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "yuDSNNtSN6",
+        "questionId": "82Uxg1vGLJ",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "updatedAt": "2014-10-23T23:08:42.665Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:08:57.467Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "jWFpLvkXy9",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:08:57.467Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:09:13.106Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "messageText": "doggy",
+        "objectId": "prBFycHQgg",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:09:13.106Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:09:50.800Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "messageText": "xfgdfgds",
+        "objectId": "38uwBLHP1M",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:09:50.800Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:10:52.084Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "messageText": "D",
+        "objectId": "q4GvfsBz6H",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:10:52.084Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:11:30.464Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "messageText": "Do mm",
+        "objectId": "L6q7NjvbDW",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:11:30.464Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "shJYUrRdEO"
+        },
+        "createdAt": "2014-10-23T23:11:50.757Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "messageText": "Diff",
+        "objectId": "G2OFxceaa0",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "updatedAt": "2014-10-23T23:11:50.757Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "NV8zkKfvOo"
+        },
+        "createdAt": "2014-10-24T16:29:11.014Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "ZdoFxOpog4",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-24T16:29:11.014Z"
+    },
+	{
+        "createdAt": "2014-10-24T16:29:43.026Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "y5nRGhaIeM",
+        "questionId": "RCqOp3vO5n",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-24T16:29:43.026Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "ArmWMkl3wh"
+        },
+        "createdAt": "2014-10-24T16:30:09.310Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "messageText": "Sfhcgjvfg",
+        "objectId": "NbgoElRXii",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-24T16:30:09.310Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "ArmWMkl3wh"
+        },
+        "createdAt": "2014-10-24T16:30:13.796Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "messageText": "Suited high",
+        "objectId": "4duZGDmFFa",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "updatedAt": "2014-10-24T16:30:13.796Z"
+    },
+	{
+        "createdAt": "2014-10-25T15:16:30.360Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "HTL46HSttf",
+        "questionId": "eMUmVSbr3s",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:16:30.360Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "E8AXeJohC3"
+        },
+        "createdAt": "2014-10-25T15:17:58.807Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "messageText": "Hello",
+        "objectId": "6ESvW3uDL8",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:17:58.807Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "E8AXeJohC3"
+        },
+        "createdAt": "2014-10-25T15:18:05.506Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "isAction": true,
+        "messageText": "Revealed!",
+        "objectId": "NSul7POQ9F",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:18:05.506Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "E8AXeJohC3"
+        },
+        "createdAt": "2014-10-25T15:23:16.805Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "messageText": "🇬🇧🇺🇸🇪🇸📍🚩🎪🎭🗿♨️🎰",
+        "objectId": "XbEJ83kA25",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:23:16.805Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "E8AXeJohC3"
+        },
+        "createdAt": "2014-10-25T15:32:24.176Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "zCdiF1k6eI",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-25T15:32:24.176Z"
+    },
+	{
+        "createdAt": "2014-10-30T20:43:13.954Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "hvlrZuKlWy",
+        "questionId": "hSZzqnDc9n",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-10-30T20:43:13.954Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "5RUHVU6Uv2"
+        },
+        "createdAt": "2014-10-30T20:43:33.923Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "isAccept": true,
+        "isAction": true,
+        "isQuestionAccept": true,
+        "messageText": "I liked your answer!",
+        "objectId": "p1BPypsqDY",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "updatedAt": "2014-10-30T20:43:33.923Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "5RUHVU6Uv2"
+        },
+        "createdAt": "2014-10-30T20:43:57.905Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "messageText": "My red dot still doesn't appear by the chat things but overall progress has been made!",
+        "objectId": "dkXlOi9Ezj",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "updatedAt": "2014-10-30T20:43:57.905Z"
+    },
+	{
+        "createdAt": "2014-10-30T20:44:43.828Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "KEtg8zz8v8",
+        "questionId": "YbHNuU6xtA",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-10-30T20:44:43.828Z"
+    },
+	{
+        "createdAt": "2014-10-30T23:01:32.893Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "7XJChEDN50",
+        "questionId": "d6YXF1jzlx",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "updatedAt": "2014-10-30T23:01:32.893Z"
+    },
+	{
+        "createdAt": "2014-11-01T14:25:15.140Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "3qystZ2woM",
+        "questionId": "fxoWnfOYgQ",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "QnRr5Kq4wu"
+        },
+        "updatedAt": "2014-11-01T14:25:15.140Z"
+    },
+	{
+        "createdAt": "2014-11-01T16:55:56.266Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "DChmT4lat8",
+        "questionId": "2m8uRYvEYj",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-11-01T16:55:56.266Z"
+    },
+	{
+        "createdAt": "2014-11-07T18:51:02.801Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "xfBHceB8Me",
+        "questionId": "s2g2VuVh5D",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-07T18:51:02.801Z"
+    },
+	{
+        "createdAt": "2014-11-07T18:54:03.946Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "nKErkTvkSO",
+        "questionId": "IB5pIXaUrI",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-07T18:54:03.946Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "9Se6Uasxda"
+        },
+        "createdAt": "2014-11-07T18:55:08.342Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "pHbUtP3If7",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-07T18:55:08.342Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "7qaNvmlQ60"
+        },
+        "createdAt": "2014-11-07T18:55:17.056Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "DOadnPB6qv",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-07T18:55:17.056Z"
+    },
+	{
+        "challengeId": "LN3W4mElQn",
+        "createdAt": "2014-11-07T21:29:12.342Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Drink Roulette!",
+        "objectId": "7IyusrwZCR",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "updatedAt": "2014-11-07T21:29:12.342Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "9UxNLCliXo"
+        },
+        "createdAt": "2014-11-07T21:31:06.440Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "wiA2z5c6Mq",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-11-07T21:31:06.440Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "Byv8fILWW1"
+        },
+        "createdAt": "2014-11-07T21:31:10.562Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "84k4mXu51y",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "QnRr5Kq4wu"
+        },
+        "updatedAt": "2014-11-07T21:31:10.562Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "n0LDDpDR13"
+        },
+        "createdAt": "2014-11-07T21:31:15.715Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "isAction": true,
+        "messageText": "Left the chat.",
+        "objectId": "huj4XvzWCi",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-11-07T21:31:15.715Z"
+    },
+	{
+        "challengeId": "0jrKicWskl",
+        "createdAt": "2014-11-08T05:58:18.612Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Poke-O-Rama!",
+        "objectId": "W7G53R3GLX",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "zaGBQ5xGDU"
+        },
+        "updatedAt": "2014-11-08T05:58:18.612Z"
+    },
+	{
+        "createdAt": "2014-11-09T17:55:44.155Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "eeuorFJpsA",
+        "questionId": "HNIG6ZXimZ",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-09T17:55:44.155Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "5AmAHYYscy"
+        },
+        "createdAt": "2014-11-16T03:16:49.470Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "Revealed!",
+        "objectId": "Vb0lGZK54y",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-16T03:16:49.470Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "5AmAHYYscy"
+        },
+        "createdAt": "2014-11-16T03:17:05.741Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "messageText": "Hello!!!!",
+        "objectId": "G1xocVkQMk",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-16T03:17:05.741Z"
+    },
+	{
+        "challengeId": "zsGMkNKVAB",
+        "createdAt": "2014-11-16T03:18:15.794Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Poke-O-Rama!",
+        "objectId": "zIIf9GBUvd",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "updatedAt": "2014-11-16T03:18:15.794Z"
+    },
+	{
+        "challengeId": "U0YKpD2F23",
+        "createdAt": "2014-11-16T04:03:02.504Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "isAction": true,
+        "messageText": "I challenge you to a game of Drink Roulette!",
+        "objectId": "GIyT5kYfs7",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "updatedAt": "2014-11-16T04:03:02.504Z"
+    },
+	{
+        "createdAt": "2014-11-16T23:40:54.242Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "isAction": true,
+        "messageText": "I answered a question!",
+        "objectId": "RPCQUn5rB4",
+        "questionId": "aI9nJDZmea",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "7qDFZeIBcf"
+        },
+        "updatedAt": "2014-11-16T23:40:54.242Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "EzLRWAiLBO"
+        },
+        "createdAt": "2014-11-16T23:50:21.373Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "messageText": "fghfghcfgh",
+        "objectId": "lKZQAqNCSa",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "7qDFZeIBcf"
+        },
+        "updatedAt": "2014-11-16T23:50:21.373Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "EzLRWAiLBO"
+        },
+        "createdAt": "2014-11-16T23:50:49.528Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "messageText": "fghfghfghfgh",
+        "objectId": "W2fkWbAaS0",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "7qDFZeIBcf"
+        },
+        "updatedAt": "2014-11-16T23:50:49.528Z"
+    },
+	{
+        "chat": {
+            "__type": "Pointer",
+            "className": "Chat",
+            "objectId": "EzLRWAiLBO"
+        },
+        "createdAt": "2014-11-16T23:51:01.401Z",
+        "fromUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "messageText": "chgkkcghkvghk",
+        "objectId": "K4DqKIlFvn",
+        "toUser": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "7qDFZeIBcf"
+        },
+        "updatedAt": "2014-11-16T23:51:01.401Z"
+    }
+] }

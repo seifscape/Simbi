@@ -1,0 +1,998 @@
+{ "results": [
+	{
+        "createdAt": "2014-10-25T15:16:30.637Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "eMUmVSbr3s"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-25T15:23:34.553Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "E8AXeJohC3",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-25T15:33:25.351Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "6G37V4PSJE"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "userTwoRead": true,
+        "userTwoRemoved": true,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-10-30T20:43:14.138Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "hSZzqnDc9n"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-30T20:43:57.946Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-30T20:43:34.119Z"
+        },
+        "isAccepted": true,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "My red dot still doesn't appear by the chat things but overall progress has been made!",
+        "objectId": "5RUHVU6Uv2",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-30T20:44:00.258Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": false,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-01T04:07:45.360Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "pzqTYwzXKp"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-01T04:07:45.339Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "TaYNbb94gI",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-03T19:15:41.875Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": true,
+        "userTwoRemoved": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-03T19:17:24.544Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "1i2T4nuelI"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-03T19:17:24.531Z"
+        },
+        "isAccepted": false,
+        "isActive": false,
+        "isDeclined": true,
+        "lastMessage": "Challenge!",
+        "objectId": "t8Qo0gvUnQ",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-10-03T19:41:24.272Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": true,
+        "userTwoRemoved": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-03T19:45:32.326Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "MOaqvl8Fzb"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-03T19:46:03.953Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-03T19:45:59.545Z"
+        },
+        "isAccepted": true,
+        "isActive": false,
+        "isDeclined": false,
+        "lastMessage": "Hhhh",
+        "objectId": "KuF4e336N3",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-03T20:06:00.007Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-03T22:42:53.765Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "9oOibyhowa"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-03T22:42:53.748Z"
+        },
+        "isAccepted": false,
+        "isActive": false,
+        "isDeclined": true,
+        "lastMessage": "Challenge!",
+        "objectId": "g4cSImcmmn",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-10-06T03:25:00.202Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": true,
+        "userTwoRemoved": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-03T22:48:00.705Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "WuBeVIoA2P"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-03T22:48:00.694Z"
+        },
+        "isAccepted": false,
+        "isActive": false,
+        "isDeclined": true,
+        "lastMessage": "Challenge!",
+        "objectId": "9fdFNPOZeY",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-10-06T03:25:05.099Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": true,
+        "userTwoRemoved": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-03T22:48:22.434Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "8UBDeppZbF"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-03T22:48:22.418Z"
+        },
+        "isAccepted": false,
+        "isActive": false,
+        "isDeclined": true,
+        "lastMessage": "Question Answered!",
+        "objectId": "5mg8bgqmuQ",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-06T03:25:14.648Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-10T02:25:45.225Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "SKjnKEg92Z"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-10T02:34:42.849Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-10T02:34:43.048Z"
+        },
+        "isAccepted": true,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Question Answered!",
+        "objectId": "3vx7JkG0Dc",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-10T02:34:49.219Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-10T23:12:02.605Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "5dYFqt6cdv"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-10T23:12:02.581Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "dLrkoFGM7G",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-11T03:33:17.509Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-11T01:31:15.633Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "XeWxi1ZyGD"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-11T01:32:07.654Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-11T01:31:32.089Z"
+        },
+        "isAccepted": true,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "I'm showing a buff",
+        "objectId": "ontUmkPBse",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-11T01:32:07.733Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-17T04:44:22.862Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "HufItAdgBf"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-17T04:44:22.849Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "NV8zkKfvOo",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-24T16:29:14.238Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-10-20T18:10:11.590Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "06D3oIQ43z"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-20T18:10:11.572Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Question Answered!",
+        "objectId": "09Cg7kl4lq",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-23T21:50:16.635Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-20T18:11:09.315Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "B4BCa4sag6"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-20T18:21:22.537Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-20T18:21:15.621Z"
+        },
+        "isAccepted": true,
+        "isActive": false,
+        "isDeclined": false,
+        "lastMessage": "@",
+        "objectId": "P0pTib1etG",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-20T18:41:15.056Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "X9xl0J2TSq"
+        },
+        "userOneRead": false,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "rDbI0NqhlC"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-23T23:08:42.792Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "82Uxg1vGLJ"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-23T23:11:50.781Z"
+        },
+        "dateStarted": {
+            "__type": "Date",
+            "iso": "2014-10-23T23:08:57.626Z"
+        },
+        "isAccepted": true,
+        "isActive": false,
+        "isDeclined": false,
+        "lastMessage": "Diff",
+        "objectId": "shJYUrRdEO",
+        "startedWithQuestion": false,
+        "updatedAt": "2014-10-23T23:28:57.310Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "userOneRead": false,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "jy5KMXp4xu"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-24T16:29:43.236Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "RCqOp3vO5n"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-24T16:30:13.907Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Suited high",
+        "objectId": "ArmWMkl3wh",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-10-24T16:30:13.964Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "67Cg288t5f"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "B2XqSdjVTN"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-10-30T20:44:44.036Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "YbHNuU6xtA"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-30T20:44:43.996Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "9UxNLCliXo",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T21:31:06.540Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-10-30T23:01:33.051Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "d6YXF1jzlx"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-10-30T23:01:33.035Z"
+        },
+        "isAccepted": false,
+        "isActive": false,
+        "isDeclined": true,
+        "lastMessage": "Question Answered!",
+        "objectId": "AFgbQwOSUq",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T18:55:28.949Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userTwoRead": true,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-01T14:25:15.328Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "fxoWnfOYgQ"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-01T14:25:15.309Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "Byv8fILWW1",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T21:31:11.367Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "QnRr5Kq4wu"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-01T16:55:56.475Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "2m8uRYvEYj"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-01T16:55:56.443Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "n0LDDpDR13",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T21:31:16.028Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-07T18:51:03.342Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "s2g2VuVh5D"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-07T18:51:03.267Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "9Se6Uasxda",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T18:55:08.452Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-07T18:54:09.763Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "IB5pIXaUrI"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-07T18:54:09.743Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Left the chat.",
+        "objectId": "7qaNvmlQ60",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-07T18:55:17.174Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userOneRead": true,
+        "userOneRemoved": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-07T18:56:01.142Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "A16lVNSryg"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-16T03:17:05.809Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Hello!!!!",
+        "objectId": "5AmAHYYscy",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-16T03:17:08.236Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-07T21:29:12.548Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "LN3W4mElQn"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-07T21:29:12.529Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Challenge!",
+        "objectId": "JMhTJE34KV",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-11-19T21:27:45.423Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VwV4pFuUoG"
+        },
+        "userOneRead": true,
+        "userOneRevealed": true,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": true
+    },
+	{
+        "createdAt": "2014-11-08T05:58:18.749Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "0jrKicWskl"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-08T05:58:18.740Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Challenge!",
+        "objectId": "FbUCMcabE3",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-11-08T05:58:19.196Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "zaGBQ5xGDU"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-09T17:55:44.309Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "HNIG6ZXimZ"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-09T17:55:44.267Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Question Answered!",
+        "objectId": "fsF6uTsXxx",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-09T17:55:44.554Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-16T03:18:16.053Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "zsGMkNKVAB"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-16T03:18:15.992Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Challenge!",
+        "objectId": "jAYXWDgnmK",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-11-16T03:18:16.310Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GgvAiH7AXZ"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "VEYC1cjgut"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-16T04:03:02.653Z",
+        "currentChallenge": {
+            "__type": "Pointer",
+            "className": "Challenge",
+            "objectId": "U0YKpD2F23"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-16T04:03:02.641Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "Challenge!",
+        "objectId": "FMsdtfAOky",
+        "startedWithChallenge": true,
+        "updatedAt": "2014-11-16T04:03:02.955Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "TjJYRmvTUo"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    },
+	{
+        "createdAt": "2014-11-16T23:40:54.375Z",
+        "currentQuestion": {
+            "__type": "Pointer",
+            "className": "Question",
+            "objectId": "aI9nJDZmea"
+        },
+        "dateLastMessageSent": {
+            "__type": "Date",
+            "iso": "2014-11-16T23:51:01.455Z"
+        },
+        "isAccepted": false,
+        "isActive": true,
+        "isDeclined": false,
+        "lastMessage": "chgkkcghkvghk",
+        "objectId": "EzLRWAiLBO",
+        "startedWithQuestion": true,
+        "updatedAt": "2014-11-16T23:51:01.487Z",
+        "userOne": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "GGB6cTTOYJ"
+        },
+        "userOneRead": true,
+        "userOneRevealed": false,
+        "userTwo": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "7qDFZeIBcf"
+        },
+        "userTwoRead": false,
+        "userTwoRevealed": false
+    }
+] }

@@ -1,0 +1,55 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_7_0
+#warning "This project uses features only available in iOS SDK 7.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+    #define IS_OS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import <UIKit/UIKit.h>
+
+    #import <Parse/Parse.h>
+    #import <ParseUI/ParseUI.h>
+    #import <ParseFacebookUtils/PFFacebookUtils.h>
+    #import <FacebookSDK.h>
+
+    #import "Constants.h"
+
+    // Categories
+
+    #import "MBProgressHUD+Simbi.h"
+    #import "NSDate+Simbi.h"
+    #import "PFImageView+Simbi.h"
+    #import "UIButton+Simbi.h"
+    #import "UIColor+Simbi.h"
+    #import "UIFont+Simbi.h"
+    #import "UIImage+Simbi.h"
+    #import "UITableViewController+Simbi.h"
+    #import "UIView+Simbi.h"
+
+
+    // Parse Subclasses
+
+    #import "SMBActivity.h"
+    #import "SMBChallenge.h"
+    #import "SMBChat.h"
+    #import "SMBFriendRequest.h"
+    #import "SMBHairColor.h"
+    #import "SMBImage.h"
+    #import "SMBLocation.h"
+    #import "SMBMessage.h"
+    #import "SMBQuestion.h"
+    #import "SMBUser.h"
+
+#endif

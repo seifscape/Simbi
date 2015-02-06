@@ -1,0 +1,300 @@
+{ "results": [
+	{
+        "authData": {
+            "facebook": {
+                "access_token": "CAATl1OBZCFp8BAEOSRpGx3guN96thqQJ9ZBKgKYLUpo0q71KFKFIIiArMTybGUJlSLv3ityZBucA6y9HJRfqdOc3ed7j2aMM1ZBLeAmGL2AZB2E6PvbLAnBnFKcb8qZCOT80OwVsQHEITIjeeIDPV2BQkkCnhIj98DsX3u37pMFYwXUG7YWNq5XWQkbINQv3jDT2R58PhpWYZCHhRpPAOrQeXSrZBZCT0xsSaFqy8dnn46AZDZD",
+                "expiration_date": "2016-11-16T16:28:55.100Z",
+                "id": "2162751719333"
+            }
+        },
+        "bcryptPassword": "$2a$10$GHVXvUBNj2oa3GCjXxCIv.8H8n6U8GonWAwnf9AhuSDsj1ErtOLvK",
+        "createdAt": "2014-10-27T03:13:15.056Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "vj783cEbGp"
+        },
+        "email": "emilio.barajasalexander@live.longwood.edu",
+        "facebookId": "2162751719333",
+        "firstName": "Milo",
+        "gender": "male",
+        "hasNewMessage": true,
+        "isConfirmed": false,
+        "lastName": "Barajas-Alexander",
+        "objectId": "zaGBQ5xGDU",
+        "pendingFriendRequests": 1,
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "E4Fs7yw6bJ"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "EHxPCQ4iJQ"
+        },
+        "searchString": "milo barajas-alexander emilio.barajasalexander",
+        "sessionToken": "hBoO8mfbpR7f1JlEkDACXkaxk",
+        "unreadMessageCount": 1,
+        "updatedAt": "2014-11-17T16:29:03.067Z",
+        "username": "6UMtgazJKIZGQ4QA234Pt9Sk6"
+    },
+	{
+        "age": 25,
+        "backgroundImage": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "yt2fu8zCcw"
+        },
+        "bcryptPassword": "$2a$10$bDLsJlrR0mz4aDXOGVixl.nh4Ti6SSNfWNw2gVgcnP9GQLw53JtF6",
+        "city": "Vienna",
+        "confirmationCode": "142040",
+        "createdAt": "2014-10-27T19:28:49.026Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "8TrqvMehFM"
+        },
+        "email": "emilio@simbisocial.com",
+        "firstName": "Emilio ",
+        "gender": "male",
+        "genderPreference": "female",
+        "geoPoint": {
+            "__type": "GeoPoint",
+            "latitude": 38.921883,
+            "longitude": -77.235917
+        },
+        "hasNewMessage": false,
+        "height": 73,
+        "isConfirmed": true,
+        "lastName": "Barajas-Alexander",
+        "location": {
+            "__type": "Pointer",
+            "className": "Location",
+            "objectId": "dhegv5zEIO"
+        },
+        "lowerAgePreference": 21,
+        "lowerHeightPreference": 60,
+        "objectId": "VwV4pFuUoG",
+        "phoneNumber": "17032172966",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "9kCoM7TMTx"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "MUxYpmYZEY"
+        },
+        "searchString": "emilio  barajas-alexander emilio",
+        "sessionToken": "cQVFvFMHvkw4aY6eigUxyW1JP",
+        "state": "VA",
+        "unreadMessageCount": 0,
+        "updatedAt": "2014-11-22T19:48:45.265Z",
+        "upperAgePreference": 40,
+        "upperHeightPreference": 84,
+        "username": "emilio@simbisocial.com"
+    },
+	{
+        "age": 25,
+        "bcryptPassword": "$2a$10$xRdEIlnZ.F6.0DhNeds0ue3TJ2Mg90ag8pO1pb9zRJUAT4rUGIATe",
+        "city": "Richmond",
+        "confirmationCode": "663709",
+        "createdAt": "2014-10-25T13:53:24.901Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "gmB8V1HYNG"
+        },
+        "email": "wvgalanko@gmail.com",
+        "firstName": "Billy",
+        "gender": "male",
+        "genderPreference": "female",
+        "geoPoint": {
+            "__type": "GeoPoint",
+            "latitude": 37.55460642999999,
+            "longitude": -77.47240207999997
+        },
+        "hasNewMessage": false,
+        "isConfirmed": true,
+        "lastName": "Galanko",
+        "location": {
+            "__type": "Pointer",
+            "className": "Location",
+            "objectId": "RKF6M6nEKe"
+        },
+        "lowerAgePreference": 18,
+        "objectId": "TjJYRmvTUo",
+        "pendingFriendRequests": 0,
+        "phoneNumber": "17576422840",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "CcYFyWTYLZ"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "H1SuLb9xwh"
+        },
+        "searchString": "billy galanko wvgalanko",
+        "sessionToken": "mx3PZRH13JjCCxnFY2F37V9O3",
+        "state": "VA",
+        "unreadMessageCount": 0,
+        "updatedAt": "2014-11-22T19:48:48.041Z",
+        "upperAgePreference": 33,
+        "username": "wvgalanko@gmail.com"
+    },
+	{
+        "age": 18,
+        "authData": {
+            "facebook": {
+                "access_token": "CAATl1OBZCFp8BAMGZCodBgCIjzSjQdCZBesnoSFMQPmzOiu1qGghq5aaThZA3FQPeBObZBSw0bib77gtQ9lehsUusIMmMj2kH2iqKlmvSxVYI7imPeEDUZBgYAWlXO9rlZBayUte1kHfUtFfjT2DhVhgICrpyCR61I2mPZA21hhiZCvJQlsHUOPFeJfNTZC3IfoD15siHxm0W5pD5xRjMkABjaYhtvutfEHTPbfs1sZBh5zBwZDZD",
+                "expiration_date": "2014-12-29T23:35:42.830Z",
+                "id": "10153037831949741"
+            }
+        },
+        "bcryptPassword": "$2a$10$4bIBu55IDrZlHFk1/ZxvyOkjym6kmKyGG5xQluDvO3z2YMj7.4Ip.",
+        "confirmationCode": "411425",
+        "createdAt": "2014-10-30T23:35:43.742Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "MSFcoO4elb"
+        },
+        "email": "steentoftejm@vcu.edu",
+        "facebookId": "10153037831949741",
+        "firstName": "Jamie",
+        "gender": "male",
+        "hasNewMessage": false,
+        "isConfirmed": true,
+        "lastName": "Steentofte",
+        "lowerAgePreference": 17,
+        "objectId": "QnRr5Kq4wu",
+        "phoneNumber": "17577772756",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "8qw7Uvb9oo"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "98xLBOwUFX"
+        },
+        "searchString": "jamie steentofte steentoftejm",
+        "sessionToken": "WXwShc3OWkm9NJmGSXojeZq2q",
+        "unreadMessageCount": 0,
+        "updatedAt": "2014-11-22T19:48:46.533Z",
+        "upperAgePreference": 18,
+        "username": "pzdTU2OGMQOe819ADtLJd1HHz"
+    },
+	{
+        "bcryptPassword": "$2a$10$h8ie/WJpW7tPioZ48wzZXuQTT17JVahqie8G3XGMfHF.yRgC2Bfau",
+        "city": "Richmond",
+        "createdAt": "2014-11-07T18:48:54.723Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "HXyTnWZW9s"
+        },
+        "email": "pyro@test.com",
+        "firstName": "Cloudy",
+        "geoPoint": {
+            "__type": "GeoPoint",
+            "latitude": 37.558435,
+            "longitude": -77.453981
+        },
+        "hasNewMessage": false,
+        "isConfirmed": true,
+        "lastName": "Pyrotechnics",
+        "location": {
+            "__type": "Pointer",
+            "className": "Location",
+            "objectId": "FGcOp7DgP3"
+        },
+        "objectId": "GGB6cTTOYJ",
+        "phoneNumber": "5555555555",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "OVVU3c7HAd"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "ESu1Oz4Q13"
+        },
+        "searchString": "cloudy pyrotechnics pyro",
+        "sessionToken": "akOhSRZOG8bt5I9L5ahvjWQti",
+        "state": "VA",
+        "unreadMessageCount": 0,
+        "updatedAt": "2014-11-16T23:50:16.038Z",
+        "username": "pyro@test.com"
+    },
+	{
+        "age": 25,
+        "bcryptPassword": "$2a$10$8r9mUocimsRTFTOjy5lYO.aUs5Wfrlm.h1SW3Al/ouHuDVAN0TQRa",
+        "city": "Washington",
+        "createdAt": "2014-10-26T02:44:31.150Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "PssocdxVHh"
+        },
+        "email": "emilio.barajasalexander@gmail.com",
+        "firstName": "Emilio",
+        "gender": "male",
+        "genderPreference": "female",
+        "geoPoint": {
+            "__type": "GeoPoint",
+            "latitude": 38.89131531421956,
+            "longitude": -77.03235957597389
+        },
+        "isConfirmed": false,
+        "lastName": "Barajas-Alexander",
+        "lowerAgePreference": 18,
+        "name": "Milo",
+        "objectId": "mSkHmS2Y80",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "fQXLF4VbvB"
+        },
+        "profilePicture": {
+            "__type": "Pointer",
+            "className": "Image",
+            "objectId": "WQYXORA25Q"
+        },
+        "searchString": "emilio barajas-alexander emilio.barajasalexander",
+        "sessionToken": "jbex8AcPGPG8vlTqu9gUcFv6L",
+        "state": "DC",
+        "updatedAt": "2014-11-16T15:25:29.190Z",
+        "upperAgePreference": 45,
+        "username": "emilio.barajasalexander@gmail.com"
+    },
+	{
+        "bcryptPassword": "$2a$10$KsZwjjCi8jlYwzZ8Ac.Am.LgTvyiYv7CUB05jjv/F1fCuwcGgVoOi",
+        "createdAt": "2014-11-16T21:29:55.072Z",
+        "credits": {
+            "__type": "Pointer",
+            "className": "UserCredits",
+            "objectId": "Uvisc9JNAG"
+        },
+        "email": "ghdv@gd.com",
+        "firstName": "I've",
+        "isConfirmed": false,
+        "lastName": "Kickoff",
+        "objectId": "7DntDQWCik",
+        "private": {
+            "__type": "Pointer",
+            "className": "UserPrivate",
+            "objectId": "nxDGmDZDyp"
+        },
+        "searchString": "i've kickoff ghdv",
+        "sessionToken": "4Crieh8zzl6UjGllkAkZ3KSXD",
+        "updatedAt": "2014-11-16T21:29:55.614Z",
+        "username": "ghdv@gd.com"
+    }
+] }
