@@ -15,32 +15,35 @@ class SMBLogInViewController: SMBFormViewController {
     
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
+    let helloTextField = UITextField()
     
     
     // MARK: - ViewController Lifecycle
-    
     override convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func loadView() {
         super.loadView()
-        
         backgroundImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         backgroundImageView.image = UIImage(named: "signin_background")
         self.view.addSubview(backgroundImageView)
         
         emailTextField.placeholder = "Enter Email"
-        emailTextField.keyboardType = .EmailAddress
-        emailTextField.autocorrectionType = .No
+       // emailTextField.text = "cht@cht.com"
+        //emailTextField.keyboardType = .EmailAddress
+        //emailTextField.autocorrectionType = .No
         
-        passwordTextField.placeholder = "Enter Password"
-        passwordTextField.secureTextEntry = true
+        passwordTextField.placeholder = "Enter Password2"
+        //passwordTextField.text = "111111"
+        //passwordTextField.secureTextEntry = true
+        
+        helloTextField.placeholder = "hello"
     }
     
     
     // MARK: - SMBFormViewController
     
     override func rowsInForm() -> Int {
-        return 2
+        return 3
     }
     
     
@@ -49,6 +52,7 @@ class SMBLogInViewController: SMBFormViewController {
         switch row {
         case 0: return "Email"
         case 1: return "Password"
+        case 2: return "hello"
         default: return ""
         }
     }
@@ -59,6 +63,7 @@ class SMBLogInViewController: SMBFormViewController {
         switch row {
         case 0: return emailTextField
         case 1: return passwordTextField
+        case 2: return helloTextField
         default: return UITextField()
         }
     }
@@ -87,10 +92,18 @@ class SMBLogInViewController: SMBFormViewController {
     // MARK: - User Actions
     
     override func submitAction() {
-    
-        let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
+        //get the info in the input field
+        print("email:"+textFieldForRow(0)!.text)
+        print("pass:"+textFieldForRow(1)!.text)
+        print("email:"+textFieldForRow(2)!.text)
         
-        SMBUser.logInWithUsernameInBackground(emailTextField.text.lowercaseString, password: passwordTextField.text) { (user: PFUser?, error: NSError!) -> Void in
+    
+        let password = self.passwordTextField.text
+        let email = self.emailTextField.text
+        let hello = self.helloTextField.text
+        let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
+
+        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text, password: textFieldForRow(1)!.text) { (user: PFUser?, error: NSError!) -> Void in
             
             if user != nil {
                 

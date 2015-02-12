@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A8BAC1A8B02D10077073A /* libPods.a */; };
 		5201CC5B198187170079FFDA /* SMBPinLocationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC5A198187170079FFDA /* SMBPinLocationButton.m */; };
 		5201CC64198192CA0079FFDA /* _SMBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC63198192CA0079FFDA /* _SMBAnnotation.m */; };
 		5201CC67198192D60079FFDA /* _SMBMapsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC66198192D60079FFDA /* _SMBMapsView.m */; };
@@ -282,7 +283,6 @@
 		52F53056195DAC1E001E6ABA /* SMBChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F53055195DAC1E001E6ABA /* SMBChatManager.m */; };
 		52F53059195DB54E001E6ABA /* SMBChatCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F53058195DB54E001E6ABA /* SMBChatCollection.m */; };
 		6E3AC64BCFEE40649759D345 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB80C851DF004AC3B82F70F3 /* libPods.a */; };
-		AB177500CD2D4EE2897E78E9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB80C851DF004AC3B82F70F3 /* libPods.a */; };
 		CD160107193E3E1D00736A2A /* SMBFourSquareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160106193E3E1D00736A2A /* SMBFourSquareObject.m */; };
 		CD160116193E586700736A2A /* SMBFourSquareLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160115193E586700736A2A /* SMBFourSquareLocation.m */; };
 		CD6C376B1942421F0007123D /* blueBox.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C37681942421F0007123D /* blueBox.png */; };
@@ -301,6 +301,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		188A8B921A8AFDD30077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		188A8B941A8B013C0077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		188A8B961A8B01490077073A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
+		188A8B971A8B01490077073A /* libPods-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Bolts.a"; path = "Pods/build/Debug-iphoneos/libPods-Bolts.a"; sourceTree = "<group>"; };
+		188A8B981A8B01490077073A /* libPods-Facebook-iOS-SDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Facebook-iOS-SDK.a"; path = "Pods/build/Debug-iphoneos/libPods-Facebook-iOS-SDK.a"; sourceTree = "<group>"; };
+		188A8B991A8B01490077073A /* libPods-iCarousel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-iCarousel.a"; path = "Pods/build/Debug-iphoneos/libPods-iCarousel.a"; sourceTree = "<group>"; };
+		188A8B9A1A8B01490077073A /* libPods-MBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MBProgressHUD.a"; path = "Pods/build/Debug-iphoneos/libPods-MBProgressHUD.a"; sourceTree = "<group>"; };
+		188A8B9B1A8B01490077073A /* libPods-MMDrawerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MMDrawerController.a"; path = "Pods/build/Debug-iphoneos/libPods-MMDrawerController.a"; sourceTree = "<group>"; };
+		188A8B9C1A8B01490077073A /* libPods-NMRangeSlider.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-NMRangeSlider.a"; path = "Pods/build/Debug-iphoneos/libPods-NMRangeSlider.a"; sourceTree = "<group>"; };
+		188A8B9D1A8B01490077073A /* libPods-Parse.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Parse.a"; path = "Pods/build/Debug-iphoneos/libPods-Parse.a"; sourceTree = "<group>"; };
+		188A8B9E1A8B01490077073A /* libPods-ParseFacebookUtils.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParseFacebookUtils.a"; path = "Pods/build/Debug-iphoneos/libPods-ParseFacebookUtils.a"; sourceTree = "<group>"; };
+		188A8B9F1A8B01490077073A /* libPods-ParseUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParseUI.a"; path = "Pods/build/Debug-iphoneos/libPods-ParseUI.a"; sourceTree = "<group>"; };
+		188A8BA01A8B01490077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		188A8BAC1A8B02D10077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = ../../ccc/libs/libPods.a; sourceTree = "<group>"; };
 		5201CC59198187170079FFDA /* SMBPinLocationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBPinLocationButton.h; sourceTree = "<group>"; };
 		5201CC5A198187170079FFDA /* SMBPinLocationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBPinLocationButton.m; sourceTree = "<group>"; };
 		5201CC62198192CA0079FFDA /* _SMBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _SMBAnnotation.h; path = Simbi/Main/_SMBAnnotation.h; sourceTree = SOURCE_ROOT; };
@@ -713,12 +727,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */,
 				5233EA101948D41900C4095C /* Foundation.framework in Frameworks */,
 				52D1666F1948D1EC003F85E6 /* CoreFoundation.framework in Frameworks */,
 				52454C11192E71840043EA71 /* MapKit.framework in Frameworks */,
 				529FE8161922B13000A7C5C4 /* CoreGraphics.framework in Frameworks */,
 				529FE8181922B13000A7C5C4 /* UIKit.framework in Frameworks */,
-				AB177500CD2D4EE2897E78E9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,6 +1480,20 @@
 		529FE8121922B13000A7C5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				188A8BAC1A8B02D10077073A /* libPods.a */,
+				188A8B961A8B01490077073A /* libPods-AFNetworking.a */,
+				188A8B971A8B01490077073A /* libPods-Bolts.a */,
+				188A8B981A8B01490077073A /* libPods-Facebook-iOS-SDK.a */,
+				188A8B991A8B01490077073A /* libPods-iCarousel.a */,
+				188A8B9A1A8B01490077073A /* libPods-MBProgressHUD.a */,
+				188A8B9B1A8B01490077073A /* libPods-MMDrawerController.a */,
+				188A8B9C1A8B01490077073A /* libPods-NMRangeSlider.a */,
+				188A8B9D1A8B01490077073A /* libPods-Parse.a */,
+				188A8B9E1A8B01490077073A /* libPods-ParseFacebookUtils.a */,
+				188A8B9F1A8B01490077073A /* libPods-ParseUI.a */,
+				188A8BA01A8B01490077073A /* libPods.a */,
+				188A8B941A8B013C0077073A /* libPods.a */,
+				188A8B921A8AFDD30077073A /* libPods.a */,
 				52B67F0F1965A1CA000E17DC /* Crashlytics.framework */,
 				5233EA0F1948D41900C4095C /* Foundation.framework */,
 				52D1666E1948D1EC003F85E6 /* CoreFoundation.framework */,
@@ -2203,10 +2231,10 @@
 				ORGANIZATIONNAME = SimbiSocial;
 				TargetAttributes = {
 					529FE80F1922B13000A7C5C4 = {
-						DevelopmentTeam = E5VR4D84RG;
+						DevelopmentTeam = P6LCGC9VU2;
 					};
 					529FE82A1922B13000A7C5C4 = {
-						DevelopmentTeam = W83HUA9WYV;
+						DevelopmentTeam = P6LCGC9VU2;
 						TestTargetID = 529FE80F1922B13000A7C5C4;
 					};
 				};
@@ -2706,8 +2734,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: INCEPTIONPAD INC (E5VR4D84RG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: INCEPTIONPAD INC (E5VR4D84RG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: pengbo liu (2MXVMSC9F3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2717,8 +2745,13 @@
 				INFOPLIST_FILE = "Simbi/Simbi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					/Users/apple/Documents/workspace/Git/ccc/libs,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9b6e813-d89a-43ea-bca1-1b531c3fdbba";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simbi/Simbi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
@@ -2732,8 +2765,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: INCEPTIONPAD INC (E5VR4D84RG)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: INCEPTIONPAD INC (E5VR4D84RG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: pengbo liu (2MXVMSC9F3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2743,8 +2776,13 @@
 				INFOPLIST_FILE = "Simbi/Simbi-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+					/Users/apple/Documents/workspace/Git/ccc/libs,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9b6e813-d89a-43ea-bca1-1b531c3fdbba";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simbi/Simbi-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};

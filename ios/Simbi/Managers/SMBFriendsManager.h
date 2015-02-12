@@ -12,5 +12,5 @@
 @interface SMBFriendsManager : SMBManager
 
 - (NSArray *)friendsObjectIds;
-
++ (instancetype)sharedManager;
 @end

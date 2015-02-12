@@ -21,16 +21,19 @@ class SMBAnnotation: NSObject, MKAnnotation {
     
     let user: SMBUser
     var coordinate: CLLocationCoordinate2D
-
+    override init() {
+        self.user = SMBUser.currentUser()
+        self.coordinate = CLLocationCoordinate2DMake(0, 0)
+        super.init()
+    }
     
     init(user: SMBUser) {
         
         self.user = user
         self.coordinate = CLLocationCoordinate2DMake(user.geoPoint.latitude, user.geoPoint.longitude)
-        
         super.init()
     }
-    
+
     
     func annotationView() -> MKAnnotationView {
         
@@ -46,13 +49,13 @@ class SMBAnnotation: NSObject, MKAnnotation {
         let tapGesture = UITapGestureRecognizer(target: self, action: "selectAction:")
         annotationView.addGestureRecognizer(tapGesture)
         
-        user.profilePicture.thumbnailImage.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
-            
-            if data != nil {
-                let image: UIImage? = UIImage(data: data!)?.imageWithSize(CGSizeMake(22, 22)).imageWithRoundedCornerSize(11)
-                annotationView.image = image?
-            }
-        }
+//        user.profilePicture.thumbnailImage.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+//            
+//            if data != nil {
+//                let image: UIImage? = UIImage(data: data!)?.imageWithSize(CGSizeMake(22, 22)).imageWithRoundedCornerSize(11)
+//                annotationView.image = image?
+//            }
+//        }
         
         return annotationView
     }

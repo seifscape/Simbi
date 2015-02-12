@@ -154,7 +154,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
                 
                 if !succeeded {
                     let user = SMBUser.currentUser()
-                    user.deleteEventually()
+                    //user.deleteEventually()
                 }
                 SMBUser.logOut()
             }

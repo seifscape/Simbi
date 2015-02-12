@@ -152,8 +152,8 @@ class SMBPurchaseCreditsViewController: UITableViewController {
         
         let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
         
-        cell.textLabel?.textColor = UIColor.blackColor()
-        cell.textLabel?.font = UIFont.simbiFontWithAttributes(kFontLight, size: 16)
+        cell.textLabel.textColor = UIColor.blackColor()
+        cell.textLabel.font = UIFont.simbiFontWithAttributes(kFontLight, size: 16)
         cell.selectionStyle = .None
         
         let lineView = UIView(frame: CGRectMake(16, 54-0.5, self.view.frame.width-32, 0.5))
@@ -172,7 +172,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
         if indexPath.section == 0 {
         
             cell.selectionStyle = .None
-            cell.textLabel?.text = "Total:"
+            cell.textLabel.text = "Total:"
             
             creditsIconView.frame = CGRectMake(self.view.frame.width-32-66, (44-26)/2, 26, 26)
             
@@ -193,7 +193,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
         }
         else {
             
-            cell.textLabel?.text = "         \(products[indexPath.row].title)"
+            cell.textLabel.text = "         \(products[indexPath.row].title)"
             priceLabel.text = products[indexPath.row].objectForKey("price") as? String
             
             if indexPath.row != products.count-1 {

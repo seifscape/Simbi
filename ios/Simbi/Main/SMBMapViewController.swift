@@ -14,7 +14,6 @@ import UIKit
 private let kFeetInMile = 5280.0
 private let kMetersInMile = 1609.34
 
-
 protocol SMBMapViewDelegate: class {
     func mapView(mapView: SMBMapViewController, willShowCard willShow: Bool)
     func mapViewShouldShowExitButtons(mapView: SMBMapViewController) -> (Bool, Bool)
@@ -160,6 +159,18 @@ class SMBMapViewController: UIViewController {
         shadeHideButton.frame = CGRectMake(0, 0, shadeView.frame.width, shadeView.frame.height)
         shadeHideButton.addTarget(self, action: "hideCardAction:", forControlEvents: .TouchUpInside)
         shadeView.addSubview(shadeHideButton)
+        
+        //add visible/invisible button,this button can set whether other's can see
+        //me in their map
+        let switchVisibleButton = UIButton()
+        switchVisibleButton.setImage(UIImage(named:"friendsearchicon"), forState: UIControlState.Normal)
+        switchVisibleButton.setImage(UIImage(named:"friendsicon"), forState: UIControlState.Selected)
+        
+        switchVisibleButton.frame = CGRectMake(0,0, 66, 88)
+        switchVisibleButton.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.height-110)
+        switchVisibleButton.addTarget(self, action: "switchVisibleBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        self.view.addSubview(switchVisibleButton)
+        
     }
     
     
@@ -208,6 +219,9 @@ class SMBMapViewController: UIViewController {
         }
     }
     
+    func switchVisibleBtnClicked(sender: UIButton) {
+        sender.selected = !sender.selected
+    }
     
     // MARK: - Public Methods
     
@@ -256,20 +270,32 @@ class SMBMapViewController: UIViewController {
     // MARK: - Private Methods
     
     private func createAnnotations() {
-        
+
         mapView.removeAnnotations(annotations)
-        
         annotations = []
-        
+//        println("==================================")
+//        println(SMBFriendsManager.sharedManager().objects.count)
+//        let friend = object as SMBUser
+//        println(((SMBFriendsManager.sharedManager().objects[0]) as SMBUser).username)
+//        println("==================================")
+ //       return
         for object in SMBFriendsManager.sharedManager().objects {
             let friend = object as SMBUser
-            
+            println("==================================")
+            print("name:")
+            println(friend.username)
+            print("lat:")
+            println(friend.geoPoint.latitude)
+            print("lon:")
+            println(friend.geoPoint.longitude)
+            print("profitpic:")
+            println(friend.profilePicture)
+            println("==================================")
             if friend.geoPoint != nil {
                 
                 let annotation = SMBAnnotation(user: friend)
                 annotation.delegate = self
                 mapView.addAnnotation(annotation)
-                
                 annotations.append(annotation)
             }
         }
@@ -324,11 +350,12 @@ extension SMBMapViewController: MKMapViewDelegate {
             let smbAnnotation = annotation as SMBAnnotation
             
             var annotationView: MKAnnotationView? = mapView.dequeueReusableAnnotationViewWithIdentifier("Maps")
-            annotationView?.annotation = smbAnnotation
-            
             if annotationView == nil {
                 annotationView = smbAnnotation.annotationView()
             }
+            annotationView?.annotation = smbAnnotation
+            annotationView?.image = UIImage(named: "friendsearchicon")
+            annotationView?.backgroundColor = UIColor.whiteColor()
             
             return annotationView!
         }

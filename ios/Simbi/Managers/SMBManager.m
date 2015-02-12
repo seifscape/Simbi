@@ -32,8 +32,7 @@
 
 + (instancetype)sharedManager
 {
-    NSAssert(NO, @"%s - +[SMBManager sharedManager] must be overridden!", __PRETTY_FUNCTION__);
-    return nil;
+       return nil;
 }
 
 
@@ -104,6 +103,11 @@
                 
                 if ([_className isEqualToString:@"Chat"])
                     [SMBChat drawConnectionsForChatsInArray:_objects];
+                if ([_className isEqualToString:@"_User"]){
+                    printf("user");
+                    int cut = _objects.count;
+                    
+                }
 
                 [self objectsDidLoad];
                 [self updateDelegates];
