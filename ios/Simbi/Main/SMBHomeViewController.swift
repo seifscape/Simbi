@@ -21,46 +21,63 @@ enum SMBHomeViewAlertType: Int {
 
 
 class SMBHomeViewController: UIViewController {
-    
     weak var parent: SMBMainViewController?
     var delegate: SMBHomeViewDelegate?
     
     let homeBackgroundView  = SMBHomeBackgroundView()
     let userInfoView        = UIView()
-    
+    let scrollInfoView = UIScrollView()
     let profilePictureView  = SMBImageView()
+    
     let nameLabel           = UILabel()
     let locationLabel       = UILabel()
-    
     let scrollFadeView      = UIView()
     
-    var activityDrawerView: SMBActivityDrawerView?
+    let ageLabel = UILabel()
+    let heightLabel = UILabel()
+    let ethnicityLabel = UILabel()
+    let aboutmeLabel = UILabel()
+    let occupationLabel = UILabel()
+    let educationLabel = UILabel()
+    let meetupLocationsLabel = UILabel()
+    let meetupTimeLabel = UILabel()
+    let tagsLabel = UILabel()
     
+    let saveButton = UIButton()
+    var activityDrawerView: SMBActivityDrawerView?
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    override convenience init() {
+        self.init(nibName: nil, bundle: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.simbiWhiteColor()
+        self.view.backgroundColor = UIColor.simbiBlueColor()
         self.view.clipsToBounds = true
-        
-        
         // Set up views.
-        
         homeBackgroundView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         homeBackgroundView.userInteractionEnabled = false
-        self.view.addSubview(homeBackgroundView)
+        //self.view.addSubview(homeBackgroundView)
+
+        
+        //set the scroll view
+        self.scrollInfoView.contentSize.height = 2000
+        self.scrollInfoView.contentSize.width = self.view.frame.width
+        self.scrollInfoView.frame.size.width = self.view.frame.width
+        self.scrollInfoView.frame.size.height = self.view.frame.height-20
+        self.scrollInfoView.frame.origin.x = 0
+        self.scrollInfoView.frame.origin.y = 0
+        self.view.addSubview(self.scrollInfoView)
+
+//        userInfoView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width-88)
+//        userInfoView.center = self.view.center
+//        userInfoView.autoresizingMask = .FlexibleTopMargin
         
         
-        userInfoView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.width-88)
-        userInfoView.center = self.view.center
-        userInfoView.autoresizingMask = .FlexibleTopMargin
-        
-        
-        profilePictureView.frame = CGRectMake(66, 0, self.view.frame.width-132, self.view.frame.width-132)
+        profilePictureView.frame = CGRectMake(66, 50, self.view.frame.width-132, self.view.frame.width-132)
         profilePictureView.backgroundColor = UIColor.simbiBlackColor()
         profilePictureView.userInteractionEnabled = false
         profilePictureView.layer.cornerRadius = profilePictureView.frame.width/2
@@ -70,22 +87,22 @@ class SMBHomeViewController: UIViewController {
         profilePictureView.layer.shadowColor = UIColor.blackColor().CGColor
         profilePictureView.layer.shadowRadius = 2
         profilePictureView.layer.shadowOpacity = 0.5
-        userInfoView.addSubview(profilePictureView)
+        self.scrollInfoView.addSubview(profilePictureView)
         
         let profilePictureButton = UIButton(frame: CGRectInset(profilePictureView.frame, 20, 20))
         profilePictureButton.layer.cornerRadius = profilePictureButton.frame.width/2
         profilePictureButton.addTarget(self, action: "pinLocationAction:", forControlEvents: .TouchUpInside)
-        userInfoView.addSubview(profilePictureButton)
+        scrollInfoView.addSubview(profilePictureButton)
         
         let profilePictureRingView = UIView(frame: CGRectMake(0, 0, self.view.frame.width-110, self.view.frame.width-110))
         profilePictureRingView.center = profilePictureView.center
         profilePictureRingView.backgroundColor = UIColor(white: 1, alpha: 0.33)
         profilePictureRingView.layer.cornerRadius = profilePictureRingView.frame.width/2
         profilePictureRingView.userInteractionEnabled = false
-        userInfoView.insertSubview(profilePictureRingView, belowSubview: profilePictureView)
+        scrollInfoView.insertSubview(profilePictureRingView, belowSubview: profilePictureView)
 
         
-        nameLabel.frame = CGRectMake(0, profilePictureView.frame.height+8, self.view.frame.width, 44)
+        nameLabel.frame = CGRectMake(0, profilePictureView.frame.height+58, self.view.frame.width, 44)
         nameLabel.textColor = UIColor.whiteColor()
         nameLabel.font = UIFont.simbiFontWithAttributes(kFontLight, size: 32)
         nameLabel.textAlignment = .Center
@@ -94,7 +111,9 @@ class SMBHomeViewController: UIViewController {
         nameLabel.layer.shadowRadius = 1
         nameLabel.layer.shadowOffset = CGSizeMake(1, 1)
         nameLabel.userInteractionEnabled = false
-        userInfoView.addSubview(nameLabel)
+        scrollInfoView.addSubview(nameLabel)
+        
+        nameLabel.textColor = UIColor.redColor()
         
         locationLabel.frame = CGRectMake(0, nameLabel.frame.origin.y+28, self.view.frame.width, 44)
         locationLabel.textColor = UIColor.whiteColor()
@@ -105,7 +124,7 @@ class SMBHomeViewController: UIViewController {
         locationLabel.layer.shadowRadius = 1
         locationLabel.layer.shadowOffset = CGSizeMake(1, 1)
         locationLabel.userInteractionEnabled = false
-        userInfoView.addSubview(locationLabel)
+        scrollInfoView.addSubview(locationLabel)
         
         self.view.addSubview(userInfoView)
         
@@ -120,6 +139,67 @@ class SMBHomeViewController: UIViewController {
         scrollFadeView.alpha = 0
         scrollFadeView.userInteractionEnabled = false
         self.view.insertSubview(scrollFadeView, belowSubview: activityDrawerView!)
+   
+        //add labels
+        ageLabel.textColor = UIColor.simbiWhiteColor()
+        heightLabel.textColor = UIColor.simbiWhiteColor()
+        ethnicityLabel.textColor = UIColor.simbiWhiteColor()
+        aboutmeLabel.textColor = UIColor.simbiWhiteColor()
+        occupationLabel.textColor = UIColor.simbiWhiteColor()
+        educationLabel.textColor = UIColor.simbiWhiteColor()
+        meetupLocationsLabel.textColor = UIColor.simbiWhiteColor()
+        meetupTimeLabel.textColor = UIColor.simbiWhiteColor()
+        tagsLabel.textColor = UIColor.simbiWhiteColor()
+        
+        ageLabel.text = "Age"
+        ageLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        heightLabel.text = "Height"
+        heightLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        ethnicityLabel.text = "Ethnicity(Optional)"
+        ethnicityLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        aboutmeLabel.text = "About Me"
+        aboutmeLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        occupationLabel.text = "Occupation"
+        occupationLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        educationLabel.text = "Education"
+        educationLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        meetupLocationsLabel.text = "Meet Up Locations"
+        meetupLocationsLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        meetupTimeLabel.text = "Meet Up Time"
+        meetupTimeLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        tagsLabel.text = "Tags"
+        tagsLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
+        
+        ageLabel.frame.size = CGSize(width: 100, height: 30)
+        ageLabel.frame.origin = CGPoint(x:20,y:300)
+        heightLabel.frame.size = CGSize(width: 100, height: 30)
+        heightLabel.frame.origin = CGPoint(x:self.view.frame.width/2+20,y:300)
+        ethnicityLabel.frame.size = CGSize(width: 200, height: 30)
+        ethnicityLabel.frame.origin = CGPoint(x:20,y:340)
+        aboutmeLabel.frame.size = CGSize(width: 200, height: 30)
+        aboutmeLabel.frame.origin = CGPoint(x:20,y:380)
+        occupationLabel.frame.size = CGSize(width: 200, height: 30)
+        occupationLabel.frame.origin = CGPoint(x:20,y:420)
+        educationLabel.frame.size = CGSize(width: 200, height: 30)
+        educationLabel.frame.origin = CGPoint(x:20,y:460)
+        meetupLocationsLabel.frame.size = CGSize(width: 200, height: 30)
+        meetupLocationsLabel.frame.origin = CGPoint(x:20,y:500)
+        meetupTimeLabel.frame.size = CGSize(width: 200, height: 30)
+        meetupTimeLabel.frame.origin = CGPoint(x:20,y:540)
+        tagsLabel.frame.size = CGSize(width: 200, height: 30)
+        tagsLabel.frame.origin = CGPoint(x:20,y:580)
+        
+        
+        
+        self.scrollInfoView.addSubview(ageLabel)
+        self.scrollInfoView.addSubview(heightLabel)
+        self.scrollInfoView.addSubview(ethnicityLabel)
+        self.scrollInfoView.addSubview(aboutmeLabel)
+        self.scrollInfoView.addSubview(occupationLabel)
+        self.scrollInfoView.addSubview(educationLabel)
+        self.scrollInfoView.addSubview(meetupLocationsLabel)
+        self.scrollInfoView.addSubview(meetupTimeLabel)
+        self.scrollInfoView.addSubview(tagsLabel)
     }
     
     

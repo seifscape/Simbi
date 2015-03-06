@@ -45,7 +45,7 @@ class SMBHomeBackgroundView : UIView {
         self.addSubview(imageView)
         
         fadeView.frame = CGRectMake(0, 0, frame.width, frame.height)
-        fadeView.backgroundColor = UIColor.blackColor()
+        fadeView.backgroundColor = UIColor.blueColor()
         fadeView.alpha = 0.5
         fadeView.hidden = true
         self.addSubview(fadeView)
