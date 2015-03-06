@@ -163,13 +163,20 @@ class SMBMapViewController: UIViewController {
         //add visible/invisible button,this button can set whether other's can see
         //me in their map
         let switchVisibleButton = UIButton()
-        switchVisibleButton.setImage(UIImage(named:"friendsearchicon"), forState: UIControlState.Normal)
-        switchVisibleButton.setImage(UIImage(named:"friendsicon"), forState: UIControlState.Selected)
+        switchVisibleButton.setImage(UIImage(named:"selfVisible.png"), forState: UIControlState.Normal)
+        switchVisibleButton.setImage(UIImage(named:"selfInvisible.png"), forState: UIControlState.Selected)
         
         switchVisibleButton.frame = CGRectMake(0,0, 66, 88)
-        switchVisibleButton.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.height-110)
+        switchVisibleButton.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.height-50)
         switchVisibleButton.addTarget(self, action: "switchVisibleBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(switchVisibleButton)
+        
+        //set the current user's visible or invisible
+        if SMBUser.currentUser().visible {
+            switchVisibleButton.selected = false
+        }else{
+            switchVisibleButton.selected = true
+        }
         
     }
     
@@ -220,7 +227,20 @@ class SMBMapViewController: UIViewController {
     }
     
     func switchVisibleBtnClicked(sender: UIButton) {
-        sender.selected = !sender.selected
+        let obid = SMBUser.currentUser().objectId
+        if obid=="" {
+            return
+        }
+        let query = PFQuery(className: "_User")
+        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+            if obj==nil{
+            return
+            }
+            obj["visible"] = sender.selected
+            obj.saveInBackgroundWithBlock({ (suss:Bool, err:NSError!) -> Void in
+                sender.selected = !sender.selected
+            })
+        }
     }
     
     // MARK: - Public Methods
@@ -284,6 +304,8 @@ class SMBMapViewController: UIViewController {
             println("==================================")
             print("name:")
             println(friend.username)
+            print("visible:")
+            println(friend.visible)
             print("lat:")
             println(friend.geoPoint.latitude)
             print("lon:")
@@ -291,7 +313,7 @@ class SMBMapViewController: UIViewController {
             print("profitpic:")
             println(friend.profilePicture)
             println("==================================")
-            if friend.geoPoint != nil {
+            if friend.geoPoint != nil && friend.visible {
                 
                 let annotation = SMBAnnotation(user: friend)
                 annotation.delegate = self

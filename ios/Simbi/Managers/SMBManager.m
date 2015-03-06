@@ -106,6 +106,7 @@
                 if ([_className isEqualToString:@"_User"]){
                     printf("user");
                     int cut = _objects.count;
+                    BOOL vis = [_objects[0][@"visbible"] boolValue];
                     
                 }
 

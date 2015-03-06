@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1835FB181AA99C550068F60A /* selfInvisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB161AA99C550068F60A /* selfInvisible.png */; };
+		1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB191AA99CB90068F60A /* selfVisible.png */; };
 		188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A8BAC1A8B02D10077073A /* libPods.a */; };
 		5201CC5B198187170079FFDA /* SMBPinLocationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC5A198187170079FFDA /* SMBPinLocationButton.m */; };
 		5201CC64198192CA0079FFDA /* _SMBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC63198192CA0079FFDA /* _SMBAnnotation.m */; };
@@ -301,6 +303,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1835FB161AA99C550068F60A /* selfInvisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfInvisible.png; sourceTree = "<group>"; };
+		1835FB191AA99CB90068F60A /* selfVisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfVisible.png; sourceTree = "<group>"; };
 		188A8B921A8AFDD30077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8B941A8B013C0077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8B961A8B01490077073A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
@@ -1138,6 +1142,8 @@
 		5256113B192A9781005A0049 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1835FB161AA99C550068F60A /* selfInvisible.png */,
+				1835FB191AA99CB90068F60A /* selfVisible.png */,
 				5222D2A119B0E2F500DC5E76 /* friendsearchicon.png */,
 				5222D2A219B0E2F500DC5E76 /* friendsearchicon@2x.png */,
 				5222D2A319B0E2F500DC5E76 /* mapicon.png */,
@@ -2299,9 +2305,11 @@
 				52B9B33419F80A12009E8CE2 /* menu_icon@2x.png in Resources */,
 				52426C2F1954D9FD004D7225 /* redBox2.png in Resources */,
 				5266D53F195CB0AC00F4891B /* leprechaun.png in Resources */,
+				1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */,
 				52B9B30219F80908009E8CE2 /* bubble_tailless.png in Resources */,
 				5222D27F19B0CFCD00DC5E76 /* DINOT-CondMedium.otf in Resources */,
 				527E5D3D1959B94A00F0F58B /* Silhouette.png in Resources */,
+				1835FB181AA99C550068F60A /* selfInvisible.png in Resources */,
 				52B9B30119F80908009E8CE2 /* bubble_stroked_tailless@2x.png in Resources */,
 				52A81026195B274100CA4027 /* Icon-40.png in Resources */,
 				52B4401E19A25237008B4AFE /* simbi_bubble.png in Resources */,

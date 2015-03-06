@@ -94,5 +94,6 @@ typedef enum SMBUserPreference : NSInteger
 
 @property (retain) SMBUserPrivate *private;
 @property (retain) SMBUserCredits *credits;
+@property  BOOL visible;
 
 @end

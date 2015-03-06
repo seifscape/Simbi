@@ -55,7 +55,7 @@
 @dynamic private;
 @dynamic credits;
 
-
+@dynamic visible;
 #pragma mark - PFUser Helpers
 
 + (SMBUser *)currentUser
