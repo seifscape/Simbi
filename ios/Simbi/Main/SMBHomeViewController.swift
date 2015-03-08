@@ -20,9 +20,25 @@ enum SMBHomeViewAlertType: Int {
 }
 
 
-class SMBHomeViewController: UIViewController {
+class SMBHomeViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate{
     weak var parent: SMBMainViewController?
     var delegate: SMBHomeViewDelegate?
+    
+    let ethnicityArray = ["Caucasian","African American", "Latino", "East Asian", "South Asian", "Pacific Islander", "Middle Eastern","Native American"]
+    let ethnicityPickerView = UIPickerView()
+    
+    let ageArray = ["18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","50"]
+    let agePickerView =  UIPickerView()
+    
+    let heightArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","5’12\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"","6’12\"",">7’"]
+    
+    let tagsArray = ["Foodie","Wino","Beer Connoisseur","World Trekker","Early Bird","Night Owl","Entertainer","Wizard","Wordsmith","Cinephile","Book Worm","Technologist","Disco Disco!","Sports Junkie","#iworkout","Cyclist","Beach Bum","Thrill Seeker","Outdoorsmen","Politics"," Sure.","Satirist","Health Nut","Animal Lover","Guy Fieri Fan"]
+    let meetUpTimeArray = ["Morning","Noon","Lunch","Mid Afternoon","Early Dinner","Happy Hour","Late Night","Anytime"]
+    
+    let meetUpLocationsArray = ["Coffee Shop","Bar/Lounge","Restaurant","Late Night","Museum","Art Gallery","Outdoor Fun","Anytime"]
+    
+    let degreeArray = ["Phd","Master","MD","JD","MBA","Bachelors","Highschool","Other"]
+    let heightPickerView = UIPickerView()
     
     let homeBackgroundView  = SMBHomeBackgroundView()
     let userInfoView        = UIView()
@@ -36,6 +52,7 @@ class SMBHomeViewController: UIViewController {
     let ageLabel = UILabel()
     let heightLabel = UILabel()
     let ethnicityLabel = UILabel()
+    let ethnicityEditLabel = UILabel()
     let aboutmeLabel = UILabel()
     let occupationLabel = UILabel()
     let educationLabel = UILabel()
@@ -43,6 +60,15 @@ class SMBHomeViewController: UIViewController {
     let meetupTimeLabel = UILabel()
     let tagsLabel = UILabel()
     
+    let ageEdit = UITextField()
+    let heightEdit = UITextField()
+    let aboutEdit = UITextField()
+    let occupationEdit = UITextField()
+    let educationEdit = UITextField()
+    
+    let ageButton = UIButton()
+    let heightButton = UIButton()
+    let ethnicityButton = UIButton()
     let saveButton = UIButton()
     var activityDrawerView: SMBActivityDrawerView?
     
@@ -61,7 +87,6 @@ class SMBHomeViewController: UIViewController {
         homeBackgroundView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         homeBackgroundView.userInteractionEnabled = false
         //self.view.addSubview(homeBackgroundView)
-
         
         //set the scroll view
         self.scrollInfoView.contentSize.height = 2000
@@ -155,7 +180,7 @@ class SMBHomeViewController: UIViewController {
         ageLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
         heightLabel.text = "Height"
         heightLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
-        ethnicityLabel.text = "Ethnicity(Optional)"
+        ethnicityLabel.text = "Ethnicity"
         ethnicityLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
         aboutmeLabel.text = "About Me"
         aboutmeLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 23)
@@ -179,15 +204,15 @@ class SMBHomeViewController: UIViewController {
         aboutmeLabel.frame.size = CGSize(width: 200, height: 30)
         aboutmeLabel.frame.origin = CGPoint(x:20,y:380)
         occupationLabel.frame.size = CGSize(width: 200, height: 30)
-        occupationLabel.frame.origin = CGPoint(x:20,y:420)
+        occupationLabel.frame.origin = CGPoint(x:20,y:500)
         educationLabel.frame.size = CGSize(width: 200, height: 30)
-        educationLabel.frame.origin = CGPoint(x:20,y:460)
+        educationLabel.frame.origin = CGPoint(x:20,y:540)
         meetupLocationsLabel.frame.size = CGSize(width: 200, height: 30)
-        meetupLocationsLabel.frame.origin = CGPoint(x:20,y:500)
+        meetupLocationsLabel.frame.origin = CGPoint(x:20,y:580)
         meetupTimeLabel.frame.size = CGSize(width: 200, height: 30)
-        meetupTimeLabel.frame.origin = CGPoint(x:20,y:540)
+        meetupTimeLabel.frame.origin = CGPoint(x:20,y:680)
         tagsLabel.frame.size = CGSize(width: 200, height: 30)
-        tagsLabel.frame.origin = CGPoint(x:20,y:580)
+        tagsLabel.frame.origin = CGPoint(x:20,y:780)
         
         
         
@@ -200,9 +225,199 @@ class SMBHomeViewController: UIViewController {
         self.scrollInfoView.addSubview(meetupLocationsLabel)
         self.scrollInfoView.addSubview(meetupTimeLabel)
         self.scrollInfoView.addSubview(tagsLabel)
+        
+        ageButton.tag = 150
+        ageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        ageButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        ageButton.setTitle("age",forState:UIControlState.allZeros)
+        ageButton.frame.size = CGSize(width: 50,height: 30)
+        ageButton.frame.origin = CGPoint(x: 60,y: 305)
+        ageButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        
+        heightButton.tag = 151
+        heightButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        
+        heightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        heightButton.setTitle("height",forState:UIControlState.allZeros)
+        heightButton.frame.size = CGSize(width: 50,height: 30)
+        heightButton.frame.origin = CGPoint(x: self.view.frame.width/2+88,y: 305)
+        heightButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+
+        ethnicityButton.tag = 152
+        ethnicityButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        ethnicityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        ethnicityButton.setTitle("ethnicity",forState:UIControlState.allZeros)
+        ethnicityButton.frame.size = CGSize(width: 200,height: 30)
+        ethnicityButton.frame.origin = CGPoint(x:125,y: 342)
+        ethnicityButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        
+        aboutEdit.frame.size = CGSize(width: self.view.frame.width-40, height: 80)
+        aboutEdit.frame.origin = CGPoint(x: 20, y: 410)
+        aboutEdit.backgroundColor = UIColor.whiteColor()
+        aboutEdit.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        aboutEdit.contentVerticalAlignment = UIControlContentVerticalAlignment.Top
+        //add meet up location
+        var locationIndex:Int = 0
+        var locationButtonWidth:Int = 80
+        var locationButtonHeight:Int = 20
+        var numberperRow:Int = (Int(self.view.frame.width)-40)/(locationButtonWidth+10)
+        for location in self.meetUpLocationsArray{
+            let button = UIButton()
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+            button.frame.size = CGSize(width: locationButtonWidth, height: locationButtonHeight)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            var buttonX = (locationIndex)%numberperRow*(locationButtonWidth+10)+20
+            var buttonY = Int(meetupLocationsLabel.frame.origin.y+meetupLocationsLabel.frame.size.height)+(locationButtonHeight+5)*((locationIndex)/numberperRow)
+            button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor.whiteColor()
+            self.scrollInfoView.addSubview(button)
+            button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+            locationIndex++
+        }
+        //add meet up time
+        var timeIndex:Int = 0
+        var timeButtonWidth:Int = 80
+        var timeButtonHeight:Int = 20
+        var timeNumberperRow:Int = (Int(self.view.frame.width)-40)/(timeButtonWidth+10)
+        for location in self.meetUpTimeArray{
+            let button = UIButton()
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+            button.frame.size = CGSize(width: timeButtonWidth, height: timeButtonHeight)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            var buttonX = (timeIndex)%timeNumberperRow*(timeButtonWidth+10)+20
+            var buttonY = Int(meetupTimeLabel.frame.origin.y+meetupTimeLabel.frame.size.height)+(timeButtonHeight+5)*((timeIndex)/timeNumberperRow)
+            button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor.whiteColor()
+            self.scrollInfoView.addSubview(button)
+            button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+            timeIndex++
+        }
+        //add tags
+        var tagsIndex:Int = 0
+        var tagsButtonWidth:Int = 80
+        var tagsButtonHeight:Int = 20
+        var tagsNumberperRow:Int = (Int(self.view.frame.width)-40)/(tagsButtonWidth+10)
+        for location in self.tagsArray{
+            let button = UIButton()
+            button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
+            button.frame.size = CGSize(width: tagsButtonWidth, height: tagsButtonHeight)
+            button.titleLabel?.adjustsFontSizeToFitWidth = true
+            var buttonX = (tagsIndex)%tagsNumberperRow*(tagsButtonWidth+10)+20
+            var buttonY = Int(tagsLabel.frame.origin.y+tagsLabel.frame.size.height)+(tagsButtonHeight+5)*((tagsIndex)/tagsNumberperRow)
+            button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor.whiteColor()
+            self.scrollInfoView.addSubview(button)
+            button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+            tagsIndex++
+        }
+        //ethnicity select
+        ethnicityPickerView.delegate = self
+        ethnicityPickerView.frame.size = CGSize(width: 300, height: 500)
+        ethnicityPickerView.center = self.view.center
+        ethnicityPickerView.tag = 100
+        ethnicityPickerView.hidden = true
+        ethnicityPickerView.backgroundColor = UIColor.whiteColor()
+        
+        agePickerView.delegate = self
+        agePickerView.frame.size = CGSize(width: 300, height: 500)
+        agePickerView.center = self.view.center
+        agePickerView.tag = 101
+        agePickerView.hidden = true
+        agePickerView.backgroundColor = UIColor.whiteColor()
+        
+        heightPickerView.delegate = self
+        heightPickerView.frame.size = CGSize(width: 300, height: 500)
+        heightPickerView.center = self.view.center
+        heightPickerView.tag = 102
+        heightPickerView.hidden = true
+        heightPickerView.backgroundColor = UIColor.whiteColor()
+        
+        
+        self.scrollInfoView.addSubview(ageButton)
+        self.scrollInfoView.addSubview(heightButton)
+        self.scrollInfoView.addSubview(ethnicityButton)
+        self.scrollInfoView.addSubview(aboutEdit)
+        
+        
+        self.view.addSubview(ethnicityPickerView)
+        self.view.addSubview(agePickerView)
+        self.view.addSubview(heightPickerView)
+        //add tap gesture
+        var tapGr:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"viewTapped:")
+        tapGr.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapGr)
     }
-    
-    
+    func selectButtonDown(sender:UIButton){
+        //age set button
+        if sender.tag == 150{
+            self.agePickerView.hidden = false
+        }
+        if sender.tag == 151{
+            self.heightPickerView.hidden = false
+        }
+        if sender.tag == 152{
+            self.ethnicityPickerView.hidden = false
+        }
+        
+    }
+    func blockButtonDown(sender:UIButton){
+        sender.selected = !sender.selected
+    }
+    func viewTapped(sender: UITapGestureRecognizer?){
+        self.view.endEditing(true)
+        self.agePickerView.hidden = true
+        self.heightPickerView.hidden = true
+        self.ethnicityPickerView.hidden = true
+        
+    }
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1;
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 100{
+            return ethnicityArray.count
+        }
+        if pickerView.tag == 101{
+            return ageArray.count
+        }
+        if pickerView.tag == 102 {
+            return heightArray.count
+        }
+        return 0
+    }
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        if pickerView.tag == 100{
+            return ethnicityArray[row]
+        }
+        if pickerView.tag == 101{
+            return ageArray[row]
+        }
+        if pickerView.tag == 102{
+            return heightArray[row]
+        }
+        return ""
+    }
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 100{
+           ethnicityButton.setTitle(ethnicityArray[row], forState: UIControlState.allZeros)
+        }
+        if pickerView.tag == 101{
+            ageButton.setTitle(ageArray[row], forState: UIControlState.allZeros)
+        }
+        if pickerView.tag == 102{
+            heightButton.setTitle(heightArray[row], forState: UIControlState.allZeros)
+        }
+
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
