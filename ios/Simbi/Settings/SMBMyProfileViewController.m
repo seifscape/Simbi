@@ -35,8 +35,8 @@
     [super viewDidLoad];
     
     [self.navigationItem setTitle:@"My Profile"];
-    [self.view setBackgroundColor:[UIColor simbiWhiteColor]];
-    [self.tableView setBackgroundColor:[UIColor simbiWhiteColor]];
+    [self.view setBackgroundColor:[UIColor redColor]];
+    [self.tableView setBackgroundColor:[UIColor redColor]];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
     
     if ([UIScreen mainScreen].bounds.size.height >= [self requiredHeightForTable]+44)

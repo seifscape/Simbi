@@ -15,7 +15,6 @@
 #import "SMBImageView.h"
 #import "SMBMyProfileViewController.h"
 #import "SMBPreferencesViewController.h"
-
 #import "Simbi-Swift.h"
 
 
@@ -23,7 +22,7 @@
 
 @property (nonatomic, strong) SMBImageView *profilePictureView;
 @property (nonatomic, strong) SMBImageView *backgroundImageView;
-
+@property (nonatomic, strong) LiuMyProfileViewController* liuMyProfile;
 @end
 
 
@@ -37,6 +36,7 @@ const NSInteger kAlertView_changeBackground = 3;
 - (id)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
+    self.liuMyProfile = nil;
     return self;
 }
 
@@ -179,8 +179,11 @@ const NSInteger kAlertView_changeBackground = 3;
     {
         if (indexPath.row == 0)
         {
-            SMBMyProfileViewController *viewController = [[SMBMyProfileViewController alloc] init];
-            [self.navigationController pushViewController:viewController animated:YES];
+            if (self.liuMyProfile==nil) {
+                self.liuMyProfile = [[LiuMyProfileViewController alloc] init];
+                
+            }
+            [self.navigationController pushViewController:self.liuMyProfile animated:YES];
         }
         if (indexPath.row == 1)
         {
