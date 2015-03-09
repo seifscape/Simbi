@@ -77,7 +77,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 3;
 }
 
 
@@ -86,10 +86,11 @@
     switch (indexPath.row)
     {
         case 0:  return  66;
-        case 1:  return 110;
+        case 1:  return  66;
         case 2:  return 110;
-        case 3:  return  88;
+        case 3:  return 110;
         case 4:  return  88;
+        case 5:  return  88;
         default: return   0;
     }
 }
@@ -105,12 +106,11 @@
     [label setTextColor:[UIColor simbiGrayColor]];
     [label setFont:[UIFont simbiFontWithSize:12.f]];
     [cell.contentView addSubview:label];
-    
     if (indexPath.row == 0)
     {
-        [label setText:@"Gender:"];
+        [label setText:@"Loking TO(Select 1+)"];
         
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Male", @"Female", @"+"]];
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Make Friends", @"Date", @"NetWork"]];
         [segmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
         [segmentedControl setTintColor:[UIColor simbiBlueColor]];
         [segmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
@@ -119,7 +119,18 @@
     }
     if (indexPath.row == 1)
     {
-        [label setText:@"Age:"];
+        [label setText:@"Gender"];
+        
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Male", @"Female", @"+"]];
+        [segmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
+        [segmentedControl setTintColor:[UIColor simbiBlueColor]];
+        [segmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
+        [segmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
+        [cell.contentView addSubview:segmentedControl];
+    }
+    if (indexPath.row == 2)
+    {
+        [label setText:@"Age"];
         
         NMRangeSlider *rangeSlider = [[NMRangeSlider alloc] initWithFrame:CGRectMake(22, 22, cell.frame.size.width-44-66, 88)];
         [rangeSlider setMinimumValue:18.f];
@@ -147,7 +158,7 @@
         
         [self agePreferenceDidChange:rangeSlider];
     }
-    if (indexPath.row == 2)
+    if (indexPath.row == 3)
     {
         [label setText:@"Height:"];
         
@@ -172,7 +183,7 @@
         
         [self heightPreferenceDidChange:rangeSlider];
     }
-    if (indexPath.row == 3)
+    if (indexPath.row == 4)
     {
         [label setText:@"Hair Color:"];
         
@@ -185,7 +196,7 @@
         [colorSelector.layer setMasksToBounds:YES];
         [cell.contentView addSubview:colorSelector];
     }
-    if (indexPath.row == 4)
+    if (indexPath.row == 5)
     {
         [label setText:@"Eye Color:"];
         
