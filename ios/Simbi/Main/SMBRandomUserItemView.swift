@@ -25,6 +25,8 @@ class SMBRandomUserItemView: UIView {
     let circleView = UIView()
     let imageContainerView = UIView()
     let nameLabel = UILabel()
+    let interestLabel = UILabel()
+    let distanceLabel = UILabel()
     let buttonContainerView = UIView()
     
     var isFaded = true
@@ -51,6 +53,9 @@ class SMBRandomUserItemView: UIView {
         imageContainerView.frame = CGRectMake(40, (self.frame.height-110)/2, 110, 110)
         imageContainerView.alpha = 0.5
         imageContainerView.transform = CGAffineTransformMakeScale(0.95, 0.95)
+        var tapGr:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"viewTapped:")
+        tapGr.numberOfTapsRequired = 1
+        self.imageContainerView.addGestureRecognizer(tapGr)
         
         let pictureImageView = UIImageView(frame: CGRectMake(0, 0, 110, 110))
         pictureImageView.backgroundColor = UIColor.simbiBlackColor()
@@ -85,8 +90,49 @@ class SMBRandomUserItemView: UIView {
         nameLabel.text = user.firstName
         nameLabel.textColor = UIColor.simbiBlackColor()
         nameLabel.font = UIFont.simbiFontWithSize(22)
-        nameLabel.alpha = 0.5
+        nameLabel.alpha = 1
         self.addSubview(nameLabel)
+        nameLabel.frame = CGRectMake(
+            imageContainerView.frame.origin.x+imageContainerView.frame.width+16, 0+22,
+            self.frame.width-176-20, 44
+        )
+        
+        interestLabel.frame = CGRectMake(
+            imageContainerView.frame.origin.x+imageContainerView.frame.width+16, 0,
+            self.frame.width-176-20, 44
+        )
+        var sharedCount = 0
+
+        for tag in SMBUser.currentUser().tags{
+            println(tag)
+            if user.tags.indexOfObject(tag) != NSNotFound {
+                sharedCount++
+            }
+        }
+        interestLabel.text = NSString(format: "%d Shared Interest", sharedCount)
+        interestLabel.textColor = UIColor.simbiBlackColor()
+        interestLabel.font = UIFont.simbiFontWithSize(16)
+        interestLabel.alpha = 0.5
+        self.addSubview(interestLabel)
+        self.interestLabel.center = CGPointMake(interestLabel.center.x, self.frame.height/2-10)
+        
+        distanceLabel.frame = CGRectMake(
+            imageContainerView.frame.origin.x+imageContainerView.frame.width+16, 0,
+            self.frame.width-176-20, 44
+        )
+        self.distanceLabel.center = CGPointMake(interestLabel.center.x, self.frame.height/2+22)
+        var dis = self.user.geoPoint.distanceInMilesTo(SMBUser.currentUser().geoPoint)
+        var disText = ""
+        if dis<0.01{
+            disText = NSString(format: "%.2f ft",dis*5280)
+        }else{
+            disText = NSString(format: "%.2f miles",dis)
+        }
+        distanceLabel.text = disText
+        distanceLabel.textColor = UIColor.simbiBlackColor()
+        distanceLabel.font = UIFont.simbiFontWithSize(20)
+        distanceLabel.alpha = 0.5
+        self.addSubview(distanceLabel)
         
         
         buttonContainerView.frame = CGRectMake(nameLabel.frame.origin.x, 0, nameLabel.frame.width, 44)
@@ -128,7 +174,10 @@ class SMBRandomUserItemView: UIView {
     
     
     // MARK: - Public Methods
-    
+    func viewTapped(sender: UITapGestureRecognizer?){
+        println("img clicked")
+    }
+
     func fadeIn() {
         
         if isFaded {
@@ -143,9 +192,11 @@ class SMBRandomUserItemView: UIView {
                 
                 self.imageContainerView.alpha = 1
                 self.nameLabel.alpha = 1
+                self.interestLabel.alpha=0
+                self.distanceLabel.alpha=0
                 self.buttonContainerView.alpha = 1
                 
-                self.nameLabel.center = CGPointMake(self.nameLabel.center.x, self.frame.height/2-22)
+                //self.nameLabel.center = CGPointMake(self.nameLabel.center.x, self.frame.height/2-22)
                 self.buttonContainerView.center = CGPointMake(self.nameLabel.center.x, self.buttonContainerView.center.y)
                 
             }) { (Bool) -> Void in
@@ -166,10 +217,12 @@ class SMBRandomUserItemView: UIView {
                 self.circleView.transform = CGAffineTransformMakeScale(0.95, 0.95)
                 
                 self.imageContainerView.alpha = 0.5
-                self.nameLabel.alpha = 0.5
+                self.nameLabel.alpha = 1
+                self.interestLabel.alpha=1
+                self.distanceLabel.alpha=1
                 self.buttonContainerView.alpha = 0
                 
-                self.nameLabel.center = CGPointMake(self.nameLabel.center.x, self.frame.height/2)
+                //self.nameLabel.center = CGPointMake(self.nameLabel.center.x, self.frame.height/2)
                 self.buttonContainerView.center = CGPointMake(self.frame.width, self.buttonContainerView.center.y)
                 
             }) { (Bool) -> Void in

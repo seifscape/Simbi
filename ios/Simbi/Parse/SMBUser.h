@@ -56,6 +56,7 @@ typedef enum SMBUserPreference : NSInteger
 @property (retain) NSString *lastName;
 @property (retain) NSNumber *age;
 @property (retain) NSString *gender;
+@property (retain) NSString *lookingto;
 @property (retain) SMBHairColor *hairColor;
 @property (retain) SMBImage *profilePicture;
 @property (retain) SMBImage *backgroundImage;
@@ -95,5 +96,13 @@ typedef enum SMBUserPreference : NSInteger
 @property (retain) SMBUserPrivate *private;
 @property (retain) SMBUserCredits *credits;
 @property  BOOL visible;
-
+@property (retain) NSString* aboutme;
+@property (retain) NSString* ethnicity;
+@property  (retain) NSString* degree;
+@property (retain) NSString* school;
+@property (retain) NSMutableArray* tags;
+@property (retain) NSArray* MeetUpLocations;
+@property (retain) NSArray* MeetUpTimes;
+@property (retain) NSString* occupation;
+@property (retain) NSString* employer;
 @end

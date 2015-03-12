@@ -19,7 +19,10 @@
 
 @property (nonatomic, strong) UILabel *agePreferenceLabel;
 @property (nonatomic, strong) UILabel *heightPreferenceLabel;
-
+@property (nonatomic, strong) UISegmentedControl *lookingtoSegmentedControl;
+@property (nonatomic, strong) UISegmentedControl *genderSegmentedControl;
+@property (nonatomic, strong) NMRangeSlider *ageRangeSlider;
+@property (nonatomic, strong) UIButton* saveButton;
 @end
 
 
@@ -28,6 +31,10 @@
 - (instancetype)init
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
+    self.lookingtoSegmentedControl = nil;
+    self.genderSegmentedControl = nil;
+    self.ageRangeSlider = nil;
+    self.saveButton = nil;
     return self;
 }
 
@@ -41,15 +48,77 @@
     [self.tableView setBackgroundColor:[UIColor simbiWhiteColor]];
     [self.tableView setSeparatorColor:[UIColor clearColor]];
     
+    self.saveButton = [UIButton new];
+    [self.saveButton setTitle:@"Save" forState:UIControlStateNormal];
+    [self.saveButton setFrame:CGRectMake(0, 0, 70, 30)];
+    [self.saveButton setCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height-100)];
+    [self.saveButton setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:self.saveButton];
+
+    [self.saveButton addTarget:self action:@selector(saveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    //add save button
+//    saveButton.setTitle("Save", forState: UIControlState.allZeros)
+//    saveButton.frame.size = CGSize(width: 70, height: 30)
+//    saveButton.center = CGPoint(x: self.scrollInfoView.frame.size.width/2, y: self.scrollInfoView.contentSize.height - 50)
+//    saveButton.backgroundColor = UIColor.greenColor()
+//    
+//    saveButton.addTarget(self, action: "saveButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
     if ([UIScreen mainScreen].bounds.size.height >= [self requiredHeightForTable]+44)
         [self.tableView setScrollEnabled:NO];
+    //[self.view bringSubviewToFront:saveButton];
 }
-
+- (void)saveButtonClicked:(UIButton*)sender{
+//    let obid = SMBUser.currentUser().objectId
+//    if obid=="" {
+//        return
+//    }
+//    let query = PFQuery(className: "_User")
+//    query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+//        if obj==nil{
+//            return
+//        }
+//        obj["gender"] = self.genderButton.titleLabel?.text
+    NSString* obid = [[SMBUser currentUser] objectId];
+    if (obid==@"") {
+        return;
+    }
+    PFQuery* query = [PFQuery queryWithClassName:@"_User"];
+    [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
+        object[@"lookingto"] = [NSString stringWithFormat:@"%d",self.lookingtoSegmentedControl.selectedSegmentIndex];
+        object[@"genderPreference"] = [NSString stringWithFormat:@"%d",self.genderSegmentedControl.selectedSegmentIndex];
+        object[@"upperAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.upperValue];
+        object[@"lowerAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.lowerValue];
+        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+           
+            UIAlertView* alert = [UIAlertView new];
+            [alert setTitle:@"Tip"];
+            [alert setMessage:succeeded?@"Save success!":@"Save failed!"];
+            [alert addButtonWithTitle:@"Ok"];
+            [alert show];
+        }];
+    }];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [[SMBAppDelegate instance] enableSideMenuGesture:NO];
+    NSString* obid = [[SMBUser currentUser] objectId];
+    if (obid==@"") {
+        return;
+    }
+    PFQuery* query = [PFQuery queryWithClassName:@"_User"];
+    [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
+        SMBUser* user = (SMBUser*)object;
+        NSLog(@"%d,%d",user.upperAgePreference.integerValue,user.lowerAgePreference.integerValue);
+        [self.lookingtoSegmentedControl setSelectedSegmentIndex: [user.lookingto intValue]];
+        [self.genderSegmentedControl setSelectedSegmentIndex: [user.genderPreference intValue]];
+        [[SMBUser currentUser] setUpperAgePreference:user.upperAgePreference];
+        [[SMBUser currentUser] setLowerAgePreference:user.lowerAgePreference];
+        [self.ageRangeSlider setUpperValue:user.upperAgePreference.intValue];
+        [self.ageRangeSlider setLowerValue:user.lowerAgePreference.intValue];
+        [self agePreferenceDidChange:self.ageRangeSlider];
+    }];
 }
 
 
@@ -109,43 +178,47 @@
     if (indexPath.row == 0)
     {
         [label setText:@"Loking TO(Select 1+)"];
-        
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Make Friends", @"Date", @"NetWork"]];
-        [segmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
-        [segmentedControl setTintColor:[UIColor simbiBlueColor]];
-        [segmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
-        [segmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
-        [cell.contentView addSubview:segmentedControl];
+        if (self.lookingtoSegmentedControl==nil) {
+            self.lookingtoSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Make Friends", @"Date", @"NetWork"]];
+        }
+        [self.lookingtoSegmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
+        [self.lookingtoSegmentedControl setTintColor:[UIColor simbiBlueColor]];
+        [self.lookingtoSegmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
+        [self.lookingtoSegmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
+        [cell.contentView addSubview:self.lookingtoSegmentedControl];
     }
     if (indexPath.row == 1)
     {
         [label setText:@"Gender"];
-        
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Male", @"Female", @"+"]];
-        [segmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
-        [segmentedControl setTintColor:[UIColor simbiBlueColor]];
-        [segmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
-        [segmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
-        [cell.contentView addSubview:segmentedControl];
+        if (self.genderSegmentedControl==nil) {
+            self.genderSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Male", @"Female", @"+"]];
+        }
+        [self.genderSegmentedControl setFrame:CGRectMake(22, 22+(44-28)/2, cell.frame.size.width-44, 28)];
+        [self.genderSegmentedControl setTintColor:[UIColor simbiBlueColor]];
+        [self.genderSegmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
+        [self.genderSegmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
+        [cell.contentView addSubview:self.genderSegmentedControl];
     }
     if (indexPath.row == 2)
     {
         [label setText:@"Age"];
         
-        NMRangeSlider *rangeSlider = [[NMRangeSlider alloc] initWithFrame:CGRectMake(22, 22, cell.frame.size.width-44-66, 88)];
-        [rangeSlider setMinimumValue:18.f];
-        [rangeSlider setMaximumValue:55.f];
-        [rangeSlider setMinimumRange:1.f];
-        [rangeSlider setUpperValue:[SMBUser currentUser].upperAgePreference.intValue];
+        if (self.ageRangeSlider==nil) {
+            self.ageRangeSlider =[[NMRangeSlider alloc] initWithFrame:CGRectMake(22, 22, cell.frame.size.width-44-66, 88)];
+        }
+        [self.ageRangeSlider setMinimumValue:18.f];
+        [self.ageRangeSlider setMaximumValue:55.f];
+        [self.ageRangeSlider setMinimumRange:1.f];
+        [self.ageRangeSlider setUpperValue:[SMBUser currentUser].upperAgePreference.intValue];
         
         // If lower age preference is greater than or equal to the upper, set upper as just above the lower.
         if ([SMBUser currentUser].lowerAgePreference.intValue >= [SMBUser currentUser].upperAgePreference.intValue)
-            [rangeSlider setUpperValue:[SMBUser currentUser].lowerAgePreference.intValue+1];
+            [self.ageRangeSlider setUpperValue:[SMBUser currentUser].lowerAgePreference.intValue+1];
         
-        [rangeSlider setLowerValue:[SMBUser currentUser].lowerAgePreference.intValue];
-        [rangeSlider setTintColor:[UIColor simbiBlueColor]];
-        [rangeSlider addTarget:self action:@selector(agePreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
-        [cell.contentView addSubview:rangeSlider];
+        [self.ageRangeSlider setLowerValue:[SMBUser currentUser].lowerAgePreference.intValue];
+        [self.ageRangeSlider setTintColor:[UIColor simbiBlueColor]];
+        [self.ageRangeSlider addTarget:self action:@selector(agePreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
+        [cell.contentView addSubview:self.ageRangeSlider];
         
         if (!_agePreferenceLabel)
         {
@@ -156,21 +229,26 @@
         }
         [cell.contentView addSubview:_agePreferenceLabel];
         
-        [self agePreferenceDidChange:rangeSlider];
+        [self agePreferenceDidChange:self.ageRangeSlider];
     }
-    if (indexPath.row == 3)
+    if (indexPath.row==3) {
+        [cell addSubview:self.saveButton];
+        [self.saveButton setCenter:CGPointMake(self.view.frame.size.width/2, cell.frame.size.height/2)];
+    }
+    if (indexPath.row == 4)
     {
         [label setText:@"Height:"];
-        
-        NMRangeSlider *rangeSlider = [[NMRangeSlider alloc] initWithFrame:CGRectMake(22, 22, cell.frame.size.width-44-66, 88)];
-        [rangeSlider setMinimumValue:48.f];
-        [rangeSlider setMaximumValue:84.f];
-        [rangeSlider setMinimumRange:1.f];
-        [rangeSlider setUpperValue:72.f];
-        [rangeSlider setLowerValue:60.f];
-        [rangeSlider setTintColor:[UIColor simbiBlueColor]];
-        [rangeSlider addTarget:self action:@selector(heightPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
-        [cell.contentView addSubview:rangeSlider];
+        if (self.ageRangeSlider==nil) {
+            self.ageRangeSlider=[[NMRangeSlider alloc] initWithFrame:CGRectMake(22, 22, cell.frame.size.width-44-66, 88)];
+        }
+        [self.ageRangeSlider setMinimumValue:48.f];
+        [self.ageRangeSlider setMaximumValue:84.f];
+        [self.ageRangeSlider setMinimumRange:1.f];
+        [self.ageRangeSlider setUpperValue:72.f];
+        [self.ageRangeSlider setLowerValue:60.f];
+        [self.ageRangeSlider setTintColor:[UIColor simbiBlueColor]];
+        [self.ageRangeSlider addTarget:self action:@selector(heightPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
+        [cell.contentView addSubview:self.ageRangeSlider];
         
         if (!_heightPreferenceLabel)
         {
@@ -181,7 +259,7 @@
         }
         [cell.contentView addSubview:_heightPreferenceLabel];
         
-        [self heightPreferenceDidChange:rangeSlider];
+        [self heightPreferenceDidChange:self.ageRangeSlider];
     }
     if (indexPath.row == 4)
     {

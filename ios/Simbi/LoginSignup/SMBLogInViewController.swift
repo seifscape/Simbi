@@ -110,13 +110,14 @@ class SMBLogInViewController: SMBFormViewController {
                 hud.dismissQuickly()
                 
                 if (user as SMBUser).isConfirmed {
-                    
+                    println("aboutme:")
+                    println((user as SMBUser).aboutme)
+                    println("=======")
                     SMBAppDelegate.instance().syncUserInstallation()
                     
                     SMBFriendsManager.sharedManager().loadObjects(nil)
                     SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                     SMBChatManager.sharedManager().loadObjects(nil)
-                    
                     SMBAppDelegate.instance().animateToMain()
                 }
                 else {

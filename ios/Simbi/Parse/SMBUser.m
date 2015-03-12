@@ -56,6 +56,16 @@
 @dynamic credits;
 
 @dynamic visible;
+@dynamic aboutme;
+@dynamic ethnicity;
+@dynamic degree;
+@dynamic school;
+@dynamic tags;
+@dynamic MeetUpLocations;
+@dynamic MeetUpTimes;
+@dynamic occupation;
+@dynamic employer;
+@dynamic lookingto;
 #pragma mark - PFUser Helpers
 
 + (SMBUser *)currentUser

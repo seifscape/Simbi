@@ -172,10 +172,17 @@ class SMBMapViewController: UIViewController {
         self.view.addSubview(switchVisibleButton)
         
         //set the current user's visible or invisible
-        if SMBUser.currentUser().visible {
-            switchVisibleButton.selected = false
-        }else{
-            switchVisibleButton.selected = true
+        let obid = SMBUser.currentUser().objectId
+        let query = PFQuery(className: "_User")
+        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+            if obj==nil{
+                return
+            }
+            if (obj as SMBUser).visible {
+                switchVisibleButton.selected = false
+            }else{
+                switchVisibleButton.selected = true
+            }
         }
         
     }
@@ -312,6 +319,8 @@ class SMBMapViewController: UIViewController {
             println(friend.geoPoint.longitude)
             print("profitpic:")
             println(friend.profilePicture)
+            print("aboutme:")
+            println(friend.aboutme)
             println("==================================")
             if friend.geoPoint != nil && friend.visible {
                 

@@ -36,16 +36,15 @@
         
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setFrame:CGRectMake((self.frame.size.width-66)/2.f, 0, 66, 44)];
+        [button setFrame:CGRectMake((self.frame.size.width-66)/2.f, 0-5, 66, 44)];
         [button addTarget:delegate action:@selector(toggleActivityDrawer) forControlEvents:UIControlEventTouchUpInside];
         [button.layer setShadowColor:[UIColor blackColor].CGColor];
         [button.layer setShadowOpacity:0.33f];
         [button.layer setShadowRadius:1.f];
         [button.layer setShadowOffset:CGSizeMake(1.f, 1.f)];
-        
         // "Bullseye" view for button
         
-        UIView *outerCircleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+        UIView *outerCircleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 48, 48)];
         [outerCircleView setCenter:CGPointMake(button.frame.size.width/2.f, button.frame.size.height/2.f)];
         [outerCircleView setBackgroundColor:[UIColor simbiBlueColor]];
         [outerCircleView.layer setCornerRadius:outerCircleView.frame.size.width/2.f];
@@ -57,7 +56,7 @@
         [outerCircleView setUserInteractionEnabled:NO];
         [button addSubview:outerCircleView];
         
-        UIView *innerCircleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 8)];
+        UIView *innerCircleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
         [innerCircleView setCenter:CGPointMake(button.frame.size.width/2.f, button.frame.size.height/2.f)];
         [innerCircleView setBackgroundColor:[UIColor simbiGreenColor]];
         [innerCircleView.layer setCornerRadius:innerCircleView.frame.size.width/2.f];

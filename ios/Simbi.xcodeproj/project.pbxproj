@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1835FB181AA99C550068F60A /* selfInvisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB161AA99C550068F60A /* selfInvisible.png */; };
 		1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB191AA99CB90068F60A /* selfVisible.png */; };
+		18476B8E1AB036D700001DB3 /* cobe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18476B8D1AB036D700001DB3 /* cobe.jpg */; };
 		188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A8BAC1A8B02D10077073A /* libPods.a */; };
 		18DEBB891AADD23000EEE7C5 /* LiuMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB881AADD23000EEE7C5 /* LiuMyProfileViewController.swift */; };
 		18DEBB8D1AADD45400EEE7C5 /* SMBMyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB8B1AADD45400EEE7C5 /* SMBMyProfile.m */; };
@@ -308,6 +309,7 @@
 /* Begin PBXFileReference section */
 		1835FB161AA99C550068F60A /* selfInvisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfInvisible.png; sourceTree = "<group>"; };
 		1835FB191AA99CB90068F60A /* selfVisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfVisible.png; sourceTree = "<group>"; };
+		18476B8D1AB036D700001DB3 /* cobe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cobe.jpg; sourceTree = "<group>"; };
 		188A8B921A8AFDD30077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8B941A8B013C0077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8B961A8B01490077073A /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
@@ -1175,6 +1177,7 @@
 		525D2F3E1925560F00BBE955 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18476B8D1AB036D700001DB3 /* cobe.jpg */,
 				522DA5F719FADBED0086A25C /* Backgrounds */,
 				5283F8DB19CF5B3B0079B67D /* Main View Images */,
 				52A8101B195B272900CA4027 /* Simbi Icons */,
@@ -2308,6 +2311,7 @@
 				52CB1F7D1A02CFE1002FDA99 /* temp_background.png in Resources */,
 				5222D28119B0CFCD00DC5E76 /* DINOT-Light.otf in Resources */,
 				52AC78D3192663F80027EFC6 /* SimbiLogo2_temp.png in Resources */,
+				18476B8E1AB036D700001DB3 /* cobe.jpg in Resources */,
 				52B9B2FF19F80908009E8CE2 /* bubble_stroked@2x.png in Resources */,
 				5222D28419B0CFCD00DC5E76 /* DINOT-MediumItalic.otf in Resources */,
 				52B4401F19A25237008B4AFE /* simbi_bubble@2x.png in Resources */,
