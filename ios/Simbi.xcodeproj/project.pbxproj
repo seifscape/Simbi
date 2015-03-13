@@ -14,6 +14,15 @@
 		18472BB61AB289AB0006BC5C /* SMBContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18472BB51AB289AB0006BC5C /* SMBContactModel.swift */; };
 		18476B8E1AB036D700001DB3 /* cobe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18476B8D1AB036D700001DB3 /* cobe.jpg */; };
 		188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A8BAC1A8B02D10077073A /* libPods.a */; };
+		189398131AB309470081F8A7 /* mapButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893980A1AB309470081F8A7 /* mapButton@3x.png */; };
+		189398151AB309470081F8A7 /* mapButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893980C1AB309470081F8A7 /* mapButton@2x.png */; };
+		189398161AB309470081F8A7 /* mapButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893980D1AB309470081F8A7 /* mapButton.png */; };
+		1893981B1AB30CE20081F8A7 /* findButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189398181AB30CE20081F8A7 /* findButton@3x.png */; };
+		1893981C1AB30CE20081F8A7 /* findButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 189398191AB30CE20081F8A7 /* findButton.png */; };
+		1893981D1AB30CE20081F8A7 /* findButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893981A1AB30CE20081F8A7 /* findButton@2x.png */; };
+		189398211AB30DE40081F8A7 /* homeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893981E1AB30DE40081F8A7 /* homeButton@2x.png */; };
+		189398221AB30DE40081F8A7 /* homeButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1893981F1AB30DE40081F8A7 /* homeButton.png */; };
+		189398231AB30DE40081F8A7 /* homeButton@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 189398201AB30DE40081F8A7 /* homeButton@3x.png */; };
 		18DEBB891AADD23000EEE7C5 /* LiuMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB881AADD23000EEE7C5 /* LiuMyProfileViewController.swift */; };
 		18DEBB8D1AADD45400EEE7C5 /* SMBMyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB8B1AADD45400EEE7C5 /* SMBMyProfile.m */; };
 		18DEBB8E1AADD45400EEE7C5 /* SMBMyProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEBB8C1AADD45400EEE7C5 /* SMBMyProfile.xib */; };
@@ -330,6 +339,15 @@
 		188A8B9F1A8B01490077073A /* libPods-ParseUI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ParseUI.a"; path = "Pods/build/Debug-iphoneos/libPods-ParseUI.a"; sourceTree = "<group>"; };
 		188A8BA01A8B01490077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8BAC1A8B02D10077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = ../../ccc/libs/libPods.a; sourceTree = "<group>"; };
+		1893980A1AB309470081F8A7 /* mapButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapButton@3x.png"; sourceTree = "<group>"; };
+		1893980C1AB309470081F8A7 /* mapButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapButton@2x.png"; sourceTree = "<group>"; };
+		1893980D1AB309470081F8A7 /* mapButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapButton.png; sourceTree = "<group>"; };
+		189398181AB30CE20081F8A7 /* findButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "findButton@3x.png"; sourceTree = "<group>"; };
+		189398191AB30CE20081F8A7 /* findButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = findButton.png; sourceTree = "<group>"; };
+		1893981A1AB30CE20081F8A7 /* findButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "findButton@2x.png"; sourceTree = "<group>"; };
+		1893981E1AB30DE40081F8A7 /* homeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeButton@2x.png"; sourceTree = "<group>"; };
+		1893981F1AB30DE40081F8A7 /* homeButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeButton.png; sourceTree = "<group>"; };
+		189398201AB30DE40081F8A7 /* homeButton@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeButton@3x.png"; sourceTree = "<group>"; };
 		18DEBB881AADD23000EEE7C5 /* LiuMyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiuMyProfileViewController.swift; sourceTree = "<group>"; };
 		18DEBB8A1AADD45400EEE7C5 /* SMBMyProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBMyProfile.h; sourceTree = "<group>"; };
 		18DEBB8B1AADD45400EEE7C5 /* SMBMyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBMyProfile.m; sourceTree = "<group>"; };
@@ -1415,6 +1433,15 @@
 		5283F8DB19CF5B3B0079B67D /* Main View Images */ = {
 			isa = PBXGroup;
 			children = (
+				1893981E1AB30DE40081F8A7 /* homeButton@2x.png */,
+				1893981F1AB30DE40081F8A7 /* homeButton.png */,
+				189398201AB30DE40081F8A7 /* homeButton@3x.png */,
+				1893980A1AB309470081F8A7 /* mapButton@3x.png */,
+				189398181AB30CE20081F8A7 /* findButton@3x.png */,
+				189398191AB30CE20081F8A7 /* findButton.png */,
+				1893981A1AB30CE20081F8A7 /* findButton@2x.png */,
+				1893980C1AB309470081F8A7 /* mapButton@2x.png */,
+				1893980D1AB309470081F8A7 /* mapButton.png */,
 				52E3958F1A15471400496AC9 /* credits_twitter_logo.png */,
 				52E395901A15471400496AC9 /* credits_facebook_logo.png */,
 				52E395891A15444600496AC9 /* credits_icon.png */,
@@ -2322,9 +2349,11 @@
 				52CB1F7D1A02CFE1002FDA99 /* temp_background.png in Resources */,
 				5222D28119B0CFCD00DC5E76 /* DINOT-Light.otf in Resources */,
 				52AC78D3192663F80027EFC6 /* SimbiLogo2_temp.png in Resources */,
+				189398231AB30DE40081F8A7 /* homeButton@3x.png in Resources */,
 				18476B8E1AB036D700001DB3 /* cobe.jpg in Resources */,
 				52B9B2FF19F80908009E8CE2 /* bubble_stroked@2x.png in Resources */,
 				5222D28419B0CFCD00DC5E76 /* DINOT-MediumItalic.otf in Resources */,
+				189398151AB309470081F8A7 /* mapButton@2x.png in Resources */,
 				52B4401F19A25237008B4AFE /* simbi_bubble@2x.png in Resources */,
 				52561143192A97A2005A0049 /* SeroOT-Medium.otf in Resources */,
 				52AC78D4192663F80027EFC6 /* SimbiLogo2_temp@2x.png in Resources */,
@@ -2332,6 +2361,7 @@
 				52426C2F1954D9FD004D7225 /* redBox2.png in Resources */,
 				5266D53F195CB0AC00F4891B /* leprechaun.png in Resources */,
 				1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */,
+				189398131AB309470081F8A7 /* mapButton@3x.png in Resources */,
 				52B9B30219F80908009E8CE2 /* bubble_tailless.png in Resources */,
 				5222D27F19B0CFCD00DC5E76 /* DINOT-CondMedium.otf in Resources */,
 				527E5D3D1959B94A00F0F58B /* Silhouette.png in Resources */,
@@ -2357,6 +2387,7 @@
 				52B9B32D19F80A05009E8CE2 /* chat_icon.png in Resources */,
 				52B9B2FB19F80908009E8CE2 /* bubble_min@2x.png in Resources */,
 				52B9B33919F80A74009E8CE2 /* chat_icon_white.png in Resources */,
+				189398211AB30DE40081F8A7 /* homeButton@2x.png in Resources */,
 				5222D29F19B0E2DE00DC5E76 /* pulluparrow.png in Resources */,
 				525D2F421925563F00BBE955 /* SimbiLogo_temp@2x.png in Resources */,
 				52B9B32E19F80A05009E8CE2 /* chat_icon@2x.png in Resources */,
@@ -2373,10 +2404,12 @@
 				529FE8261922B13000A7C5C4 /* Images.xcassets in Resources */,
 				52E395911A15471400496AC9 /* credits_twitter_logo.png in Resources */,
 				5222D2A719B0E2F500DC5E76 /* mapicon.png in Resources */,
+				1893981D1AB30CE20081F8A7 /* findButton@2x.png in Resources */,
 				523D9E271953848300F754A9 /* Bariol-Regular.otf in Resources */,
 				52A81027195B274100CA4027 /* Icon-Small.png in Resources */,
 				5222D29719B0D9F400DC5E76 /* gamesicon@2x.png in Resources */,
 				52B9B2FE19F80908009E8CE2 /* bubble_stroked.png in Resources */,
+				189398161AB309470081F8A7 /* mapButton.png in Resources */,
 				52A81028195B274100CA4027 /* Icon-76@2x.png in Resources */,
 				5222D28019B0CFCD00DC5E76 /* DINOT-CondRegular.otf in Resources */,
 				52B9B30319F80908009E8CE2 /* bubble_tailless@2x.png in Resources */,
@@ -2395,11 +2428,13 @@
 				5222D29619B0D9F400DC5E76 /* gamesicon.png in Resources */,
 				5222D27D19B0CFCD00DC5E76 /* DINOT-CondBold.otf in Resources */,
 				52B9B2F819F80908009E8CE2 /* bubble.png in Resources */,
+				1893981C1AB30CE20081F8A7 /* findButton.png in Resources */,
 				52B9B32619F80908009E8CE2 /* JSQMessagesToolbarContentView.xib in Resources */,
 				5222D29919B0D9F400DC5E76 /* homecircleicon@2x.png in Resources */,
 				522DA60319FB0DCD0086A25C /* exploding_phone.png in Resources */,
 				52561140192A97A2005A0049 /* SeroOT.otf in Resources */,
 				52561141192A97A2005A0049 /* SeroOT-Extralight.otf in Resources */,
+				1893981B1AB30CE20081F8A7 /* findButton@3x.png in Resources */,
 				52B9B2FD19F80908009E8CE2 /* bubble_min_tailless@2x.png in Resources */,
 				52B9B32419F80908009E8CE2 /* JSQMessagesLoadEarlierHeaderView.xib in Resources */,
 				52B9B33519F80A12009E8CE2 /* menu_icon@3x.png in Resources */,
@@ -2409,6 +2444,7 @@
 				52B9B30919F80908009E8CE2 /* message_sent.aiff in Resources */,
 				52B9B30419F80908009E8CE2 /* camera.png in Resources */,
 				52B9B33B19F80A74009E8CE2 /* chat_icon_white@3x.png in Resources */,
+				189398221AB30DE40081F8A7 /* homeButton.png in Resources */,
 				52CB1F7A1A02CCA7002FDA99 /* random_user@2x.png in Resources */,
 				52CB1F741A02CC9C002FDA99 /* 1st_pref@2x.png in Resources */,
 				52E0AD1A1937BDD900D1CCDD /* Chat_Icon@2x.png in Resources */,
