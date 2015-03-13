@@ -105,4 +105,5 @@ typedef enum SMBUserPreference : NSInteger
 @property (retain) NSArray* MeetUpTimes;
 @property (retain) NSString* occupation;
 @property (retain) NSString* employer;
+@property (retain) NSArray* ContactList;
 @end

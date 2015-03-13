@@ -26,8 +26,18 @@ class SMBFriendsListModel: NSObject {
     var cell: SMBFriendsListCell?
     
     var isProcessingRequest = false
+    var type = 0
     
-    
+    var fullname:String = ""
+    var phoneNo = ""
+    override init() {
+        self.user = SMBUser.currentUser()
+    }
+    init(name:String,phone:String){
+        self.user = SMBUser.currentUser()
+        self.fullname = name
+        self.phoneNo = phone
+    }
     init(user: SMBUser) {
         self.user = user
     }
@@ -45,6 +55,22 @@ class SMBFriendsListModel: NSObject {
         if cell == nil {
             cell = SMBFriendsListCell(style: .Default, reuseIdentifier: SMBFriendsListModel.cellReuse())
         }
+        
+        if type ==  2{
+            cell?.nameLabel.text = self.fullname
+            cell?.emailLabel.text = self.phoneNo
+            
+            
+            cell?.requesetButton.hidden = true
+            cell?.acceptButton.hidden = true
+            cell?.inviteButton.hidden = false
+            cell!.activityIndicator.hidden = true
+            cell?.inviteButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+
+            cell!.inviteButton.addTarget(self, action: "inviteFriends:", forControlEvents: .TouchUpInside)
+            return cell!
+        }
+        
         
         cell!.user = user
         
@@ -67,13 +93,29 @@ class SMBFriendsListModel: NSObject {
             cell!.acceptButton.hidden = true
             cell!.activityIndicator.hidden = true
         }
-        
+        if type==1 {
+            cell?.requesetButton.hidden = false
+            cell?.acceptButton.hidden = true
+            cell?.inviteButton.hidden = true
+            cell!.activityIndicator.hidden = true
+            
+            cell!.requesetButton.addTarget(self, action: "requestFriend:", forControlEvents: .TouchUpInside)
+        }
         return cell!
     }
-    
+    func inviteFriends(sender: AnyObject) {
+        print("phone:")
+        println(self.phoneNo)
+       // println(NSString(format: "invite phone:%s",self.phoneNo))
+    }
+    func requestFriend(sender: AnyObject) {
+        println(self.user.objectId)
+        //println(NSString(format: "request friend:%s",self.user.objectId))
+    }
     
     func acceptFriendRequest(sender: AnyObject) {
         
+        return
         if let request = self.request {
             
             isProcessingRequest = true

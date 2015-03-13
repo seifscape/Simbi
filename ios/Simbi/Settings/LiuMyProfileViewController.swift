@@ -449,6 +449,7 @@ import Foundation
         if obid=="" {
             return
         }
+        let hud = MBProgressHUD.HUDwithMessage("Saving ....", parent: self)
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
             if obj==nil{
@@ -469,11 +470,16 @@ import Foundation
             obj["MeetUpTimes"] = self.meetUpTimeSelectedArray
             
             obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError!) -> Void in
-                let alert = UIAlertView()
-                alert.title = "Tip"
-                alert.message = succ ? "save success!":"save failed!"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+//                let alert = UIAlertView()
+//                alert.title = "Tip"
+//                alert.message = succ ? "save success!":"save failed!"
+//                alert.addButtonWithTitle("Ok")
+//                alert.show()
+                if succ == true{
+                 hud.dismissWithMessage("save success!")
+                }else{
+                 hud.dismissWithMessage("save failed!")
+                }
              })
         }
     }
@@ -650,14 +656,18 @@ import Foundation
     }
     override func viewDidAppear(animated: Bool) {
         //updateViewData()
+        let hud = MBProgressHUD.HUDwithMessage("Loading ....", parent: self)
+        
         let obid = SMBUser.currentUser().objectId
         if obid=="" {
+            hud.dismissQuickly()
             return
         }
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
             self.currentUS = obj as SMBUser
             self.updateViewData()
+            hud.dismissQuickly()
         }
 
     }

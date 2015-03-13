@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1835FB181AA99C550068F60A /* selfInvisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB161AA99C550068F60A /* selfInvisible.png */; };
 		1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB191AA99CB90068F60A /* selfVisible.png */; };
+		18472BB21AB27EDC0006BC5C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18472BB11AB27EDC0006BC5C /* AddressBook.framework */; };
+		18472BB41AB27EE40006BC5C /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18472BB31AB27EE40006BC5C /* AddressBookUI.framework */; };
+		18472BB61AB289AB0006BC5C /* SMBContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18472BB51AB289AB0006BC5C /* SMBContactModel.swift */; };
 		18476B8E1AB036D700001DB3 /* cobe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18476B8D1AB036D700001DB3 /* cobe.jpg */; };
 		188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 188A8BAC1A8B02D10077073A /* libPods.a */; };
 		18DEBB891AADD23000EEE7C5 /* LiuMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB881AADD23000EEE7C5 /* LiuMyProfileViewController.swift */; };
@@ -309,6 +312,9 @@
 /* Begin PBXFileReference section */
 		1835FB161AA99C550068F60A /* selfInvisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfInvisible.png; sourceTree = "<group>"; };
 		1835FB191AA99CB90068F60A /* selfVisible.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selfVisible.png; sourceTree = "<group>"; };
+		18472BB11AB27EDC0006BC5C /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		18472BB31AB27EE40006BC5C /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		18472BB51AB289AB0006BC5C /* SMBContactModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBContactModel.swift; sourceTree = "<group>"; };
 		18476B8D1AB036D700001DB3 /* cobe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cobe.jpg; sourceTree = "<group>"; };
 		188A8B921A8AFDD30077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		188A8B941A8B013C0077073A /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -740,6 +746,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18472BB41AB27EE40006BC5C /* AddressBookUI.framework in Frameworks */,
+				18472BB21AB27EDC0006BC5C /* AddressBook.framework in Frameworks */,
 				188A8BAD1A8B02D10077073A /* libPods.a in Frameworks */,
 				5233EA101948D41900C4095C /* Foundation.framework in Frameworks */,
 				52D1666F1948D1EC003F85E6 /* CoreFoundation.framework in Frameworks */,
@@ -1500,6 +1508,8 @@
 		529FE8121922B13000A7C5C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18472BB31AB27EE40006BC5C /* AddressBookUI.framework */,
+				18472BB11AB27EDC0006BC5C /* AddressBook.framework */,
 				188A8BAC1A8B02D10077073A /* libPods.a */,
 				188A8B961A8B01490077073A /* libPods-AFNetworking.a */,
 				188A8B971A8B01490077073A /* libPods-Bolts.a */,
@@ -2058,6 +2068,7 @@
 				522DA5FE19FAE3A50086A25C /* SMBFormViewController.swift */,
 				5282CC351A19428800EF7EF6 /* SMBCountryPicker.swift */,
 				5282CC371A194AA700EF7EF6 /* SMBCountries.swift */,
+				18472BB51AB289AB0006BC5C /* SMBContactModel.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -2524,6 +2535,7 @@
 				522DA5FF19FAE3A50086A25C /* SMBFormViewController.swift in Sources */,
 				525D2F3D19254B0100BBE955 /* SMBActivityCell.m in Sources */,
 				521422F819FA986C00DC658D /* SMBNavigationController.swift in Sources */,
+				18472BB61AB289AB0006BC5C /* SMBContactModel.swift in Sources */,
 				5282CC381A194AA700EF7EF6 /* SMBCountries.swift in Sources */,
 				52277598192FCB5C00CFE510 /* UIButton+Simbi.m in Sources */,
 				5204B30619EAB8FF00D9680E /* CGFloatHelper.swift in Sources */,

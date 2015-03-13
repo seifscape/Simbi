@@ -68,20 +68,13 @@
     //[self.view bringSubviewToFront:saveButton];
 }
 - (void)saveButtonClicked:(UIButton*)sender{
-//    let obid = SMBUser.currentUser().objectId
-//    if obid=="" {
-//        return
-//    }
-//    let query = PFQuery(className: "_User")
-//    query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
-//        if obj==nil{
-//            return
-//        }
-//        obj["gender"] = self.genderButton.titleLabel?.text
     NSString* obid = [[SMBUser currentUser] objectId];
+    MBProgressHUD* hud =[MBProgressHUD HUDwithMessage:@"Saving ..." parent:self];
     if (obid==@"") {
+        [hud dismissWithMessage:@"Save failed!"];
         return;
     }
+    
     PFQuery* query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
         object[@"lookingto"] = [NSString stringWithFormat:@"%d",self.lookingtoSegmentedControl.selectedSegmentIndex];
@@ -89,22 +82,29 @@
         object[@"upperAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.upperValue];
         object[@"lowerAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.lowerValue];
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-           
-            UIAlertView* alert = [UIAlertView new];
-            [alert setTitle:@"Tip"];
-            [alert setMessage:succeeded?@"Save success!":@"Save failed!"];
-            [alert addButtonWithTitle:@"Ok"];
-            [alert show];
+//           
+//            UIAlertView* alert = [UIAlertView new];
+//            [alert setTitle:@"Tip"];
+//            [alert setMessage:succeeded?@"Save success!":@"Save failed!"];
+//            [alert addButtonWithTitle:@"Ok"];
+//            [alert show];
+            if (succeeded == true){
+                [hud dismissWithMessage:@"Save success!"];
+            }else{
+                [hud dismissWithMessage:@"Save failed!"];
+            }
         }];
     }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    MBProgressHUD* hud =[MBProgressHUD HUDwithMessage:@"Loading ..." parent:self];
     [super viewWillAppear:animated];
     [[SMBAppDelegate instance] enableSideMenuGesture:NO];
     NSString* obid = [[SMBUser currentUser] objectId];
     if (obid==@"") {
+        [hud dismissQuickly];
         return;
     }
     PFQuery* query = [PFQuery queryWithClassName:@"_User"];
@@ -118,6 +118,7 @@
         [self.ageRangeSlider setUpperValue:user.upperAgePreference.intValue];
         [self.ageRangeSlider setLowerValue:user.lowerAgePreference.intValue];
         [self agePreferenceDidChange:self.ageRangeSlider];
+        [hud dismissQuickly];
     }];
 }
 

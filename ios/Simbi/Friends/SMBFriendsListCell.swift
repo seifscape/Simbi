@@ -19,7 +19,8 @@ class SMBFriendsListCell: UITableViewCell {
     let emailLabel          = UILabel()
     let acceptButton        = UIButton()
     let activityIndicator   = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-    
+    let requesetButton      = UIButton()
+    let inviteButton        = UIButton()
     var user: SMBUser?
     
     
@@ -50,6 +51,20 @@ class SMBFriendsListCell: UITableViewCell {
         acceptButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 32)
         acceptButton.hidden = true
         self.addSubview(acceptButton)
+        
+        requesetButton.frame = CGRectMake(self.frame.width-55, 0, 55, 44)
+        requesetButton.setTitle("request", forState: .Normal)
+        requesetButton.setTitleColor(UIColor.simbiBlueColor(), forState: .Normal)
+        requesetButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
+        requesetButton.hidden = true
+        self.addSubview(requesetButton)
+        
+        inviteButton.frame = CGRectMake(self.frame.width-55, 0, 55, 44)
+        inviteButton.setTitle("invite", forState: .Normal)
+        inviteButton.setTitleColor(UIColor.simbiBlueColor(), forState: .Normal)
+        inviteButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
+        inviteButton.hidden = true
+        self.addSubview(inviteButton)
         
         activityIndicator.frame = acceptButton.frame
         activityIndicator.hidden = true

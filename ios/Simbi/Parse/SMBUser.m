@@ -66,6 +66,7 @@
 @dynamic occupation;
 @dynamic employer;
 @dynamic lookingto;
+@dynamic ContactList;
 #pragma mark - PFUser Helpers
 
 + (SMBUser *)currentUser
