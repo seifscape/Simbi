@@ -258,6 +258,7 @@ import Foundation
         genderButton.frame.size = CGSize(width: 100,height: 30)
         genderButton.frame.origin = CGPoint(x: 110,y: 265)
         genderButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        genderButton.backgroundColor = UIColor.whiteColor()
         
         ageButton.tag = 150
         ageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
@@ -266,6 +267,7 @@ import Foundation
         ageButton.frame.size = CGSize(width: 50,height: 30)
         ageButton.frame.origin = CGPoint(x: ageLabel.frame.origin.x+50,y: ageLabel.frame.origin.y+5)
         ageButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        ageButton.backgroundColor = UIColor.whiteColor()
         
         heightButton.tag = 151
         heightButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
@@ -275,14 +277,16 @@ import Foundation
         heightButton.frame.size = CGSize(width: 50,height: 30)
         heightButton.frame.origin = CGPoint(x: heightLabel.frame.origin.x+70,y: heightLabel.frame.origin.y+5)
         heightButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        heightButton.backgroundColor = UIColor.whiteColor()
         
         ethnicityButton.tag = 152
         ethnicityButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
         ethnicityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         ethnicityButton.setTitle("ethnicity",forState:UIControlState.allZeros)
-        ethnicityButton.frame.size = CGSize(width: 200,height: 30)
+        ethnicityButton.frame.size = CGSize(width: 170,height: 30)
         ethnicityButton.frame.origin = CGPoint(x:ethnicityLabel.frame.origin.x+100,y: ethnicityLabel.frame.origin.y+5)
         ethnicityButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        ethnicityButton.backgroundColor = UIColor.whiteColor()
         
         degreeButton.tag = 153
         degreeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
@@ -291,6 +295,7 @@ import Foundation
         degreeButton.frame.size = CGSize(width: 200,height: 30)
         degreeButton.frame.origin = CGPoint(x:degreeLabel.frame.origin.x+80,y: degreeLabel.frame.origin.y+5)
         degreeButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
+        degreeButton.backgroundColor = UIColor.whiteColor()
         
         aboutEdit.frame.size = CGSize(width: self.view.frame.width-40, height: 80)
         aboutEdit.frame.origin = CGPoint(x: 20, y: 410)
@@ -607,7 +612,6 @@ import Foundation
         parent!.scrollView.scrollEnabled = true
     }
     func updateViewData(){
-        
         //self.tagsSelectedArray.addObjectsFromArray(self.currentUS.tags)
         if !(self.currentUS.tags==nil){
             for obj in self.currentUS.tags{
@@ -624,15 +628,15 @@ import Foundation
                 meetUpLocationsSelectedArray.addObject(obj)
             }
         }
-        self.genderButton.setTitle(self.currentUS.gender, forState: UIControlState.allZeros)
-        self.ageButton.setTitle(self.currentUS.age.stringValue, forState: UIControlState.allZeros)
-    self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as String, forState: UIControlState.allZeros)
-        self.ethnicityButton.setTitle(self.currentUS.ethnicity, forState: UIControlState.allZeros)
-        self.aboutEdit.text = self.currentUS.aboutme
-        self.occupationEdit.text = self.currentUS.occupation
-        self.employerEdit.text = self.currentUS.employer
-        self.degreeButton.setTitle(self.currentUS.degree, forState: UIControlState.allZeros)
-        self.schoolEdit.text = self.currentUS.school
+        self.genderButton.setTitle(self.currentUS.gender?, forState: UIControlState.allZeros)
+        self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
+        self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as String, forState: UIControlState.allZeros)
+        self.ethnicityButton.setTitle(self.currentUS.ethnicity?, forState: UIControlState.allZeros)
+        self.aboutEdit.text = self.currentUS.aboutme?
+        self.occupationEdit.text = self.currentUS.occupation?
+        self.employerEdit.text = self.currentUS.employer?
+        self.degreeButton.setTitle(self.currentUS.degree?, forState: UIControlState.allZeros)
+        self.schoolEdit.text = self.currentUS.school?
         for object in self.scrollInfoView.subviews{
             if object.tag == 190{
                 let str = (object as UIButton).titleLabel?.text

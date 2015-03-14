@@ -105,7 +105,9 @@ class SMBFriendsListViewController: UITableViewController {
                 //SMBFriendsManager.sharedManager().friendsObjectIds().IndexOfObject((object as SMBUser).objectId)
                 var isSimibiFriend = false
                 var phoneNo = (object as SMBUser).phoneNumber as String
-                self.simbiUserPhoneInContact.addObject(phoneNo)
+                if !((object as SMBUser).objectId == SMBUser.currentUser().objectId){
+                        self.simbiUserPhoneInContact.addObject(phoneNo)
+                    }
                 for simbifriend in SMBFriendsManager.sharedManager().objects{
                     if (simbifriend as SMBUser).objectId == (object as SMBUser).objectId{
                         isSimibiFriend = true

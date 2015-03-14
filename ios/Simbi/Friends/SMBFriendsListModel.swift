@@ -104,27 +104,35 @@ class SMBFriendsListModel: NSObject {
         return cell!
     }
     func inviteFriends(sender: AnyObject) {
-        print("phone:")
-        println(self.phoneNo)
-       // println(NSString(format: "invite phone:%s",self.phoneNo))
+//        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: s)
+        var dic:NSMutableDictionary = NSMutableDictionary()
+        dic.setValue(self.phoneNo, forKey: "phoneNumber")
+        PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic) { (obj:AnyObject!, err:NSError!) -> Void in
+            
+        }
     }
     func requestFriend(sender: AnyObject) {
+        //let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: self)
+        var dic:NSMutableDictionary = NSMutableDictionary()
+        var userid = self.user.objectId
+        dic.setValue(userid, forKey: "toUser")
+        PFCloud.callFunctionInBackground("sendFriendRequest", withParameters: dic) { (obj:AnyObject!, err:NSError!) -> Void in
+            sender.setTitle("requested", forState: .Normal)
+        }
         println(self.user.objectId)
-        //println(NSString(format: "request friend:%s",self.user.objectId))
     }
     
     func acceptFriendRequest(sender: AnyObject) {
         
-        return
         if let request = self.request {
             
             isProcessingRequest = true
             
             cell?.animateAcceptButton()
-            
-            let params = ["friendRequest": request.objectId]
+            var dic:NSMutableDictionary = NSMutableDictionary()
+            dic.setValue(request.objectId, forKey: "friendRequest")
                         
-            PFCloud.callFunctionInBackground("acceptFriendRequest", withParameters: params, block: { (object: AnyObject?, error: NSError?) -> Void in
+            PFCloud.callFunctionInBackground("acceptFriendRequest", withParameters: dic, block: { (object: AnyObject?, error: NSError?) -> Void in
                 
                 self.isProcessingRequest = false
                 
