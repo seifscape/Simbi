@@ -89,6 +89,7 @@ class SMBFriendsListViewController: UITableViewController {
                 model.fullname = name as String
                 model.phoneNo = phoneNo
                 model.type = 2
+                model.parent = self
                 self.objectsNotInSimbiAndButInContacts.append(model)
             }
         }
@@ -120,6 +121,7 @@ class SMBFriendsListViewController: UITableViewController {
                 var model:SMBFriendsListModel
                 model = SMBFriendsListModel(user: object as SMBUser)
                 model.type = 1
+                model.parent = self
                 self.objectsInSimbiAndContactsButNotSimbiFrieds.append(model)
             }
             self.loadContactNotInSimi(contacts)

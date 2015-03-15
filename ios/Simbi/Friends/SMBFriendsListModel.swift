@@ -19,7 +19,7 @@ class SMBFriendsListModel: NSObject {
     
     
     // MARK: - Implementation
-    
+    var parent:UIViewController = UIViewController()
     let user: SMBUser
     var request: SMBFriendRequest?
     
@@ -104,20 +104,32 @@ class SMBFriendsListModel: NSObject {
         return cell!
     }
     func inviteFriends(sender: AnyObject) {
-//        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: s)
+        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent:self.parent)
+
         var dic:NSMutableDictionary = NSMutableDictionary()
         dic.setValue(self.phoneNo, forKey: "phoneNumber")
         PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic) { (obj:AnyObject!, err:NSError!) -> Void in
-            
+            if err==nil {
+                (sender as UIButton).hidden = true
+                hud.dismissWithMessage("Invited sucuss!")
+            }else{
+                hud.dismissWithMessage("Invited failed!")
+            }
         }
     }
     func requestFriend(sender: AnyObject) {
-        //let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: self)
+        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: self.parent)
         var dic:NSMutableDictionary = NSMutableDictionary()
         var userid = self.user.objectId
         dic.setValue(userid, forKey: "toUser")
         PFCloud.callFunctionInBackground("sendFriendRequest", withParameters: dic) { (obj:AnyObject!, err:NSError!) -> Void in
-            sender.setTitle("requested", forState: .Normal)
+            //sender.setTitle("requested", forState: .Normal)
+            if err==nil {
+                (sender as UIButton).hidden = true
+                hud.dismissWithMessage("Request sucuss!")
+            }else{
+                hud.dismissWithMessage("Request failed!")
+            }
         }
         println(self.user.objectId)
     }

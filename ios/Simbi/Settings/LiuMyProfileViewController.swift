@@ -21,7 +21,7 @@ import Foundation
     let ageArray = ["18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","50"]
     let agePickerView =  UIPickerView()
     
-    let heightArray:NSArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","5’12\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"","6’12\"",">7’"]
+    let heightArray:NSMutableArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","5’12\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"","6’12\"",">7’"]
     let heightDoubleArray:NSArray = [5.0, 5.1, 5.2, 5.3, 5.4,5.5, 5.6, 5.7,5.8,5.9,5.10,5.11,5.12,6.0,6.1, 6.2,6.3,6.4,6.5,6.6,6.7,6.8,6.9,6.10, 6.11,6.12,7]
     
     let tagsArray = ["Foodie","Wino","Beer Connoisseur","World Trekker","Early Bird","Night Owl","Entertainer","Wizard","Wordsmith","Cinephile","Book Worm","Technologist","Disco Disco!","Sports Junkie","#iworkout","Cyclist","Beach Bum","Thrill Seeker","Outdoorsmen","Politics"," Sure.","Satirist","Health Nut","Animal Lover","Guy Fieri Fan"]
@@ -254,7 +254,7 @@ import Foundation
         genderButton.tag = 149
         genderButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
         genderButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        genderButton.setTitle("gender",forState:UIControlState.allZeros)
+        genderButton.setTitle(self.genderArray[0],forState:UIControlState.allZeros)
         genderButton.frame.size = CGSize(width: 100,height: 30)
         genderButton.frame.origin = CGPoint(x: 110,y: 265)
         genderButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
@@ -263,7 +263,7 @@ import Foundation
         ageButton.tag = 150
         ageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
         ageButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        ageButton.setTitle("age",forState:UIControlState.allZeros)
+        ageButton.setTitle(self.ageArray[0],forState:UIControlState.allZeros)
         ageButton.frame.size = CGSize(width: 50,height: 30)
         ageButton.frame.origin = CGPoint(x: ageLabel.frame.origin.x+50,y: ageLabel.frame.origin.y+5)
         ageButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
@@ -273,7 +273,7 @@ import Foundation
         heightButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
         
         heightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        heightButton.setTitle("height",forState:UIControlState.allZeros)
+        heightButton.setTitle(self.heightArray.objectAtIndex(0) as String,forState:UIControlState.allZeros)
         heightButton.frame.size = CGSize(width: 50,height: 30)
         heightButton.frame.origin = CGPoint(x: heightLabel.frame.origin.x+70,y: heightLabel.frame.origin.y+5)
         heightButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
@@ -291,7 +291,7 @@ import Foundation
         degreeButton.tag = 153
         degreeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
         degreeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        degreeButton.setTitle("degree",forState:UIControlState.allZeros)
+        degreeButton.setTitle(self.degreeArray[0],forState:UIControlState.allZeros)
         degreeButton.frame.size = CGSize(width: 200,height: 30)
         degreeButton.frame.origin = CGPoint(x:degreeLabel.frame.origin.x+80,y: degreeLabel.frame.origin.y+5)
         degreeButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
@@ -333,9 +333,9 @@ import Foundation
             var buttonY = Int(meetupLocationsLabel.frame.origin.y+meetupLocationsLabel.frame.size.height)+(locationButtonHeight+5)*((locationIndex)/numberperRow)
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             button.setTitle(location, forState:UIControlState.allZeros)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
-            button.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
             locationIndex++
@@ -355,9 +355,9 @@ import Foundation
             var buttonY = Int(meetupTimeLabel.frame.origin.y+meetupTimeLabel.frame.size.height)+(timeButtonHeight+5)*((timeIndex)/timeNumberperRow)
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             button.setTitle(location, forState:UIControlState.allZeros)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
-            button.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
             timeIndex++
@@ -377,9 +377,9 @@ import Foundation
             var buttonY = Int(tagsLabel.frame.origin.y+tagsLabel.frame.size.height)+(tagsButtonHeight+5)*((tagsIndex)/tagsNumberperRow)
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             button.setTitle(location, forState:UIControlState.allZeros)
-            button.setTitleColor(UIColor.grayColor(), forState: UIControlState.Normal)
-            button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Selected)
-            button.backgroundColor = UIColor.whiteColor()
+            button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+            button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
+            button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
             tagsIndex++
@@ -450,14 +450,17 @@ import Foundation
         self.view.addGestureRecognizer(tapGr)
     }
     func saveButtonClicked(sender:UIButton){
+        let hud = MBProgressHUD.HUDwithMessage("Saving ....", parent: self)
         let obid = SMBUser.currentUser().objectId
+        println(obid)
         if obid=="" {
+            hud.dismissWithMessage("save failed!")
             return
         }
-        let hud = MBProgressHUD.HUDwithMessage("Saving ....", parent: self)
         let query = PFQuery(className: "_User")
         query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
-            if obj==nil{
+            if !(err==nil){
+                hud.dismissWithMessage("save failed!")
                 return
             }
             obj["gender"] = self.genderButton.titleLabel?.text
@@ -509,6 +512,11 @@ import Foundation
     }
     func blockButtonDown(sender:UIButton){
         sender.selected = !sender.selected
+        if sender.selected == true{
+           (sender as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+        }else{
+            (sender as UIButton).backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
+        }
         if sender.tag == 190{
             let str = sender.titleLabel?.text
             if sender.selected{
@@ -630,7 +638,9 @@ import Foundation
         }
         self.genderButton.setTitle(self.currentUS.gender?, forState: UIControlState.allZeros)
         self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
-        self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as String, forState: UIControlState.allZeros)
+        if !(self.currentUS.height == nil){
+            self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as String, forState: UIControlState.allZeros)
+        }
         self.ethnicityButton.setTitle(self.currentUS.ethnicity?, forState: UIControlState.allZeros)
         self.aboutEdit.text = self.currentUS.aboutme?
         self.occupationEdit.text = self.currentUS.occupation?
@@ -642,18 +652,21 @@ import Foundation
                 let str = (object as UIButton).titleLabel?.text
                 if self.meetUpLocationsSelectedArray.indexOfObject(str!) != NSNotFound{
                     (object as UIButton).selected = true
+                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 191{
                 let str = (object as UIButton).titleLabel?.text
                 if self.meetUpTimeSelectedArray.indexOfObject(str!) != NSNotFound{
                     (object as UIButton).selected = true
+                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 192{
                 let str = (object as UIButton).titleLabel?.text
                 if self.tagsSelectedArray.indexOfObject(str!) != NSNotFound{
                     (object as UIButton).selected = true
+                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
             }
         }
