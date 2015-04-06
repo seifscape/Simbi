@@ -21,8 +21,8 @@ import Foundation
     let ageArray = ["18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","50"]
     let agePickerView =  UIPickerView()
     
-    let heightArray:NSMutableArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","5’12\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"","6’12\"",">7’"]
-    let heightDoubleArray:NSArray = [5.0, 5.1, 5.2, 5.3, 5.4,5.5, 5.6, 5.7,5.8,5.9,5.10,5.11,5.12,6.0,6.1, 6.2,6.3,6.4,6.5,6.6,6.7,6.8,6.9,6.10, 6.11,6.12,7]
+    let heightArray:NSMutableArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"",">7’"]
+    let heightDoubleArray:NSArray = [60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81,82, 83, 84]
     
     let tagsArray = ["Foodie","Wino","Beer Connoisseur","World Trekker","Early Bird","Night Owl","Entertainer","Wizard","Wordsmith","Cinephile","Book Worm","Technologist","Disco Disco!","Sports Junkie","#iworkout","Cyclist","Beach Bum","Thrill Seeker","Outdoorsmen","Politics"," Sure.","Satirist","Health Nut","Animal Lover","Guy Fieri Fan"]
     

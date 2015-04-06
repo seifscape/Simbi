@@ -114,7 +114,7 @@ class SMBRandomUsersViewController: UIViewController {
         self.view.addSubview(activityIndicatorView)
         
         let query = PFQuery(className: "_User")
-        query.cachePolicy = kPFCachePolicyNetworkOnly
+//        query.cachePolicy = kPFCachePolicyNetworkOnly
         query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId)
         query.includeKey("profilePicture")
         query.includeKey("hairColor")
