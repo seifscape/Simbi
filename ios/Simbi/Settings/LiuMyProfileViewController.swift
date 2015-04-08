@@ -94,7 +94,7 @@ import Foundation
         //self.view.addSubview(homeBackgroundView)
         
         //set the scroll view
-        self.scrollInfoView.contentSize.height = 1180
+        self.scrollInfoView.contentSize.height = 3080
         self.scrollInfoView.contentSize.width = self.view.frame.width
         self.scrollInfoView.frame.size.width = self.view.frame.width
         self.scrollInfoView.frame.size.height = self.view.frame.height
@@ -233,9 +233,9 @@ import Foundation
         meetupLocationsLabel.frame.size = CGSize(width: 200, height: 30)
         meetupLocationsLabel.frame.origin = CGPoint(x:20,y:660)
         meetupTimeLabel.frame.size = CGSize(width: 200, height: 30)
-        meetupTimeLabel.frame.origin = CGPoint(x:20,y:760)
+        meetupTimeLabel.frame.origin = CGPoint(x:20,y:790)
         tagsLabel.frame.size = CGSize(width: 200, height: 30)
-        tagsLabel.frame.origin = CGPoint(x:20,y:860)
+        tagsLabel.frame.origin = CGPoint(x:20,y:920)
         
         
         self.scrollInfoView.addSubview(genderLabel)
@@ -319,73 +319,90 @@ import Foundation
         schoolEdit.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         
         //add meet up location
-        var locationIndex:Int = 0
-        var locationButtonWidth:Int = 80
         var locationButtonHeight:Int = 20
-        var numberperRow:Int = (Int(self.view.frame.width)-40)/(locationButtonWidth+10)
+        var buttonX = CGFloat(20)
+        var buttonY = CGFloat(Int(meetupLocationsLabel.frame.origin.y+meetupLocationsLabel.frame.size.height))
         for location in self.meetUpLocationsArray{
             let button = UIButton()
             button.tag = 190
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
-            button.frame.size = CGSize(width: locationButtonWidth, height: locationButtonHeight)
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-            var buttonX = (locationIndex)%numberperRow*(locationButtonWidth+10)+20
-            var buttonY = Int(meetupLocationsLabel.frame.origin.y+meetupLocationsLabel.frame.size.height)+(locationButtonHeight+5)*((locationIndex)/numberperRow)
+            let myString: NSString = location as NSString
+            let mysize: CGSize = myString.sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(16.0)])
+            button.frame.size.width = mysize.width + 15.0
+            button.frame.size.height = CGSize(width: 100, height: locationButtonHeight).height
+            
+            if ((buttonX + button.frame.size.width + 25) > self.view.frame.width){
+                buttonX = 20
+                buttonY = buttonY + CGFloat(locationButtonHeight)+5
+            }
+
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            buttonX = buttonX + mysize.width + 20
             button.setTitle(location, forState:UIControlState.allZeros)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
-            locationIndex++
+            
         }
         //add meet up time
-        var timeIndex:Int = 0
-        var timeButtonWidth:Int = 80
         var timeButtonHeight:Int = 20
-        var timeNumberperRow:Int = (Int(self.view.frame.width)-40)/(timeButtonWidth+10)
+        buttonX = CGFloat(20)
+        buttonY = CGFloat(Int(meetupTimeLabel.frame.origin.y+meetupTimeLabel.frame.size.height))
         for location in self.meetUpTimeArray{
             let button = UIButton()
             button.tag = 191
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
-            button.frame.size = CGSize(width: timeButtonWidth, height: timeButtonHeight)
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-            var buttonX = (timeIndex)%timeNumberperRow*(timeButtonWidth+10)+20
-            var buttonY = Int(meetupTimeLabel.frame.origin.y+meetupTimeLabel.frame.size.height)+(timeButtonHeight+5)*((timeIndex)/timeNumberperRow)
+            let myString: NSString = location as NSString
+            let mysize: CGSize = myString.sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(16.0)])
+            button.frame.size.width = mysize.width + 15.0
+            button.frame.size.height = CGSize(width: 100, height: locationButtonHeight).height
+            
+            if ((buttonX + button.frame.size.width + 25) > self.view.frame.width){
+                buttonX = 20
+                buttonY = buttonY + CGFloat(locationButtonHeight)+5
+            }
+            
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            buttonX = buttonX + mysize.width + 20
             button.setTitle(location, forState:UIControlState.allZeros)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
-            timeIndex++
         }
         //add tags
-        var tagsIndex:Int = 0
-        var tagsButtonWidth:Int = 80
         var tagsButtonHeight:Int = 20
-        var tagsNumberperRow:Int = (Int(self.view.frame.width)-40)/(tagsButtonWidth+10)
+        buttonX = CGFloat(20)
+        buttonY = CGFloat(Int(tagsLabel.frame.origin.y+tagsLabel.frame.size.height))
+
         for location in self.tagsArray{
             let button = UIButton()
             button.tag = 192
             button.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Center
-            button.frame.size = CGSize(width: tagsButtonWidth, height: tagsButtonHeight)
-            button.titleLabel?.adjustsFontSizeToFitWidth = true
-            var buttonX = (tagsIndex)%tagsNumberperRow*(tagsButtonWidth+10)+20
-            var buttonY = Int(tagsLabel.frame.origin.y+tagsLabel.frame.size.height)+(tagsButtonHeight+5)*((tagsIndex)/tagsNumberperRow)
+            let myString: NSString = location as NSString
+            let mysize: CGSize = myString.sizeWithAttributes([NSFontAttributeName: UIFont.systemFontOfSize(16.0)])
+            button.frame.size.width = mysize.width + 15.0
+            button.frame.size.height = CGSize(width: 100, height: locationButtonHeight).height
+            
+            if ((buttonX + button.frame.size.width + 25) > self.view.frame.width){
+                buttonX = 20
+                buttonY = buttonY + CGFloat(locationButtonHeight)+5
+            }
+            
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
+            buttonX = buttonX + mysize.width + 20
             button.setTitle(location, forState:UIControlState.allZeros)
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
             self.scrollInfoView.addSubview(button)
             button.addTarget(self, action: "blockButtonDown:", forControlEvents: UIControlEvents.TouchDown)
-            tagsIndex++
         }
         genderPickerView.delegate = self
-        genderPickerView.frame.size = CGSize(width: 300, height: 500)
+        genderPickerView.frame.size = CGSize(width: 300, height: 300)
         genderPickerView.center = self.view.center
         genderPickerView.tag = 99
         genderPickerView.hidden = true
@@ -393,28 +410,28 @@ import Foundation
         
         //ethnicity select
         ethnicityPickerView.delegate = self
-        ethnicityPickerView.frame.size = CGSize(width: 300, height: 500)
+        ethnicityPickerView.frame.size = CGSize(width: 300, height: 400)
         ethnicityPickerView.center = self.view.center
         ethnicityPickerView.tag = 100
         ethnicityPickerView.hidden = true
         ethnicityPickerView.backgroundColor = UIColor.whiteColor()
         
         agePickerView.delegate = self
-        agePickerView.frame.size = CGSize(width: 300, height: 500)
+        agePickerView.frame.size = CGSize(width: 300, height: 400)
         agePickerView.center = self.view.center
         agePickerView.tag = 101
         agePickerView.hidden = true
         agePickerView.backgroundColor = UIColor.whiteColor()
         
         heightPickerView.delegate = self
-        heightPickerView.frame.size = CGSize(width: 300, height: 500)
+        heightPickerView.frame.size = CGSize(width: 300, height: 400)
         heightPickerView.center = self.view.center
         heightPickerView.tag = 102
         heightPickerView.hidden = true
         heightPickerView.backgroundColor = UIColor.whiteColor()
         
         degreePickerView.delegate = self
-        degreePickerView.frame.size = CGSize(width: 300, height: 500)
+        degreePickerView.frame.size = CGSize(width: 300, height: 400)
         degreePickerView.center = self.view.center
         degreePickerView.tag = 103
         degreePickerView.hidden = true
@@ -438,9 +455,10 @@ import Foundation
         self.view.addSubview(degreePickerView)
 
         //add save button
+        saveButton.frame.size = CGSize(width: 200, height: 30)
+        saveButton.titleLabel?.adjustsFontSizeToFitWidth = true
         saveButton.setTitle("Save", forState: UIControlState.allZeros)
-        saveButton.frame.size = CGSize(width: 70, height: 30)
-        saveButton.center = CGPoint(x: self.scrollInfoView.frame.size.width/2, y: self.scrollInfoView.contentSize.height - 50)
+        saveButton.center = CGPoint(x: self.scrollInfoView.frame.size.width/2, y: buttonY+45)
         saveButton.backgroundColor = UIColor.greenColor()
 
         saveButton.addTarget(self, action: "saveButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
