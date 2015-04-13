@@ -29,12 +29,12 @@ class SMBLogInViewController: SMBFormViewController {
         
         emailTextField.placeholder = "Enter Email"
        // emailTextField.text = "cht@cht.com"
-        //emailTextField.keyboardType = .EmailAddress
-        //emailTextField.autocorrectionType = .No
+        emailTextField.keyboardType = .EmailAddress
+        emailTextField.autocorrectionType = .No
         
         passwordTextField.placeholder = "Enter Password2"
         //passwordTextField.text = "111111"
-        //passwordTextField.secureTextEntry = true
+        passwordTextField.secureTextEntry = true
         
         helloTextField.placeholder = "hello"
     }
@@ -103,7 +103,7 @@ class SMBLogInViewController: SMBFormViewController {
         let hello = self.helloTextField.text
         let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
 
-        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text, password: textFieldForRow(1)!.text) { (user: PFUser?, error: NSError!) -> Void in
+        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text.lowercaseString, password: textFieldForRow(1)!.text) { (user: PFUser?, error: NSError!) -> Void in
             
             if user != nil {
                 

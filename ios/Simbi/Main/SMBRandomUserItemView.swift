@@ -102,11 +102,14 @@ class SMBRandomUserItemView: UIView {
             self.frame.width-176-20, 44
         )
         var sharedCount = 0
-
-        for tag in SMBUser.currentUser().tags{
-            println(tag)
-            if user.tags.indexOfObject(tag) != NSNotFound {
-                sharedCount++
+        
+        let currentusr = SMBUser.currentUser()
+        if (currentusr != nil && currentusr.tags != nil){
+            for tag in SMBUser.currentUser().tags{
+                println(tag)
+                if user.tags.indexOfObject(tag) != NSNotFound {
+                    sharedCount++
+                }
             }
         }
         interestLabel.text = NSString(format: "%d Shared Interest", sharedCount)
@@ -121,6 +124,7 @@ class SMBRandomUserItemView: UIView {
             self.frame.width-176-20, 44
         )
         self.distanceLabel.center = CGPointMake(interestLabel.center.x, self.frame.height/2+22)
+        //var dis = 0.0
         var dis = self.user.geoPoint.distanceInMilesTo(SMBUser.currentUser().geoPoint)
         var disText = ""
         if dis<0.01{
