@@ -232,10 +232,10 @@ extension SMBFormViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.backgroundColor = UIColor.simbiBlueColor()
             
-            cell.textLabel.text = submitButtonTitle()
-            cell.textLabel.textColor = UIColor.simbiWhiteColor()
-            cell.textLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 18)
-            cell.textLabel.textAlignment = .Center
+            cell.textLabel?.text = submitButtonTitle()
+            cell.textLabel?.textColor = UIColor.simbiWhiteColor()
+            cell.textLabel?.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 18)
+            cell.textLabel?.textAlignment = .Center
         }
         
         return cell

@@ -168,8 +168,8 @@ class SMBCreditsViewController: UITableViewController {
         
         let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
         
-        cell.textLabel.textColor = UIColor.blackColor()
-        cell.textLabel.font = UIFont.simbiFontWithAttributes(kFontLight, size: 16)
+        cell.textLabel?.textColor = UIColor.blackColor()
+        cell.textLabel?.font = UIFont.simbiFontWithAttributes(kFontLight, size: 16)
         cell.selectionStyle = .None
         
         let label = UILabel(frame: CGRectMake(tableView.frame.width-146-16, 8, 146, 36))
@@ -192,7 +192,7 @@ class SMBCreditsViewController: UITableViewController {
         switch (indexPath.section, indexPath.row) {
             
         case (0, 0):
-            cell.textLabel.text = "Total:"
+            cell.textLabel?.text = "Total:"
             cell.backgroundColor = UIColor.simbiLavender1Color()
             
             creditsIconView.frame = CGRectMake(self.view.frame.width-32-66, 9, 26, 26)
@@ -213,7 +213,7 @@ class SMBCreditsViewController: UITableViewController {
             }
             
         case (1, 0):
-            cell.textLabel.text = "60"
+            cell.textLabel?.text = "60"
             cell.backgroundColor = UIColor.simbiWhiteColor()
             
             label.backgroundColor = UIColor.simbiGrayColor()
@@ -227,7 +227,7 @@ class SMBCreditsViewController: UITableViewController {
             cell.contentView.addSubview(lineView)
             
         case (1, 1):
-            cell.textLabel.text = "250"
+            cell.textLabel?.text = "250"
             cell.backgroundColor = UIColor.simbiWhiteColor()
             
             label.backgroundColor = UIColor.twitterColor()
@@ -242,7 +242,7 @@ class SMBCreditsViewController: UITableViewController {
             cell.contentView.addSubview(lineView)
             
         case (1, 2):
-            cell.textLabel.text = "120"
+            cell.textLabel?.text = "120"
             cell.backgroundColor = UIColor.simbiWhiteColor()
             
             label.backgroundColor = UIColor.twitterColor()
@@ -257,7 +257,7 @@ class SMBCreditsViewController: UITableViewController {
             cell.contentView.addSubview(lineView)
             
         case (1, 3):
-            cell.textLabel.text = "500"
+            cell.textLabel?.text = "500"
             cell.backgroundColor = UIColor.simbiWhiteColor()
             
             label.backgroundColor = UIColor.facebookColor()
@@ -272,7 +272,7 @@ class SMBCreditsViewController: UITableViewController {
         case (2, 0):
             cell.backgroundColor = UIColor.simbiLavender2Color()
 //            cell.accessoryType = .DisclosureIndicator
-            cell.textLabel.text = "Purchase"
+            cell.textLabel?.text = "Purchase"
             
             creditsIconView.frame = CGRectMake(100, (54-26)/2, 26, 26)
             cell.addSubview(creditsIconView)
@@ -282,7 +282,7 @@ class SMBCreditsViewController: UITableViewController {
         case (2, 1):
             cell.backgroundColor = UIColor.simbiLavender2Color()
 //            cell.accessoryType = .DisclosureIndicator
-            cell.textLabel.text = "Send"
+            cell.textLabel?.text = "Send"
             
             creditsIconView.frame = CGRectMake(100, (54-26)/2, 26, 26)
             cell.addSubview(creditsIconView)
@@ -292,7 +292,7 @@ class SMBCreditsViewController: UITableViewController {
         case (2, 2):
             cell.backgroundColor = UIColor.simbiLavender2Color()
 //            cell.accessoryType = .DisclosureIndicator
-            cell.textLabel.text = "Leave"
+            cell.textLabel?.text = "Leave"
             
             creditsIconView.frame = CGRectMake(100, (54-26)/2, 26, 26)
             cell.addSubview(creditsIconView)
@@ -301,7 +301,7 @@ class SMBCreditsViewController: UITableViewController {
             
         case (2, 3):
             cell.backgroundColor = UIColor.simbiLavender2Color()
-            cell.textLabel.text = "Test"
+            cell.textLabel?.text = "Test"
             
         default:
             break

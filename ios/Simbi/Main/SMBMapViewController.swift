@@ -73,7 +73,7 @@ class SMBMapViewController: UIViewController {
         
         locationManager.delegate = self
         
-        if CLLocationManager.authorizationStatus() == .Authorized ||
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways/*modified by zhy*/ ||
            CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             
             locationManager.startUpdatingLocation()
@@ -349,7 +349,7 @@ extension SMBMapViewController: CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        if status == .Authorized || status == .AuthorizedWhenInUse {
+        if status == .AuthorizedAlways/*modified by zhy*/ || status == .AuthorizedWhenInUse {
             mapView.showsUserLocation = true
         }
     }

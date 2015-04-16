@@ -128,7 +128,7 @@ class SMBLogInViewController: SMBFormViewController {
             else {
                 println("ERROR: \(error)")
                 
-                if error.code == kPFErrorObjectNotFound {
+                if error.code == 0/*kPFErrorObjectNotFound*/ {//modified by zhy
                     hud.dismissWithMessage("Couldn't Log In!")
                 }
                 else {

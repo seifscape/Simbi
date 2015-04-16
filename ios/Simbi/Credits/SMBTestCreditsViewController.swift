@@ -132,30 +132,30 @@ class SMBTestCreditsViewController: UITableViewController {
                 SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
                     
                     if object != nil {
-                        cell.textLabel.text = "Balance: \(SMBUser.currentUser().credits.balance)"
+                        cell.textLabel?.text = "Balance: \(SMBUser.currentUser().credits.balance)"
                     }
                     else {
-                        cell.textLabel.text = "ERROR"
+                        cell.textLabel?.text = "ERROR"
                     }
                 })
             }
             else {
-                cell.textLabel.text = "Balance: 0"
+                cell.textLabel?.text = "Balance: 0"
             }
             
         case (1, 0):
-            cell.textLabel.text = "Purchase 50 Credits (Not IAP)"
+            cell.textLabel?.text = "Purchase 50 Credits (Not IAP)"
         case (1, 1):
-            cell.textLabel.text = "Purchase 100 Credits (Not IAP)"
+            cell.textLabel?.text = "Purchase 100 Credits (Not IAP)"
         case (1, 2):
-            cell.textLabel.text = "Purchase 200 Credits (Not IAP)"
+            cell.textLabel?.text = "Purchase 200 Credits (Not IAP)"
             
         case (2, 0):
-            cell.textLabel.text = "Spend 50 Credits"
+            cell.textLabel?.text = "Spend 50 Credits"
         case (2, 1):
-            cell.textLabel.text = "Spend 100 Credits"
+            cell.textLabel?.text = "Spend 100 Credits"
         case (2, 2):
-            cell.textLabel.text = "Spend 200 Credits"
+            cell.textLabel?.text = "Spend 200 Credits"
             
         default:
             break

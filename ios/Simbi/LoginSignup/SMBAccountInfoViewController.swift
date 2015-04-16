@@ -519,10 +519,10 @@ class SMBAccountInfoViewController: UITableViewController {
             
         case (2, 0):
             cell.backgroundColor = UIColor.simbiBlueColor()
-            cell.textLabel.text = "Submit"
-            cell.textLabel.textColor = UIColor.simbiWhiteColor()
-            cell.textLabel.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 18)
-            cell.textLabel.textAlignment = .Center
+            cell.textLabel?.text = "Submit"
+            cell.textLabel?.textColor = UIColor.simbiWhiteColor()
+            cell.textLabel?.font = UIFont.simbiFontWithAttributes(kFontMedium, size: 18)
+            cell.textLabel?.textAlignment = .Center
             
         default:
             println("Invalid indexPath")
