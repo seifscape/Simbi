@@ -120,6 +120,6 @@ class SMBNavigationController: UINavigationController {
     
     func updateNavigationBarButtons(animated: Bool) {
         
-        showButtons(self.visibleViewController == self.viewControllers.first as UIViewController, animated: animated)
+        showButtons(self.visibleViewController == self.viewControllers.first as! UIViewController, animated: animated)
     }
 }

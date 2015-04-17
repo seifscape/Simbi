@@ -102,7 +102,7 @@ class SMBMapCardView: UIView {
             
             if object != nil {
                 
-                let activity = object as SMBActivity
+                let activity = object as! SMBActivity
                 
                 // Update date
                 lastUpdatedLabel.text = activity.createdAt.relativeDateString()

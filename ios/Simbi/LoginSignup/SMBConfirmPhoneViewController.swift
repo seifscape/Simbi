@@ -22,7 +22,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func loadView() {
         super.loadView()
@@ -172,7 +172,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         
         println("phoneNumber: \(phoneNumber)")
         
-        if countElements(phoneNumber) == 11 {
+        if count(phoneNumber) == 11 {
             
             self.view.endEditing(true)
             
@@ -225,10 +225,10 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         if textField == phoneNumberTextField {
             
             var str: String
-            if countElements(string) > 0 {
+            if count(string) > 0 {
                 str = phoneNumber + string
             }
-            else if countElements(phoneNumber) > 0 {
+            else if count(phoneNumber) > 0 {
                 str = phoneNumber.substringWithRange(Range(
                     start: phoneNumber.startIndex,
                     end: advance(phoneNumber.endIndex, -1)
@@ -245,7 +245,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
                 range: Range(start: str.startIndex, end: str.endIndex)
             )
             
-            if countElements(nStr) > 10 {
+            if count(nStr) > 10 {
                 nStr = nStr.substringWithRange(Range(
                     start: nStr.startIndex,
                     end: advance(nStr.startIndex, 10)
@@ -268,11 +268,11 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         
         var pStr = phoneNumber
         
-        if countElements(pStr) >= 3 {
+        if count(pStr) >= 3 {
             pStr.insert(" ", atIndex: advance(pStr.startIndex, 3))
         }
         
-        if countElements(pStr) >= 7 {
+        if count(pStr) >= 7 {
             pStr.insert(" ", atIndex: advance(pStr.startIndex, 7))
         }
         

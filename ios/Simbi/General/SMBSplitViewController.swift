@@ -97,7 +97,7 @@ extension SMBSplitViewController: UIScrollViewDelegate {
         
         for (index, vc) in enumerate(viewControllers) {
             if vc is SMBSplitViewChild {
-                (vc as SMBSplitViewChild).splitViewDidScroll(self, position: scrollView.contentOffset.x-index.CG*scrollView.frame.width)
+                (vc as! SMBSplitViewChild).splitViewDidScroll(self, position: scrollView.contentOffset.x-index.CG*scrollView.frame.width)
             }
         }
     }

@@ -33,7 +33,7 @@ class SMBRandomUsersViewController: UIViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,7 @@ class SMBRandomUsersViewController: UIViewController {
         
         let query = PFQuery(className: "_User")
 //        query.cachePolicy = kPFCachePolicyNetworkOnly
-        query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId)
+        query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
         query.includeKey("profilePicture")
         query.includeKey("hairColor")
         
@@ -128,7 +128,7 @@ class SMBRandomUsersViewController: UIViewController {
             println("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
         }
         
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError!) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
 
             self.carousel.userInteractionEnabled = true
             
@@ -223,7 +223,7 @@ extension SMBRandomUsersViewController: iCarouselDelegate {
     func changeCurrentView(carousel: iCarousel) { // Non-protocol method
         
         if let currentView = self.carousel.currentItemView {
-            lastSelectedView = (currentView as SMBRandomUserItemView)
+            lastSelectedView = (currentView as! SMBRandomUserItemView)
         }
     }
     

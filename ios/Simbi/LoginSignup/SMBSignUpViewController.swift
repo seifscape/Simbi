@@ -21,7 +21,7 @@ class SMBSignUpViewController: SMBFormViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func loadView() {
         super.loadView()
@@ -99,18 +99,18 @@ class SMBSignUpViewController: SMBFormViewController {
         
         // Validate name
         
-        if countElements(firstNameTextField.text) < 2 {
+        if count(firstNameTextField.text) < 2 {
             MBProgressHUD.showMessage("Please enter your name", parent: self)
             return
         }
-        if countElements(lastNameTextField.text) < 2 {
+        if count(lastNameTextField.text) < 2 {
             MBProgressHUD.showMessage("Please enter your name", parent: self)
             return
         }
         
         // Validate email
         
-        if countElements(emailTextField.text) == 0 {
+        if count(emailTextField.text) == 0 {
             MBProgressHUD.showMessage("Please enter your email", parent: self)
             return
         }
@@ -118,14 +118,14 @@ class SMBSignUpViewController: SMBFormViewController {
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
         
-        if !emailTest!.evaluateWithObject(emailTextField.text) {
+        if !emailTest.evaluateWithObject(emailTextField.text) {
             MBProgressHUD.showMessage("Please enter your email", parent: self)
             return
         }
         
         // Validate password
         
-        if countElements(passwordTextField.text) < 6 {
+        if count(passwordTextField.text) < 6 {
             MBProgressHUD.showMessage("Passwords need to be longer", parent: self)
             return
         }

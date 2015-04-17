@@ -17,7 +17,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
     
     // MARK: - ViewController Lifecycle
     
-    convenience override init() {
+    convenience init() {
         self.init(style: .Grouped)
     }
 
@@ -209,7 +209,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if indexPath.section == 1 {
-            purchaseCreditsAction(products[indexPath.row].productIdentifier)
+            purchaseCreditsAction(products[indexPath.row].productIdentifier!)
         }
     }
 }

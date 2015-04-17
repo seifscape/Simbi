@@ -18,7 +18,7 @@ class SMBConfirmationCodeViewController: SMBFormViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func loadView() {
         super.loadView()
@@ -78,7 +78,7 @@ class SMBConfirmationCodeViewController: SMBFormViewController {
     
     override func submitAction() {
         
-        if countElements(codeTextField.text) != 0 {
+        if count(codeTextField.text) != 0 {
             
             self.view.endEditing(true)
             

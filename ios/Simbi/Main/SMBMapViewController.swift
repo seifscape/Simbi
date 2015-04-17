@@ -53,7 +53,7 @@ class SMBMapViewController: UIViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     deinit {
         SMBFriendsManager.sharedManager().cleanDelegates()
@@ -307,7 +307,7 @@ class SMBMapViewController: UIViewController {
 //        println("==================================")
  //       return
         for object in SMBFriendsManager.sharedManager().objects {
-            let friend = object as SMBUser
+            let friend = object as! SMBUser
             println("==================================")
             print("name:")
             println(friend.username)
@@ -378,7 +378,7 @@ extension SMBMapViewController: MKMapViewDelegate {
         
         if annotation is SMBAnnotation {
             
-            let smbAnnotation = annotation as SMBAnnotation
+            let smbAnnotation = annotation as! SMBAnnotation
             
             var annotationView: MKAnnotationView? = mapView.dequeueReusableAnnotationViewWithIdentifier("Maps")
             if annotationView == nil {

@@ -43,7 +43,7 @@ class SMBCountryPicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelega
         
         var str = String(code)
         
-        if countElements(str) > 3 {
+        if count(str) > 3 {
             str.insert(" ", atIndex: advance(str.endIndex, -3))
         }
         

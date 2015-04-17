@@ -24,8 +24,8 @@ class SMBHomeBackgroundView : UIView {
         super.init(coder: aDecoder)
     }
     
-    override init() {
-        super.init()
+    convenience init() {
+        self.init()
         loadView()
     }
     

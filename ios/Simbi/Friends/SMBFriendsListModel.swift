@@ -144,7 +144,7 @@ class SMBFriendsListModel: NSObject {
             var dic:NSMutableDictionary = NSMutableDictionary()
             dic.setValue(request.objectId, forKey: "friendRequest")
                         
-            PFCloud.callFunctionInBackground("acceptFriendRequest", withParameters: dic, block: { (object: AnyObject?, error: NSError?) -> Void in
+            PFCloud.callFunctionInBackground("acceptFriendRequest", withParameters: dic as [NSObject : AnyObject], block: { (object: AnyObject?, error: NSError?) -> Void in
                 
                 self.isProcessingRequest = false
                 

@@ -23,7 +23,7 @@ class SMBFriendsListViewController: UITableViewController {
     var ContactsArray:Array<Dictionary<String,AnyObject>>=[]
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(style: .Grouped) }
+    convenience init() { self.init(style: .Grouped) }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +44,9 @@ class SMBFriendsListViewController: UITableViewController {
         ContactsArray = getSysContacts()
         //self.downLoadsContactToServer(array)
         for contact in ContactsArray {
-            var ph:NSArray = contact["Phone"] as NSArray
+            var ph:NSArray = contact["Phone"] as! NSArray
             for phone in ph {
-               var ppp =  (phone as String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+               var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
                 self.contantPhoneNumberArray.addObject(ppp)
             }
         }
@@ -69,13 +69,13 @@ class SMBFriendsListViewController: UITableViewController {
     func loadContactNotInSimi(contacts:NSArray){
         self.objectsNotInSimbiAndButInContacts = []
             for contact in contacts {
-            var ph:NSArray = contact["Phone"] as NSArray
+            var ph:NSArray = contact["Phone"] as! NSArray
             var isSimbiUser = false
             var name = contact["fullName"]
             var phoneNo:String = ""
             println(name)
             for phone in ph {
-                phoneNo = phone as String
+                phoneNo = phone as! String
                 phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
                 print("check:")
                 println(phoneNo)
@@ -86,7 +86,7 @@ class SMBFriendsListViewController: UITableViewController {
             }
             if isSimbiUser == false{
                 var model:SMBFriendsListModel = SMBFriendsListModel()
-                model.fullname = name as String
+                model.fullname = name as! String
                 model.phoneNo = phoneNo
                 model.type = 2
                 model.parent = self
@@ -97,20 +97,20 @@ class SMBFriendsListViewController: UITableViewController {
     }
     func loadSimbiUserNotSimbiFriendButIncontact(contacts:NSArray){
         let query:PFQuery = PFQuery(className: "_User")
-        query.whereKey("phoneNumber", containedIn: self.contantPhoneNumberArray)
+        query.whereKey("phoneNumber", containedIn: self.contantPhoneNumberArray as [AnyObject])
         //query.whereKey(<#key: String!#>, containedIn: <#[AnyObject]!#>)
-        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, err:NSError!) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, err:NSError?) -> Void in
             self.objectsInSimbiAndContactsButNotSimbiFrieds = []
             self.simbiUserPhoneInContact = []
-            for object in objects {
+            for object in objects! {
                 //SMBFriendsManager.sharedManager().friendsObjectIds().IndexOfObject((object as SMBUser).objectId)
                 var isSimibiFriend = false
-                var phoneNo = (object as SMBUser).phoneNumber as String
-                if !((object as SMBUser).objectId == SMBUser.currentUser().objectId){
+                var phoneNo = (object as! SMBUser).phoneNumber as String
+                if !((object as! SMBUser).objectId == SMBUser.currentUser().objectId){
                         self.simbiUserPhoneInContact.addObject(phoneNo)
                     }
                 for simbifriend in SMBFriendsManager.sharedManager().objects{
-                    if (simbifriend as SMBUser).objectId == (object as SMBUser).objectId{
+                    if (simbifriend as! SMBUser).objectId == (object as! SMBUser).objectId{
                         isSimibiFriend = true
                         break
                     }
@@ -119,7 +119,7 @@ class SMBFriendsListViewController: UITableViewController {
                     continue
                 }
                 var model:SMBFriendsListModel
-                model = SMBFriendsListModel(user: object as SMBUser)
+                model = SMBFriendsListModel(user: object as! SMBUser)
                 model.type = 1
                 model.parent = self
                 self.objectsInSimbiAndContactsButNotSimbiFrieds.append(model)
@@ -134,12 +134,12 @@ class SMBFriendsListViewController: UITableViewController {
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj:PFObject?, err:NSError?) -> Void in
             if obj==nil{
                 return
             }
             obj["ContactList"] = contacts
-            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError!) -> Void in
+            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
                 if succ == true{
                     let userdefaults = NSUserDefaults.standardUserDefaults()
                     userdefaults.setBool(true, forKey: "HasDownLoadContact")
@@ -158,7 +158,7 @@ class SMBFriendsListViewController: UITableViewController {
     
     func refreshAction(sender: AnyObject) {
         
-        let refreshControl = sender as UIRefreshControl
+        let refreshControl = sender as! UIRefreshControl
         
         self.tableView.userInteractionEnabled = false
         
@@ -189,11 +189,11 @@ class SMBFriendsListViewController: UITableViewController {
             var aName: String
             var bName: String
             
-            if a is SMBUser { aName = (a as SMBUser).name }
-            else            { aName = (a as SMBFriendRequest).fromUser.name }
+            if a is SMBUser { aName = (a as! SMBUser).name }
+            else            { aName = (a as! SMBFriendRequest).fromUser.name }
             
-            if b is SMBUser { bName = (b as SMBUser).name }
-            else            { bName = (b as SMBFriendRequest).fromUser.name }
+            if b is SMBUser { bName = (b as! SMBUser).name }
+            else            { bName = (b as! SMBFriendRequest).fromUser.name }
             
             return aName < bName
         }
@@ -205,10 +205,10 @@ class SMBFriendsListViewController: UITableViewController {
             var model: SMBFriendsListModel
             
             if object is SMBUser {
-                model = SMBFriendsListModel(user: object as SMBUser)
+                model = SMBFriendsListModel(user: object as! SMBUser)
             }
             else {
-                model = SMBFriendsListModel(request: object as SMBFriendRequest)
+                model = SMBFriendsListModel(request: object as! SMBFriendRequest)
             }
             
             objects.append(model)
@@ -342,7 +342,7 @@ class SMBFriendsListViewController: UITableViewController {
                         case kABPersonAddressProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var addrNSDict:NSMutableDictionary = value.takeRetainedValue() as NSMutableDictionary
+                            var addrNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
                             valueDictionary["_Country"] = addrNSDict.valueForKey(kABPersonAddressCountryKey) as? String ?? ""
                             valueDictionary["_State"] = addrNSDict.valueForKey(kABPersonAddressStateKey) as? String ?? ""
                             valueDictionary["_City"] = addrNSDict.valueForKey(kABPersonAddressCityKey) as? String ?? ""
@@ -357,7 +357,7 @@ class SMBFriendsListViewController: UITableViewController {
                         case kABPersonSocialProfileProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var snsNSDict:NSMutableDictionary = value.takeRetainedValue() as NSMutableDictionary
+                            var snsNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
                             valueDictionary["_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey) as? String ?? ""
                             valueDictionary["_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey) as? String ?? ""
                             valueDictionary["_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey) as? String ?? ""
@@ -367,7 +367,7 @@ class SMBFriendsListViewController: UITableViewController {
                         case kABPersonInstantMessageProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var imNSDict:NSMutableDictionary = value.takeRetainedValue() as NSMutableDictionary
+                            var imNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
                             valueDictionary["_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey) as? String ?? ""
                             valueDictionary["_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey) as? String ?? ""
                             
@@ -395,27 +395,27 @@ class SMBFriendsListViewController: UITableViewController {
                 部分单值属性
                 */
                 // 姓、姓氏拼音
-                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as String? ?? ""
+                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
                 currentContact["FirstName"] = FirstName
-                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 // 名、名字拼音
-                var LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as String? ?? ""
+                var LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
                 currentContact["LastName"] = LastName
-                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 // 昵称
-                currentContact["Nikename"] = ABRecordCopyValue(contact, kABPersonNicknameProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["Nikename"] = ABRecordCopyValue(contact, kABPersonNicknameProperty)?.takeRetainedValue() as! String? ?? ""
                 
                 // 姓名整理
                 currentContact["fullName"] = LastName + FirstName
                 
                 // 公司（组织）
-                currentContact["Organization"] = ABRecordCopyValue(contact, kABPersonOrganizationProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["Organization"] = ABRecordCopyValue(contact, kABPersonOrganizationProperty)?.takeRetainedValue() as! String? ?? ""
                 // 职位
-                currentContact["JobTitle"] = ABRecordCopyValue(contact, kABPersonJobTitleProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["JobTitle"] = ABRecordCopyValue(contact, kABPersonJobTitleProperty)?.takeRetainedValue() as! String? ?? ""
                 // 部门
-                currentContact["Department"] = ABRecordCopyValue(contact, kABPersonDepartmentProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["Department"] = ABRecordCopyValue(contact, kABPersonDepartmentProperty)?.takeRetainedValue() as! String? ?? ""
                 // 备注
-                currentContact["Note"] = ABRecordCopyValue(contact, kABPersonNoteProperty)?.takeRetainedValue() as String? ?? ""
+                currentContact["Note"] = ABRecordCopyValue(contact, kABPersonNoteProperty)?.takeRetainedValue() as! String? ?? ""
                 // 生日（类型转换有问题，不可用）
                 //currentContact["Brithday"] = ((ABRecordCopyValue(contact, kABPersonBirthdayProperty)?.takeRetainedValue()) as NSDate).description
                 

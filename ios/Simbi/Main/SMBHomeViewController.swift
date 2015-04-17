@@ -39,7 +39,7 @@ class SMBHomeViewController: UIViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func viewDidLoad() {
         super.viewDidLoad()

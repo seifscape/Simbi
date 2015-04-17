@@ -112,7 +112,7 @@ class SMBRandomUserItemView: UIView {
                 }
             }
         }
-        interestLabel.text = NSString(format: "%d Shared Interest", sharedCount)
+        interestLabel.text = NSString(format: "%d Shared Interest", sharedCount) as String
         interestLabel.textColor = UIColor.simbiBlackColor()
         interestLabel.font = UIFont.simbiFontWithSize(16)
         interestLabel.alpha = 0.5
@@ -128,9 +128,9 @@ class SMBRandomUserItemView: UIView {
         var dis = self.user.geoPoint.distanceInMilesTo(SMBUser.currentUser().geoPoint)
         var disText = ""
         if dis<0.01{
-            disText = NSString(format: "%.2f ft",dis*5280)
+            disText = NSString(format: "%.2f ft",dis*5280) as String
         }else{
-            disText = NSString(format: "%.2f miles",dis)
+            disText = NSString(format: "%.2f miles",dis) as String
         }
         distanceLabel.text = disText
         distanceLabel.textColor = UIColor.simbiBlackColor()

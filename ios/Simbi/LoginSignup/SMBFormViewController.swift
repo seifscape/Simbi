@@ -67,7 +67,7 @@ class SMBFormViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         
-        if self != self.navigationController?.viewControllers.first as UIViewController {
+        if self != self.navigationController?.viewControllers.first as! UIViewController {
             
             backButton.frame = CGRectMake(0, 20, 66, 44)
             backButton.setTitle("Back", forState: .Normal)
@@ -137,7 +137,7 @@ class SMBFormViewController: UIViewController, UITableViewDataSource, UITableVie
     func keyboardWillShow(notification: NSNotification) {
         keyboardIsShown = true
         
-        let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         keyboardHeight = frame.height
         
         adjustForm()
@@ -149,7 +149,7 @@ class SMBFormViewController: UIViewController, UITableViewDataSource, UITableVie
     func keyboardWillHide(notification: NSNotification) {
         keyboardIsShown = false
         
-        let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        let frame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
             

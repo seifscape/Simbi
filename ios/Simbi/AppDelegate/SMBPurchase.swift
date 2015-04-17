@@ -69,7 +69,7 @@ class SMBPurchase: PFPurchase {
         if let url = NSBundle.mainBundle().appStoreReceiptURL {
             
             let receiptData = NSData(contentsOfURL: url)
-            let receiptFile = PFFile(data: receiptData)
+            let receiptFile = PFFile(data: receiptData!)
             receipt.data = receiptFile
         }
         else {

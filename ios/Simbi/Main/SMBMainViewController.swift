@@ -32,14 +32,14 @@ class SMBMainViewController: SMBSplitViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(nibName: nil, bundle: nil) }
+    convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if self.navigationController! is SMBNavigationController {
-            (self.navigationController! as SMBNavigationController).showsMenu = false
-            (self.navigationController! as SMBNavigationController).showsChat = false
+            (self.navigationController! as! SMBNavigationController).showsMenu = false
+            (self.navigationController! as! SMBNavigationController).showsChat = false
         }
         
         // Set up split views

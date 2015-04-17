@@ -13,7 +13,7 @@ class SMBTestCreditsViewController: UITableViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() {
+    convenience init() {
         self.init(style: .Grouped)
     }
     

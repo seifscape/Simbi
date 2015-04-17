@@ -21,7 +21,7 @@ class SMBAccountInfoViewController: UITableViewController {
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() { self.init(style: .Grouped) }
+    convenience init() { self.init(style: .Grouped) }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -575,7 +575,7 @@ extension SMBAccountInfoViewController: UIImagePickerControllerDelegate, UINavig
         
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             
-            let image = info[UIImagePickerControllerEditedImage] as UIImage
+            let image = info[UIImagePickerControllerEditedImage] as! UIImage
             
             let profileImage = SMBImage()
             profileImage.originalImage = PFFile(data: UIImageJPEGRepresentation(image, 0.8))
