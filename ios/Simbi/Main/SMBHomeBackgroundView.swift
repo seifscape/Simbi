@@ -24,10 +24,14 @@ class SMBHomeBackgroundView : UIView {
         super.init(coder: aDecoder)
     }
     
-    convenience init() {
-        self.init()
-        loadView()
-    }
+    /**
+     * crash here
+     */
+    
+//    convenience init() {
+//        self.init()
+//        loadView()
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

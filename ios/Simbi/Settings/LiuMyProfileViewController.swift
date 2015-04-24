@@ -79,7 +79,7 @@ import Foundation
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() {
+    convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
     
@@ -476,26 +476,26 @@ import Foundation
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
             if !(err==nil){
                 hud.dismissWithMessage("save failed!")
                 return
             }
-            obj["gender"] = self.genderButton.titleLabel?.text
-            obj["age"] = self.ageButton.titleLabel?.text?.toInt()
+            obj!["gender"] = self.genderButton.titleLabel?.text
+            obj!["age"] = self.ageButton.titleLabel?.text?.toInt()
             let heightStr = self.heightButton.titleLabel?.text
-            obj["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]
-            obj["ethnicity"] = self.ethnicityButton.titleLabel?.text
-            obj["aboutme"] = self.aboutEdit.text
-            obj["degree"] = self.degreeButton.titleLabel?.text
-            obj["school"] = self.schoolEdit.text
-            obj["occupation"] = self.occupationEdit.text
-            obj["employer"] = self.employerEdit.text
-            obj["tags"] = self.tagsSelectedArray
-            obj["MeetUpLocations"] = self.meetUpLocationsSelectedArray
-            obj["MeetUpTimes"] = self.meetUpTimeSelectedArray
+            obj!["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]
+            obj!["ethnicity"] = self.ethnicityButton.titleLabel?.text
+            obj!["aboutme"] = self.aboutEdit.text
+            obj!["degree"] = self.degreeButton.titleLabel?.text
+            obj!["school"] = self.schoolEdit.text
+            obj!["occupation"] = self.occupationEdit.text
+            obj!["employer"] = self.employerEdit.text
+            obj!["tags"] = self.tagsSelectedArray
+            obj!["MeetUpLocations"] = self.meetUpLocationsSelectedArray
+            obj!["MeetUpTimes"] = self.meetUpTimeSelectedArray
             
-            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError!) -> Void in
+            obj!.saveInBackgroundWithBlock({ (succ, err) -> Void in
 //                let alert = UIAlertView()
 //                alert.title = "Tip"
 //                alert.message = succ ? "save success!":"save failed!"
@@ -619,7 +619,7 @@ import Foundation
             ageButton.setTitle(ageArray[row], forState: UIControlState.allZeros)
         }
         if pickerView.tag == 102{
-            heightButton.setTitle(heightArray[row] as! String, forState: UIControlState.allZeros)
+            heightButton.setTitle(heightArray[row] as? String, forState: UIControlState.allZeros)
         }
         if pickerView.tag == 103{
             degreeButton.setTitle(degreeArray[row], forState: UIControlState.allZeros)
@@ -654,37 +654,37 @@ import Foundation
                 meetUpLocationsSelectedArray.addObject(obj)
             }
         }
-        self.genderButton.setTitle(self.currentUS.gender?, forState: UIControlState.allZeros)
+        self.genderButton.setTitle(self.currentUS.gender, forState: UIControlState.allZeros)
         self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
         if !(self.currentUS.height == nil){
-            self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as! String, forState: UIControlState.allZeros)
+            self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as? String, forState: UIControlState.allZeros)
         }
-        self.ethnicityButton.setTitle(self.currentUS.ethnicity?, forState: UIControlState.allZeros)
-        self.aboutEdit.text = self.currentUS.aboutme?
-        self.occupationEdit.text = self.currentUS.occupation?
-        self.employerEdit.text = self.currentUS.employer?
-        self.degreeButton.setTitle(self.currentUS.degree?, forState: UIControlState.allZeros)
-        self.schoolEdit.text = self.currentUS.school?
+        self.ethnicityButton.setTitle(self.currentUS.ethnicity, forState: UIControlState.allZeros)
+        self.aboutEdit.text = self.currentUS.aboutme
+        self.occupationEdit.text = self.currentUS.occupation
+        self.employerEdit.text = self.currentUS.employer
+        self.degreeButton.setTitle(self.currentUS.degree, forState: UIControlState.allZeros)
+        self.schoolEdit.text = self.currentUS.school
         for object in self.scrollInfoView.subviews{
             if object.tag == 190{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.meetUpLocationsSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 191{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.meetUpTimeSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 192{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.tagsSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
             }
         }
@@ -699,8 +699,8 @@ import Foundation
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
-            self.currentUS = obj as SMBUser
+        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
+            self.currentUS = obj as! SMBUser
             self.updateViewData()
             hud.dismissQuickly()
         }

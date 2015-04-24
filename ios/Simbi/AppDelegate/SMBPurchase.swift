@@ -62,7 +62,7 @@ class SMBPurchase: PFPurchase {
     
     class func purchaseCredits(amount: Int, transaction: SKPaymentTransaction) {
         
-        let receipt = SMBReceipt()
+        let receipt = SMBReceipt(className:SMBReceipt.parseClassName())
         receipt.user = SMBUser.currentUser()
         receipt.identifier = transaction.transactionIdentifier
         
@@ -76,15 +76,15 @@ class SMBPurchase: PFPurchase {
             println("\(__FUNCTION__) - No App Store receipt!")
         }
         
-        receipt.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+        receipt.saveInBackgroundWithBlock { (succeeded, error) -> Void in
             
             if succeeded {
                 
                 let params: [String: AnyObject] = ["amount"      : amount,
-                                                   "receiptId"   : receipt.objectId,
+                                                   "receiptId"   : receipt.objectId!,
                                                    "information" : "Apple IAP \(amount) Credits"]
                 
-                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response: AnyObject!, error: NSError!) -> Void in
+                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response, error) -> Void in
                     
                     if response != nil {
                         SMBUser.currentUser().fetch()

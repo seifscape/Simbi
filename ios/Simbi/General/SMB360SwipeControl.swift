@@ -121,11 +121,12 @@ class SMB360SwipeControl : UIControl
     }
     
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
-        var touch: AnyObject? = touches.anyObject()
-        var point = touch!.locationInView(self)
-        
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+
+//        var touch: AnyObject? = touches.anyObject()
+//        var point = touch!.locationInView(self)
+        var point:CGPoint! = (touches as NSSet).anyObject()?.locationInView(self)
+
         // If touched inside the control view, begin moving
         if abs(point.x-controlView!.center.x) < controlView!.frame.width &&
            abs(point.y-controlView!.center.y) < controlView!.frame.height {
@@ -153,7 +154,7 @@ class SMB360SwipeControl : UIControl
     }
     
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         if isDragging {
             newTouch(touches)
@@ -161,7 +162,7 @@ class SMB360SwipeControl : UIControl
     }
     
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
         
         self.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
         

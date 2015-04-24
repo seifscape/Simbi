@@ -207,7 +207,7 @@ class SMBCreditsViewController: UITableViewController {
                 creditsTotalLabel.text = "0"
             }
             else {
-                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object, error) -> Void in
                     creditsTotalLabel.text = "\(SMBUser.currentUser().credits.balance)"
                 })
             }

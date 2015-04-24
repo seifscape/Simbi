@@ -103,15 +103,15 @@ class SMBLogInViewController: SMBFormViewController {
         let hello = self.helloTextField.text
         let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
 
-        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text.lowercaseString, password: textFieldForRow(1)!.text) { (user: PFUser?, error: NSError!) -> Void in
+        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text.lowercaseString, password: textFieldForRow(1)!.text) { (user, error) -> Void in
             
             if user != nil {
                 
                 hud.dismissQuickly()
                 
-                if (user as SMBUser).isConfirmed {
+                if (user as! SMBUser).isConfirmed {
                     println("aboutme:")
-                    println((user as SMBUser).aboutme)
+                    println((user as! SMBUser).aboutme)
                     println("=======")
                     SMBAppDelegate.instance().syncUserInstallation()
                     
@@ -128,7 +128,7 @@ class SMBLogInViewController: SMBFormViewController {
             else {
                 println("ERROR: \(error)")
                 
-                if error.code == 0/*kPFErrorObjectNotFound*/ {//modified by zhy
+                if error!.code == 0/*kPFErrorObjectNotFound*/ {//modified by zhy
                     hud.dismissWithMessage("Couldn't Log In!")
                 }
                 else {
@@ -145,7 +145,7 @@ class SMBLogInViewController: SMBFormViewController {
         
         let permissions = ["email", "public_profile", "user_friends"]
         
-        PFFacebookUtils.logInWithPermissions(permissions, block: { (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInWithPermissions(permissions, block: { (user, error) -> Void in
             
             if user != nil {
                 
@@ -155,7 +155,7 @@ class SMBLogInViewController: SMBFormViewController {
                 SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                 SMBChatManager.sharedManager().loadObjects(nil)
                 
-                if user.isNew || !(user as SMBUser).isConfirmed {
+                if user!.isNew || !(user as! SMBUser).isConfirmed {
                     
                     SMBUser.currentUser().syncWithFacebook({ (succeeded: Bool) -> Void in
                         

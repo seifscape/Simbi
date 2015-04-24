@@ -86,7 +86,7 @@ class SMBConfirmationCodeViewController: SMBFormViewController {
         
             let params = ["confirmationCode": codeTextField.text]
             
-            PFCloud.callFunctionInBackground("checkConfirmationCode", withParameters: params, block: { (result: AnyObject!, error: NSError!) -> Void in
+            PFCloud.callFunctionInBackground("checkConfirmationCode", withParameters: params, block: { (result, error) -> Void in
                 
                 if result != nil && error == nil {
                     
@@ -112,7 +112,7 @@ class SMBConfirmationCodeViewController: SMBFormViewController {
             
             let params = ["phoneNumber": SMBUser.currentUser().confirmingPhoneNumber]
             
-            PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result: AnyObject!, error: NSError!) -> Void in
+            PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result, error) -> Void in
                 
                 if error == nil {
                     hud.dismissWithMessage("Sent!")

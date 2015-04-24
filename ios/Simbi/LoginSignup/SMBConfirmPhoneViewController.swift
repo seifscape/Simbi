@@ -150,7 +150,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         
         if SMBUser.currentUser().isAuthenticated() && self.navigationController!.visibleViewController is SMBSignUpViewController {
             
-            SMBUser.currentUser().deleteInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+            SMBUser.currentUser().deleteInBackgroundWithBlock { (succeeded, error) -> Void in
                 
                 if !succeeded {
                     let user = SMBUser.currentUser()
@@ -183,15 +183,15 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
             
             let params: [String: AnyObject] = ["phoneNumber": phoneNumber]
             
-            PFCloud.callFunctionInBackground("phoneNumberExists", withParameters: params, block: { (response: AnyObject!, error: NSError!) -> Void in
+            PFCloud.callFunctionInBackground("phoneNumberExists", withParameters: params, block: { (response, error) -> Void in
                 
                 if response != nil {
                     
-                    if response as String == "NO" {
+                    if response as! String == "NO" {
                         
                         let params = ["phoneNumber": phoneNumber]
                         
-                        PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result: AnyObject!, error: NSError!) -> Void in
+                        PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result, error) -> Void in
                             
                             if error == nil {
                                 

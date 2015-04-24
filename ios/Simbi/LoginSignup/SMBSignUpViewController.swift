@@ -141,11 +141,11 @@ class SMBSignUpViewController: SMBFormViewController {
         
         let hud = MBProgressHUD.HUDwithMessage("Signing Up...", parent: self)
         
-        newUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+        newUser.signUpInBackgroundWithBlock { (succeeded, error) -> Void in
             
             if succeeded {
                 
-                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object, error) -> Void in
                     
                     if object != nil {
                         
@@ -179,7 +179,7 @@ class SMBSignUpViewController: SMBFormViewController {
         
         let permissions = ["email", "public_profile", "user_friends"]
         
-        PFFacebookUtils.logInWithPermissions(permissions, block: { (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInWithPermissions(permissions, block: { (user, error) -> Void in
             
             if user != nil {
                 
@@ -189,7 +189,7 @@ class SMBSignUpViewController: SMBFormViewController {
                 SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                 SMBChatManager.sharedManager().loadObjects(nil)
                 
-                if user.isNew || !(user as SMBUser).isConfirmed {
+                if user!.isNew || !(user as! SMBUser).isConfirmed {
                     
                     SMBUser.currentUser().syncWithFacebook({ (succeeded: Bool) -> Void in
                         

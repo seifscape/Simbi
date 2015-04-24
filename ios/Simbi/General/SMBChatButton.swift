@@ -73,11 +73,14 @@ class SMBChatButton: UIButton {
     // MARK: - View Lifecycle
     
     required init(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    convenience init() {
-        self.init()
-        loadView()
-    }
+
+    /**
+     * crash here
+     */
+//    convenience init() {
+//        self.init()
+//        loadView()
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

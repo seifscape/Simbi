@@ -105,7 +105,7 @@ class SMBMapCardView: UIView {
                 let activity = object as! SMBActivity
                 
                 // Update date
-                lastUpdatedLabel.text = activity.createdAt.relativeDateString()
+                lastUpdatedLabel.text = activity.createdAt!.relativeDateString()
                 
                 // Update text
                 let activityText = NSMutableAttributedString(string: "Checked in at ", attributes: [NSForegroundColorAttributeName: UIColor.simbiDarkGrayColor()])

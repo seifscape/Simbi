@@ -138,8 +138,8 @@ class SMBFriendsListViewController: UITableViewController {
             if obj==nil{
                 return
             }
-            obj["ContactList"] = contacts
-            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
+            obj?["ContactList"] = contacts
+            obj?.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
                 if succ == true{
                     let userdefaults = NSUserDefaults.standardUserDefaults()
                     userdefaults.setBool(true, forKey: "HasDownLoadContact")
@@ -245,13 +245,13 @@ class SMBFriendsListViewController: UITableViewController {
         switch section{
         case 0:
             return "Simbi Friends"
-            break
+    
         case 1:
             return "Simbi User"
-            break
+            
         case 2:
             return "Contact Friends"
-            break
+            
         default:
             return ""
         }
@@ -343,11 +343,11 @@ class SMBFriendsListViewController: UITableViewController {
                             var valueDictionary:Dictionary = [String:String]()
                             
                             var addrNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Country"] = addrNSDict.valueForKey(kABPersonAddressCountryKey) as? String ?? ""
-                            valueDictionary["_State"] = addrNSDict.valueForKey(kABPersonAddressStateKey) as? String ?? ""
-                            valueDictionary["_City"] = addrNSDict.valueForKey(kABPersonAddressCityKey) as? String ?? ""
-                            valueDictionary["_Street"] = addrNSDict.valueForKey(kABPersonAddressStreetKey) as? String ?? ""
-                            valueDictionary["_Contrycode"] = addrNSDict.valueForKey(kABPersonAddressCountryCodeKey) as? String ?? ""
+                            valueDictionary["_Country"] = addrNSDict.valueForKey(kABPersonAddressCountryKey as String) as? String ?? ""
+                            valueDictionary["_State"] = addrNSDict.valueForKey(kABPersonAddressStateKey as String) as? String ?? ""
+                            valueDictionary["_City"] = addrNSDict.valueForKey(kABPersonAddressCityKey as String) as? String ?? ""
+                            valueDictionary["_Street"] = addrNSDict.valueForKey(kABPersonAddressStreetKey as String) as? String ?? ""
+                            valueDictionary["_Contrycode"] = addrNSDict.valueForKey(kABPersonAddressCountryCodeKey as String) as? String ?? ""
                             
                             // 地址整理
                             var fullAddress:String = (valueDictionary["_Country"]! == "" ? valueDictionary["_Contrycode"]! : valueDictionary["_Country"]!) + ", " + valueDictionary["_State"]! + ", " + valueDictionary["_City"]! + ", " + valueDictionary["_Street"]!
@@ -358,9 +358,9 @@ class SMBFriendsListViewController: UITableViewController {
                             var valueDictionary:Dictionary = [String:String]()
                             
                             var snsNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey) as? String ?? ""
-                            valueDictionary["_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey) as? String ?? ""
-                            valueDictionary["_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey) as? String ?? ""
+                            valueDictionary["_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey as String) as? String ?? ""
+                            valueDictionary["_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey as String) as? String ?? ""
+                            valueDictionary["_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey as String) as? String ?? ""
                             
                             values.append(valueDictionary)
                             // IM
@@ -368,8 +368,8 @@ class SMBFriendsListViewController: UITableViewController {
                             var valueDictionary:Dictionary = [String:String]()
                             
                             var imNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey) as? String ?? ""
-                            valueDictionary["_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey) as? String ?? ""
+                            valueDictionary["_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey as String) as? String ?? ""
+                            valueDictionary["_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey as String) as? String ?? ""
                             
                             values.append(valueDictionary)
                             // Date

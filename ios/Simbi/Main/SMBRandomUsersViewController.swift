@@ -128,7 +128,7 @@ class SMBRandomUsersViewController: UIViewController {
             println("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
         }
         
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
 
             self.carousel.userInteractionEnabled = true
             
@@ -137,7 +137,7 @@ class SMBRandomUsersViewController: UIViewController {
             
             if let users = objects {
             
-                self.users = users as [SMBUser]
+                self.users = users as! [SMBUser]
                 self.carousel.reloadData()
                 // v Causes crashes
                 //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)

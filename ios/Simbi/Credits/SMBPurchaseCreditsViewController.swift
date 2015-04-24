@@ -52,17 +52,17 @@ class SMBPurchaseCreditsViewController: UITableViewController {
         
         let query = PFProduct.query()
         
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        query!.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             if sender is UIRefreshControl {
-                (sender as UIRefreshControl).endRefreshing()
+                (sender as! UIRefreshControl).endRefreshing()
             }
             
             activityIndicator?.stopAnimating()
             activityIndicator?.removeFromSuperview()
             
             if let products = objects {
-                self.products = products as [PFProduct]
+                self.products = products as! [PFProduct]
                 self.tableView.reloadData()
             }
         }
@@ -74,7 +74,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
     
     func purchaseCreditsAction(productIdentifier: String) {
                 
-        PFCloud.callFunctionInBackground("echo", withParameters: [:]) { (response: AnyObject!, error: NSError!) -> Void in
+        PFCloud.callFunctionInBackground("echo", withParameters: [:]) { (response, error) -> Void in
             
             if response != nil {
                 
@@ -186,7 +186,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
                 creditsTotalLabel.text = "0"
             }
             else {
-                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object, error) -> Void in
                     creditsTotalLabel.text = "\(SMBUser.currentUser().credits.balance)"
                 })
             }

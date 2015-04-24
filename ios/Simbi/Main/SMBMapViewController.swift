@@ -174,11 +174,11 @@ class SMBMapViewController: UIViewController {
         //set the current user's visible or invisible
         let obid = SMBUser.currentUser().objectId
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
             if obj==nil{
                 return
             }
-            if (obj as SMBUser).visible {
+            if (obj as! SMBUser).visible {
                 switchVisibleButton.selected = false
             }else{
                 switchVisibleButton.selected = true
@@ -239,12 +239,12 @@ class SMBMapViewController: UIViewController {
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
             if obj==nil{
             return
             }
-            obj["visible"] = sender.selected
-            obj.saveInBackgroundWithBlock({ (suss:Bool, err:NSError!) -> Void in
+            obj!["visible"] = sender.selected
+            obj!.saveInBackgroundWithBlock({ (suss, err) -> Void in
                 sender.selected = !sender.selected
             })
         }
