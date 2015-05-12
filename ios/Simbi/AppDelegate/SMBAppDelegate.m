@@ -174,13 +174,6 @@
     [self.window makeKeyAndVisible];
     [self.window setRootViewController:_drawerController];
     
-   
-    /*added by zhy*/
-    // Fetch the current device location
-    
-    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
-
-    }];
     
     return YES;
 }
@@ -212,6 +205,7 @@
             [navigationController.view setAlpha:1.f];
         } completion:nil];
     }];
+    
 }
 
 
