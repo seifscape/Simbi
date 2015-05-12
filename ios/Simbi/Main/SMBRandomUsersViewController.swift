@@ -38,7 +38,7 @@ class SMBRandomUsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.simbiWhiteColor()
+        self.view.backgroundColor = UIColor(red: 65.0/255, green: 114.0/255, blue: 232.0/255, alpha: 1)
         self.view.clipsToBounds = true
         
         // Make carousel bigger than view so the views get created as they scroll.

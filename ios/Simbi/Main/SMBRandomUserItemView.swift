@@ -59,6 +59,17 @@ class SMBRandomUserItemView: UIView {
         
         let pictureImageView = UIImageView(frame: CGRectMake(0, 0, 110, 110))
         pictureImageView.backgroundColor = UIColor.simbiBlackColor()
+   
+        /*modified by zhy*/
+        if kSMBUserGenderMale.value == self.user.genderType().value {
+            pictureImageView.image = UIImage(named: "random_user")
+        } else if kSMBUserGenderFemale.value == self.user.genderType().value {
+            pictureImageView.image = UIImage(named: "random_user")
+        } else {
+            pictureImageView.image = UIImage(named: "random_user")
+        }
+        
+        
         pictureImageView.image = UIImage(named: "random_user")
         pictureImageView.layer.cornerRadius = pictureImageView.frame.width/2
         pictureImageView.layer.masksToBounds = true

@@ -116,7 +116,7 @@ class SMBMapViewController: UIViewController {
         exitRightButton.layer.shadowColor = UIColor.blackColor().CGColor
         exitRightButton.layer.shadowOffset = CGSizeMake(1, 1)
         exitRightButton.layer.shadowOpacity = 0.33
-        self.view.addSubview(exitRightButton)
+//        self.view.addSubview(exitRightButton)  /*deleted by zhy*/
         
         showExitButtons(true)
         

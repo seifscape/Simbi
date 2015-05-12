@@ -15,7 +15,6 @@ class SMBLogInViewController: SMBFormViewController {
     
     let emailTextField = UITextField()
     let passwordTextField = UITextField()
-    let helloTextField = UITextField()
     
     
     // MARK: - ViewController Lifecycle
@@ -36,14 +35,13 @@ class SMBLogInViewController: SMBFormViewController {
         //passwordTextField.text = "111111"
         passwordTextField.secureTextEntry = true
         
-        helloTextField.placeholder = "hello"
     }
     
     
     // MARK: - SMBFormViewController
     
     override func rowsInForm() -> Int {
-        return 3
+        return 2
     }
     
     
@@ -52,7 +50,6 @@ class SMBLogInViewController: SMBFormViewController {
         switch row {
         case 0: return "Email"
         case 1: return "Password"
-        case 2: return "hello"
         default: return ""
         }
     }
@@ -63,7 +60,6 @@ class SMBLogInViewController: SMBFormViewController {
         switch row {
         case 0: return emailTextField
         case 1: return passwordTextField
-        case 2: return helloTextField
         default: return UITextField()
         }
     }
@@ -100,7 +96,6 @@ class SMBLogInViewController: SMBFormViewController {
     
         let password = self.passwordTextField.text
         let email = self.emailTextField.text
-        let hello = self.helloTextField.text
         let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
 
         SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text.lowercaseString, password: textFieldForRow(1)!.text) { (user, error) -> Void in

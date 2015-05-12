@@ -150,15 +150,15 @@ class SMBAccountInfoViewController: UITableViewController {
         SMBUser.currentUser().height = NSNumber(integer: Int(slider.value))
     }
     
-    
-    func userHairColorDidChange(colorSelector: SMBQuantizedColorSelector) {
-        
-    }
-    
-    
-    func userEyeColorDidChange(colorSelector: SMBQuantizedColorSelector) {
-        
-    }
+    /*deleted by zhy*/
+//    func userHairColorDidChange(colorSelector: SMBQuantizedColorSelector) {
+//        
+//    }
+//    
+//    
+//    func userEyeColorDidChange(colorSelector: SMBQuantizedColorSelector) {
+//        
+//    }
     
     
     // "Preferences" methods
@@ -195,15 +195,16 @@ class SMBAccountInfoViewController: UITableViewController {
         SMBUser.currentUser().upperHeightPreference = NSNumber(integer: Int(slider.upperValue))
     }
     
+    /*deleted by zhy*/
     
-    func hairColorPreferenceDidChange(colorSelector: SMBQuantizedColorSelector) {
-        
-    }
-    
-    
-    func eyeColorPreferenceDidChange(colorSelector: SMBQuantizedColorSelector) {
-        
-    }
+//    func hairColorPreferenceDidChange(colorSelector: SMBQuantizedColorSelector) {
+//        
+//    }
+//    
+//    
+//    func eyeColorPreferenceDidChange(colorSelector: SMBQuantizedColorSelector) {
+//        
+//    }
     
     
     // MARK: - UITableViewDataSource/Delegate
@@ -270,7 +271,8 @@ class SMBAccountInfoViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section < 2 ? 5 : 1
+//        return section < 2 ? 5 : 1
+        return section < 2 ? 3 : 1 /*modified by zhy*/
     }
     
     
@@ -287,10 +289,13 @@ class SMBAccountInfoViewController: UITableViewController {
                 return 110
             case 2:
                 return 110
-            case 3:
-                return 88
-            case 4:
-                return 88
+
+            /*deleted by zhy*/
+                
+//            case 3:
+//                return 88
+//            case 4:
+//                return 88
             default:
                 return 0
             }
@@ -376,32 +381,34 @@ class SMBAccountInfoViewController: UITableViewController {
             userHeightLabel.font = UIFont.simbiFontWithSize(18)
             userHeightLabel.textAlignment = .Center
             cell.contentView.addSubview(userHeightLabel)
-            
-        case (0, 3):
-            label.text = "Hair Color"
-            
-            let colors = [UIColor.yellowColor(), UIColor.redColor(), UIColor.brownColor(), UIColor.blackColor()]
-            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
-            
-            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
-            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
-            colorSelector.layer.cornerRadius = 4
-            colorSelector.layer.masksToBounds = true
-            colorSelector.addTarget(self, action: "userHairColorDidChange:", forControlEvents: .ValueChanged)
-            cell.contentView.addSubview(colorSelector)
-            
-        case (0, 4):
-            label.text = "Eye Color"
-            
-            let colors = [UIColor.greenColor(), UIColor.blueColor(), UIColor.grayColor(), UIColor.brownColor()]
-            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
-            
-            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
-            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
-            colorSelector.layer.cornerRadius = 4
-            colorSelector.layer.masksToBounds = true
-            colorSelector.addTarget(self, action: "userEyeColorDidChange:", forControlEvents: .ValueChanged)
-            cell.contentView.addSubview(colorSelector)
+
+            /*deleted by zhy*/
+  
+//        case (0, 3):
+//            label.text = "Hair Color"
+//            
+//            let colors = [UIColor.yellowColor(), UIColor.redColor(), UIColor.brownColor(), UIColor.blackColor()]
+//            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
+//            
+//            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
+//            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
+//            colorSelector.layer.cornerRadius = 4
+//            colorSelector.layer.masksToBounds = true
+//            colorSelector.addTarget(self, action: "userHairColorDidChange:", forControlEvents: .ValueChanged)
+//            cell.contentView.addSubview(colorSelector)
+//            
+//        case (0, 4):
+//            label.text = "Eye Color"
+//            
+//            let colors = [UIColor.greenColor(), UIColor.blueColor(), UIColor.grayColor(), UIColor.brownColor()]
+//            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
+//            
+//            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
+//            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
+//            colorSelector.layer.cornerRadius = 4
+//            colorSelector.layer.masksToBounds = true
+//            colorSelector.addTarget(self, action: "userEyeColorDidChange:", forControlEvents: .ValueChanged)
+//            cell.contentView.addSubview(colorSelector)
             
         // Section 1: Preferences
             
@@ -488,32 +495,34 @@ class SMBAccountInfoViewController: UITableViewController {
             cell.contentView.addSubview(prefHeightLabel)
             
             heightPreferenceDidChange(slider)
-            
-        case (1, 3):
-            label.text = "Hair Color"
-            
-            let colors = [UIColor.yellowColor(), UIColor.redColor(), UIColor.brownColor(), UIColor.blackColor()]
-            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
-            
-            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
-            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
-            colorSelector.layer.cornerRadius = 4
-            colorSelector.layer.masksToBounds = true
-            colorSelector.addTarget(self, action: "hairColorPreferenceDidChange:", forControlEvents: .ValueChanged)
-            cell.contentView.addSubview(colorSelector)
-            
-        case (1, 4):
-            label.text = "Eye Color"
-            
-            let colors = [UIColor.greenColor(), UIColor.blueColor(), UIColor.grayColor(), UIColor.brownColor()]
-            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
-            
-            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
-            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
-            colorSelector.layer.cornerRadius = 4
-            colorSelector.layer.masksToBounds = true
-            colorSelector.addTarget(self, action: "eyeColorPreferenceDidChange:", forControlEvents: .ValueChanged)
-            cell.contentView.addSubview(colorSelector)
+          
+            /*deleted by zhy*/
+  
+//        case (1, 3):
+//            label.text = "Hair Color"
+//            
+//            let colors = [UIColor.yellowColor(), UIColor.redColor(), UIColor.brownColor(), UIColor.blackColor()]
+//            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
+//            
+//            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
+//            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
+//            colorSelector.layer.cornerRadius = 4
+//            colorSelector.layer.masksToBounds = true
+//            colorSelector.addTarget(self, action: "hairColorPreferenceDidChange:", forControlEvents: .ValueChanged)
+//            cell.contentView.addSubview(colorSelector)
+//            
+//        case (1, 4):
+//            label.text = "Eye Color"
+//            
+//            let colors = [UIColor.greenColor(), UIColor.blueColor(), UIColor.grayColor(), UIColor.brownColor()]
+//            let frame = CGRectMake(22, 33, tableView.frame.width-44, 44)
+//            
+//            let colorSelector = SMBQuantizedColorSelector(frame: frame, colors: colors)
+//            colorSelector.setSelectedIndex( UInt(arc4random()) % UInt(colors.count) )
+//            colorSelector.layer.cornerRadius = 4
+//            colorSelector.layer.masksToBounds = true
+//            colorSelector.addTarget(self, action: "eyeColorPreferenceDidChange:", forControlEvents: .ValueChanged)
+//            cell.contentView.addSubview(colorSelector)
            
         // Section 2: Submit Button
             
