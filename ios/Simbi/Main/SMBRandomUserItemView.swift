@@ -115,7 +115,7 @@ class SMBRandomUserItemView: UIView {
         var sharedCount = 0
         
         let currentusr = SMBUser.currentUser()
-        if (currentusr != nil && currentusr.tags != nil){
+        if ((currentusr != nil) && (currentusr.tags != nil) && (user.tags != nil)){
             for tag in SMBUser.currentUser().tags{
                 println(tag)
                 if user.tags.indexOfObject(tag) != NSNotFound {
