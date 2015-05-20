@@ -441,8 +441,8 @@ extension SMBMainViewController: SMBMapViewDelegate {
             goMapButton.frame = goMapButtonBackGroundView.frame
             goRandomButton.frame = goRandomButtonBackGroundView.frame
         case 2:
-            self.goMapButton.hidden = false
-            self.goHomeButton.hidden = false
+            self.goMapButton.hidden = true  /*modified by zhy*/
+            self.goHomeButton.hidden = true /*modified by zhy*/
             self.goRandomButton.hidden = true
             self.goMapButtonBackGroundView.hidden = false
             self.goHomeButtonBackGroundView.hidden = false
@@ -453,6 +453,9 @@ extension SMBMainViewController: SMBMapViewDelegate {
             goHomeButton.frame = goHomeButtonBackGroundView.frame
             goMapButton.frame = goMapButtonBackGroundView.frame
             goRandomButton.frame = goRandomButtonBackGroundView.frame
+            
+            UINavigationBar.appearance().barTintColor = UIColor.simbiGreenColor()/*added by zhy*/
+
         default:
             break
         }

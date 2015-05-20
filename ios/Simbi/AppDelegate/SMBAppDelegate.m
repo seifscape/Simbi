@@ -159,7 +159,21 @@
             [viewController pushToConfirmPhone];
         }
         else
+        {
             [self setCenterViewController:[[SMBMainViewController alloc] init]];
+            
+            /*added by zhy*/
+            // Fetch the current device location, then save to Parse.
+            
+            [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+                if (geoPoint) {
+                    [[SMBUser currentUser] setObject:geoPoint forKey:@"geoPoint"];
+                    [[SMBUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *PF_NULLABLE_S error) {
+                        NSLog(@"location ok 1");
+                    }];
+                }
+            }];
+        }
     }
     else
     {
@@ -206,6 +220,18 @@
         } completion:nil];
     }];
     
+    
+    /*added by zhy*/
+    // Fetch the current device location, then save to Parse.
+    
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        if (geoPoint) {
+            [[SMBUser currentUser] setObject:geoPoint forKey:@"geoPoint"];
+            [[SMBUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *PF_NULLABLE_S error) {
+                NSLog(@"location ok 2");
+            }];
+        }
+    }];
 }
 
 
