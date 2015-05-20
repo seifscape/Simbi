@@ -38,7 +38,7 @@ class SMBRandomUsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 65.0/255, green: 114.0/255, blue: 232.0/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 65.0/255, green: 114.0/255, blue: 232.0/255, alpha: 0.5)
         self.view.clipsToBounds = true
         
         // Make carousel bigger than view so the views get created as they scroll.
@@ -58,19 +58,28 @@ class SMBRandomUsersViewController: UIViewController {
         ), labelSide: .Left)
         
         rangeSlider!.values = [
-            ("500 Feet",    500/feetInMile),
-            ("1,000 Feet", 1000/feetInMile),
-            ("1 Mile",      1.0),
-            ("2.5 Miles",   2.5),
-            ("5 Miles",     5.0),
-            ("10 Miles",   10.0),
-            ("20 Miles",   20.0)
+//            ("500 Feet",    500/feetInMile),
+//            ("1,000 Feet", 1000/feetInMile),
+//            ("1 Mile",      1.0),
+//            ("2.5 Miles",   2.5),
+//            ("5 Miles",     5.0),
+//            ("10 Miles",   10.0),
+//            ("20 Miles",   20.0)
+            
+            /*modified by zhy*/
+            ("500fe",    500/feetInMile),
+            ("1000fe", 1000/feetInMile),
+            ("1mi",      1.0),
+            ("2.5mi",   2.5),
+            ("5mi",     5.0),
+            ("10mi",   10.0),
+            ("20mi",   20.0)
         ]
         rangeSlider!.slider.addTarget(self, action: "sliderDidStart:", forControlEvents: .TouchDown)
         rangeSlider!.slider.addTarget(self, action: "sliderDidFinish:", forControlEvents: .TouchUpInside)
         self.view.addSubview(rangeSlider!)
         
-        lineView.frame = CGRectMake(40+110/2-1, 0, 2, self.view.frame.height)
+        lineView.frame = CGRectMake(40+110/2-1, 0, 1, self.view.frame.height)/*modified by zhy*/
         lineView.backgroundColor = UIColor.simbiGrayColor()
         self.view.insertSubview(lineView, belowSubview: carousel)
         lineView.alpha = 0

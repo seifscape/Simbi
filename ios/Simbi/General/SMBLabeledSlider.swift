@@ -62,9 +62,9 @@ class SMBLabeledSlider: UIView {
         
         self.addSubview(slider)
         
-        labelContainerView.frame = CGRectMake(0, 0, 88, 38)
-        labelContainerView.backgroundColor = UIColor.simbiLightGrayColor()
-        labelContainerView.layer.cornerRadius = 4
+        labelContainerView.frame = CGRectMake(0, 0, 38, 38) /*modified by zhy (88->38) */
+        labelContainerView.backgroundColor = UIColor.simbiBlueColor()/*modified by zhy (lightGray -> blue)*/
+        labelContainerView.layer.cornerRadius = 19  /*modified by zhy   (4->19) */
         labelContainerView.layer.shadowColor = UIColor.blackColor().CGColor
         labelContainerView.layer.shadowOffset = CGSizeMake(2, 2)
         labelContainerView.layer.shadowOpacity = 0.25
@@ -72,9 +72,9 @@ class SMBLabeledSlider: UIView {
         
         label.frame = labelContainerView.frame
         label.textColor = UIColor.simbiDarkGrayColor()
-        label.font = UIFont.simbiFontWithSize(14)
+        label.font = UIFont.simbiFontWithSize(12)   /*modified by zhy   (14->12) */
         label.textAlignment = .Center
-        label.layer.cornerRadius = 4
+        label.layer.cornerRadius = 19   /*modified by zhy   (4->19) */
         label.layer.masksToBounds = true
         labelContainerView.addSubview(label)
         
@@ -84,7 +84,7 @@ class SMBLabeledSlider: UIView {
         }
         sliderPoint.backgroundColor = UIColor.simbiLightGrayColor()
         sliderPoint.transform = CGAffineTransformMakeRotation(M_PI_4.CG)
-        labelContainerView.insertSubview(sliderPoint, belowSubview: label)
+//        labelContainerView.insertSubview(sliderPoint, belowSubview: label) /*deleted by zhy */
         
         self.addSubview(labelContainerView)
     }
