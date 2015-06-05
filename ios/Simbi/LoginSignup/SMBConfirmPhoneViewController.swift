@@ -27,9 +27,11 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
     override func loadView() {
         super.loadView()
         
-        backgroundImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        backgroundImageView.image = UIImage(named: "exploding_phone")
-        self.view.addSubview(backgroundImageView)
+        /*deleted by zhy*/
+        
+//        backgroundImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+//        backgroundImageView.image = UIImage(named: "exploding_phone")
+//        self.view.addSubview(backgroundImageView)
         
         countryTextField.text = "United States (+1)"
         countryTextField.placeholder = "Select Country"

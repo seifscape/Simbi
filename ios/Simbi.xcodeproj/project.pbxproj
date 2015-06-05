@@ -2289,10 +2289,10 @@
 				ORGANIZATIONNAME = SimbiSocial;
 				TargetAttributes = {
 					529FE80F1922B13000A7C5C4 = {
-						DevelopmentTeam = P6LCGC9VU2;
+						DevelopmentTeam = 5NLEG2NH6Q;
 					};
 					529FE82A1922B13000A7C5C4 = {
-						DevelopmentTeam = P6LCGC9VU2;
+						DevelopmentTeam = 5NLEG2NH6Q;
 						TestTargetID = 529FE80F1922B13000A7C5C4;
 					};
 				};
@@ -2808,7 +2808,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: pengbo liu (2MXVMSC9F3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2839,7 +2839,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: pengbo liu (2MXVMSC9F3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2867,6 +2867,8 @@
 			baseConfigurationReference = 8515A07F1A43ABEBAE1F303A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Simbi.app/Simbi";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2881,6 +2883,7 @@
 				);
 				INFOPLIST_FILE = "SimbiTests/SimbiTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -2891,6 +2894,8 @@
 			baseConfigurationReference = D82428AA4996DB70C56896E9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Simbi.app/Simbi";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2901,6 +2906,7 @@
 				GCC_PREFIX_HEADER = "Simbi/Simbi-Prefix.pch";
 				INFOPLIST_FILE = "SimbiTests/SimbiTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
