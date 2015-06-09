@@ -178,7 +178,7 @@
     [cell.contentView addSubview:label];
     if (indexPath.row == 0)
     {
-        [label setText:@"Loking TO(Select 1+)"];
+        [label setText:@"Looking To[Select 1+]"]; /*modified by zhy at 2015-06-05*/
         if (self.lookingtoSegmentedControl==nil) {
             self.lookingtoSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Make Friends", @"Date", @"NetWork"]];
         }

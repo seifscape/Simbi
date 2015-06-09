@@ -93,6 +93,17 @@ class SMBFriendsListViewController: UITableViewController {
                 self.objectsNotInSimbiAndButInContacts.append(model)
             }
         }
+       
+        /*added by zhy at 2015-06-09*/
+        self.objectsNotInSimbiAndButInContacts = ((self.objectsNotInSimbiAndButInContacts as NSArray).sortedArrayUsingComparator { (obj1, obj2) -> NSComparisonResult in
+            if (obj1 as! SMBFriendsListModel).fullname < (obj2 as! SMBFriendsListModel).fullname {
+                return NSComparisonResult.OrderedAscending
+            } else {
+                return NSComparisonResult.OrderedDescending
+            }
+            
+        }) as! [SMBFriendsListModel]
+        
         self.tableView.reloadData()
     }
     func loadSimbiUserNotSimbiFriendButIncontact(contacts:NSArray){
@@ -125,6 +136,16 @@ class SMBFriendsListViewController: UITableViewController {
                 self.objectsInSimbiAndContactsButNotSimbiFrieds.append(model)
             }
             self.loadContactNotInSimi(contacts)
+            
+            /*added by zhy at 2015-06-09*/
+            self.objectsInSimbiAndContactsButNotSimbiFrieds = (self.objectsInSimbiAndContactsButNotSimbiFrieds as NSArray).sortedArrayUsingComparator({ (obj1, obj2) -> NSComparisonResult in
+                if (obj1 as! SMBFriendsListModel).fullname < (obj2 as! SMBFriendsListModel).fullname {
+                    return NSComparisonResult.OrderedAscending
+                } else {
+                    return NSComparisonResult.OrderedDescending
+                }
+            }) as! [SMBFriendsListModel]
+            
             self.tableView.reloadData()
         }
     }
@@ -229,13 +250,10 @@ class SMBFriendsListViewController: UITableViewController {
         switch section{
         case 0:
             return objects.count
-            break
         case 1:
             return self.objectsInSimbiAndContactsButNotSimbiFrieds.count
-            break
         case 2:
             return self.objectsNotInSimbiAndButInContacts.count
-            break
         default:
             return 0
         }
