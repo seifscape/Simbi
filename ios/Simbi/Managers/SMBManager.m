@@ -96,7 +96,13 @@
             
             _isLoading = NO;
             
-            if (objects)
+            /*
+                modified by zhy at 2015-06-17
+                
+                add a condition "&& objects.count > 0"
+             
+             */
+            if (objects && objects.count > 0)
             {
                 _objects = objects;
                 _errorLoadingObjects = NO;
@@ -105,8 +111,8 @@
                     [SMBChat drawConnectionsForChatsInArray:_objects];
                 if ([_className isEqualToString:@"_User"]){
                     printf("user");
-                    int cut = _objects.count;
-                    BOOL vis = [_objects[0][@"visbible"] boolValue];
+                    __unused NSInteger cut = _objects.count;
+                    __unused BOOL vis = [_objects[0][@"visbible"] boolValue];
                     
                 }
 

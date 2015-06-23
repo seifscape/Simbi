@@ -95,8 +95,17 @@
     [query whereKey:@"toUser" equalTo:[SMBUser currentUser]];
     [query whereKey:@"status" equalTo:@"Pending"];
     [query includeKey:@"fromUser"];
-    [query includeKey:@"fromUser.profilePicture"];
-    [query includeKey:@"fromUser.hairColor"];
+    
+    /*
+     deleted by zhy at 2015-06-17
+     
+     bug: 'SIMBI FRIENDS table' could not show out the friendRequests
+     reason: wrong query conditions, like "profilePicture" "hairColor"
+     
+     */
+    
+//    [query includeKey:@"fromUser.profilePicture"];
+//    [query includeKey:@"fromUser.hairColor"];
     
     return query;
 }

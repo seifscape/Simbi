@@ -65,8 +65,17 @@
 - (PFQuery *)query
 {
     PFQuery *query = [SMBUser currentUser].friends.query;
-    [query includeKey:@"profilePicture"];
-    [query includeKey:@"hairColor"];
+
+    /*
+        deleted by zhy at 2015-06-17
+        
+        bug: SIMBI USER table could not show out the users
+        reason: wrong query conditions, like "profilePicture" "hairColor"
+     
+     */
+    
+    //    [query includeKey:@"profilePicture"];
+    //    [query includeKey:@"hairColor"];
     
     [query orderByAscending:@"name"];
     
