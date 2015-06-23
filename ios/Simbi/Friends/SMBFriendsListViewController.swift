@@ -9,6 +9,7 @@
 import UIKit
 import AddressBook
 import AddressBookUI
+import MessageUI
 
 class SMBFriendsListViewController: UITableViewController {
     
@@ -86,6 +87,7 @@ class SMBFriendsListViewController: UITableViewController {
             }
             if isSimbiUser == false{
                 var model:SMBFriendsListModel = SMBFriendsListModel()
+                model.sendSMSDelegate = self/*added by zhy at 2015-06-18 for inviting friend*/
                 model.fullname = name as! String
                 model.phoneNo = phoneNo
                 model.type = 2
@@ -481,10 +483,10 @@ class SMBFriendsListViewController: UITableViewController {
 }
 
 
-// MARK: - SMBManagerDelegate
+// MARK: - SMBManagerDelegate | MFMessageComposeViewControllerDelegate | SMBSendSMSDelegate
 
-extension SMBFriendsListViewController: SMBManagerDelegate {
-    
+extension SMBFriendsListViewController: SMBManagerDelegate, MFMessageComposeViewControllerDelegate, SMBSendSMSDelegate{
+    //SMBManagerDelegate
     func manager(manager: SMBManager!, didUpdateObjects objects: [AnyObject]!) {
         
         loadObjects()
@@ -494,4 +496,30 @@ extension SMBFriendsListViewController: SMBManagerDelegate {
     func manager(manager: SMBManager!, didFailToLoadObjects error: NSError!) {
         
     }
+    
+    
+    /*
+        added by zhy at 2015-06-18
+    
+        function: send SMS for inviting friend
+    */
+    
+    //MFMessageComposeViewControllerDelegate
+    func messageComposeViewController(controller: MFMessageComposeViewController!, didFinishWithResult result: MessageComposeResult) {
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //SMBSendSMSDelegate
+    func sendInviteSMS(phoneNo: String, senderName: String) {
+        
+        let messageComposeVC = MFMessageComposeViewController()
+        messageComposeVC.messageComposeDelegate = self
+        var rcp:Array = [phoneNo]
+        messageComposeVC.recipients = rcp
+        messageComposeVC.body = "Hey friend - Add me on Simbi! Username:" + senderName + " https://www.simbi.com/download"
+        self.presentViewController(messageComposeVC, animated: true, completion: nil)
+        
+    }
 }
+

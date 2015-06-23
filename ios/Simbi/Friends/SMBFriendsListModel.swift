@@ -8,15 +8,19 @@
 
 import UIKit
 
+protocol SMBSendSMSDelegate {
+    func sendInviteSMS(phoneNo:String, senderName:String)
+}
 
 class SMBFriendsListModel: NSObject {
-    
+    /*added by zhy at 2015-06-18 for inviting friend*/
+    var sendSMSDelegate:SMBSendSMSDelegate?
+
     // MARK: - Class Methods
     
     class func cellClass()  -> AnyClass { return SMBFriendsListCell.classForCoder() }
     class func cellReuse()  -> String   { return "FriendsListCell" }
     class func cellHeight() -> CGFloat  { return SMBFriendsListCell.cellHeight() }
-    
     
     // MARK: - Implementation
     var parent:UIViewController = UIViewController()
@@ -104,18 +108,23 @@ class SMBFriendsListModel: NSObject {
         return cell!
     }
     func inviteFriends(sender: AnyObject) {
-        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent:self.parent)
-
-        var dic:NSMutableDictionary = NSMutableDictionary()
-        dic.setValue(self.phoneNo, forKey: "phoneNumber")
-        PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic as [NSObject : AnyObject]) { (obj, err) -> Void in
-            if err==nil {
-                (sender as! UIButton).hidden = true
-                hud.dismissWithMessage("Invited sucuss!")
-            }else{
-                hud.dismissWithMessage("Invited failed!")
-            }
-        }
+//        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent:self.parent)
+//
+//        var dic:NSMutableDictionary = NSMutableDictionary()
+//        dic.setValue(self.phoneNo, forKey: "phoneNumber")
+//        PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic as [NSObject : AnyObject]) { (obj, err) -> Void in
+//            if err==nil {
+//                (sender as! UIButton).hidden = true
+//                hud.dismissWithMessage("Invited sucuss!")
+//            }else{
+//                hud.dismissWithMessage("Invited failed!")
+//            }
+//        }
+        
+       
+        /*modified by zhy at 2015-06-18*/
+        
+        sendSMSDelegate?.sendInviteSMS(self.phoneNo, senderName: self.user.name)
     }
     func requestFriend(sender: AnyObject) {
         let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent: self.parent)
