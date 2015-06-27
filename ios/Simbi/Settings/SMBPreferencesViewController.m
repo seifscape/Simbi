@@ -20,6 +20,11 @@
 @property (nonatomic, strong) UILabel *agePreferenceLabel;
 @property (nonatomic, strong) UILabel *heightPreferenceLabel;
 @property (nonatomic, strong) UISegmentedControl *lookingtoSegmentedControl;
+/*added by zhy at 2015-06-26*/
+@property (nonatomic, strong) UIButton *lookingtoBtnFirst;
+@property (nonatomic, strong) UIButton *lookingtoBtnSecond;
+@property (nonatomic, strong) UIButton *lookingtoBtnThird;
+/*end*/
 @property (nonatomic, strong) UISegmentedControl *genderSegmentedControl;
 @property (nonatomic, strong) NMRangeSlider *ageRangeSlider;
 @property (nonatomic, strong) UIButton* saveButton;
@@ -32,6 +37,9 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     self.lookingtoSegmentedControl = nil;
+    self.lookingtoBtnFirst = nil;
+    self.lookingtoBtnSecond = nil;
+    self.lookingtoBtnThird = nil;
     self.genderSegmentedControl = nil;
     self.ageRangeSlider = nil;
     self.saveButton = nil;
@@ -77,8 +85,9 @@
     
     PFQuery* query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
-        object[@"lookingto"] = [NSString stringWithFormat:@"%d",self.lookingtoSegmentedControl.selectedSegmentIndex];
-        object[@"genderPreference"] = [NSString stringWithFormat:@"%d",self.genderSegmentedControl.selectedSegmentIndex];
+//        object[@"lookingto"] = [NSString stringWithFormat:@"%ld",self.lookingtoSegmentedControl.selectedSegmentIndex];
+        object[@"lookingto"] = [NSArray arrayWithObjects:self.lookingtoBtnFirst.isSelected?@"1":@"0", self.lookingtoBtnSecond.isSelected?@"1":@"0", self.lookingtoBtnThird.isSelected?@"1":@"0", nil];
+        object[@"genderPreference"] = [NSString stringWithFormat:@"%ld",self.genderSegmentedControl.selectedSegmentIndex];
         object[@"upperAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.upperValue];
         object[@"lowerAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.lowerValue];
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
@@ -110,8 +119,20 @@
     PFQuery* query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
         SMBUser* user = (SMBUser*)object;
-        NSLog(@"%d,%d",user.upperAgePreference.integerValue,user.lowerAgePreference.integerValue);
-        [self.lookingtoSegmentedControl setSelectedSegmentIndex: [user.lookingto intValue]];
+        NSLog(@"%ld,%ld",(long)user.upperAgePreference.integerValue,(long)user.lowerAgePreference.integerValue);
+//        [self.lookingtoSegmentedControl setSelectedSegmentIndex: [user.lookingto intValue]];
+        
+        //get lookingto preference
+        NSArray *lookingtoArray = user.lookingto;
+        if (lookingtoArray && lookingtoArray.count == 3) {
+            self.lookingtoBtnFirst.selected = [lookingtoArray[0] isEqual:@"1"]?YES:NO;
+            self.lookingtoBtnSecond.selected = [lookingtoArray[1] isEqual:@"1"]?YES:NO;
+            self.lookingtoBtnThird.selected = [lookingtoArray[2] isEqual:@"1"]?YES:NO;
+            [self refreshLookingtoBtn:self.lookingtoBtnFirst];
+            [self refreshLookingtoBtn:self.lookingtoBtnSecond];
+            [self refreshLookingtoBtn:self.lookingtoBtnThird];
+        }
+        
         [self.genderSegmentedControl setSelectedSegmentIndex: [user.genderPreference intValue]];
         [[SMBUser currentUser] setUpperAgePreference:user.upperAgePreference];
         [[SMBUser currentUser] setLowerAgePreference:user.lowerAgePreference];
@@ -179,6 +200,7 @@
     if (indexPath.row == 0)
     {
         [label setText:@"Looking To[Select 1+]"]; /*modified by zhy at 2015-06-05*/
+#if 0
         if (self.lookingtoSegmentedControl==nil) {
             self.lookingtoSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Make Friends", @"Date", @"NetWork"]];
         }
@@ -187,6 +209,57 @@
         [self.lookingtoSegmentedControl addTarget:self action:@selector(genderPreferenceDidChange:) forControlEvents:UIControlEventValueChanged];
         [self.lookingtoSegmentedControl setSelectedSegmentIndex:[SMBUser currentUser].genderPreferenceType];
         [cell.contentView addSubview:self.lookingtoSegmentedControl];
+#endif
+        
+        if (self.lookingtoBtnFirst == nil) {
+            self.lookingtoBtnFirst = [UIButton buttonWithType:UIButtonTypeCustom];
+            self.lookingtoBtnFirst.layer.masksToBounds = YES;
+            self.lookingtoBtnFirst.layer.borderWidth = 1.f;
+            self.lookingtoBtnFirst.layer.cornerRadius = 3.f;
+            self.lookingtoBtnFirst.layer.borderColor = [UIColor simbiBlueColor].CGColor;
+            self.lookingtoBtnFirst.titleLabel.font = [UIFont simbiFontWithSize:14];
+            [self.lookingtoBtnFirst setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
+            [self.lookingtoBtnFirst setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];
+            [self.lookingtoBtnFirst setFrame:CGRectMake(22, 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnFirst setTitle:@"Make Friends" forState:UIControlStateNormal];
+            [self.lookingtoBtnFirst addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:self.lookingtoBtnFirst];
+
+        }
+        
+        if (self.lookingtoBtnSecond == nil) {
+            self.lookingtoBtnSecond = [UIButton buttonWithType:UIButtonTypeCustom];
+            self.lookingtoBtnSecond.layer.masksToBounds = YES;
+            self.lookingtoBtnSecond.layer.borderWidth = 1.f;
+            self.lookingtoBtnSecond.layer.cornerRadius = 3.f;
+            self.lookingtoBtnSecond.layer.borderColor = [UIColor simbiBlueColor].CGColor;
+            self.lookingtoBtnSecond.titleLabel.font = [UIFont simbiFontWithSize:14];
+
+            [self.lookingtoBtnSecond setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
+            [self.lookingtoBtnSecond setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];            [self.lookingtoBtnSecond setFrame:CGRectMake(CGRectGetMaxX(self.lookingtoBtnFirst.frame), 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnSecond setTitle:@"Date" forState:UIControlStateNormal];
+            [self.lookingtoBtnSecond addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:self.lookingtoBtnSecond];
+
+        }
+        
+        if (self.lookingtoBtnThird == nil) {
+            self.lookingtoBtnThird = [UIButton buttonWithType:UIButtonTypeCustom];
+            self.lookingtoBtnThird.layer.masksToBounds = YES;
+            self.lookingtoBtnThird.layer.borderWidth = 1.f;
+            self.lookingtoBtnThird.layer.cornerRadius = 3.f;
+            self.lookingtoBtnThird.layer.borderColor = [UIColor simbiBlueColor].CGColor;
+            self.lookingtoBtnThird.titleLabel.font = [UIFont simbiFontWithSize:14];
+
+            [self.lookingtoBtnThird setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
+            [self.lookingtoBtnThird setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];
+            [self.lookingtoBtnThird setFrame:CGRectMake(CGRectGetMaxX(self.lookingtoBtnSecond.frame), 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnThird setTitle:@"NetWork" forState:UIControlStateNormal];
+            [self.lookingtoBtnThird addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:self.lookingtoBtnThird];
+
+        }
+        
     }
     if (indexPath.row == 1)
     {
@@ -294,6 +367,24 @@
 
 
 #pragma mark - User Actions
+- (void)refreshLookingtoBtn:(UIButton *)button {
+    if (button.isSelected) {
+        [button setBackgroundColor:[UIColor simbiBlueColor]];
+    } else {
+        [button setBackgroundColor:[UIColor simbiWhiteColor]];
+    }
+  
+}
+
+- (void)lookingtoPreferenceDidChange:(UIButton *)button
+{
+    button.selected = !button.isSelected;
+    if (button.isSelected) {
+        [button setBackgroundColor:[UIColor simbiBlueColor]];
+    } else {
+        [button setBackgroundColor:[UIColor simbiWhiteColor]];
+    }
+}
 
 - (void)genderPreferenceDidChange:(UISegmentedControl *)segmentedControl
 {

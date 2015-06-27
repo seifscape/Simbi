@@ -90,7 +90,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 4;
 }
 
 
@@ -133,11 +133,11 @@
             [iconImageView setImage:[UIImage imageNamed:@"gamesicon"]];
             [label setText:@"Games"];
             break;
+//        case 3:
+//            [iconImageView setImage:[UIImage imageNamed:@"creditsicon"]];
+//            [label setText:@"Credits"];
+//            break;
         case 3:
-            [iconImageView setImage:[UIImage imageNamed:@"creditsicon"]];
-            [label setText:@"Credits"];
-            break;
-        case 4:
             [iconImageView setImage:[UIImage imageNamed:@"settingsicon"]];
             [label setText:@"Settings"];
             break;
@@ -158,8 +158,8 @@
         case 0: viewController = [[SMBMainViewController alloc] init];              break;
         case 1: viewController = [[SMBFriendsListViewController alloc] init];       break;
         case 2: viewController = [[SMBSelectChallengeViewController alloc] init];   break;
-        case 3: viewController = [[SMBCreditsViewController alloc] init];           break;
-        case 4: viewController = [[SMBSettingsViewController alloc] init];          break;
+//        case 3: viewController = [[SMBCreditsViewController alloc] init];           break;
+        case 3: viewController = [[SMBSettingsViewController alloc] init];          break;
     }
     
     if (viewController)

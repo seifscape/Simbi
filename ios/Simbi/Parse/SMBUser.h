@@ -56,7 +56,7 @@ typedef enum SMBUserPreference : NSInteger
 @property (retain) NSString *lastName;
 @property (retain) NSNumber *age;
 @property (retain) NSString *gender;
-@property (retain) NSString *lookingto;
+@property (retain) NSArray *lookingto;
 @property (retain) SMBHairColor *hairColor;
 @property (retain) SMBImage *profilePicture;
 @property (retain) SMBImage *backgroundImage;
