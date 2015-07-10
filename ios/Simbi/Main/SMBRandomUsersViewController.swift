@@ -38,7 +38,7 @@ class SMBRandomUsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(red: 65.0/255, green: 114.0/255, blue: 232.0/255, alpha: 0.5)
+        self.view.backgroundColor = UIColor(red: 100.0/255, green: 158.0/255, blue: 255.0/255, alpha: 1.0)
         self.view.clipsToBounds = true
         
         // Make carousel bigger than view so the views get created as they scroll.
@@ -125,9 +125,7 @@ class SMBRandomUsersViewController: UIViewController {
         let query = PFQuery(className: "_User")
 //        query.cachePolicy = kPFCachePolicyNetworkOnly
         query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
-        query.includeKey("profilePicture")
-        query.includeKey("hairColor")
-        
+  
         let (text, value) = rangeSlider!.selectedItem()
         
         if SMBUser.currentUser().geoPoint != nil {
@@ -144,9 +142,28 @@ class SMBRandomUsersViewController: UIViewController {
             activityIndicatorView.stopAnimating()
             activityIndicatorView.removeFromSuperview()
             
-            if let users = objects {
-            
-                self.users = users as! [SMBUser]
+            if let users:[SMBUser] = objects as? [SMBUser] {
+                
+                self.users = users
+                /*
+                    added by zhy at 2015-07-10
+                    new condition(according to user's lookingto) for searching Simbi Users
+                */
+                var i:Int = 0
+                for user:SMBUser in users {
+                    
+                    if user.lookingto != nil {
+                        if user.lookingto[0] as! String != SMBUser.currentUser().lookingto[0] as! String
+                        && user.lookingto[1] as! String != SMBUser.currentUser().lookingto[1] as! String
+                        && user.lookingto[2] as! String != SMBUser.currentUser().lookingto[2] as! String
+                        {
+                            self.users.removeAtIndex(i)
+                        }
+                    }
+                    
+                    ++i
+                }
+                
                 self.carousel.reloadData()
                 // v Causes crashes
                 //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)
