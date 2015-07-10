@@ -13,6 +13,7 @@ protocol SMBRandomUserItemDelegate {
     // Have to use this naming convention - Swift bug~
     func itemViewDidSelectUserForQuestion(itemView: SMBRandomUserItemView, user: SMBUser)
     func itemViewDidSelectUserForChallenge(itemView: SMBRandomUserItemView, user: SMBUser)
+    func itemViewDidSelectUserForChat(itemView: SMBRandomUserItemView, user: SMBUser)
 }
 
 
@@ -179,6 +180,16 @@ class SMBRandomUserItemView: UIView {
     // MARK: - User Actions
     
     func questionAction(sender: AnyObject) {
+        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
+        
+        for u in friends! {
+            if u.objectId == user.objectId {
+                delegate?.itemViewDidSelectUserForChat(self, user: user)
+
+                return
+            }
+        }
+        
         delegate?.itemViewDidSelectUserForQuestion(self, user: user)
     }
     

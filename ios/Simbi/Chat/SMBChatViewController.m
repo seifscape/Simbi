@@ -91,7 +91,13 @@ typedef enum SMBChatViewAlertType : NSInteger
     
     _isLoading = NO;
     
-    [self setTitle:[_chat otherUser].name];
+    if ([_chat otherUser].firstName) {
+        [self setTitle:[_chat otherUser].firstName];
+    } else if ([_chat otherUser].lastName) {
+        [self setTitle:[_chat otherUser].lastName];
+    } else {
+        [self setTitle:@"No Name"];
+    }
 
     [self setSender:@"ME"];
     

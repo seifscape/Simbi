@@ -289,4 +289,17 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
         let navigationController = UINavigationController(rootViewController: SMBSelectChallengeViewController(user: user))
         self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
     }
+    
+    func itemViewDidSelectUserForChat(itemView: SMBRandomUserItemView, user: SMBUser) {
+        
+        var chats:[SMBChat]? = SMBChatManager.sharedManager().objects as? [SMBChat]
+        for chat:SMBChat in chats! {
+            if chat.otherUser().objectId == user.objectId {
+                var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            }
+        }
+        
+        println("--[itemViewDidSelectUserForChat  no  chat]--")
+    }
 }
