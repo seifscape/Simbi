@@ -220,10 +220,10 @@
             self.lookingtoBtnFirst.titleLabel.font = [UIFont simbiFontWithSize:14];
             [self.lookingtoBtnFirst setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
             [self.lookingtoBtnFirst setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];
-            [self.lookingtoBtnFirst setFrame:CGRectMake(22, 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnFirst setFrame:CGRectMake(22, 22+(44-28)/2, (cell.frame.size.width-44)/3.0+2, 28)];
             [self.lookingtoBtnFirst setTitle:@"Make Friends" forState:UIControlStateNormal];
             [self.lookingtoBtnFirst addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.contentView addSubview:self.lookingtoBtnFirst];
+//            [cell.contentView addSubview:self.lookingtoBtnFirst];
 
         }
         
@@ -231,15 +231,16 @@
             self.lookingtoBtnSecond = [UIButton buttonWithType:UIButtonTypeCustom];
             self.lookingtoBtnSecond.layer.masksToBounds = YES;
             self.lookingtoBtnSecond.layer.borderWidth = 1.f;
-            self.lookingtoBtnSecond.layer.cornerRadius = 3.f;
+            self.lookingtoBtnSecond.layer.cornerRadius = 0.f;
             self.lookingtoBtnSecond.layer.borderColor = [UIColor simbiBlueColor].CGColor;
             self.lookingtoBtnSecond.titleLabel.font = [UIFont simbiFontWithSize:14];
 
             [self.lookingtoBtnSecond setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
-            [self.lookingtoBtnSecond setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];            [self.lookingtoBtnSecond setFrame:CGRectMake(CGRectGetMaxX(self.lookingtoBtnFirst.frame), 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnSecond setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];            [self.lookingtoBtnSecond setFrame:CGRectMake(0, 0, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnSecond setCenter:CGPointMake(self.view.center.x, self.lookingtoBtnFirst.center.y)];
             [self.lookingtoBtnSecond setTitle:@"Date" forState:UIControlStateNormal];
             [self.lookingtoBtnSecond addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.contentView addSubview:self.lookingtoBtnSecond];
+//            [cell.contentView addSubview:self.lookingtoBtnSecond];
 
         }
         
@@ -253,12 +254,16 @@
 
             [self.lookingtoBtnThird setTitleColor:[UIColor simbiWhiteColor] forState:UIControlStateSelected];
             [self.lookingtoBtnThird setTitleColor:[UIColor simbiBlueColor] forState:UIControlStateNormal];
-            [self.lookingtoBtnThird setFrame:CGRectMake(CGRectGetMaxX(self.lookingtoBtnSecond.frame), 22+(44-28)/2, (cell.frame.size.width-44)/3.0, 28)];
+            [self.lookingtoBtnThird setFrame:CGRectMake(CGRectGetMaxX(self.lookingtoBtnSecond.frame)-2, 22+(44-28)/2, (cell.frame.size.width-44)/3.0+2, 28)];
             [self.lookingtoBtnThird setTitle:@"NetWork" forState:UIControlStateNormal];
             [self.lookingtoBtnThird addTarget:self action:@selector(lookingtoPreferenceDidChange:) forControlEvents:UIControlEventTouchUpInside];
-            [cell.contentView addSubview:self.lookingtoBtnThird];
+//            [cell.contentView addSubview:self.lookingtoBtnThird];
 
         }
+        
+        [cell.contentView addSubview:self.lookingtoBtnFirst];
+        [cell.contentView addSubview:self.lookingtoBtnThird];
+        [cell.contentView addSubview:self.lookingtoBtnSecond];
         
     }
     if (indexPath.row == 1)
