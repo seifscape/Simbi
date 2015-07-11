@@ -438,6 +438,7 @@ extension SMBMapViewController: SMBMapCardViewDelegate {
         for chat:SMBChat in chats! {
             if chat.otherUser().objectId == thatUser.objectId {
                 var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
+                chatVC.isFriend = true
                 self.navigationController?.pushViewController(chatVC, animated: true)
             }
         }

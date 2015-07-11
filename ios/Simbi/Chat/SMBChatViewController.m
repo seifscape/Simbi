@@ -181,40 +181,53 @@ typedef enum SMBChatViewAlertType : NSInteger
     _topView = [[UIView alloc] initWithFrame:CGRectMake(0, 20+44, self.view.frame.size.width, 66)];
     [_topView setBackgroundColor:[UIColor simbiLightGrayColor]];
     
-    _timerLabel = [[SMBTimerLabel alloc] initWithFrame:CGRectMake(0, 0, width/2.f-20, 66) chat:_chat];
-    [_timerLabel setFont:[UIFont simbiFontWithSize:32.f]];
-    [_timerLabel setTextAlignment:NSTextAlignmentCenter];
-    [_topView addSubview:_timerLabel];
     
-    _revealButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_revealButton setFrame:CGRectMake(width/2.f-20, (66-32)/2.f, width/4.f, 32)];
-    [_revealButton setBackgroundColor:[UIColor simbiBlueColor]];
-    [_revealButton setTitle:@"Reveal" forState:UIControlStateNormal];
-    [_revealButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_revealButton.titleLabel setFont:[UIFont simbiBoldFontWithSize:16.f]];
-    [_revealButton addTarget:self action:@selector(promptRevealAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_revealButton roundSide:kSMBSideLeft];
-    [_topView addSubview:_revealButton];
+    /*added by zhy at 2015-07-11 for different topView*/
     
-    // Disable the revealed button if they have already revealed or the other user left
-    if ([_chat otherUserHasRemoved] || [_chat thisUserHasRevealed] || [_timerLabel hasExpired] || _chat.forceRevealed)
-    {
-        [_revealButton setBackgroundColor:[UIColor simbiGrayColor]];
-        [_revealButton setEnabled:NO];
+    if (self.isFriend) {
         
-        if ([_chat thisUserHasRevealed] || _chat.forceRevealed)
-            [_revealButton setTitle:@"Revealed!" forState:UIControlStateNormal];
+        UILabel *friendLabel = [[UILabel alloc] initWithFrame:_topView.bounds];
+        friendLabel.textAlignment = NSTextAlignmentCenter;
+        friendLabel.text = @"Friend";
+        [_topView addSubview:friendLabel];
+        
+    } else {
+        
+        _timerLabel = [[SMBTimerLabel alloc] initWithFrame:CGRectMake(0, 0, width/2.f-20, 66) chat:_chat];
+        [_timerLabel setFont:[UIFont simbiFontWithSize:32.f]];
+        [_timerLabel setTextAlignment:NSTextAlignmentCenter];
+        [_topView addSubview:_timerLabel];
+        
+        _revealButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_revealButton setFrame:CGRectMake(width/2.f-20, (66-32)/2.f, width/4.f, 32)];
+        [_revealButton setBackgroundColor:[UIColor simbiBlueColor]];
+        [_revealButton setTitle:@"Reveal" forState:UIControlStateNormal];
+        [_revealButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_revealButton.titleLabel setFont:[UIFont simbiBoldFontWithSize:16.f]];
+        [_revealButton addTarget:self action:@selector(promptRevealAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_revealButton roundSide:kSMBSideLeft];
+        [_topView addSubview:_revealButton];
+        
+        // Disable the revealed button if they have already revealed or the other user left
+        if ([_chat otherUserHasRemoved] || [_chat thisUserHasRevealed] || [_timerLabel hasExpired] || _chat.forceRevealed)
+        {
+            [_revealButton setBackgroundColor:[UIColor simbiGrayColor]];
+            [_revealButton setEnabled:NO];
+            
+            if ([_chat thisUserHasRevealed] || _chat.forceRevealed)
+                [_revealButton setTitle:@"Revealed!" forState:UIControlStateNormal];
+        }
+        
+        _removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_removeButton setFrame:CGRectMake(_revealButton.frame.origin.x+_revealButton.frame.size.width, (66-32)/2.f, width/4.f, 32)];
+        [_removeButton setBackgroundColor:[UIColor simbiRedColor]];
+        [_removeButton setTitle:@"Remove" forState:UIControlStateNormal];
+        [_removeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_removeButton.titleLabel setFont:[UIFont simbiBoldFontWithSize:16.f]];
+        [_removeButton addTarget:self action:@selector(promptRemoveAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_removeButton roundSide:kSMBSideRight];
+        [_topView addSubview:_removeButton];
     }
-    
-    _removeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_removeButton setFrame:CGRectMake(_revealButton.frame.origin.x+_revealButton.frame.size.width, (66-32)/2.f, width/4.f, 32)];
-    [_removeButton setBackgroundColor:[UIColor simbiRedColor]];
-    [_removeButton setTitle:@"Remove" forState:UIControlStateNormal];
-    [_removeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_removeButton.titleLabel setFont:[UIFont simbiBoldFontWithSize:16.f]];
-    [_removeButton addTarget:self action:@selector(promptRemoveAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_removeButton roundSide:kSMBSideRight];
-    [_topView addSubview:_removeButton];
     
     [self.view addSubview:_topView];
     

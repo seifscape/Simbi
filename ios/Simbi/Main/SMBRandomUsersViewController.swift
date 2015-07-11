@@ -296,6 +296,7 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
         for chat:SMBChat in chats! {
             if chat.otherUser().objectId == user.objectId {
                 var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
+                chatVC.isFriend = true
                 self.navigationController?.pushViewController(chatVC, animated: true)
             }
         }
