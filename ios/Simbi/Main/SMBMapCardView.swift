@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol SMBMapCardViewDelegate {
+
+    func gotoQuestionFromMapCard(#thatUser: SMBUser)
+    func gotoChatFromMapCard(#thatUser: SMBUser)
+}
 
 class SMBMapCardView: UIView {
+    var delegate: SMBMapCardViewDelegate?
     
     let user: SMBUser
     
@@ -81,6 +87,11 @@ class SMBMapCardView: UIView {
         messageButton.layer.cornerRadius = messageButton.frame.width/2
         messageButton.layer.borderColor = UIColor.simbiWhiteColor().CGColor
         messageButton.layer.borderWidth = 1
+        /*
+            added by zhy at 2015-07-11 for adding chat function
+        */
+        messageButton.addTarget(self, action: "chatAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         self.addSubview(messageButton)
         
         
@@ -120,4 +131,21 @@ class SMBMapCardView: UIView {
             }
         }
     }
+    
+    
+    
+    func chatAction(sender: AnyObject) {
+        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
+        
+        for u in friends! {
+            if u.objectId == user.objectId {
+                delegate?.gotoChatFromMapCard(thatUser: user)
+
+                return
+            }
+        }
+        
+        delegate?.gotoQuestionFromMapCard(thatUser: user)
+    }
+    
 }

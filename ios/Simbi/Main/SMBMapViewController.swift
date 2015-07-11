@@ -266,6 +266,12 @@ class SMBMapViewController: UIViewController {
         
         cardView = SMBMapCardView(frame: CGRectMake(20, 20, self.view.frame.width-40, (self.view.frame.height)/2-44), user: user)
         cardView!.alpha = 0
+        /*
+            added by zhy at 2015-07-11
+            goto chatView when we click chat button in MapCardView
+        */
+        cardView?.delegate = self
+        
         self.view.addSubview(cardView!)
         
         let cardHideButton = UIButton()
@@ -421,5 +427,26 @@ extension SMBMapViewController: SMBManagerDelegate {
     func manager(manager: SMBManager!, didFailToLoadObjects error: NSError!) {
         
         // Do nothing.
+    }
+}
+
+// MARK: SMBMapCardViewDelegate
+extension SMBMapViewController: SMBMapCardViewDelegate {
+    
+    func gotoChatFromMapCard(#thatUser: SMBUser) {
+        var chats:[SMBChat]? = SMBChatManager.sharedManager().objects as? [SMBChat]
+        for chat:SMBChat in chats! {
+            if chat.otherUser().objectId == thatUser.objectId {
+                var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
+                self.navigationController?.pushViewController(chatVC, animated: true)
+            }
+        }
+        
+        println("--[itemViewDidSelectUserForChat  no  chat]--")
+    }
+    
+    func gotoQuestionFromMapCard(#thatUser: SMBUser) {
+        let navigationController = UINavigationController(rootViewController: SMBAnswerQuestionViewController(thatUser))
+        self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
     }
 }
