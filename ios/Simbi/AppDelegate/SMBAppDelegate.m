@@ -160,7 +160,23 @@
         }
         else
         {
-            [self setCenterViewController:[[SMBMainViewController alloc] init]];
+//            [self setCenterViewController:[[SMBMainViewController alloc] init]];
+
+            /*modified by zhy at 2015-07-13*/
+            SMBRandomUsersViewController *randomVC = [SMBRandomUsersViewController new];
+            UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Nearby" image:nil tag:0];
+            randomVC.tabBarItem = item1;
+
+            SMBChatListViewController *chatListVC = [SMBChatListViewController new];
+            UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:@"Chat" image:nil tag:0];
+            chatListVC.tabBarItem = item2;
+            
+            UITabBarController *tabbarController = [[UITabBarController alloc] init];
+            tabbarController.viewControllers = @[randomVC, chatListVC];
+            tabbarController.selectedIndex = 0;
+            [self setCenterViewController:tabbarController];
+            
+            
             
             /*added by zhy*/
             // Fetch the current device location, then save to Parse.
