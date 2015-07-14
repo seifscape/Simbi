@@ -199,6 +199,11 @@ class SMBRandomUsersViewController: UIViewController {
                 */
                 var i:Int = 0
                 for user:SMBUser in users {
+
+                    if user.profilePicture == nil {
+                        self.users.removeAtIndex(i)
+                        continue
+                    }
                     
                     if user.lookingto != nil {
                         if user.lookingto[0] as! String != SMBUser.currentUser().lookingto[0] as! String

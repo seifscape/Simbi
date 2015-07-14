@@ -31,7 +31,7 @@ class SMBRandomUserItemView: UIView {
     let buttonContainerView = UIView()
     
     var isFaded = true
-    
+    var isFriend = false
     
     // MARK: - View Initialization
     
@@ -58,24 +58,55 @@ class SMBRandomUserItemView: UIView {
         tapGr.numberOfTapsRequired = 1
         self.imageContainerView.addGestureRecognizer(tapGr)
         
-        let pictureImageView = UIImageView(frame: CGRectMake(0, 0, 110, 110))
-        pictureImageView.backgroundColor = UIColor.simbiBlackColor()
-   
-        /*modified by zhy*/
-        if kSMBUserGenderMale.value == self.user.genderType().value {
-            pictureImageView.image = UIImage(named: "random_user")
-        } else if kSMBUserGenderFemale.value == self.user.genderType().value {
-            pictureImageView.image = UIImage(named: "random_user")
-        } else {
-            pictureImageView.image = UIImage(named: "random_user")
-        }
-        
-        
-        pictureImageView.image = UIImage(named: "random_user")
+        let pictureImageView = SMBImageView(frame: CGRectMake(0, 0, 110, 110))
+        pictureImageView.backgroundColor = UIColor.simbiWhiteColor()
         pictureImageView.layer.cornerRadius = pictureImageView.frame.width/2
         pictureImageView.layer.masksToBounds = true
         pictureImageView.transform = CGAffineTransformMakeScale(0.95, 0.95)
+        
+        /*modified by zhy*/
+        //        if kSMBUserGenderMale.value == self.user.genderType().value {
+        //            pictureImageView.image = UIImage(named: "random_user")
+        //        } else if kSMBUserGenderFemale.value == self.user.genderType().value {
+        //            pictureImageView.image = UIImage(named: "random_user")
+        //        } else {
+        //            pictureImageView.image = UIImage(named: "random_user")
+        //        }
+        
+        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
+        
+        for u in friends! {
+            if u.objectId == user.objectId {
+
+                self.isFriend = true;
+            }
+        }
+    
+        if self.isFriend {
+            pictureImageView.setParseImage(user.profilePicture, withType: kImageTypeMediumSquare)
+            
+        } else {
+            
+            pictureImageView.setParseImage(user.profilePicture, withType: kImageTypeMediumSquare) { (image, error) -> Void in
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+                    var blurImage = LSUtility.getSnapshotGaussianBlurInputRadius(5.0, view: pictureImageView, inRect: pictureImageView.bounds)
+                    pictureImageView.image = blurImage
+                })
+            }
+        }
+        
+//            let blur = SMBBlurView()
+//            blur.frame = CGRectMake(0, 0, 110, 110)
+//            blur.layer.cornerRadius = blur.frame.width/2
+//            blur.blurTintColor = UIColor.lightGrayColor()
+//            blur.transform = CGAffineTransformMakeScale(0.85, 0.85)
+//            pictureImageView.addSubview(blur)
+        
+        
         imageContainerView.addSubview(pictureImageView)
+        
+        
+        
         
         let prefImageView = UIImageView(frame: CGRectMake(pictureImageView.frame.width-33, 0, 33, 33))
         prefImageView.backgroundColor = UIColor.simbiBlackColor()
@@ -180,17 +211,12 @@ class SMBRandomUserItemView: UIView {
     // MARK: - User Actions
     
     func questionAction(sender: AnyObject) {
-        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
         
-        for u in friends! {
-            if u.objectId == user.objectId {
-                delegate?.itemViewDidSelectUserForChat(self, user: user)
-
-                return
-            }
+        if self.isFriend {
+            delegate?.itemViewDidSelectUserForChat(self, user: user)
+        } else {
+            delegate?.itemViewDidSelectUserForQuestion(self, user: user)
         }
-        
-        delegate?.itemViewDidSelectUserForQuestion(self, user: user)
     }
     
     

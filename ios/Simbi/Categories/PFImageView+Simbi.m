@@ -96,6 +96,56 @@ static const void * CURRENTIMAGE_KEY;
     }
 }
 
+- (void)setParseImage:(SMBImage *)image withType:(kImageType)type withBlock:(PFImageSimbiBlock)callback
+{
+    self.currentImage = image; // set currentImage pointer at beginning of callback
+    
+    if (image.objectId) // if the picture has an objectId, let's nab it from parse
+    {
+        UIActivityIndicatorView *activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        [activityIndicatorView setFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        [activityIndicatorView startAnimating];
+        [self addSubview:activityIndicatorView];
+        
+        [self fetchImage:image withBlock:^(SMBImage *image, NSError *error)
+         {
+             
+             // check if our currentImage was changed since the beginning of the callback
+             if (image && image == self.currentImage)
+             {
+                 switch (type)
+                 {
+                     case kImageTypeThumbnail:
+                         [self setFile:image.thumbnailImage];    break;
+                     case kImageTypeMedium:
+                         [self setFile:image.mediumImage];       break;
+                     case kImageTypeMediumSquare:
+                         [self setFile:image.mediumSquareImage]; break;
+                     case kImageTypeOriginalImage:
+                         [self setFile:image.originalImage];     break;
+                 }
+                 [self loadInBackground:^(UIImage *image, NSError *error) {
+                     
+                     [activityIndicatorView stopAnimating];
+                     [activityIndicatorView removeFromSuperview];
+                     
+                      callback(nil, nil);
+                 }];
+    
+             }
+             // if it's not in scope anymore, then that's fine. the Image is now fetched and
+             // the next time that Image is used for a PFImageView (for example, when scrolling
+             // around on a tableView that's reusing cells), it should load much quicker \o/
+         }];
+    }
+    else
+    {
+        // if there's no actual image, unset everything
+        [self setFile:nil];
+        [self setImage:nil];
+    }
+}
+
 
 #pragma mark - Private Methods
 

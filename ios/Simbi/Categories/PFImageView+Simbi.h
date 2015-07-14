@@ -29,5 +29,5 @@ typedef void (^PFImageSimbiBlock)(SMBImage *image, NSError *error);
 @property (nonatomic, strong) id currentImage;
 
 - (void)setParseImage:(SMBImage *)image withType:(kImageType)type;
-
+- (void)setParseImage:(SMBImage *)image withType:(kImageType)type withBlock:(PFImageSimbiBlock)callback;
 @end
