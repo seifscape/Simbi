@@ -67,47 +67,50 @@ class SMBFriendsListViewController: UITableViewController {
         loadSimbiUserNotSimbiFriendButIncontact(ContactsArray)
         loadContactNotInSimi(ContactsArray)
     }
-    func loadContactNotInSimi(contacts:NSArray){
-        self.objectsNotInSimbiAndButInContacts = []
-            for contact in contacts {
-            var ph:NSArray = contact["Phone"] as! NSArray
-            var isSimbiUser = false
-            var name = contact["fullName"]
-            var phoneNo:String = ""
-            println(name)
-            for phone in ph {
-                phoneNo = phone as! String
-                phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
-                print("check:")
-                println(phoneNo)
-                if !(self.simbiUserPhoneInContact.indexOfObject(phoneNo) == NSNotFound){
-                    isSimbiUser = true
-                    break
-                }
-            }
-            if isSimbiUser == false{
-                var model:SMBFriendsListModel = SMBFriendsListModel()
-                model.sendSMSDelegate = self/*added by zhy at 2015-06-18 for inviting friend*/
-                model.fullname = name as! String
-                model.phoneNo = phoneNo
-                model.type = 2
-                model.parent = self
-                self.objectsNotInSimbiAndButInContacts.append(model)
-            }
+    
+    // MARK: - Private Methods
+    
+    private func loadObjects() {
+        
+        objects = []
+        
+        // Get all friends and friend requests, sort alphabetically by name
+        
+        var allObjects = SMBFriendsManager.sharedManager().objects + SMBFriendRequestsManager.sharedManager().objects
+        
+        allObjects = sorted(allObjects) { a, b in
+            
+            var aName: String
+            var bName: String
+            
+            if a is SMBUser { aName = (a as! SMBUser).name }
+            else            { aName = (a as! SMBFriendRequest).fromUser.name }
+            
+            if b is SMBUser { bName = (b as! SMBUser).name }
+            else            { bName = (b as! SMBFriendRequest).fromUser.name }
+            
+            return aName < bName
         }
-       
-        /*added by zhy at 2015-06-09*/
-        self.objectsNotInSimbiAndButInContacts = ((self.objectsNotInSimbiAndButInContacts as NSArray).sortedArrayUsingComparator { (obj1, obj2) -> NSComparisonResult in
-            if (obj1 as! SMBFriendsListModel).fullname < (obj2 as! SMBFriendsListModel).fullname {
-                return NSComparisonResult.OrderedAscending
-            } else {
-                return NSComparisonResult.OrderedDescending
+        
+        // Put each item in the model object
+        
+        for object in allObjects {
+            
+            var model: SMBFriendsListModel
+            
+            if object is SMBUser {
+                model = SMBFriendsListModel(user: object as! SMBUser)
+            }
+            else {
+                model = SMBFriendsListModel(request: object as! SMBFriendRequest)
             }
             
-        }) as! [SMBFriendsListModel]
+            objects.append(model)
+        }
         
         self.tableView.reloadData()
     }
+    
     func loadSimbiUserNotSimbiFriendButIncontact(contacts:NSArray){
         let query:PFQuery = PFQuery(className: "_User")
         query.whereKey("phoneNumber", containedIn: self.contantPhoneNumberArray as [AnyObject])
@@ -137,7 +140,7 @@ class SMBFriendsListViewController: UITableViewController {
                 model.parent = self
                 self.objectsInSimbiAndContactsButNotSimbiFrieds.append(model)
             }
-            self.loadContactNotInSimi(contacts)
+//            self.loadContactNotInSimi(contacts)
             
             /*added by zhy at 2015-06-09*/
             self.objectsInSimbiAndContactsButNotSimbiFrieds = (self.objectsInSimbiAndContactsButNotSimbiFrieds as NSArray).sortedArrayUsingComparator({ (obj1, obj2) -> NSComparisonResult in
@@ -151,6 +154,49 @@ class SMBFriendsListViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func loadContactNotInSimi(contacts:NSArray){
+        self.objectsNotInSimbiAndButInContacts = []
+        for contact in contacts {
+            var ph:NSArray = contact["Phone"] as! NSArray
+            var isSimbiUser = false
+            var name = contact["fullName"]
+            var phoneNo:String = ""
+            println(name)
+            for phone in ph {
+                phoneNo = phone as! String
+                phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+                print("check:")
+                println(phoneNo)
+                if !(self.simbiUserPhoneInContact.indexOfObject(phoneNo) == NSNotFound){
+                    isSimbiUser = true
+                    break
+                }
+            }
+            if isSimbiUser == false{
+                var model:SMBFriendsListModel = SMBFriendsListModel()
+                model.sendSMSDelegate = self/*added by zhy at 2015-06-18 for inviting friend*/
+                model.fullname = name as! String
+                model.phoneNo = phoneNo
+                model.type = 2
+                model.parent = self
+                self.objectsNotInSimbiAndButInContacts.append(model)
+            }
+        }
+        
+        /*added by zhy at 2015-06-09*/
+        self.objectsNotInSimbiAndButInContacts = ((self.objectsNotInSimbiAndButInContacts as NSArray).sortedArrayUsingComparator { (obj1, obj2) -> NSComparisonResult in
+            if (obj1 as! SMBFriendsListModel).fullname < (obj2 as! SMBFriendsListModel).fullname {
+                return NSComparisonResult.OrderedAscending
+            } else {
+                return NSComparisonResult.OrderedDescending
+            }
+            
+            }) as! [SMBFriendsListModel]
+        
+        self.tableView.reloadData()
+    }
+    
     func downLoadsContactToServer(contacts:NSArray){
         let obid = SMBUser.currentUser().objectId
         if obid=="" {
@@ -197,48 +243,6 @@ class SMBFriendsListViewController: UITableViewController {
     }
     
     
-    // MARK: - Private Methods
-    
-    private func loadObjects() {
-        
-        objects = []
-        
-        // Get all friends and friend requests, sort alphabetically by name
-        
-        var allObjects = SMBFriendsManager.sharedManager().objects + SMBFriendRequestsManager.sharedManager().objects
-        
-        allObjects = sorted(allObjects) { a, b in
-            
-            var aName: String
-            var bName: String
-            
-            if a is SMBUser { aName = (a as! SMBUser).name }
-            else            { aName = (a as! SMBFriendRequest).fromUser.name }
-            
-            if b is SMBUser { bName = (b as! SMBUser).name }
-            else            { bName = (b as! SMBFriendRequest).fromUser.name }
-            
-            return aName < bName
-        }
-        
-        // Put each item in the model object
-        
-        for object in allObjects {
-            
-            var model: SMBFriendsListModel
-            
-            if object is SMBUser {
-                model = SMBFriendsListModel(user: object as! SMBUser)
-            }
-            else {
-                model = SMBFriendsListModel(request: object as! SMBFriendRequest)
-            }
-            
-            objects.append(model)
-        }
-        
-        self.tableView.reloadData()
-    }
     
     
     // MARK: - UITableViewDataSource/Delegate
@@ -398,6 +402,18 @@ class SMBFriendsListViewController: UITableViewController {
                             if date != nil {
                                 values.append(date!)
                             }
+                            // Email
+                        case kABPersonEmailProperty :
+                            var mail:String? = value.takeRetainedValue() as? String
+                            if mail != nil {
+                                values.append(mail!)
+                            }
+                            // Phone
+                        case kABPersonPhoneProperty :
+                            var phone:String? = value.takeRetainedValue() as? String
+                            if phone != nil {
+                                values.append(phone!)
+                            }
                         default :
                             var val:String = value.takeRetainedValue() as? String ?? ""
                             values.append(val)
@@ -426,7 +442,7 @@ class SMBFriendsListViewController: UITableViewController {
                 currentContact["Nikename"] = ABRecordCopyValue(contact, kABPersonNicknameProperty)?.takeRetainedValue() as! String? ?? ""
                 
                 // 姓名整理
-                currentContact["fullName"] = LastName + FirstName
+                currentContact["fullName"] = LastName + " " + FirstName
                 
                 // 公司（组织）
                 currentContact["Organization"] = ABRecordCopyValue(contact, kABPersonOrganizationProperty)?.takeRetainedValue() as! String? ?? ""
