@@ -180,10 +180,11 @@ class SMBRandomUserItemView: UIView {
     // MARK: - User Actions
     
     func questionAction(sender: AnyObject) {
-        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
         
-        for u in friends! {
-            if u.objectId == user.objectId {
+        var friendIds = SMBFriendsManager.sharedManager().friendsObjectIds() as! [String]
+        
+        for friendId:String in friendIds {
+            if friendId == user.objectId {
                 delegate?.itemViewDidSelectUserForChat(self, user: user)
 
                 return

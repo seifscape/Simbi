@@ -12,7 +12,7 @@
 #import "SMBChallengeChatListTableView.h"
 #import "SMBChatViewController.h"
 #import "SMBQuestionChatListTableView.h"
-
+#import "SMBFriendsManager.h"
 
 @interface SMBChatListViewController ()
 
@@ -174,6 +174,14 @@
         BOOL isViewingChat = [tableView isKindOfClass:[SMBQuestionChatListTableView class]];
         
         SMBChatViewController *viewController = [SMBChatViewController messagesViewControllerWithChat:(SMBChat *)object isViewingChat:isViewingChat];
+ 
+        NSArray *friendIds = [[SMBFriendsManager sharedManager] friendsObjectIds];
+        for (NSString *friendId in friendIds) {
+            if ([friendId isEqualToString:[(SMBChat *)object otherUser].objectId]) {
+                viewController.isFriend = true;
+            }
+        }
+        
         [self.navigationController pushViewController:viewController animated:YES];
     }
 }
