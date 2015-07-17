@@ -43,10 +43,8 @@
         
         NSArray *includes = @[@"userOne",
                               @"userOne.profilePicture",
-                              @"userOne.hairColor",
                               @"userTwo",
                               @"userTwo.profilePicture",
-                              @"userTwo.hairColor",
                               @"currentChallenge",
                               @"currentChallenge.chat",
                               @"currentQuestion",
