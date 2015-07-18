@@ -149,19 +149,26 @@ class SMBRandomUsersViewController: UIViewController {
                     added by zhy at 2015-07-10
                     new condition(according to user's lookingto) for searching Simbi Users
                 */
-                var i:Int = 0
-                for user:SMBUser in users {
-                    
-                    if user.lookingto != nil {
-                        if user.lookingto[0] as! String != SMBUser.currentUser().lookingto[0] as! String
-                        && user.lookingto[1] as! String != SMBUser.currentUser().lookingto[1] as! String
-                        && user.lookingto[2] as! String != SMBUser.currentUser().lookingto[2] as! String
-                        {
+                if SMBUser.currentUser().lookingto != nil {
+                    var i:Int = 0
+                    for user:SMBUser in users {
+                        
+                        if user.profilePicture == nil {
                             self.users.removeAtIndex(i)
+                            continue
                         }
+                        
+                        if user.lookingto != nil {
+                            if user.lookingto[0] as! String != SMBUser.currentUser().lookingto[0] as! String
+                                && user.lookingto[1] as! String != SMBUser.currentUser().lookingto[1] as! String
+                                && user.lookingto[2] as! String != SMBUser.currentUser().lookingto[2] as! String
+                            {
+                                self.users.removeAtIndex(i)
+                            }
+                        }
+                        
+                        ++i
                     }
-                    
-                    ++i
                 }
                 
                 self.carousel.reloadData()
