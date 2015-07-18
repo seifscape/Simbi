@@ -41,8 +41,18 @@ class SMBFriendsListViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: .ValueChanged)
         self.refreshControl = refreshControl
+        
         //get the contact
         ContactsArray = getSysContacts()
+        let alert = UIAlertView()
+        alert.title = "Tip"
+        alert.message = "get \(ContactsArray.count) contacts"
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+        println("----------ContactsArray-------------")
+        println(ContactsArray)
+        println("--------------end-------------------")
+
         //self.downLoadsContactToServer(array)
         for contact in ContactsArray {
             var ph:NSArray = contact["Phone"] as! NSArray
@@ -51,8 +61,8 @@ class SMBFriendsListViewController: UITableViewController {
                 self.contantPhoneNumberArray.addObject(ppp)
             }
         }
-        println("========================")
-        println(self.contantPhoneNumberArray)
+        
+        //download contacts to sever
         let userdefaults = NSUserDefaults.standardUserDefaults()
         if userdefaults.objectForKey("HasDownLoadContact") == nil{
             userdefaults.setBool(false, forKey: "HasDownLoadContact")
@@ -63,6 +73,7 @@ class SMBFriendsListViewController: UITableViewController {
                 downLoadsContactToServer(ContactsArray)
             }
         }
+        
         loadObjects()
         loadSimbiUserNotSimbiFriendButIncontact(ContactsArray)
         loadContactNotInSimi(ContactsArray)
@@ -162,12 +173,11 @@ class SMBFriendsListViewController: UITableViewController {
             var isSimbiUser = false
             var name = contact["fullName"]
             var phoneNo:String = ""
-            println(name)
+           
             for phone in ph {
                 phoneNo = phone as! String
                 phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
-                print("check:")
-                println(phoneNo)
+                
                 if !(self.simbiUserPhoneInContact.indexOfObject(phoneNo) == NSNotFound){
                     isSimbiUser = true
                     break
@@ -216,7 +226,7 @@ class SMBFriendsListViewController: UITableViewController {
                 }
                 let alert = UIAlertView()
                 alert.title = "Tip"
-                alert.message = succ ? "upload contact's success!":"upload contact's failed!"
+                alert.message = succ ? "upload contact's success!" : "upload contact's failed!  [ERR:\(err)]"
                 alert.addButtonWithTitle("Ok")
                 alert.show()
             })
@@ -333,24 +343,8 @@ class SMBFriendsListViewController: UITableViewController {
         
         self.navigationController?.pushViewController(SMBFindFriendsViewController(), animated: true)
     }
+    
     func getSysContacts() -> [[String:AnyObject]] {
-        var error:Unmanaged<CFError>?
-        var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
-        
-        let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
-        
-        if sysAddressBookStatus == .Denied || sysAddressBookStatus == .NotDetermined {
-            // Need to ask for authorization
-            var authorizedSingal:dispatch_semaphore_t = dispatch_semaphore_create(0)
-            var askAuthorization:ABAddressBookRequestAccessCompletionHandler = { success, error in
-                if success {
-                    ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray
-                    dispatch_semaphore_signal(authorizedSingal)
-                }
-            }
-            ABAddressBookRequestAccessWithCompletion(addressBook, askAuthorization)
-            dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
-        }
         
         func analyzeSysContacts(sysContacts:NSArray) -> [[String:AnyObject]] {
             var allContacts:Array = [[String:AnyObject]]()
@@ -494,7 +488,42 @@ class SMBFriendsListViewController: UITableViewController {
             }
             return allContacts
         }
-        return analyzeSysContacts( ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray )
+        
+        
+        
+        var isAllowAccess = false
+        
+        let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
+        println("---------AddressBookStatus----\(sysAddressBookStatus)------")
+        if sysAddressBookStatus == ABAuthorizationStatus.Authorized
+        || sysAddressBookStatus == ABAuthorizationStatus.NotDetermined {
+            var error:Unmanaged<CFError>?
+            var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+            
+            // Need to ask for authorization
+            var authorizedSingal:dispatch_semaphore_t = dispatch_semaphore_create(0)
+            var askAuthorization:ABAddressBookRequestAccessCompletionHandler = { success, error in
+                if success {
+                    isAllowAccess = true
+                    dispatch_semaphore_signal(authorizedSingal)
+                } else {
+                    isAllowAccess = false
+                    dispatch_semaphore_signal(authorizedSingal)
+                }
+            }
+            ABAddressBookRequestAccessWithCompletion(addressBook, askAuthorization)
+            dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
+            
+            if isAllowAccess {
+                return analyzeSysContacts( ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray )
+            } else {
+                return []
+            }
+            
+        } else {
+            return []
+        }
+        
     }
 }
 
