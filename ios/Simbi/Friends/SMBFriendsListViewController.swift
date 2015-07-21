@@ -562,7 +562,7 @@ extension SMBFriendsListViewController: SMBManagerDelegate, MFMessageComposeView
         messageComposeVC.messageComposeDelegate = self
         var rcp:Array = [phoneNo]
         messageComposeVC.recipients = rcp
-        messageComposeVC.body = "Hey friend - Add me on Simbi! Username:" + senderName + " https://www.simbi.com/download"
+        messageComposeVC.body = "Hey friend - Add me on Simbi! Username:" + senderName + " https://www.simbisocial.com"
         self.presentViewController(messageComposeVC, animated: true, completion: nil)
         
     }
