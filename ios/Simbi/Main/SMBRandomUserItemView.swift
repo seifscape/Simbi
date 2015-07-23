@@ -88,10 +88,10 @@ class SMBRandomUserItemView: UIView {
         } else {
             
             pictureImageView.setParseImage(user.profilePicture, withType: kImageTypeMediumSquare) { (image, error) -> Void in
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-                    var blurImage = LSUtility.getSnapshotGaussianBlurInputRadius(5.0, view: pictureImageView, inRect: pictureImageView.bounds)
-                    pictureImageView.image = blurImage
-                })
+//                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+//                    var blurImage = LSUtility.getSnapshotGaussianBlurInputRadius(5.0, view: pictureImageView, inRect: pictureImageView.bounds)
+//                    pictureImageView.image = blurImage
+//                })
             }
         }
         
@@ -188,19 +188,19 @@ class SMBRandomUserItemView: UIView {
         
         let questionButton = UIButton(frame: CGRectMake(0, 0, 44, 44))
         questionButton.backgroundColor = UIColor.simbiLightGrayColor()
-        questionButton.setImage(UIImage(named: "chat_icon"), forState: .Normal)
+        questionButton.setImage(UIImage(named: "chat_btn"), forState: .Normal)
         questionButton.layer.cornerRadius = questionButton.frame.width/2
-        questionButton.layer.borderWidth = 1
-        questionButton.layer.borderColor = UIColor.simbiBlueColor().CGColor
+//        questionButton.layer.borderWidth = 1
+//        questionButton.layer.borderColor = UIColor.simbiBlueColor().CGColor
         questionButton.addTarget(self, action: "questionAction:", forControlEvents: .TouchUpInside)
         buttonContainerView.addSubview(questionButton)
         
         let challengeButton = UIButton(frame: CGRectMake(44+12, 0, 44, 44))
         challengeButton.backgroundColor = UIColor.simbiLightGrayColor()
-        challengeButton.setImage(UIImage(named: "challenge_icon"), forState: .Normal)
+        challengeButton.setImage(UIImage(named: "challenge_btn"), forState: .Normal)
         challengeButton.layer.cornerRadius = questionButton.frame.width/2
-        challengeButton.layer.borderWidth = 1
-        challengeButton.layer.borderColor = UIColor.simbiRedColor().CGColor
+//        challengeButton.layer.borderWidth = 1
+//        challengeButton.layer.borderColor = UIColor.simbiRedColor().CGColor
         challengeButton.addTarget(self, action: "challengeAction:", forControlEvents: .TouchUpInside)
         buttonContainerView.addSubview(challengeButton)
         

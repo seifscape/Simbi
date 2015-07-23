@@ -163,17 +163,22 @@
 //            [self setCenterViewController:[[SMBMainViewController alloc] init]];
 
             /*modified by zhy at 2015-07-13*/
+            SMBChatListViewController *chatListVC = [SMBChatListViewController new];
+            UITabBarItem *item0 = [[UITabBarItem alloc] initWithTitle:@"Chat" image:[UIImage imageNamed:@"Shape"] tag:0];
+            chatListVC.tabBarItem = item0;
+            
             SMBRandomUsersViewController *randomVC = [SMBRandomUsersViewController new];
-            UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Nearby" image:nil tag:0];
+            UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Nearby" image:[UIImage imageNamed:@"Search"] tag:1];
             randomVC.tabBarItem = item1;
 
-            SMBChatListViewController *chatListVC = [SMBChatListViewController new];
-            UITabBarItem *item2 = [[UITabBarItem alloc] initWithTitle:@"Chat" image:nil tag:0];
-            chatListVC.tabBarItem = item2;
+            
             
             UITabBarController *tabbarController = [[UITabBarController alloc] init];
-            tabbarController.viewControllers = @[randomVC, chatListVC];
-            tabbarController.selectedIndex = 0;
+            UIView *blackView = [[UIView alloc] initWithFrame:tabbarController.tabBar.bounds];
+            blackView.backgroundColor = [UIColor colorWithRed:40/256.f green:40/256.f blue:40/256.f alpha:1];
+            [tabbarController.tabBar insertSubview:blackView atIndex:0];
+            tabbarController.viewControllers = @[chatListVC, randomVC];
+            tabbarController.selectedIndex = 1;
             [self setCenterViewController:tabbarController];
             
             

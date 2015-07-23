@@ -40,7 +40,7 @@ class SMBNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationBar.barTintColor = UIColor(red: 107/256.0, green: 167/256.0, blue: 249/256.0, alpha: 1)
         // Add buttons
         
         menuButton.frame = CGRectMake(0, 0, 44, 44)

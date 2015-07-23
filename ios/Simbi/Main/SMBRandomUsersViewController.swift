@@ -42,10 +42,12 @@ class SMBRandomUsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createButtons()
-        
         self.view.backgroundColor = UIColor(red: 100.0/255, green: 158.0/255, blue: 255.0/255, alpha: 1.0)
         self.view.clipsToBounds = true
+        
+        var bgImageView = UIImageView(frame: self.view.bounds)
+        bgImageView.image = UIImage(named: "bg_image")
+        self.view.addSubview(bgImageView)
         
         // Make carousel bigger than view so the views get created as they scroll.
         carousel.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height+220)
@@ -92,49 +94,7 @@ class SMBRandomUsersViewController: UIViewController {
         
         loadUsers()
     }
-    
-    
-    func createButtons() {
-        
-        mapButtonBackgroundView.frame = CGRectMake(self.view.frame.width-44-11, 70, 44, 44)
-        mapButtonBackgroundView.backgroundColor = UIColor.simbiWhiteColor().colorWithAlphaComponent(0.9)
-        mapButtonBackgroundView.layer.cornerRadius = mapButtonBackgroundView.frame.width/2
-        mapButtonBackgroundView.layer.borderColor = UIColor.simbiWhiteColor().CGColor
-        mapButtonBackgroundView.layer.borderWidth = 1
-        mapButtonBackgroundView.layer.shadowOffset = CGSizeMake(1, 1)
-        mapButtonBackgroundView.layer.shadowColor = UIColor.blackColor().CGColor
-        mapButtonBackgroundView.layer.shadowOpacity = 0.33
-        mapButtonBackgroundView.alpha = 0
-        
-        mapButton.frame = mapButtonBackgroundView.frame
-        mapButton.setImage(UIImage(named: "mapButton"), forState: .Normal)
-        mapButton.addTarget(self, action: "gotoAction:", forControlEvents: .TouchUpInside)
-        mapButton.tag = 50
-        mapButton.alpha = 0
 
-        
-        settingButtonBackgroundView.frame = CGRectMake(self.view.frame.width-44-11, 120, 44, 44)
-        settingButtonBackgroundView.backgroundColor = UIColor.simbiWhiteColor().colorWithAlphaComponent(0.9)
-        settingButtonBackgroundView.layer.cornerRadius = settingButtonBackgroundView.frame.width/2
-        settingButtonBackgroundView.layer.borderColor = UIColor.simbiWhiteColor().CGColor
-        settingButtonBackgroundView.layer.borderWidth = 1
-        settingButtonBackgroundView.layer.shadowOffset = CGSizeMake(1, 1)
-        settingButtonBackgroundView.layer.shadowColor = UIColor.blackColor().CGColor
-        settingButtonBackgroundView.layer.shadowOpacity = 0.33
-        settingButtonBackgroundView.alpha = 0
-        
-        settingButton.frame = settingButtonBackgroundView.frame
-        settingButton.setImage(UIImage(named: "settingsicon"), forState: .Normal)
-        settingButton.addTarget(self, action: "gotoAction:", forControlEvents: .TouchUpInside)
-        settingButton.tag = 52
-        settingButton.alpha = 0
-        
-        
-        mapButtonBackgroundView.addToView(self.view, andAnimate: true)
-        mapButton.addToView(self.view, andAnimate: true)
-        settingButtonBackgroundView.addToView(self.view, andAnimate: true)
-        settingButton.addToView(self.view, andAnimate: true)
-    }
     
     // MARK: - User Actions
     
