@@ -421,69 +421,40 @@ class SMBFriendsListViewController: UITableViewController {
             
             for contact in sysContacts {
                 var currentContact:Dictionary = [String:AnyObject]()
+                
                 /*
                 部分单值属性
                 */
-                // 姓、姓氏拼音
-                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
-                currentContact["FirstName"] = FirstName
-                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
+                
                 // 名、名字拼音
+                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
+//                currentContact["FirstName"] = FirstName
+//                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
+               
+                // 姓、姓氏拼音
                 var LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
-                currentContact["LastName"] = LastName
-                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
-                // 昵称
-                currentContact["Nikename"] = ABRecordCopyValue(contact, kABPersonNicknameProperty)?.takeRetainedValue() as! String? ?? ""
+//                currentContact["LastName"] = LastName
+//                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 
                 // 姓名整理
-                currentContact["fullName"] = LastName + " " + FirstName
-                
-                // 公司（组织）
-                currentContact["Organization"] = ABRecordCopyValue(contact, kABPersonOrganizationProperty)?.takeRetainedValue() as! String? ?? ""
-                // 职位
-                currentContact["JobTitle"] = ABRecordCopyValue(contact, kABPersonJobTitleProperty)?.takeRetainedValue() as! String? ?? ""
-                // 部门
-                currentContact["Department"] = ABRecordCopyValue(contact, kABPersonDepartmentProperty)?.takeRetainedValue() as! String? ?? ""
-                // 备注
-                currentContact["Note"] = ABRecordCopyValue(contact, kABPersonNoteProperty)?.takeRetainedValue() as! String? ?? ""
-                // 生日（类型转换有问题，不可用）
-                //currentContact["Brithday"] = ((ABRecordCopyValue(contact, kABPersonBirthdayProperty)?.takeRetainedValue()) as NSDate).description
+                currentContact["fullName"] = FirstName + " " + LastName
                 
                 /*
                 部分多值属性
                 */
+                
                 // 电话
                 var Phone:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonPhoneProperty)
                 if Phone != nil {
                     currentContact["Phone"] = Phone
                 }
                 
-                // 地址
-                var Address:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonAddressProperty)
-                if Address != nil {
-                    currentContact["Address"] = Address
-                }
-                
                 // E-mail
-                var Email:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonEmailProperty)
-                if Email != nil {
-                    currentContact["Email"] = Email
-                }
-                // 纪念日
-                var Date:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonDateProperty)
-                if Date != nil {
-                    currentContact["Date"] = Date
-                }
-                // URL
-                var URL:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonURLProperty)
-                if URL != nil{
-                    currentContact["URL"] = URL
-                }
-                // SNS
-                var SNS:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonSocialProfileProperty)
-                if SNS != nil {
-                    currentContact["SNS"] = SNS
-                }
+//                var Email:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonEmailProperty)
+//                if Email != nil {
+//                    currentContact["Email"] = Email
+//                }
+                
                 allContacts.append(currentContact)
             }
             return allContacts
