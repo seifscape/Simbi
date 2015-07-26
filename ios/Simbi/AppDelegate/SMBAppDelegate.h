@@ -8,7 +8,7 @@
 
 @class SMBChat;
 @class SMBChatViewController;
-
+@class SMBBetaViewController;
 
 @interface SMBAppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate>
 
@@ -23,5 +23,6 @@
 - (void)syncUserInstallation;
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) SMBBetaViewController *homeViewController;
 
 @end

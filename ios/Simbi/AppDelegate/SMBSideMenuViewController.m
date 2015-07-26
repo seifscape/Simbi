@@ -155,7 +155,7 @@
     
     switch (indexPath.row)
     {
-        case 0: viewController = [[SMBMainViewController alloc] init];              break;
+        case 0: viewController = [[SMBBetaViewController alloc] init];              break;
         case 1: viewController = [[SMBFriendsListViewController alloc] init];       break;
         case 2: viewController = [[SMBSelectChallengeViewController alloc] init];   break;
 //        case 3: viewController = [[SMBCreditsViewController alloc] init];           break;

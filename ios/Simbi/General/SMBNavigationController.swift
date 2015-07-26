@@ -107,9 +107,7 @@ class SMBNavigationController: UINavigationController {
             
             showsMenu ? menuButton.addToView(self.navigationBar, andAnimate: animated) : menuButton.removeFromSuperview()
             
-            /*deleted by zhy at 2015-07-13*/
-            
-//            showsChat ? chatButton.addToView(self.navigationBar, andAnimate: animated) : chatButton.removeFromSuperview()
+            showsChat ? chatButton.addToView(self.navigationBar, andAnimate: animated) : chatButton.removeFromSuperview()
         }
         else {
             menuButton.removeFromViewAndAnimate(animated)

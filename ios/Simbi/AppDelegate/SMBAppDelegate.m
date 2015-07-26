@@ -160,28 +160,13 @@
         }
         else
         {
-//            [self setCenterViewController:[[SMBMainViewController alloc] init]];
-
             /*modified by zhy at 2015-07-13*/
-            SMBChatListViewController *chatListVC = [SMBChatListViewController new];
-            UITabBarItem *item0 = [[UITabBarItem alloc] initWithTitle:@"Chat" image:[UIImage imageNamed:@"Shape"] tag:0];
-            chatListVC.tabBarItem = item0;
+            if (self.homeViewController == nil) {
+                self.homeViewController = [SMBBetaViewController new];
+            }
             
-            SMBRandomUsersViewController *randomVC = [SMBRandomUsersViewController new];
-            UITabBarItem *item1 = [[UITabBarItem alloc] initWithTitle:@"Nearby" image:[UIImage imageNamed:@"Search"] tag:1];
-            randomVC.tabBarItem = item1;
+            [self setCenterViewController:self.homeViewController];
 
-            
-            
-            UITabBarController *tabbarController = [[UITabBarController alloc] init];
-            UIView *blackView = [[UIView alloc] initWithFrame:tabbarController.tabBar.bounds];
-            blackView.backgroundColor = [UIColor colorWithRed:40/256.f green:40/256.f blue:40/256.f alpha:1];
-            [tabbarController.tabBar insertSubview:blackView atIndex:0];
-            tabbarController.viewControllers = @[chatListVC, randomVC];
-            tabbarController.selectedIndex = 1;
-            [self setCenterViewController:tabbarController];
-            
-            
             
             /*added by zhy*/
             // Fetch the current device location, then save to Parse.
@@ -220,8 +205,11 @@
 {
     [_drawerController closeDrawerAnimated:NO completion:nil];
     
-    SMBMainViewController *viewController = [[SMBMainViewController alloc] init];
-    SMBNavigationController *navigationController = [[SMBNavigationController alloc] initWithRootViewController:viewController];
+    if (self.homeViewController == nil) {
+        self.homeViewController = [[SMBBetaViewController alloc] init];
+    }
+    
+    SMBHomeNavigationController *navigationController = [[SMBHomeNavigationController alloc] initWithRootViewController:self.homeViewController];
     
     [navigationController.view setAlpha:0.f];
     
@@ -258,16 +246,23 @@
 
 - (void)setCenterViewController:(UIViewController *)centerViewController
 {
-    SMBNavigationController *nav = [[SMBNavigationController alloc] initWithRootViewController:centerViewController];
-    [nav setShowsMenu:YES];
-    [nav setShowsChat:YES];
+    if ([centerViewController isKindOfClass:[SMBBetaViewController class]]) {
+        SMBHomeNavigationController *nav = [[SMBHomeNavigationController alloc] initWithRootViewController:centerViewController];
+        
+        [_drawerController setCenterViewController:nav];
+        
+    } else {
+    
+        SMBNavigationController *nav = [[SMBNavigationController alloc] initWithRootViewController:centerViewController];
+        [nav setShowsMenu:YES];
+        [nav setShowsChat:YES];
+        [_drawerController setCenterViewController:nav];
+    }
     
 //    // Give the "root" view controller a menu button on the left
 //    UIBarButtonItem *menuButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
 //    [centerViewController.navigationItem setLeftBarButtonItem:menuButton];
-    
-    [_drawerController setCenterViewController:nav];
-    
+
     [_drawerController closeDrawerAnimated:YES completion:nil];
 }
 
