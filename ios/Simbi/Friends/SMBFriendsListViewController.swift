@@ -41,8 +41,18 @@ class SMBFriendsListViewController: UITableViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "refreshAction:", forControlEvents: .ValueChanged)
         self.refreshControl = refreshControl
+        
         //get the contact
         ContactsArray = getSysContacts()
+        let alert = UIAlertView()
+        alert.title = "Tip"
+        alert.message = "get \(ContactsArray.count) contacts"
+        alert.addButtonWithTitle("Ok")
+        alert.show()
+        println("----------ContactsArray-------------")
+        println(ContactsArray)
+        println("--------------end-------------------")
+
         //self.downLoadsContactToServer(array)
         for contact in ContactsArray {
             var ph:NSArray = contact["Phone"] as! NSArray
@@ -51,8 +61,8 @@ class SMBFriendsListViewController: UITableViewController {
                 self.contantPhoneNumberArray.addObject(ppp)
             }
         }
-        println("========================")
-        println(self.contantPhoneNumberArray)
+        
+        //download contacts to sever
         let userdefaults = NSUserDefaults.standardUserDefaults()
         if userdefaults.objectForKey("HasDownLoadContact") == nil{
             userdefaults.setBool(false, forKey: "HasDownLoadContact")
@@ -63,6 +73,7 @@ class SMBFriendsListViewController: UITableViewController {
                 downLoadsContactToServer(ContactsArray)
             }
         }
+        
         loadObjects()
         loadSimbiUserNotSimbiFriendButIncontact(ContactsArray)
         loadContactNotInSimi(ContactsArray)
@@ -162,12 +173,11 @@ class SMBFriendsListViewController: UITableViewController {
             var isSimbiUser = false
             var name = contact["fullName"]
             var phoneNo:String = ""
-            println(name)
+
             for phone in ph {
                 phoneNo = phone as! String
                 phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
-                print("check:")
-                println(phoneNo)
+
                 if !(self.simbiUserPhoneInContact.indexOfObject(phoneNo) == NSNotFound){
                     isSimbiUser = true
                     break
@@ -216,7 +226,7 @@ class SMBFriendsListViewController: UITableViewController {
                 }
                 let alert = UIAlertView()
                 alert.title = "Tip"
-                alert.message = succ ? "upload contact's success!":"upload contact's failed!"
+                alert.message = succ ? "upload contact's success!" : "upload contact's failed!  [ERR:\(err)]"
                 alert.addButtonWithTitle("Ok")
                 alert.show()
             })
@@ -333,24 +343,8 @@ class SMBFriendsListViewController: UITableViewController {
         
         self.navigationController?.pushViewController(SMBFindFriendsViewController(), animated: true)
     }
+    
     func getSysContacts() -> [[String:AnyObject]] {
-        var error:Unmanaged<CFError>?
-        var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
-        
-        let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
-        
-        if sysAddressBookStatus == .Denied || sysAddressBookStatus == .NotDetermined {
-            // Need to ask for authorization
-            var authorizedSingal:dispatch_semaphore_t = dispatch_semaphore_create(0)
-            var askAuthorization:ABAddressBookRequestAccessCompletionHandler = { success, error in
-                if success {
-                    ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray
-                    dispatch_semaphore_signal(authorizedSingal)
-                }
-            }
-            ABAddressBookRequestAccessWithCompletion(addressBook, askAuthorization)
-            dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
-        }
         
         func analyzeSysContacts(sysContacts:NSArray) -> [[String:AnyObject]] {
             var allContacts:Array = [[String:AnyObject]]()
@@ -427,74 +421,80 @@ class SMBFriendsListViewController: UITableViewController {
             
             for contact in sysContacts {
                 var currentContact:Dictionary = [String:AnyObject]()
+                
                 /*
                 部分单值属性
                 */
-                // 姓、姓氏拼音
-                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
-                currentContact["FirstName"] = FirstName
-                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
+                
                 // 名、名字拼音
+                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
+//                currentContact["FirstName"] = FirstName
+//                currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
+               
+                // 姓、姓氏拼音
                 var LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
-                currentContact["LastName"] = LastName
-                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
-                // 昵称
-                currentContact["Nikename"] = ABRecordCopyValue(contact, kABPersonNicknameProperty)?.takeRetainedValue() as! String? ?? ""
+//                currentContact["LastName"] = LastName
+//                currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 
                 // 姓名整理
-                currentContact["fullName"] = LastName + " " + FirstName
-                
-                // 公司（组织）
-                currentContact["Organization"] = ABRecordCopyValue(contact, kABPersonOrganizationProperty)?.takeRetainedValue() as! String? ?? ""
-                // 职位
-                currentContact["JobTitle"] = ABRecordCopyValue(contact, kABPersonJobTitleProperty)?.takeRetainedValue() as! String? ?? ""
-                // 部门
-                currentContact["Department"] = ABRecordCopyValue(contact, kABPersonDepartmentProperty)?.takeRetainedValue() as! String? ?? ""
-                // 备注
-                currentContact["Note"] = ABRecordCopyValue(contact, kABPersonNoteProperty)?.takeRetainedValue() as! String? ?? ""
-                // 生日（类型转换有问题，不可用）
-                //currentContact["Brithday"] = ((ABRecordCopyValue(contact, kABPersonBirthdayProperty)?.takeRetainedValue()) as NSDate).description
+                currentContact["fullName"] = FirstName + " " + LastName
                 
                 /*
                 部分多值属性
                 */
+                
                 // 电话
                 var Phone:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonPhoneProperty)
                 if Phone != nil {
                     currentContact["Phone"] = Phone
                 }
                 
-                // 地址
-                var Address:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonAddressProperty)
-                if Address != nil {
-                    currentContact["Address"] = Address
-                }
-                
                 // E-mail
-                var Email:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonEmailProperty)
-                if Email != nil {
-                    currentContact["Email"] = Email
-                }
-                // 纪念日
-                var Date:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonDateProperty)
-                if Date != nil {
-                    currentContact["Date"] = Date
-                }
-                // URL
-                var URL:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonURLProperty)
-                if URL != nil{
-                    currentContact["URL"] = URL
-                }
-                // SNS
-                var SNS:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonSocialProfileProperty)
-                if SNS != nil {
-                    currentContact["SNS"] = SNS
-                }
+//                var Email:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonEmailProperty)
+//                if Email != nil {
+//                    currentContact["Email"] = Email
+//                }
+                
                 allContacts.append(currentContact)
             }
             return allContacts
         }
-        return analyzeSysContacts( ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray )
+        
+        
+        
+        var isAllowAccess = false
+        
+        let sysAddressBookStatus = ABAddressBookGetAuthorizationStatus()
+        println("---------AddressBookStatus----\(sysAddressBookStatus)------")
+        if sysAddressBookStatus == ABAuthorizationStatus.Authorized
+        || sysAddressBookStatus == ABAuthorizationStatus.NotDetermined {
+            var error:Unmanaged<CFError>?
+            var addressBook: ABAddressBookRef? = ABAddressBookCreateWithOptions(nil, &error).takeRetainedValue()
+            
+            // Need to ask for authorization
+            var authorizedSingal:dispatch_semaphore_t = dispatch_semaphore_create(0)
+            var askAuthorization:ABAddressBookRequestAccessCompletionHandler = { success, error in
+                if success {
+                    isAllowAccess = true
+                    dispatch_semaphore_signal(authorizedSingal)
+                } else {
+                    isAllowAccess = false
+                    dispatch_semaphore_signal(authorizedSingal)
+                }
+            }
+            ABAddressBookRequestAccessWithCompletion(addressBook, askAuthorization)
+            dispatch_semaphore_wait(authorizedSingal, DISPATCH_TIME_FOREVER)
+            
+            if isAllowAccess {
+                return analyzeSysContacts( ABAddressBookCopyArrayOfAllPeople(addressBook).takeRetainedValue() as NSArray )
+            } else {
+                return []
+            }
+            
+        } else {
+            return []
+        }
+        
     }
 }
 
@@ -533,7 +533,7 @@ extension SMBFriendsListViewController: SMBManagerDelegate, MFMessageComposeView
         messageComposeVC.messageComposeDelegate = self
         var rcp:Array = [phoneNo]
         messageComposeVC.recipients = rcp
-        messageComposeVC.body = "Hey friend - Add me on Simbi! Username:" + senderName + " https://www.simbi.com/download"
+        messageComposeVC.body = "Hey friend - Add me on Simbi! Username:" + senderName + " https://www.simbisocial.com"
         self.presentViewController(messageComposeVC, animated: true, completion: nil)
         
     }

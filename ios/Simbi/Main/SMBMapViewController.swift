@@ -87,7 +87,9 @@ class SMBMapViewController: UIViewController {
             alertView.show()
         }
         else {
-            locationManager.requestWhenInUseAuthorization()
+            if (UIDevice.currentDevice().systemVersion)._bridgeToObjectiveC().doubleValue >= 8.0 {
+                locationManager.requestWhenInUseAuthorization()
+            }
         }
         
         mapView.showsPointsOfInterest = false

@@ -35,7 +35,7 @@
     
     if (self)
     {        
-        [self registerClassName:@"_User" includes:@[@"profilePicture", @"hairColor"] orderKey:@"name"];
+        [self registerClassName:@"_User" includes:@[@"profilePicture"] orderKey:@"firstName"];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleFriendRequestAcceptedNotification:) name:kSMBNotificationFriendRequestAccepted object:nil];
     }
@@ -77,7 +77,7 @@
     //    [query includeKey:@"profilePicture"];
     //    [query includeKey:@"hairColor"];
     
-    [query orderByAscending:@"name"];
+    [query orderByAscending:@"firstName"];
     
     return query;
 }

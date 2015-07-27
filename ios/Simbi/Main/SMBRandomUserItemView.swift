@@ -73,13 +73,13 @@ class SMBRandomUserItemView: UIView {
         //            pictureImageView.image = UIImage(named: "random_user")
         //        }
         
-        var friends:[SMBUser]? = SMBUser.currentUser().friends.query()?.findObjects() as? [SMBUser]
+        var friendIds = SMBFriendsManager.sharedManager().friendsObjectIds() as! [String]
         
-        for u in friends! {
-            if u.objectId == user.objectId {
-
+        for friendId:String in friendIds {
+            if friendId == user.objectId {
                 self.isFriend = true;
             }
+            
         }
     
         if self.isFriend {

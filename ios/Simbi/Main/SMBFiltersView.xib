@@ -105,7 +105,6 @@
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7aT-Vb-XXi" userLabel="Gender">
                     <rect key="frame" x="30" y="208" width="260" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="vf9-GL-PgC"/>
                         <constraint firstAttribute="height" constant="29" id="zxQ-wf-sa0"/>
                     </constraints>
                     <segments>

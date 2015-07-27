@@ -94,7 +94,7 @@ import Foundation
         //self.view.addSubview(homeBackgroundView)
         
         //set the scroll view
-        self.scrollInfoView.contentSize.height = 3080
+        self.scrollInfoView.contentSize.height = 1300
         self.scrollInfoView.contentSize.width = self.view.frame.width
         self.scrollInfoView.frame.size.width = self.view.frame.width
         self.scrollInfoView.frame.size.height = self.view.frame.height

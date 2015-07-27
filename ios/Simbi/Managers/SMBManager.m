@@ -107,7 +107,7 @@
                 _objects = objects;
                 _errorLoadingObjects = NO;
                 
-                if ([_className isEqualToString:@"_Chat"]) {
+                if ([_className isEqualToString:@"Chat"]) {
                     NSLog(@"--[SMBManager  fetch  Chats]--");
                     [SMBChat drawConnectionsForChatsInArray:_objects];
                 }
