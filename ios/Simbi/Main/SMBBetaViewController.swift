@@ -10,13 +10,25 @@ import UIKit
 
 class SMBBetaViewController: UITabBarController {
 
-    var controllersWithList: Array<UIViewController>?
-    var controllersWithMap: Array<UIViewController>?
+    var controllersWithList: Array<UINavigationController>?
+    var controllersWithMap: Array<UINavigationController>?
+    var nav0: SMBNavigationController!
+    var nav1: SMBHomeNavigationController!
+    var nav2: SMBHomeNavigationController!
+    var isShowingList = true
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        (self.navigationController as! SMBHomeNavigationController).delegateForSwitchListAndMap = self
+        nav1.delegateForSwitchListAndMap = self
+        nav2.delegateForSwitchListAndMap = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        nav1.delegateForSwitchListAndMap = nil
+        nav2.delegateForSwitchListAndMap = nil
     }
     
     override func viewDidLoad() {
@@ -33,18 +45,21 @@ class SMBBetaViewController: UITabBarController {
         var chatListVC = SMBChatListViewController();
         var item0 = UITabBarItem(title: "Chat", image: UIImage(named: "chat_item"), tag: 0)
         chatListVC.tabBarItem = item0;
-        
+        nav0 = SMBNavigationController(rootViewController: chatListVC)
+        nav0.showsMenu = true
         
         var randomVC = SMBRandomUsersViewController()
         var item1 = UITabBarItem(title: "Nearby", image: UIImage(named: "Search"), tag: 1)
         randomVC.tabBarItem = item1;
-        
+        nav1 = SMBHomeNavigationController(rootViewController: randomVC)
+
         var mapVC = SMBMapViewController()
         mapVC.tabBarItem = item1;
+        nav2 = SMBHomeNavigationController(rootViewController: mapVC)
+
         
-        
-        controllersWithList = [chatListVC, randomVC]
-        controllersWithMap = [chatListVC, mapVC]
+        controllersWithList = [nav0, nav1]
+        controllersWithMap = [nav0, nav2]
         
         
         self.viewControllers = controllersWithList;
@@ -58,34 +73,27 @@ class SMBBetaViewController: UITabBarController {
     }
     
 
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension SMBBetaViewController: SMBHomeNavDelegate {
     
     func switchListAndMap(sender: UIButton) {
         
-        if self.selectedViewController!.isKindOfClass(SMBRandomUsersViewController) {
+        if isShowingList {
             
             sender.setImage(UIImage(named: "list_btn"), forState: UIControlState.Normal)
             
             self.viewControllers = self.controllersWithMap
+
+            isShowingList = false
+            
         } else {
             
             sender.setImage(UIImage(named: "map_btn"), forState: UIControlState.Normal)
             
             self.viewControllers = self.controllersWithList
+            
+            isShowingList = true
         }
     }
 }

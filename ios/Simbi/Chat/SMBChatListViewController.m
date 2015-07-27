@@ -71,7 +71,7 @@
     
     _viewSelectorControl = [[UISegmentedControl alloc] initWithItems:@[@"Chats", @"Games"]];
     [_viewSelectorControl setFrame:CGRectMake(66, 6, width-132, 44-12)];
-    [_viewSelectorControl setTintColor:[UIColor simbiBlueColor]];
+    [_viewSelectorControl setTintColor:[UIColor whiteColor]];
     [_viewSelectorControl setSelectedSegmentIndex:0];
     [_viewSelectorControl addTarget:self action:@selector(viewSelectorDidChange:) forControlEvents:UIControlEventValueChanged];
 }

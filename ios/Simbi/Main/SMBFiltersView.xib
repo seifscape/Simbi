@@ -45,7 +45,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CM3-nC-KJk">
-                    <rect key="frame" x="30" y="122" width="70" height="16"/>
+                    <rect key="frame" x="30" y="118" width="70" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="Zpi-Vp-Bcc"/>
                         <constraint firstAttribute="height" constant="16" id="ig6-fS-tEl"/>
@@ -55,7 +55,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzw-sV-Sm4">
-                    <rect key="frame" x="30" y="182" width="70" height="16"/>
+                    <rect key="frame" x="30" y="174" width="70" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="EM4-jC-olb"/>
                         <constraint firstAttribute="width" constant="70" id="pbZ-4B-QrP"/>
@@ -65,7 +65,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fXc-hH-sgY">
-                    <rect key="frame" x="30" y="252" width="70" height="16"/>
+                    <rect key="frame" x="30" y="240" width="70" height="16"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="Aah-b3-N7Y"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="DjP-nj-dDd"/>
@@ -79,7 +79,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Visibility to Others:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0e-Ss-daI">
-                    <rect key="frame" x="30" y="310" width="136" height="16"/>
+                    <rect key="frame" x="30" y="297" width="136" height="16"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="BQs-gQ-h8U"/>
                         <constraint firstAttribute="width" constant="136" id="Gkm-cH-3Uj"/>
@@ -89,9 +89,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F4W-8a-O8h">
-                    <rect key="frame" x="30" y="78" width="260" height="30"/>
+                    <rect key="frame" x="30" y="78" width="260" height="26"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="cnq-pc-1gc"/>
+                        <constraint firstAttribute="height" constant="25" id="cnq-pc-1gc"/>
                     </constraints>
                     <segments>
                         <segment title="Friends Only"/>
@@ -103,61 +103,61 @@
                     </connections>
                 </segmentedControl>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7aT-Vb-XXi" userLabel="Gender">
-                    <rect key="frame" x="30" y="208" width="260" height="30"/>
+                    <rect key="frame" x="30" y="200" width="260" height="26"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="zxQ-wf-sa0"/>
+                        <constraint firstAttribute="height" constant="25" id="zxQ-wf-sa0"/>
                     </constraints>
                     <segments>
-                        <segment title="Friends Only"/>
-                        <segment title="Everyone"/>
-                        <segment title="+"/>
+                        <segment title="Any"/>
+                        <segment title="Male"/>
+                        <segment title="Female"/>
                     </segments>
                     <color key="tintColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-Fx-fMm">
-                    <rect key="frame" x="30" y="143" width="82" height="29"/>
+                    <rect key="frame" x="30" y="139" width="82" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="82" id="gep-YU-NER"/>
-                        <constraint firstAttribute="height" constant="29" id="hR4-Wq-hnk"/>
+                        <constraint firstAttribute="height" constant="25" id="hR4-Wq-hnk"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <state key="normal" title="Make Friends">
                         <color key="titleColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2j-ee-69D">
-                    <rect key="frame" x="239" y="143" width="51" height="29"/>
+                    <rect key="frame" x="239" y="139" width="51" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="irq-iu-j6A"/>
+                        <constraint firstAttribute="height" constant="25" id="irq-iu-j6A"/>
                         <constraint firstAttribute="width" constant="51" id="oLC-Pf-Euc"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="Network">
                         <color key="titleColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDM-cw-I1c">
-                    <rect key="frame" x="138" y="143" width="56" height="29"/>
+                    <rect key="frame" x="138" y="139" width="56" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="AKt-le-z3j"/>
+                        <constraint firstAttribute="height" constant="25" id="AKt-le-z3j"/>
                         <constraint firstAttribute="width" constant="56" id="ZK3-6i-uGR"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <state key="normal" title="Dating">
                         <color key="titleColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cwU-13-te0">
-                    <rect key="frame" x="30" y="336" width="260" height="30"/>
+                    <rect key="frame" x="30" y="323" width="260" height="26"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="8m7-9r-JNc"/>
+                        <constraint firstAttribute="height" constant="25" id="8m7-9r-JNc"/>
                     </constraints>
                     <segments>
                         <segment title="Visible"/>
-                        <segment title="Unvisible"/>
+                        <segment title="Invisible"/>
                     </segments>
                     <color key="tintColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
@@ -191,34 +191,33 @@
                         <action selector="searchBtnAction:" destination="Vce-xT-OUG" eventType="touchUpInside" id="zsk-qU-H32"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="18" maxValue="55" translatesAutoresizingMaskIntoConstraints="NO" id="wa4-pg-ANN">
-                    <rect key="frame" x="38" y="270" width="244" height="31"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcq-1F-xtb" userLabel="ageRangeView">
+                    <rect key="frame" x="40" y="266" width="240" height="21"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="Ipj-DX-EQx"/>
+                        <constraint firstAttribute="height" constant="21" id="ygv-nD-yto"/>
                     </constraints>
-                </slider>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="7aT-Vb-XXi" secondAttribute="trailing" constant="30" id="2sd-Q6-hCW"/>
                 <constraint firstAttribute="trailing" secondItem="UC6-t3-va2" secondAttribute="trailing" constant="13" id="5v7-zk-ywd"/>
-                <constraint firstItem="C0e-Ss-daI" firstAttribute="top" secondItem="wa4-pg-ANN" secondAttribute="bottom" constant="10" id="5zi-mg-qYh"/>
                 <constraint firstItem="7aT-Vb-XXi" firstAttribute="top" secondItem="Qzw-sV-Sm4" secondAttribute="bottom" constant="10" id="76g-u9-muS"/>
                 <constraint firstItem="gCc-N9-tmY" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="13" id="BQg-4q-jSE"/>
                 <constraint firstItem="fXc-hH-sgY" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="CMR-Mr-S3s"/>
                 <constraint firstItem="7aT-Vb-XXi" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="CZ6-OP-lsx"/>
                 <constraint firstItem="uBx-O5-u5v" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="49" id="Dsq-1T-d8p"/>
+                <constraint firstItem="C0e-Ss-daI" firstAttribute="top" secondItem="bcq-1F-xtb" secondAttribute="bottom" constant="10" id="ELS-vp-AEH"/>
                 <constraint firstItem="CM3-nC-KJk" firstAttribute="top" secondItem="F4W-8a-O8h" secondAttribute="bottom" constant="15" id="FfH-06-DLU"/>
                 <constraint firstItem="cwU-13-te0" firstAttribute="top" secondItem="C0e-Ss-daI" secondAttribute="bottom" constant="10" id="HRf-gZ-RfR"/>
                 <constraint firstAttribute="bottom" secondItem="fRu-dt-Q6n" secondAttribute="bottom" constant="18" id="Kjs-Uq-6s4"/>
-                <constraint firstItem="wa4-pg-ANN" firstAttribute="top" secondItem="fXc-hH-sgY" secondAttribute="bottom" constant="2" id="OAc-4I-Aeb"/>
                 <constraint firstItem="fXc-hH-sgY" firstAttribute="top" secondItem="7aT-Vb-XXi" secondAttribute="bottom" constant="15" id="P4y-PF-gHc"/>
                 <constraint firstItem="C0e-Ss-daI" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="PHQ-xP-BQm"/>
                 <constraint firstAttribute="centerX" secondItem="fjf-6N-MBy" secondAttribute="centerX" id="QDM-qh-6kd"/>
                 <constraint firstItem="oO9-9S-3yF" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="RpI-ne-PUe"/>
                 <constraint firstItem="oO9-9S-3yF" firstAttribute="top" secondItem="UC6-t3-va2" secondAttribute="bottom" constant="8" id="SCL-Md-HgK"/>
                 <constraint firstAttribute="centerX" secondItem="tDM-cw-I1c" secondAttribute="centerX" constant="-6" id="SUL-v9-OJ1"/>
-                <constraint firstItem="wa4-pg-ANN" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="40" id="T0N-fE-JAg"/>
                 <constraint firstItem="4GT-Fx-fMm" firstAttribute="top" secondItem="CM3-nC-KJk" secondAttribute="bottom" constant="5" id="T5U-qS-Imv"/>
                 <constraint firstItem="UC6-t3-va2" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="13" id="TUN-73-7jH"/>
                 <constraint firstAttribute="trailing" secondItem="F4W-8a-O8h" secondAttribute="trailing" constant="30" id="V0W-ZL-VcP"/>
@@ -230,19 +229,21 @@
                 <constraint firstAttribute="trailing" secondItem="cwU-13-te0" secondAttribute="trailing" constant="30" id="cVo-eC-zFW"/>
                 <constraint firstAttribute="trailing" secondItem="gCc-N9-tmY" secondAttribute="trailing" constant="13" id="cfg-Al-SzN"/>
                 <constraint firstAttribute="trailing" secondItem="fRu-dt-Q6n" secondAttribute="trailing" constant="56" id="cha-sO-KLz"/>
+                <constraint firstAttribute="trailing" secondItem="bcq-1F-xtb" secondAttribute="trailing" constant="40" id="dK3-tl-X5R"/>
                 <constraint firstItem="cwU-13-te0" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="eTL-32-W3y"/>
                 <constraint firstItem="tDM-cw-I1c" firstAttribute="top" secondItem="m2j-ee-69D" secondAttribute="top" id="gSA-zT-70v"/>
-                <constraint firstAttribute="trailing" secondItem="wa4-pg-ANN" secondAttribute="trailing" constant="40" id="imH-WN-oyP"/>
+                <constraint firstItem="bcq-1F-xtb" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="40" id="kg4-U6-6Lq"/>
                 <constraint firstItem="Qzw-sV-Sm4" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="nHd-pA-NNj"/>
                 <constraint firstItem="CM3-nC-KJk" firstAttribute="leading" secondItem="Vce-xT-OUG" secondAttribute="leading" constant="30" id="oJr-YM-KMD"/>
                 <constraint firstAttribute="bottom" secondItem="gCc-N9-tmY" secondAttribute="bottom" constant="59" id="uSb-qj-r2V"/>
+                <constraint firstItem="bcq-1F-xtb" firstAttribute="top" secondItem="fXc-hH-sgY" secondAttribute="bottom" constant="10" id="uVj-bv-Ph1"/>
                 <constraint firstAttribute="bottom" secondItem="uBx-O5-u5v" secondAttribute="bottom" constant="18" id="uWp-XV-88Z"/>
                 <constraint firstItem="UC6-t3-va2" firstAttribute="top" secondItem="Vce-xT-OUG" secondAttribute="top" constant="46" id="vsv-nQ-3LI"/>
                 <constraint firstItem="fjf-6N-MBy" firstAttribute="top" secondItem="Vce-xT-OUG" secondAttribute="top" constant="13" id="x8w-2m-AZj"/>
                 <constraint firstItem="F4W-8a-O8h" firstAttribute="top" secondItem="UC6-t3-va2" secondAttribute="bottom" constant="30" id="xkY-tq-4vP"/>
             </constraints>
             <connections>
-                <outlet property="ageSlider" destination="wa4-pg-ANN" id="cYG-nX-ghB"/>
+                <outlet property="ageRangeView" destination="bcq-1F-xtb" id="i6V-FG-zGD"/>
                 <outlet property="cancelBtn" destination="uBx-O5-u5v" id="eQw-Lz-DRG"/>
                 <outlet property="datingBtn" destination="tDM-cw-I1c" id="eNU-aW-Y26"/>
                 <outlet property="datingBtnWidth" destination="ZK3-6i-uGR" id="TeP-jf-XId"/>

@@ -24,7 +24,7 @@ class SMBHomeNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.barTintColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 0)
-        println(self.navigationBar.frame)
+
         menuBtn.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         menuBtn.setImage(UIImage(named: "Hamburger Icon"), forState: UIControlState.Normal)
         menuBtn.addTarget(self, action: "menuAction:", forControlEvents: UIControlEvents.TouchUpInside)

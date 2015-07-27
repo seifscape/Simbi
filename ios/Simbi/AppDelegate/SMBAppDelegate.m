@@ -138,6 +138,8 @@
         // the menu and chat buttons on that view are added to the main window and need to be hidden manually (which I'm
         // not fond of - I'm not arguing over dumb UI requests though..)
         
+        /*deleted by zhy at 2015-07-27*/
+        #if 0
         if (weakSelf)
         {
             id visible = ((UINavigationController *)weakSelf.drawerController.centerViewController).visibleViewController;
@@ -145,6 +147,7 @@
             if ([visible isKindOfClass:[SMBMainViewController class]])
                 [((SMBMainViewController *)visible) viewWillAppear:YES];
         }
+        #endif
     }];
     
     
@@ -247,15 +250,15 @@
 - (void)setCenterViewController:(UIViewController *)centerViewController
 {
     if ([centerViewController isKindOfClass:[SMBBetaViewController class]]) {
-        SMBHomeNavigationController *nav = [[SMBHomeNavigationController alloc] initWithRootViewController:centerViewController];
+//        SMBHomeNavigationController *nav = [[SMBHomeNavigationController alloc] initWithRootViewController:centerViewController];
         
-        [_drawerController setCenterViewController:nav];
+        [_drawerController setCenterViewController:centerViewController];
         
     } else {
     
         SMBNavigationController *nav = [[SMBNavigationController alloc] initWithRootViewController:centerViewController];
         [nav setShowsMenu:YES];
-        [nav setShowsChat:YES];
+        [nav setShowsChat:NO];
         [_drawerController setCenterViewController:nav];
     }
     
@@ -288,7 +291,7 @@
 - (void)enableSideMenuGesture:(BOOL)enable
 {
     if (enable)
-        [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+        [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
     else
         [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
 }

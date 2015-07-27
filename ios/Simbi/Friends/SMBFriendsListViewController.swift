@@ -44,14 +44,6 @@ class SMBFriendsListViewController: UITableViewController {
         
         //get the contact
         ContactsArray = getSysContacts()
-        let alert = UIAlertView()
-        alert.title = "Tip"
-        alert.message = "get \(ContactsArray.count) contacts"
-        alert.addButtonWithTitle("Ok")
-        alert.show()
-        println("----------ContactsArray-------------")
-        println(ContactsArray)
-        println("--------------end-------------------")
 
         //self.downLoadsContactToServer(array)
         for contact in ContactsArray {

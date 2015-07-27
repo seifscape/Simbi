@@ -22,7 +22,7 @@ class SMBFiltersView: UIView {
     @IBOutlet weak var datingBtn: UIButton!
    
     @IBOutlet weak var genderSegment: UISegmentedControl!
-    @IBOutlet weak var ageSlider: UISlider!
+    @IBOutlet weak var ageRangeView: UIView!
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
@@ -34,6 +34,8 @@ class SMBFiltersView: UIView {
     @IBOutlet weak var makefriendsBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var networkBtnWidth: NSLayoutConstraint!
     @IBOutlet weak var datingBtnWidth: NSLayoutConstraint!
+    
+    var ageRangeSlider: NMRangeSlider?
     
     
     //MARK:
@@ -85,8 +87,26 @@ class SMBFiltersView: UIView {
         datingBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
         datingBtn.backgroundColor = UIColor.whiteColor()
         
+        
+        //ageSliderView
+        println(ageRangeView.frame)
+        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width, height: ageRangeView.frame.size.height))
+        ageRangeSlider?.minimumValue = 18
+        ageRangeSlider?.maximumValue = 55
+        ageRangeSlider?.minimumRange = 1
+        ageRangeSlider?.upperValue = Float(SMBUser.currentUser().upperAgePreference.intValue)
+        // If lower age preference is greater than or equal to the upper, set upper as just above the lower.
+        if SMBUser.currentUser().lowerAgePreference.intValue >= SMBUser.currentUser().upperAgePreference.intValue {
+            ageRangeSlider?.upperValue = Float(SMBUser.currentUser().lowerAgePreference.intValue+1)
+        }
+        ageRangeSlider?.lowerValue = Float(SMBUser.currentUser().lowerAgePreference.intValue)
+        ageRangeSlider?.tintColor = UIColor.simbiBlueColor()
+//        ageRangeSlider?.addTarget(self, action: "", forControlEvents: UIControlEvents.ValueChanged)
+   
+        ageRangeView.addSubview(ageRangeSlider!)
+        
     }
-    
+
     //MARK: actions
     func buttonSelected(button: UIButton) {
         
@@ -106,14 +126,12 @@ class SMBFiltersView: UIView {
             datingBtn.enabled = false
             networkBtn.enabled = false
             genderSegment.enabled = false
-            ageSlider.enabled = false
             
         } else {
             makefriendsBtn.enabled = true
             datingBtn.enabled = true
             networkBtn.enabled = true
             genderSegment.enabled = true
-            ageSlider.enabled = true
         }
     }
     
