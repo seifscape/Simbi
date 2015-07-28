@@ -46,10 +46,21 @@ class SMBFriendsListViewController: UITableViewController {
         ContactsArray = getSysContacts()
 
         //self.downLoadsContactToServer(array)
+        
         for contact in ContactsArray {
-            var ph:NSArray = contact["Phone"] as! NSArray
-            for phone in ph {
-               var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+            var ph:[String] = contact["Phone"] as! [String]
+            for phone: String in ph {
+                var ppp = phone.stringByReplacingOccurrencesOfString("[^0-9]*",
+                    withString: "",
+                    options: .RegularExpressionSearch,
+                    range: Range(start: phone.startIndex, end: phone.endIndex))
+               
+                //添加国家代码 USA：1
+                if count(ppp) == 10 {
+                    ppp = "1" + ppp
+                }
+//                var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+                
                 self.contantPhoneNumberArray.addObject(ppp)
             }
         }

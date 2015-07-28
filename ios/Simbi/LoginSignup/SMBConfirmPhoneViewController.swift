@@ -179,9 +179,14 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
             self.view.endEditing(true)
             
             let hud = MBProgressHUD.HUDwithMessage("Sending Confirmation Code...", parent: self)
+
+            /* useless */
+//            let query = PFQuery(className: "_User")
+//            query.whereKey("phoneNumber", equalTo: phoneNumber)
             
-            let query = PFQuery(className: "_User")
-            query.whereKey("phoneNumber", equalTo: phoneNumber)
+            //save user's phone number   1+10 bit
+            SMBUser.currentUser().phoneNumber = phoneNumber
+            SMBUser.currentUser().saveInBackgroundWithBlock(nil)
             
             let params: [String: AnyObject] = ["phoneNumber": phoneNumber]
             
