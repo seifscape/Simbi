@@ -52,15 +52,15 @@ class SMBFriendsListCell: UITableViewCell {
         acceptButton.hidden = true
         self.addSubview(acceptButton)
         
-        requesetButton.frame = CGRectMake(self.frame.width-55, 0, 55, 44)
-        requesetButton.setTitle("request", forState: .Normal)
+        requesetButton.frame = CGRectMake(self.frame.width-80, 0, 75, 44)
+        requesetButton.setTitle("Add Friend", forState: .Normal)
         requesetButton.setTitleColor(UIColor.simbiBlueColor(), forState: .Normal)
         requesetButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
         requesetButton.hidden = true
         self.addSubview(requesetButton)
         
-        inviteButton.frame = CGRectMake(self.frame.width-55, 0, 55, 44)
-        inviteButton.setTitle("invite", forState: .Normal)
+        inviteButton.frame = CGRectMake(self.frame.width-60, 0, 55, 44)
+        inviteButton.setTitle("Invite", forState: .Normal)
         inviteButton.setTitleColor(UIColor.simbiBlueColor(), forState: .Normal)
         inviteButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
         inviteButton.hidden = true

@@ -30,7 +30,7 @@ class SMBFriendsListModel: NSObject {
     var cell: SMBFriendsListCell?
     
     var isProcessingRequest = false
-    var type = 0
+    var type = 0 // 0:friend   1:waiting accept   2:add friend   3:invite
     
     var fullname:String = ""
     var phoneNo = ""
@@ -60,7 +60,8 @@ class SMBFriendsListModel: NSObject {
             cell = SMBFriendsListCell(style: .Default, reuseIdentifier: SMBFriendsListModel.cellReuse())
         }
         
-        if type ==  2{
+        //invite people who are not simbi users
+        if type == 3 {
             cell?.nameLabel.text = self.fullname
             cell?.emailLabel.text = self.phoneNo
             
@@ -82,7 +83,14 @@ class SMBFriendsListModel: NSObject {
         cell!.nameLabel.text = user.name
         cell!.emailLabel.text = user.email
         
-        if let request = self.request {
+        //already friend
+        if type == 0 {
+            cell!.acceptButton.hidden = true
+            cell!.activityIndicator.hidden = true
+        }
+        
+        //waiting accept
+        if type == 1 {
             
             cell!.nameLabel.text! += " wants to be your friend!"
             
@@ -93,11 +101,9 @@ class SMBFriendsListModel: NSObject {
             
             isProcessingRequest ? cell!.activityIndicator.startAnimating() : cell!.activityIndicator.stopAnimating()
         }
-        else {
-            cell!.acceptButton.hidden = true
-            cell!.activityIndicator.hidden = true
-        }
-        if type==1 {
+        
+        //add simbi user to friend
+        if type == 2 {
             cell?.requesetButton.hidden = false
             cell?.acceptButton.hidden = true
             cell?.inviteButton.hidden = true
@@ -105,8 +111,10 @@ class SMBFriendsListModel: NSObject {
             
             cell!.requesetButton.addTarget(self, action: "requestFriend:", forControlEvents: .TouchUpInside)
         }
+        
         return cell!
     }
+    
     func inviteFriends(sender: AnyObject) {
 //        let hud = MBProgressHUD.HUDwithMessage("Sending ....", parent:self.parent)
 //
@@ -158,22 +166,27 @@ class SMBFriendsListModel: NSObject {
                 self.isProcessingRequest = false
                 
                 if object != nil {
-                    
                     SMBFriendRequestsManager.sharedManager().removeObject(self.request)
                     SMBFriendsManager.sharedManager().addObject(self.request?.fromUser)
                     
                     self.request = nil
                     
                     if self.user == self.cell?.user {
-                        
                         self.cell?.nameLabel.text = self.user.name
                         self.cell?.activityIndicator.stopAnimating()
+                        
+                    } else {
+                        self.cell?.activityIndicator.stopAnimating()
+                        self.cell?.acceptButton.hidden = true
                     }
-                }
-                else if self.user == self.cell?.user {
                     
-                    self.cell?.acceptButton.hidden = false
+                } else if self.user == self.cell?.user {
+                    //accept ok
+                    self.cell?.acceptButton.hidden = true
+                    self.cell?.nameLabel.text = self.user.name
                     self.cell?.activityIndicator.stopAnimating()
+                    
+                } else {
                 }
             })
         }

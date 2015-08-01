@@ -79,7 +79,7 @@ class SMBFriendsListViewController: UITableViewController {
         
         loadObjects()
         loadSimbiUserNotSimbiFriendButIncontact(ContactsArray)
-        loadContactNotInSimi(ContactsArray)
+//        loadContactNotInSimi(ContactsArray)
     }
     
     // MARK: - Private Methods
@@ -88,11 +88,9 @@ class SMBFriendsListViewController: UITableViewController {
         
         objects = []
         
-        // Get all friends and friend requests, sort alphabetically by name
-        
-        var allObjects = SMBFriendsManager.sharedManager().objects + SMBFriendRequestsManager.sharedManager().objects
-        
-        allObjects = sorted(allObjects) { a, b in
+        // Get friends, sort alphabetically by name
+        var friends = SMBFriendsManager.sharedManager().objects
+        friends = sorted(friends) { a, b in
             
             var aName: String
             var bName: String
@@ -106,19 +104,36 @@ class SMBFriendsListViewController: UITableViewController {
             return aName < bName
         }
         
-        // Put each item in the model object
-        
-        for object in allObjects {
-            
+        for friend in friends {
             var model: SMBFriendsListModel
+            model = SMBFriendsListModel(user: friend as! SMBUser)
+            model.type = 0
+            model.parent = self
+            objects.append(model)
+        }
+        
+        
+        // Get friend requests, sort alphabetically by name
+        var friendRequests = SMBFriendRequestsManager.sharedManager().objects
+        friendRequests = sorted(friendRequests) { a, b in
             
-            if object is SMBUser {
-                model = SMBFriendsListModel(user: object as! SMBUser)
-            }
-            else {
-                model = SMBFriendsListModel(request: object as! SMBFriendRequest)
-            }
+            var aName: String
+            var bName: String
             
+            if a is SMBUser { aName = (a as! SMBUser).name }
+            else            { aName = (a as! SMBFriendRequest).fromUser.name }
+            
+            if b is SMBUser { bName = (b as! SMBUser).name }
+            else            { bName = (b as! SMBFriendRequest).fromUser.name }
+            
+            return aName < bName
+        }
+        
+        for friendRequest in friendRequests {
+            var model: SMBFriendsListModel
+            model = SMBFriendsListModel(request: friendRequest as! SMBFriendRequest)
+            model.type = 1
+            model.parent = self
             objects.append(model)
         }
         
@@ -128,33 +143,41 @@ class SMBFriendsListViewController: UITableViewController {
     func loadSimbiUserNotSimbiFriendButIncontact(contacts:NSArray){
         let query:PFQuery = PFQuery(className: "_User")
         query.whereKey("phoneNumber", containedIn: self.contantPhoneNumberArray as [AnyObject])
-        //query.whereKey(<#key: String!#>, containedIn: <#[AnyObject]!#>)
+
         query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, err:NSError?) -> Void in
             self.objectsInSimbiAndContactsButNotSimbiFrieds = []
             self.simbiUserPhoneInContact = []
             for object in objects! {
-                //SMBFriendsManager.sharedManager().friendsObjectIds().IndexOfObject((object as SMBUser).objectId)
+                
                 var isSimibiFriend = false
+                
                 var phoneNo = (object as! SMBUser).phoneNumber as String
-                if !((object as! SMBUser).objectId == SMBUser.currentUser().objectId){
-                        self.simbiUserPhoneInContact.addObject(phoneNo)
-                    }
-                for simbifriend in SMBFriendsManager.sharedManager().objects{
-                    if (simbifriend as! SMBUser).objectId == (object as! SMBUser).objectId{
+                
+                if (object as! SMBUser).objectId != SMBUser.currentUser().objectId {
+                    self.simbiUserPhoneInContact.addObject(phoneNo)
+                }
+                
+                for friendId in SMBFriendsManager.sharedManager().friendsObjectIds(){
+                    if friendId as? String == (object as! SMBUser).objectId {
                         isSimibiFriend = true
                         break
                     }
                 }
+                
                 if isSimibiFriend == true{
                     continue
                 }
+                
                 var model:SMBFriendsListModel
                 model = SMBFriendsListModel(user: object as! SMBUser)
-                model.type = 1
+                model.type = 2
                 model.parent = self
                 self.objectsInSimbiAndContactsButNotSimbiFrieds.append(model)
             }
-//            self.loadContactNotInSimi(contacts)
+            
+            //load after simbiUserPhoneInContact is ok
+            self.loadContactNotInSimi(contacts)
+            
             
             /*added by zhy at 2015-06-09*/
             self.objectsInSimbiAndContactsButNotSimbiFrieds = (self.objectsInSimbiAndContactsButNotSimbiFrieds as NSArray).sortedArrayUsingComparator({ (obj1, obj2) -> NSComparisonResult in
@@ -165,8 +188,10 @@ class SMBFriendsListViewController: UITableViewController {
                 }
             }) as! [SMBFriendsListModel]
             
+            
             self.tableView.reloadData()
         }
+             
     }
     
     func loadContactNotInSimi(contacts:NSArray){
@@ -191,7 +216,7 @@ class SMBFriendsListViewController: UITableViewController {
                 model.sendSMSDelegate = self/*added by zhy at 2015-06-18 for inviting friend*/
                 model.fullname = name as! String
                 model.phoneNo = phoneNo
-                model.type = 2
+                model.type = 3
                 model.parent = self
                 self.objectsNotInSimbiAndButInContacts.append(model)
             }
