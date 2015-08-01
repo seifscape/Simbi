@@ -173,20 +173,6 @@ class SMBMapViewController: UIViewController {
         switchVisibleButton.addTarget(self, action: "switchVisibleBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
 //        self.view.addSubview(switchVisibleButton)
         
-        //set the current user's visible or invisible
-        let obid = SMBUser.currentUser().objectId
-        let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
-            if obj==nil{
-                return
-            }
-            if (obj as! SMBUser).visible {
-                switchVisibleButton.selected = false
-            }else{
-                switchVisibleButton.selected = true
-            }
-        }
-        
     }
     
     
@@ -461,11 +447,14 @@ extension SMBMapViewController: SMBMapCardViewDelegate {
 // MARK: - SMBFiltersDelegate
 
 extension SMBMapViewController: SMBFiltersDelegate {
-    func searchEveryone() {
-        
-    }
     
     func searchFriend() {
-   
+        if SMBFriendsManager.sharedManager().objects.count > 0 {
+            createAnnotations()
+        }
+    }
+    
+    func searchEveryone(lookingto: Array<Bool>?, genderRequire: SMBUserGenderType?, lowerAgePreference: Int, upperAgePreference: Int) {
+        
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+// Take the place of SMBMainViewController
 class SMBBetaViewController: UITabBarController {
 
     var controllersWithList: Array<UINavigationController>?

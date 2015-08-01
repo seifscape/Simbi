@@ -481,7 +481,7 @@ import Foundation
                 hud.dismissWithMessage("save failed!")
                 return
             }
-            obj!["gender"] = self.genderButton.titleLabel?.text
+            obj!["gender"] = self.genderButton.titleLabel?.text?.lowercaseString
             obj!["age"] = self.ageButton.titleLabel?.text?.toInt()
             let heightStr = self.heightButton.titleLabel?.text
             obj!["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]

@@ -165,8 +165,7 @@ class SMBRandomUsersViewController: UIViewController {
                             self.users.removeAtIndex(i)
                             continue
                         }
-                        println("currentuser \(SMBUser.currentUser().lookingto)")
-                        println("oooooooo \(user.lookingto)")
+                       
                         if user.lookingto != nil {
                             if user.lookingto[0] as! Bool != SMBUser.currentUser().lookingto[0] as! Bool
                                 && user.lookingto[1] as! Bool != SMBUser.currentUser().lookingto[1] as! Bool
@@ -194,7 +193,7 @@ class SMBRandomUsersViewController: UIViewController {
     }
     
     
-    func loadUsers(lookingto: Array<String>, genderRequire: SMBUserGenderType, ageRange: Array<integer_t>) {
+    func loadUsers(lookingto: Array<Bool>?, genderRequire: SMBUserGenderType?, lowerAgePreference: Int, upperAgePreference: Int) {
         
         if errorView != nil {
             errorView!.removeFromSuperview()
@@ -217,8 +216,17 @@ class SMBRandomUsersViewController: UIViewController {
         let query = PFQuery(className: "_User")
         query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
         
-        let (text, value) = rangeSlider!.selectedItem()
+        //match gender requirement
+        if genderRequire?.value != kSMBUserGenderOther.value {
+            query.whereKey("gender", equalTo: genderRequire?.value == kSMBUserGenderMale.value ? "male" : "female")
+        }
         
+        //match age range
+        query.whereKey("age", greaterThanOrEqualTo: lowerAgePreference)
+        query.whereKey("age", lessThanOrEqualTo: upperAgePreference)
+        
+        //match distance
+        let (text, value) = rangeSlider!.selectedItem()
         if SMBUser.currentUser().geoPoint != nil {
             query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
         }
@@ -226,6 +234,7 @@ class SMBRandomUsersViewController: UIViewController {
             println("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
         }
         
+        //start searching
         query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             self.carousel.userInteractionEnabled = true
@@ -246,8 +255,8 @@ class SMBRandomUsersViewController: UIViewController {
                     }
                     
                     //match lookingto
-                    if lookingto.count == 3 && user.lookingto != nil {
-                        
+                    if lookingto != nil && lookingto?.count == 3 && user.lookingto != nil {
+  
                         if user.lookingto[0] as! Bool != SMBUser.currentUser().lookingto[0] as! Bool
                             && user.lookingto[1] as! Bool != SMBUser.currentUser().lookingto[1] as! Bool
                             && user.lookingto[2] as! Bool != SMBUser.currentUser().lookingto[2] as! Bool
@@ -257,18 +266,6 @@ class SMBRandomUsersViewController: UIViewController {
                         }
                     
                     }
-                    
-                    //match gender
-                    if genderRequire.value != kSMBUserGenderOther.value
-                        && user.genderType().value != kSMBUserGenderOther.value
-                        && genderRequire.value != user.genderType().value {
-                        self.users.removeAtIndex(i++)
-                        continue
-                    }
-                    
-                    //match age range
-                    
-                    
                     
                 }
                 
@@ -415,8 +412,8 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
 // MARK: - SMBFiltersDelegate
 
 extension SMBRandomUsersViewController: SMBFiltersDelegate {
-    func searchEveryone() {
-        loadUsers()
+    func searchEveryone(lookingto: Array<Bool>?, genderRequire: SMBUserGenderType?, lowerAgePreference: Int, upperAgePreference: Int) {
+        loadUsers(lookingto, genderRequire: genderRequire, lowerAgePreference: lowerAgePreference, upperAgePreference: upperAgePreference)
     }
     
     func searchFriend() {

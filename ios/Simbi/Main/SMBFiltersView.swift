@@ -10,7 +10,7 @@ import UIKit
 
 protocol SMBFiltersDelegate {
     func searchFriend()
-    func searchEveryone()
+    func searchEveryone(lookingto: Array<Bool>?, genderRequire: SMBUserGenderType?, lowerAgePreference: Int, upperAgePreference: Int)
 }
 
 class SMBFiltersView: UIView {
@@ -44,6 +44,7 @@ class SMBFiltersView: UIView {
     @IBOutlet weak var datingBtnWidth: NSLayoutConstraint!
     
     var ageRangeSlider: NMRangeSlider?
+    var ageRangeLabel: UILabel?
     
     
     //MARK:
@@ -92,9 +93,6 @@ class SMBFiltersView: UIView {
         makefriendsBtnWidth.constant = (self.frame.width - 30 - 30) / 3 + 10
         networkBtnWidth.constant = (self.frame.width - 30 - 30) / 3 + 2
         datingBtnWidth.constant = (self.frame.width - 30 - 30) / 3 - 2
-    
-//        datingBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
-//        datingBtn.backgroundColor = UIColor.whiteColor()
       
         //load lookingto status
         var lookingto :[Bool]? = SMBUser.currentUser().lookingto as? [Bool]
@@ -130,7 +128,7 @@ class SMBFiltersView: UIView {
         
         
         //ageSliderView
-        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width, height: ageRangeView.frame.size.height))
+        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width/2, height: ageRangeView.frame.size.height))
         ageRangeSlider?.minimumValue = 18
         ageRangeSlider?.maximumValue = 55
         ageRangeSlider?.minimumRange = 1
@@ -141,13 +139,17 @@ class SMBFiltersView: UIView {
         }
         ageRangeSlider?.lowerValue = Float(SMBUser.currentUser().lowerAgePreference.intValue)
         ageRangeSlider?.tintColor = UIColor.simbiBlueColor()
-//        ageRangeSlider?.addTarget(self, action: "", forControlEvents: UIControlEvents.ValueChanged)
-   
+        ageRangeSlider?.addTarget(self, action: "agePreferenceDidChange:", forControlEvents: UIControlEvents.ValueChanged)
         ageRangeView.addSubview(ageRangeSlider!)
         
+        ageRangeLabel = UILabel(frame: CGRect(x: ageRangeView.frame.width/2+10, y: 0, width:  ageRangeView.frame.width/2-10, height: ageRangeView.frame.height))
+        ageRangeLabel?.font = UIFont.boldSystemFontOfSize(12)
+        ageRangeView.addSubview(ageRangeLabel!)
+
+        agePreferenceDidChange(ageRangeSlider!)
     }
 
-    //MARK: actions
+    //MARK: actions`
     func buttonSelected(button: UIButton) {
         
         button.selected = !button.selected
@@ -208,6 +210,18 @@ class SMBFiltersView: UIView {
     
     }
     
+    func agePreferenceDidChange(slider: NMRangeSlider)
+    {
+        if Int(slider.upperValue) >= Int(slider.maximumValue) {
+            ageRangeLabel?.text = String(format: "%d-%d+", Int(slider.lowerValue), Int(slider.upperValue))
+        } else {
+            ageRangeLabel?.text = String(format: "%d-%d", Int(slider.lowerValue), Int(slider.upperValue))
+        }
+        
+        SMBUser.currentUser().lowerAgePreference = Int(slider.lowerValue)
+        SMBUser.currentUser().upperAgePreference = Int(slider.upperValue)
+        
+    }
     
     
     @IBAction func cancelBtnAction(sender: AnyObject) {
@@ -220,6 +234,11 @@ class SMBFiltersView: UIView {
         if showSegment.selectedSegmentIndex == 0 {
             self.delegateForSearch?.searchFriend()
         } else {
+            SMBUser.currentUser().lowerAgePreference = Int(ageRangeSlider!.lowerValue)
+            SMBUser.currentUser().upperAgePreference = Int(ageRangeSlider!.upperValue)
+            SMBUser.currentUser().saveInBackgroundWithBlock(nil)
+
+            self.delegateForSearch?.searchEveryone(SMBUser.currentUser().lookingto as? [Bool], genderRequire: SMBUser.currentUser().genderPreferenceType(), lowerAgePreference: Int(ageRangeSlider!.lowerValue), upperAgePreference: Int(ageRangeSlider!.upperValue))
             
         }
         
