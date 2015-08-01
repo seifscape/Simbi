@@ -171,7 +171,7 @@ class SMBMapViewController: UIViewController {
         switchVisibleButton.frame = CGRectMake(0,0, 66, 88)
         switchVisibleButton.center = CGPoint(x:self.view.frame.width/2, y:self.view.frame.height-50)
         switchVisibleButton.addTarget(self, action: "switchVisibleBtnClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(switchVisibleButton)
+//        self.view.addSubview(switchVisibleButton)
         
         //set the current user's visible or invisible
         let obid = SMBUser.currentUser().objectId
@@ -211,7 +211,10 @@ class SMBMapViewController: UIViewController {
         
         let distance = distanceForSliderValue()
                 
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(mapView.userLocation.coordinate, distance*kMetersInMile, distance*kMetersInMile), animated: false)
+        var centerCoordinate = mapView.convertPoint(mapView.center, toCoordinateFromView: mapView)
+        
+        mapView.setRegion(MKCoordinateRegionMakeWithDistance(centerCoordinate, distance*kMetersInMile, distance*kMetersInMile), animated: false)
+
     }
     
     
@@ -451,5 +454,18 @@ extension SMBMapViewController: SMBMapCardViewDelegate {
     func gotoQuestionFromMapCard(#thatUser: SMBUser) {
         let navigationController = UINavigationController(rootViewController: SMBAnswerQuestionViewController(thatUser))
         self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
+    }
+}
+
+
+// MARK: - SMBFiltersDelegate
+
+extension SMBMapViewController: SMBFiltersDelegate {
+    func searchEveryone() {
+        
+    }
+    
+    func searchFriend() {
+   
     }
 }

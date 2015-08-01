@@ -165,11 +165,12 @@ class SMBRandomUsersViewController: UIViewController {
                             self.users.removeAtIndex(i)
                             continue
                         }
-                        
+                        println("currentuser \(SMBUser.currentUser().lookingto)")
+                        println("oooooooo \(user.lookingto)")
                         if user.lookingto != nil {
-                            if user.lookingto[0] as! String != SMBUser.currentUser().lookingto[0] as! String
-                                && user.lookingto[1] as! String != SMBUser.currentUser().lookingto[1] as! String
-                                && user.lookingto[2] as! String != SMBUser.currentUser().lookingto[2] as! String
+                            if user.lookingto[0] as! Bool != SMBUser.currentUser().lookingto[0] as! Bool
+                                && user.lookingto[1] as! Bool != SMBUser.currentUser().lookingto[1] as! Bool
+                                && user.lookingto[2] as! Bool != SMBUser.currentUser().lookingto[2] as! Bool
                             {
                                 self.users.removeAtIndex(i)
                             }
@@ -182,6 +183,97 @@ class SMBRandomUsersViewController: UIViewController {
                 self.carousel.reloadData()
                 // v Causes crashes
                 //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)
+                UIView.animateWithDuration(0.33, animations: { () -> Void in
+                    self.lineView.alpha = 1
+                })
+            }
+            else {
+                self.showError()
+            }
+        }
+    }
+    
+    
+    func loadUsers(lookingto: Array<String>, genderRequire: SMBUserGenderType, ageRange: Array<integer_t>) {
+        
+        if errorView != nil {
+            errorView!.removeFromSuperview()
+            errorView = nil
+        }
+        
+        UIView.animateWithDuration(0.33, animations: { () -> Void in
+            self.lineView.alpha = 0
+        })
+        
+        users = []
+        lastSelectedView?.fadeOut()
+        carousel.userInteractionEnabled = false
+        
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+        activityIndicatorView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        activityIndicatorView.startAnimating()
+        self.view.addSubview(activityIndicatorView)
+        
+        let query = PFQuery(className: "_User")
+        query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
+        
+        let (text, value) = rangeSlider!.selectedItem()
+        
+        if SMBUser.currentUser().geoPoint != nil {
+            query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
+        }
+        else {
+            println("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
+        }
+        
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            self.carousel.userInteractionEnabled = true
+            
+            activityIndicatorView.stopAnimating()
+            activityIndicatorView.removeFromSuperview()
+            
+            if let users:[SMBUser] = objects as? [SMBUser] {
+                
+                self.users = users
+                
+                for user: SMBUser in users {
+                    var i:Int = 0
+                    
+                    if user.profilePicture == nil {
+                        self.users.removeAtIndex(i++)
+                        continue
+                    }
+                    
+                    //match lookingto
+                    if lookingto.count == 3 && user.lookingto != nil {
+                        
+                        if user.lookingto[0] as! Bool != SMBUser.currentUser().lookingto[0] as! Bool
+                            && user.lookingto[1] as! Bool != SMBUser.currentUser().lookingto[1] as! Bool
+                            && user.lookingto[2] as! Bool != SMBUser.currentUser().lookingto[2] as! Bool
+                        {
+                            self.users.removeAtIndex(i++)
+                            continue
+                        }
+                    
+                    }
+                    
+                    //match gender
+                    if genderRequire.value != kSMBUserGenderOther.value
+                        && user.genderType().value != kSMBUserGenderOther.value
+                        && genderRequire.value != user.genderType().value {
+                        self.users.removeAtIndex(i++)
+                        continue
+                    }
+                    
+                    //match age range
+                    
+                    
+                    
+                }
+                
+                self.carousel.reloadData()
+               
                 UIView.animateWithDuration(0.33, animations: { () -> Void in
                     self.lineView.alpha = 1
                 })
@@ -317,5 +409,18 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
         }
         
         println("--[itemViewDidSelectUserForChat  no  chat]--")
+    }
+}
+
+// MARK: - SMBFiltersDelegate
+
+extension SMBRandomUsersViewController: SMBFiltersDelegate {
+    func searchEveryone() {
+        loadUsers()
+    }
+    
+    func searchFriend() {
+        self.users = SMBFriendsManager.sharedManager().objects as! [SMBUser]
+        self.carousel.reloadData()
     }
 }

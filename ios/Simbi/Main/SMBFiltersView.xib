@@ -108,11 +108,14 @@
                         <constraint firstAttribute="height" constant="25" id="zxQ-wf-sa0"/>
                     </constraints>
                     <segments>
-                        <segment title="Any"/>
                         <segment title="Male"/>
                         <segment title="Female"/>
+                        <segment title="Any"/>
                     </segments>
                     <color key="tintColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="genderSegmentValueChanged:" destination="Vce-xT-OUG" eventType="valueChanged" id="qGo-xd-Kf4"/>
+                    </connections>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GT-Fx-fMm">
                     <rect key="frame" x="30" y="139" width="82" height="25"/>
@@ -160,6 +163,9 @@
                         <segment title="Invisible"/>
                     </segments>
                     <color key="tintColor" red="0.41960784309999999" green="0.65490196079999996" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="visibilitySegmentValueChanged:" destination="Vce-xT-OUG" eventType="valueChanged" id="gFg-L9-b9S"/>
+                    </connections>
                 </segmentedControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-O5-u5v">
                     <rect key="frame" x="49" y="523" width="70" height="27"/>

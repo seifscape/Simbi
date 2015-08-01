@@ -9,6 +9,7 @@
 import UIKit
 
 protocol SMBHomeNavDelegate {
+//    func toggleFiltersView()
     func switchListAndMap(sender: UIButton)
 }
 
@@ -17,9 +18,19 @@ class SMBHomeNavigationController: UINavigationController {
     
     let menuBtn = UIButton()
     let filtersBtn = UIButton()
+    var filtersView :SMBFiltersView?
     var listOrMapBtn = UIButton()
     var delegateForSwitchListAndMap :SMBHomeNavDelegate?
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.viewControllers.first!.isKindOfClass(SMBRandomUsersViewController) {
+            filtersView?.delegateForSearch = self.viewControllers.first as! SMBRandomUsersViewController
+        } else {
+            filtersView?.delegateForSearch = self.viewControllers.first as! SMBMapViewController
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +52,14 @@ class SMBHomeNavigationController: UINavigationController {
         self.navigationBar.addSubview(filtersBtn)
         self.navigationBar.addSubview(listOrMapBtn)
         
+        //filters
+        filtersView = NSBundle.mainBundle().loadNibNamed("SMBFiltersView", owner: nil, options: nil).first as? SMBFiltersView
+        filtersView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-60, height: self.view.frame.height-140)
+        filtersView?.center = self.view.center
+        filtersView?.isShowing = false
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,13 +76,43 @@ class SMBHomeNavigationController: UINavigationController {
     }
     
     func filtersAction(sender: UIButton) {
-        var filters = NSBundle.mainBundle().loadNibNamed("SMBFiltersView", owner: nil, options: nil).first as! SMBFiltersView
-        filters.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-60, height: self.view.frame.height-140)
-        filters.center = self.view.center
-        self.view.addSubview(filters)
+        
+        if filtersView!.isShowing == false {
+            if self.viewControllers.first!.isKindOfClass(SMBRandomUsersViewController) {
+                filtersView?.showSegment.selectedSegmentIndex = 1;
+                filtersView?.showSegment.enabled = true
+                filtersView?.makefriendsBtn.enabled = true
+                filtersView?.datingBtn.enabled = true
+                filtersView?.networkBtn.enabled = true
+                filtersView?.genderSegment.enabled = true
+                
+            } else {
+                filtersView?.showSegment.selectedSegmentIndex = 0;
+                filtersView?.showSegment.enabled = false
+                filtersView?.makefriendsBtn.enabled = false
+                filtersView?.datingBtn.enabled = false
+                filtersView?.networkBtn.enabled = false
+                filtersView?.genderSegment.enabled = false
+                
+                filtersView?.makefriendsBtn.layer.opacity = 0.5
+                filtersView?.datingBtn.layer.opacity = 0.5
+                filtersView?.networkBtn.layer.opacity = 0.5
+                
+            }
+            self.view.addSubview(filtersView!)
+            filtersView?.isShowing = true
+            
+        } else {
+            filtersView?.removeFromSuperview()
+            filtersView?.isShowing = false
+        }
     }
     
     func listOrMapAction(sender: UIButton) {
+        if filtersView?.isShowing == true {
+            filtersView?.removeFromSuperview()
+            filtersView?.isShowing = false
+        }
         delegateForSwitchListAndMap?.switchListAndMap(sender)
     }
     

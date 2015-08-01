@@ -85,8 +85,10 @@
     
     PFQuery* query = [PFQuery queryWithClassName:@"_User"];
     [query getObjectInBackgroundWithId:obid block:^(PFObject *object, NSError *error) {
-//        object[@"lookingto"] = [NSString stringWithFormat:@"%ld",self.lookingtoSegmentedControl.selectedSegmentIndex];
-        object[@"lookingto"] = [NSArray arrayWithObjects:self.lookingtoBtnFirst.isSelected?@"1":@"0", self.lookingtoBtnSecond.isSelected?@"1":@"0", self.lookingtoBtnThird.isSelected?@"1":@"0", nil];
+        
+        [SMBUser currentUser].lookingto = [NSArray arrayWithObjects:[NSNumber numberWithBool:self.lookingtoBtnFirst.isSelected], [NSNumber numberWithBool:self.lookingtoBtnSecond.isSelected], [NSNumber numberWithBool:self.lookingtoBtnThird.isSelected], nil];
+        
+        object[@"lookingto"] = [NSArray arrayWithObjects:[NSNumber numberWithBool:self.lookingtoBtnFirst.isSelected], [NSNumber numberWithBool:self.lookingtoBtnSecond.isSelected], [NSNumber numberWithBool:self.lookingtoBtnThird.isSelected], nil];
         object[@"genderPreference"] = [NSString stringWithFormat:@"%ld",self.genderSegmentedControl.selectedSegmentIndex];
         object[@"upperAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.upperValue];
         object[@"lowerAgePreference"] = [NSNumber numberWithInt:(int)self.ageRangeSlider.lowerValue];
@@ -125,9 +127,9 @@
         //get lookingto preference
         NSArray *lookingtoArray = user.lookingto;
         if (lookingtoArray && lookingtoArray.count == 3) {
-            self.lookingtoBtnFirst.selected = [lookingtoArray[0] isEqual:@"1"]?YES:NO;
-            self.lookingtoBtnSecond.selected = [lookingtoArray[1] isEqual:@"1"]?YES:NO;
-            self.lookingtoBtnThird.selected = [lookingtoArray[2] isEqual:@"1"]?YES:NO;
+            self.lookingtoBtnFirst.selected = lookingtoArray[0] == [NSNumber numberWithBool:YES] ? YES : NO;
+            self.lookingtoBtnSecond.selected = lookingtoArray[1] == [NSNumber numberWithBool:YES] ? YES : NO;
+            self.lookingtoBtnThird.selected = lookingtoArray[2] == [NSNumber numberWithBool:YES] ? YES : NO;
             [self refreshLookingtoBtn:self.lookingtoBtnFirst];
             [self refreshLookingtoBtn:self.lookingtoBtnSecond];
             [self refreshLookingtoBtn:self.lookingtoBtnThird];

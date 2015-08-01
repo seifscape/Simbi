@@ -8,21 +8,29 @@
 
 import UIKit
 
+protocol SMBFiltersDelegate {
+    func searchFriend()
+    func searchEveryone()
+}
 
 class SMBFiltersView: UIView {
 
+    var isShowing: Bool?
+    var delegateForSearch: SMBFiltersDelegate?
+    
     //MARK:
     //MARK: properties
    
     @IBOutlet weak var showSegment: UISegmentedControl!
-    @IBOutlet weak var visibilitySegment: UISegmentedControl!
-
+    
     @IBOutlet weak var makefriendsBtn: UIButton!
     @IBOutlet weak var networkBtn: UIButton!
     @IBOutlet weak var datingBtn: UIButton!
    
     @IBOutlet weak var genderSegment: UISegmentedControl!
     @IBOutlet weak var ageRangeView: UIView!
+
+    @IBOutlet weak var visibilitySegment: UISegmentedControl!
 
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var searchBtn: UIButton!
@@ -59,8 +67,9 @@ class SMBFiltersView: UIView {
         self.layer.cornerRadius = 3
         
         //segment
-        showSegment.selectedSegmentIndex = 1
-        
+        visibilitySegment.selectedSegmentIndex = SMBUser.currentUser().visible ? 0 : 1
+        genderSegment.selectedSegmentIndex = SMBUser.currentUser().genderPreferenceType().value
+    
         //buttons
         makefriendsBtn.layer.borderWidth = 1
         makefriendsBtn.layer.cornerRadius = 3
@@ -80,16 +89,47 @@ class SMBFiltersView: UIView {
         datingBtn.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
         datingBtn.addTarget(self, action: "buttonSelected:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        makefriendsBtnWidth.constant = (self.frame.width - 32 - 29) / 3 + 10
-        networkBtnWidth.constant = (self.frame.width - 32 - 29) / 3 + 2
-        datingBtnWidth.constant = (self.frame.width - 32 - 29) / 3 - 2
+        makefriendsBtnWidth.constant = (self.frame.width - 30 - 30) / 3 + 10
+        networkBtnWidth.constant = (self.frame.width - 30 - 30) / 3 + 2
+        datingBtnWidth.constant = (self.frame.width - 30 - 30) / 3 - 2
     
-        datingBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
-        datingBtn.backgroundColor = UIColor.whiteColor()
+//        datingBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
+//        datingBtn.backgroundColor = UIColor.whiteColor()
+      
+        //load lookingto status
+        var lookingto :[Bool]? = SMBUser.currentUser().lookingto as? [Bool]
+        if lookingto != nil {
+            makefriendsBtn.selected = lookingto![0]
+            datingBtn.selected = lookingto![1]
+            networkBtn.selected = lookingto![2]
+            
+            if makefriendsBtn.selected {
+                makefriendsBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
+            } else {
+                makefriendsBtn.backgroundColor = UIColor.whiteColor()
+            }
+            
+            if datingBtn.selected {
+                datingBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
+            } else {
+                datingBtn.backgroundColor = UIColor.whiteColor()
+            }
+            
+            if networkBtn.selected {
+                networkBtn.backgroundColor = UIColor(red: 107/256, green: 167/256, blue: 249/256, alpha: 1)
+            } else {
+                networkBtn.backgroundColor = UIColor.whiteColor()
+            }
+            
+        } else {
+            makefriendsBtn.backgroundColor = UIColor.whiteColor()
+            datingBtn.backgroundColor = UIColor.whiteColor()
+            networkBtn.backgroundColor = UIColor.whiteColor()
+        }
+        
         
         
         //ageSliderView
-        println(ageRangeView.frame)
         ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width, height: ageRangeView.frame.size.height))
         ageRangeSlider?.minimumValue = 18
         ageRangeSlider?.maximumValue = 55
@@ -117,6 +157,11 @@ class SMBFiltersView: UIView {
         } else {
             button.backgroundColor = UIColor.whiteColor()
         }
+        
+        
+        //save
+        SMBUser.currentUser().lookingto = Array(arrayLiteral: makefriendsBtn.selected, datingBtn.selected, networkBtn.selected)
+        SMBUser.currentUser().saveInBackgroundWithBlock(nil)
     }
     
     
@@ -127,19 +172,60 @@ class SMBFiltersView: UIView {
             networkBtn.enabled = false
             genderSegment.enabled = false
             
+            makefriendsBtn.layer.opacity = 0.5
+            datingBtn.layer.opacity = 0.5
+            networkBtn.layer.opacity = 0.5
+            
         } else {
             makefriendsBtn.enabled = true
             datingBtn.enabled = true
             networkBtn.enabled = true
             genderSegment.enabled = true
+            
+            makefriendsBtn.layer.opacity = 1
+            datingBtn.layer.opacity = 1
+            networkBtn.layer.opacity = 1
         }
     }
     
+    @IBAction func visibilitySegmentValueChanged(sender: AnyObject) {
 
+        SMBUser.currentUser().visible = sender.selectedSegmentIndex == 0 ? true : false
+        SMBUser.currentUser().saveInBackgroundWithBlock(nil)
+    }
+    
+    
+    @IBAction func genderSegmentValueChanged(sender: AnyObject) {
+        if sender.selectedSegmentIndex == 0 {
+            SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderMale)
+        } else if sender.selectedSegmentIndex == 1 {
+            SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderFemale)
+        } else {
+            SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderOther)
+        }
+        
+        SMBUser.currentUser().saveInBackgroundWithBlock(nil)
+    
+    }
+    
+    
+    
     @IBAction func cancelBtnAction(sender: AnyObject) {
         self.removeFromSuperview()
+        isShowing = false
     }
 
     @IBAction func searchBtnAction(sender: AnyObject) {
+        
+        if showSegment.selectedSegmentIndex == 0 {
+            self.delegateForSearch?.searchFriend()
+        } else {
+            
+        }
+        
+        self.removeFromSuperview()
+        isShowing = false
     }
+    
+    
 }

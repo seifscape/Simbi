@@ -212,9 +212,6 @@
         self.homeViewController = [[SMBBetaViewController alloc] init];
     }
     
-    SMBHomeNavigationController *navigationController = [[SMBHomeNavigationController alloc] initWithRootViewController:self.homeViewController];
-    
-    [navigationController.view setAlpha:0.f];
     
     CGFloat width  = _drawerController.centerViewController.view.frame.size.width;
     CGFloat height = _drawerController.centerViewController.view.frame.size.height;
@@ -225,11 +222,8 @@
         
     } completion:^(BOOL finished) {
         
-        [_drawerController setCenterViewController:navigationController];
+        [_drawerController setCenterViewController:self.homeViewController];
         
-        [UIView animateWithDuration:0.25f delay:0.05f options:UIViewAnimationOptionCurveLinear animations:^{
-            [navigationController.view setAlpha:1.f];
-        } completion:nil];
     }];
     
     
@@ -250,8 +244,7 @@
 - (void)setCenterViewController:(UIViewController *)centerViewController
 {
     if ([centerViewController isKindOfClass:[SMBBetaViewController class]]) {
-//        SMBHomeNavigationController *nav = [[SMBHomeNavigationController alloc] initWithRootViewController:centerViewController];
-        
+  
         [_drawerController setCenterViewController:centerViewController];
         
     } else {
