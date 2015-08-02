@@ -130,11 +130,14 @@ class SMBFriendsListViewController: UITableViewController {
         }
         
         for friendRequest in friendRequests {
-            var model: SMBFriendsListModel
-            model = SMBFriendsListModel(request: friendRequest as! SMBFriendRequest)
-            model.type = 1
-            model.parent = self
-            objects.append(model)
+            if friendRequest.isAccepted == false {
+                
+                var model: SMBFriendsListModel
+                model = SMBFriendsListModel(request: friendRequest as! SMBFriendRequest)
+                model.type = 1
+                model.parent = self
+                objects.append(model)
+            }
         }
         
         self.tableView.reloadData()
@@ -188,7 +191,7 @@ class SMBFriendsListViewController: UITableViewController {
                 }
             }) as! [SMBFriendsListModel]
             
-            
+
             self.tableView.reloadData()
         }
              

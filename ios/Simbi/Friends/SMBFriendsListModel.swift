@@ -85,12 +85,18 @@ class SMBFriendsListModel: NSObject {
         
         //already friend
         if type == 0 {
-            cell!.acceptButton.hidden = true
-            cell!.activityIndicator.hidden = true
+            cell?.acceptButton.hidden = true
+            cell?.inviteButton.hidden = true
+            cell?.requesetButton.hidden = true
+            cell?.activityIndicator.hidden = true
         }
         
         //waiting accept
         if type == 1 {
+            cell?.acceptButton.hidden = false
+            cell?.inviteButton.hidden = true
+            cell?.requesetButton.hidden = true
+            cell?.activityIndicator.hidden = true
             
             cell!.nameLabel.text! += " wants to be your friend!"
             
@@ -98,7 +104,6 @@ class SMBFriendsListModel: NSObject {
             cell!.acceptButton.addTarget(self, action: "acceptFriendRequest:", forControlEvents: .TouchUpInside)
             
             cell!.acceptButton.hidden = isProcessingRequest
-            
             isProcessingRequest ? cell!.activityIndicator.startAnimating() : cell!.activityIndicator.stopAnimating()
         }
         
@@ -165,29 +170,21 @@ class SMBFriendsListModel: NSObject {
                 
                 self.isProcessingRequest = false
                 
-                if object != nil {
-                    SMBFriendRequestsManager.sharedManager().removeObject(self.request)
-                    SMBFriendsManager.sharedManager().addObject(self.request?.fromUser)
-                    
-                    self.request = nil
-                    
-                    if self.user == self.cell?.user {
-                        self.cell?.nameLabel.text = self.user.name
-                        self.cell?.activityIndicator.stopAnimating()
-                        
-                    } else {
-                        self.cell?.activityIndicator.stopAnimating()
-                        self.cell?.acceptButton.hidden = true
-                    }
-                    
-                } else if self.user == self.cell?.user {
+                if error == nil {
                     //accept ok
                     self.cell?.acceptButton.hidden = true
                     self.cell?.nameLabel.text = self.user.name
                     self.cell?.activityIndicator.stopAnimating()
                     
+                    //reload friend
+                    SMBFriendRequestsManager.sharedManager().removeObject(self.request)
+                    SMBFriendsManager.sharedManager().addObject(self.request?.fromUser)
+
                 } else {
+                    var alert = UIAlertView(title: "Bad News", message: "\(error)", delegate: nil, cancelButtonTitle: "Cancel")
+                    alert.show()
                 }
+                
             })
         }
     }
