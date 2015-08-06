@@ -46,34 +46,35 @@ class SMBFriendsListViewController: UITableViewController {
         ContactsArray = getSysContacts()
 
         //self.downLoadsContactToServer(array)
-        
-        for contact in ContactsArray {
-            var ph:[String] = contact["Phone"] as! [String]
-            for phone: String in ph {
-                var ppp = phone.stringByReplacingOccurrencesOfString("[^0-9]*",
-                    withString: "",
-                    options: .RegularExpressionSearch,
-                    range: Range(start: phone.startIndex, end: phone.endIndex))
-               
-                //添加国家代码 USA：1
-                if count(ppp) == 10 {
-                    ppp = "1" + ppp
+        if ContactsArray != [] {
+            for contact in ContactsArray {
+                var ph:[String] = contact["Phone"] as! [String]
+                for phone: String in ph {
+                    var ppp = phone.stringByReplacingOccurrencesOfString("[^0-9]*",
+                        withString: "",
+                        options: .RegularExpressionSearch,
+                        range: Range(start: phone.startIndex, end: phone.endIndex))
+                    
+                    //添加国家代码 USA：1
+                    if count(ppp) == 10 {
+                        ppp = "1" + ppp
+                    }
+                    //                var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+                    
+                    self.contantPhoneNumberArray.addObject(ppp)
                 }
-//                var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
-                
-                self.contantPhoneNumberArray.addObject(ppp)
             }
-        }
-        
-        //download contacts to sever
-        let userdefaults = NSUserDefaults.standardUserDefaults()
-        if userdefaults.objectForKey("HasDownLoadContact") == nil{
-            userdefaults.setBool(false, forKey: "HasDownLoadContact")
-            userdefaults.synchronize()
-            downLoadsContactToServer(ContactsArray)
-        }else{
-            if userdefaults.boolForKey("HasDownLoadContact") == false{
+            
+            //download contacts to sever
+            let userdefaults = NSUserDefaults.standardUserDefaults()
+            if userdefaults.objectForKey("HasDownLoadContact") == nil{
+                userdefaults.setBool(false, forKey: "HasDownLoadContact")
+                userdefaults.synchronize()
                 downLoadsContactToServer(ContactsArray)
+            }else{
+                if userdefaults.boolForKey("HasDownLoadContact") == false{
+                    downLoadsContactToServer(ContactsArray)
+                }
             }
         }
         
