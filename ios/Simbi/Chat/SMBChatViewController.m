@@ -291,6 +291,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    //
+    self.tabBarController.tabBar.hidden = YES;
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController setToolbarHidden:YES animated:YES];
@@ -371,6 +373,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    //
+    self.tabBarController.tabBar.hidden = NO;
     
     [_chat setThisUsersHasRead:YES];
     [_chat saveInBackground];

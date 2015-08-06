@@ -36,7 +36,9 @@ class SMBBetaViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        //translucent **
+        self.tabBar.translucent = true
+        
         //background
         var blackView = UIView(frame: self.tabBar.bounds)
         blackView.backgroundColor = UIColor(red: 40/256, green: 40/256, blue: 40/256, alpha: 1)
