@@ -42,8 +42,6 @@ class SMBAnnotation: NSObject, MKAnnotation {
         annotationView.enabled = true
         annotationView.canShowCallout = false
         annotationView.backgroundColor = UIColor.simbiDarkGrayColor()
-        annotationView.layer.borderColor = UIColor.simbiBlackColor().CGColor
-        annotationView.layer.borderWidth = 0.5
         annotationView.layer.cornerRadius = 16
         annotationView.clipsToBounds = true
         

@@ -310,8 +310,6 @@
 		5EFA94801B5E9573002FAD6F /* challenge_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA947A1B5E9573002FAD6F /* challenge_btn@2x.png */; };
 		5EFA94811B5E9573002FAD6F /* challenge_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA947B1B5E9573002FAD6F /* challenge_btn@3x.png */; };
 		5EFA94851B5E9866002FAD6F /* bg_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA94821B5E9866002FAD6F /* bg_image.png */; };
-		5EFA94861B5E9866002FAD6F /* bg_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA94831B5E9866002FAD6F /* bg_image@2x.png */; };
-		5EFA94871B5E9866002FAD6F /* bg_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA94841B5E9866002FAD6F /* bg_image@3x.png */; };
 		5EFA95001B635E7B002FAD6F /* SMBBetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA94FF1B635E7B002FAD6F /* SMBBetaViewController.swift */; };
 		5EFA95021B6369B4002FAD6F /* SMBHomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA95011B6369B4002FAD6F /* SMBHomeNavigationController.swift */; };
 		5EFA95061B636D42002FAD6F /* Hamburger Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EFA95031B636D42002FAD6F /* Hamburger Icon.png */; };
@@ -788,8 +786,6 @@
 		5EFA947A1B5E9573002FAD6F /* challenge_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "challenge_btn@2x.png"; sourceTree = "<group>"; };
 		5EFA947B1B5E9573002FAD6F /* challenge_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "challenge_btn@3x.png"; sourceTree = "<group>"; };
 		5EFA94821B5E9866002FAD6F /* bg_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_image.png; sourceTree = "<group>"; };
-		5EFA94831B5E9866002FAD6F /* bg_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_image@2x.png"; sourceTree = "<group>"; };
-		5EFA94841B5E9866002FAD6F /* bg_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_image@3x.png"; sourceTree = "<group>"; };
 		5EFA94FF1B635E7B002FAD6F /* SMBBetaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBBetaViewController.swift; sourceTree = "<group>"; };
 		5EFA95011B6369B4002FAD6F /* SMBHomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBHomeNavigationController.swift; sourceTree = "<group>"; };
 		5EFA95031B636D42002FAD6F /* Hamburger Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hamburger Icon.png"; sourceTree = "<group>"; };
@@ -2256,8 +2252,6 @@
 				5EFA95041B636D42002FAD6F /* Hamburger Icon@2x.png */,
 				5EFA95051B636D42002FAD6F /* Hamburger Icon@3x.png */,
 				5EFA94821B5E9866002FAD6F /* bg_image.png */,
-				5EFA94831B5E9866002FAD6F /* bg_image@2x.png */,
-				5EFA94841B5E9866002FAD6F /* bg_image@3x.png */,
 				5EFA94761B5E9573002FAD6F /* chat_btn.png */,
 				5EFA94771B5E9573002FAD6F /* chat_btn@2x.png */,
 				5EFA94781B5E9573002FAD6F /* chat_btn@3x.png */,
@@ -2512,7 +2506,6 @@
 				52A81029195B274100CA4027 /* Icon-76.png in Resources */,
 				CD6C376C1942421F0007123D /* redBox.png in Resources */,
 				5EFA95241B6384EB002FAD6F /* SMBFiltersView.xib in Resources */,
-				5EFA94861B5E9866002FAD6F /* bg_image@2x.png in Resources */,
 				52E3958E1A15444600496AC9 /* credits_icon@3x.png in Resources */,
 				5EFA94601B5E8D95002FAD6F /* Search@3x.png in Resources */,
 				52B9B31D19F80908009E8CE2 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
@@ -2544,7 +2537,6 @@
 				52561142192A97A2005A0049 /* SeroOT-Light.otf in Resources */,
 				5222D27B19B0CFCD00DC5E76 /* DINOT-BoldItalic.otf in Resources */,
 				5222D29519B0D9F400DC5E76 /* friendsicon@2x.png in Resources */,
-				5EFA94871B5E9866002FAD6F /* bg_image@3x.png in Resources */,
 				52CB1F6D1A02CB1D002FDA99 /* challenge_icon.png in Resources */,
 				52E3958C1A15444600496AC9 /* credits_icon.png in Resources */,
 				525D2F411925563F00BBE955 /* SimbiLogo_temp.png in Resources */,
