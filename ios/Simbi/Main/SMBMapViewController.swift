@@ -382,7 +382,12 @@ extension SMBMapViewController: MKMapViewDelegate {
                 annotationView = smbAnnotation.annotationView()
             }
             annotationView?.annotation = smbAnnotation
-            annotationView?.image = UIImage(named: "friendsearchicon")
+         
+            var profilePic: SMBImage? = (annotation as! SMBAnnotation).user.profilePicture.fetchIfNeeded() as? SMBImage
+            var picData: NSData? = profilePic?.thumbnailImage.getData()
+    
+            annotationView?.image = UIImage(data: picData!, scale: 4)//UIImage(named: "friendsearchicon")
+           
             annotationView?.backgroundColor = UIColor.whiteColor()
             
             return annotationView!
@@ -426,13 +431,36 @@ extension SMBMapViewController: SMBMapCardViewDelegate {
     
     func gotoChatFromMapCard(#thatUser: SMBUser) {
         var chats:[SMBChat]? = SMBChatManager.sharedManager().objects as? [SMBChat]
+        
         for chat:SMBChat in chats! {
             if chat.otherUser().objectId == thatUser.objectId {
                 var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
                 chatVC.isFriend = true
+                chatVC.isPushedFromRandomOrMap = true
                 self.navigationController?.pushViewController(chatVC, animated: true)
+                
+                return
             }
         }
+        
+        //create new chat
+        var newChat: SMBChat? = SMBChat()
+        newChat?.userOne = SMBUser.currentUser()
+        newChat?.userTwo = thatUser
+        newChat?.save() //have to wait
+        
+        //add an empty message to new chat
+        var msg: SMBMessage = SMBMessage()
+        msg.fromUser = SMBUser.currentUser()
+        msg.toUser = thatUser
+        msg.chat = newChat
+        msg.messageText = ""
+        
+        SMBChatManager.sharedManager().addChat(newChat)
+        
+        var chatVC = SMBChatViewController.messagesViewControllerWithChat(newChat, isViewingChat: true)
+        chatVC.isFriend = true
+        self.navigationController?.pushViewController(chatVC, animated: true)
         
         println("--[itemViewDidSelectUserForChat  no  chat]--")
     }

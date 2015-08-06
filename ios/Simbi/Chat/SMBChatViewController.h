@@ -32,5 +32,6 @@
 
 /*added by zhy at 2015-07-11 for different topView*/
 @property (nonatomic) BOOL isFriend;
+@property (nonatomic) BOOL isPushedFromRandomOrMap;
 
 @end

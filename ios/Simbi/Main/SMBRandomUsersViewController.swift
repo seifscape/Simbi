@@ -394,16 +394,41 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
         self.navigationController!.presentViewController(navigationController, animated: true, completion: nil)
     }
     
+    //we are friends
     func itemViewDidSelectUserForChat(itemView: SMBRandomUserItemView, user: SMBUser) {
         
         var chats:[SMBChat]? = SMBChatManager.sharedManager().objects as? [SMBChat]
+        
         for chat:SMBChat in chats! {
             if chat.otherUser().objectId == user.objectId {
                 var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
                 chatVC.isFriend = true
+                chatVC.isPushedFromRandomOrMap = true
                 self.navigationController?.pushViewController(chatVC, animated: true)
+
+                return
             }
         }
+        
+        //create new chat
+        var newChat: SMBChat? = SMBChat()
+        newChat?.userOne = SMBUser.currentUser()
+        newChat?.userTwo = user
+        newChat?.save() //have to wait
+        
+        //add an empty message to new chat
+        var msg: SMBMessage = SMBMessage()
+        msg.fromUser = SMBUser.currentUser()
+        msg.toUser = user
+        msg.chat = newChat
+        msg.messageText = ""
+        
+        SMBChatManager.sharedManager().addChat(newChat)
+        
+        var chatVC = SMBChatViewController.messagesViewControllerWithChat(newChat, isViewingChat: true)
+        chatVC.isFriend = true
+        chatVC.isPushedFromRandomOrMap = true
+        self.navigationController?.pushViewController(chatVC, animated: true)
         
         println("--[itemViewDidSelectUserForChat  no  chat]--")
     }

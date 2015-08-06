@@ -44,7 +44,8 @@ class SMBAnnotation: NSObject, MKAnnotation {
         annotationView.backgroundColor = UIColor.simbiDarkGrayColor()
         annotationView.layer.borderColor = UIColor.simbiBlackColor().CGColor
         annotationView.layer.borderWidth = 0.5
-        annotationView.layer.cornerRadius = 22/2
+        annotationView.layer.cornerRadius = 16
+        annotationView.clipsToBounds = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: "selectAction:")
         annotationView.addGestureRecognizer(tapGesture)

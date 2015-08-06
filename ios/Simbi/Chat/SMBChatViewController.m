@@ -18,7 +18,7 @@
 #import "SMBQuestionViewController.h"
 #import "SMBTimerLabel.h"
 #import "SMBMessagesBubbleImageFactory.h"
-
+#import "Simbi-Swift.h"
 
 @interface SMBChatViewController ()
 
@@ -84,11 +84,10 @@ typedef enum SMBChatViewAlertType : NSInteger
     return chatViewController;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     _isLoading = NO;
     
     if ([_chat otherUser].firstName) {
@@ -125,7 +124,7 @@ typedef enum SMBChatViewAlertType : NSInteger
     [_profilePictureView.layer setCornerRadius:_profilePictureView.frame.size.width/2.f];
     [_profilePictureView setClipsToBounds:YES];
     
-    if ([_chat otherUserHasRevealed] || _chat.forceRevealed)
+    if (_isFriend || [_chat otherUserHasRevealed] || _chat.forceRevealed)
         [_profilePictureView setParseImage:[_chat otherUser].profilePicture];
     else
         [_profilePictureView setRawImage:[UIImage imageNamed:@"Silhouette.png"]];
@@ -291,7 +290,15 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //
+    
+    //for new design
+    if (_isPushedFromRandomOrMap) {
+        SMBHomeNavigationController *nav = (SMBHomeNavigationController *)self.navigationController;
+        nav.menuBtn.hidden = YES;
+        nav.filtersBtn.hidden = YES;
+        nav.listOrMapBtn.hidden = YES;
+    }
+    
     self.tabBarController.tabBar.hidden = YES;
     
     [self.navigationController setNavigationBarHidden:NO animated:YES];
@@ -373,7 +380,15 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    //
+    
+    //for new design
+    if (_isPushedFromRandomOrMap) {
+        SMBHomeNavigationController *nav = (SMBHomeNavigationController *)self.navigationController;
+        nav.menuBtn.hidden = NO;
+        nav.filtersBtn.hidden = NO;
+        nav.listOrMapBtn.hidden = NO;
+    }
+    
     self.tabBarController.tabBar.hidden = NO;
     
     [_chat setThisUsersHasRead:YES];
