@@ -81,30 +81,31 @@ class SMBHomeNavigationController: UINavigationController {
             if self.viewControllers.first!.isKindOfClass(SMBRandomUsersViewController) {
                 filtersView?.showSegment.selectedSegmentIndex = 1;
                 filtersView?.showSegment.enabled = true
-                filtersView?.makefriendsBtn.enabled = true
-                filtersView?.datingBtn.enabled = true
-                filtersView?.networkBtn.enabled = true
+                filtersView?.btnTranslucentView?.removeFromSuperview()
                 filtersView?.genderSegment.enabled = true
+                filtersView?.ageRangeSlider?.enabled = true
                 
             } else {
                 filtersView?.showSegment.selectedSegmentIndex = 0;
                 filtersView?.showSegment.enabled = false
-                filtersView?.makefriendsBtn.enabled = false
-                filtersView?.datingBtn.enabled = false
-                filtersView?.networkBtn.enabled = false
+                if filtersView != nil
+                    && filtersView?.btnTranslucentView != nil {
+                    filtersView?.addSubview(filtersView!.btnTranslucentView!)
+                }
                 filtersView?.genderSegment.enabled = false
-                
-                filtersView?.makefriendsBtn.layer.opacity = 0.5
-                filtersView?.datingBtn.layer.opacity = 0.5
-                filtersView?.networkBtn.layer.opacity = 0.5
+                filtersView?.ageRangeSlider?.enabled = false
                 
             }
             self.view.addSubview(filtersView!)
             filtersView?.isShowing = true
             
+            SMBAppDelegate.instance().enableSideMenuGesture(false)//avoid conflict with ageRangeSlider
+            
         } else {
             filtersView?.removeFromSuperview()
             filtersView?.isShowing = false
+            
+            SMBAppDelegate.instance().enableSideMenuGesture(true)
         }
     }
     

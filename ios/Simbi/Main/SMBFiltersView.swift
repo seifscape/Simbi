@@ -135,7 +135,7 @@ class SMBFiltersView: UIView {
         
         
         //ageSliderView
-        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width/2, height: ageRangeView.frame.size.height))
+        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width/4*3, height: ageRangeView.frame.size.height))
         ageRangeSlider?.minimumValue = 18
         ageRangeSlider?.maximumValue = 55
         ageRangeSlider?.minimumRange = 1
@@ -149,8 +149,9 @@ class SMBFiltersView: UIView {
         ageRangeSlider?.addTarget(self, action: "agePreferenceDidChange:", forControlEvents: UIControlEvents.ValueChanged)
         ageRangeView.addSubview(ageRangeSlider!)
         
-        ageRangeLabel = UILabel(frame: CGRect(x: ageRangeView.frame.width/2+10, y: 0, width:  ageRangeView.frame.width/2-10, height: ageRangeView.frame.height))
+        ageRangeLabel = UILabel(frame: CGRect(x: ageRangeView.frame.size.width/4*3+3, y: 0, width: ageRangeView.frame.size.width/4-3, height: ageRangeView.frame.height))
         ageRangeLabel?.font = UIFont.boldSystemFontOfSize(12)
+        ageRangeLabel?.textColor = UIColor(red: 74/256, green: 74/256, blue: 74/256, alpha: 1)
         ageRangeView.addSubview(ageRangeLabel!)
 
         agePreferenceDidChange(ageRangeSlider!)
@@ -179,11 +180,12 @@ class SMBFiltersView: UIView {
             
             self.addSubview(btnTranslucentView!)
             genderSegment.enabled = false
-            
+            ageRangeSlider?.enabled = false
         } else {
             
             btnTranslucentView?.removeFromSuperview()
             genderSegment.enabled = true
+            ageRangeSlider?.enabled = true
         }
     }
     
@@ -225,6 +227,8 @@ class SMBFiltersView: UIView {
         btnTranslucentView?.removeFromSuperview()
         self.removeFromSuperview()
         isShowing = false
+        
+        SMBAppDelegate.instance().enableSideMenuGesture(true)//set disable while open this page
     }
 
     @IBAction func searchBtnAction(sender: AnyObject) {
@@ -243,6 +247,8 @@ class SMBFiltersView: UIView {
         btnTranslucentView?.removeFromSuperview()
         self.removeFromSuperview()
         isShowing = false
+        
+        SMBAppDelegate.instance().enableSideMenuGesture(true)//set disable while open this page
     }
     
     

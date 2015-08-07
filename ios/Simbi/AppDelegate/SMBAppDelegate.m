@@ -128,7 +128,7 @@
     
     _drawerController = [[MMDrawerController alloc] initWithCenterViewController:[[UIViewController alloc] init] leftDrawerViewController:sideMenuViewController];
     
-    [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeNone];
+    [_drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
     SMBAppDelegate __weak *weakSelf = self;
