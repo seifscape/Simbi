@@ -26,7 +26,8 @@ class SMBFiltersView: UIView {
     @IBOutlet weak var makefriendsBtn: UIButton!
     @IBOutlet weak var networkBtn: UIButton!
     @IBOutlet weak var datingBtn: UIButton!
-   
+    var btnTranslucentView: UIView?  //put on the three buttons
+    
     @IBOutlet weak var genderSegment: UISegmentedControl!
     @IBOutlet weak var ageRangeView: UIView!
 
@@ -94,6 +95,13 @@ class SMBFiltersView: UIView {
         networkBtnWidth.constant = (self.frame.width - 30 - 30) / 3 + 2
         datingBtnWidth.constant = (self.frame.width - 30 - 30) / 3 - 2
       
+        //translucentView
+        btnTranslucentView = UIView(frame: CGRect(x: CGRectGetMinX(makefriendsBtn.frame), y: makefriendsBtn.frame.origin.y, width: CGRectGetMaxX(networkBtn.frame), height: makefriendsBtn.frame.height))
+        btnTranslucentView?.layer.cornerRadius = 3
+        btnTranslucentView?.backgroundColor = UIColor.whiteColor()
+        btnTranslucentView?.alpha = 0.5
+        
+        
         //load lookingto status
         var lookingto :[Bool]? = SMBUser.currentUser().lookingto as? [Bool]
         if lookingto != nil {
@@ -124,7 +132,6 @@ class SMBFiltersView: UIView {
             datingBtn.backgroundColor = UIColor.whiteColor()
             networkBtn.backgroundColor = UIColor.whiteColor()
         }
-        
         
         
         //ageSliderView
@@ -169,24 +176,14 @@ class SMBFiltersView: UIView {
     
     @IBAction func showSegmentValueChanged(sender: AnyObject) {
         if sender.selectedSegmentIndex == 0 {
-            makefriendsBtn.enabled = false
-            datingBtn.enabled = false
-            networkBtn.enabled = false
+            
+            self.addSubview(btnTranslucentView!)
             genderSegment.enabled = false
             
-            makefriendsBtn.layer.opacity = 0.5
-            datingBtn.layer.opacity = 0.5
-            networkBtn.layer.opacity = 0.5
-            
         } else {
-            makefriendsBtn.enabled = true
-            datingBtn.enabled = true
-            networkBtn.enabled = true
-            genderSegment.enabled = true
             
-            makefriendsBtn.layer.opacity = 1
-            datingBtn.layer.opacity = 1
-            networkBtn.layer.opacity = 1
+            btnTranslucentView?.removeFromSuperview()
+            genderSegment.enabled = true
         }
     }
     
@@ -225,6 +222,7 @@ class SMBFiltersView: UIView {
     
     
     @IBAction func cancelBtnAction(sender: AnyObject) {
+        btnTranslucentView?.removeFromSuperview()
         self.removeFromSuperview()
         isShowing = false
     }
@@ -242,6 +240,7 @@ class SMBFiltersView: UIView {
             
         }
         
+        btnTranslucentView?.removeFromSuperview()
         self.removeFromSuperview()
         isShowing = false
     }
