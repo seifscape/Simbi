@@ -137,7 +137,7 @@ typedef enum SMBChatViewAlertType : NSInteger
     [self.collectionView.collectionViewLayout setMessageBubbleFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.f]];
     [self.inputToolbar.contentView.textView setDelegate:self];
     [self.inputToolbar.contentView.textView setFont:[UIFont simbiFontWithSize:16.f]];
-    [self.inputToolbar.contentView.textView setBackgroundColor:[UIColor simbiWhiteColor]];
+    [self.inputToolbar.contentView.textView setBackgroundColor:[UIColor whiteColor]];
     [self.inputToolbar.contentView setBackgroundColor:[UIColor simbiWhiteColor]];
     [self.inputToolbar.contentView.textView.layer setBorderColor:[UIColor clearColor].CGColor];
     [self.inputToolbar.contentView.textView setTintColor:[UIColor simbiBlueColor]];

@@ -21,6 +21,7 @@ class SMBFriendsListCell: UITableViewCell {
     let activityIndicator   = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
     let requesetButton      = UIButton()
     let inviteButton        = UIButton()
+    let chatButton          = UIButton()
     var user: SMBUser?
     
     
@@ -65,6 +66,13 @@ class SMBFriendsListCell: UITableViewCell {
         inviteButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
         inviteButton.hidden = true
         self.addSubview(inviteButton)
+        
+        chatButton.frame = CGRectMake(self.frame.width-60, 0, 55, 44)
+        chatButton.setTitle("Chat", forState: .Normal)
+        chatButton.setTitleColor(UIColor.simbiBlueColor(), forState: .Normal)
+        chatButton.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 15)
+        chatButton.hidden = true
+        self.addSubview(chatButton)
         
         activityIndicator.frame = acceptButton.frame
         activityIndicator.hidden = true

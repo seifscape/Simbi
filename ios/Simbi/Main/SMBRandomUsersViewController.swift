@@ -430,7 +430,6 @@ extension SMBRandomUsersViewController: SMBRandomUserItemDelegate {
         chatVC.isPushedFromRandomOrMap = true
         self.navigationController?.pushViewController(chatVC, animated: true)
         
-        println("--[itemViewDidSelectUserForChat  no  chat]--")
     }
 }
 
