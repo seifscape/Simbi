@@ -64,7 +64,8 @@ class SMBFriendsListModel: NSObject {
         if type == 3 {
             cell?.nameLabel.text = self.fullname
             cell?.emailLabel.text = self.phoneNo
-            
+            cell?.profilePicture.setParseImage(nil, withType: kImageTypeThumbnail)
+
             cell?.inviteButton.hidden = false
             cell?.requesetButton.hidden = true
             cell?.acceptButton.hidden = true
