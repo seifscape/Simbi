@@ -55,6 +55,9 @@ class SMBFiltersView: UIView {
         super.init(coder: aDecoder)
     }
     
+    override func awakeFromNib() {
+        makeupUI()
+    }
     
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

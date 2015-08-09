@@ -57,9 +57,7 @@ class SMBHomeNavigationController: UINavigationController {
         filtersView?.frame = CGRect(x: 0, y: 0, width: self.view.frame.width-60, height: self.view.frame.height-140)
         filtersView?.center = self.view.center
         filtersView?.isShowing = false
-        
-        
-        
+         
     }
 
     override func didReceiveMemoryWarning() {
