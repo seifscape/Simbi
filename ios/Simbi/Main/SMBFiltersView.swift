@@ -99,11 +99,12 @@ class SMBFiltersView: UIView {
         datingBtnWidth.constant = (self.frame.width - 30 - 30) / 3 - 2
       
         //translucentView
-        btnTranslucentView = UIView(frame: CGRect(x: CGRectGetMinX(makefriendsBtn.frame), y: makefriendsBtn.frame.origin.y, width: CGRectGetMaxX(networkBtn.frame), height: makefriendsBtn.frame.height))
-        btnTranslucentView?.layer.cornerRadius = 3
-        btnTranslucentView?.backgroundColor = UIColor.whiteColor()
-        btnTranslucentView?.alpha = 0.5
-        
+        if btnTranslucentView == nil {
+            btnTranslucentView = UIView(frame: CGRect(x: CGRectGetMinX(makefriendsBtn.frame), y: makefriendsBtn.frame.origin.y, width: CGRectGetMaxX(networkBtn.frame), height: makefriendsBtn.frame.height))
+            btnTranslucentView?.layer.cornerRadius = 3
+            btnTranslucentView?.backgroundColor = UIColor.whiteColor()
+            btnTranslucentView?.alpha = 0.5
+        }
         
         //load lookingto status
         var lookingto :[Bool]? = SMBUser.currentUser().lookingto as? [Bool]
@@ -138,25 +139,29 @@ class SMBFiltersView: UIView {
         
         
         //ageSliderView
-        ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width/4*3, height: ageRangeView.frame.size.height))
-        ageRangeSlider?.minimumValue = 18
-        ageRangeSlider?.maximumValue = 55
-        ageRangeSlider?.minimumRange = 1
-        ageRangeSlider?.upperValue = Float(SMBUser.currentUser().upperAgePreference.intValue)
-        // If lower age preference is greater than or equal to the upper, set upper as just above the lower.
-        if SMBUser.currentUser().lowerAgePreference.intValue >= SMBUser.currentUser().upperAgePreference.intValue {
-            ageRangeSlider?.upperValue = Float(SMBUser.currentUser().lowerAgePreference.intValue+1)
+        if ageRangeSlider == nil {
+            ageRangeSlider = NMRangeSlider(frame: CGRect(x: 0, y: 0, width: ageRangeView.frame.size.width/4*3, height: ageRangeView.frame.size.height))
+            ageRangeSlider?.minimumValue = 18
+            ageRangeSlider?.maximumValue = 55
+            ageRangeSlider?.minimumRange = 1
+            ageRangeSlider?.upperValue = Float(SMBUser.currentUser().upperAgePreference.intValue)
+            // If lower age preference is greater than or equal to the upper, set upper as just above the lower.
+            if SMBUser.currentUser().lowerAgePreference.intValue >= SMBUser.currentUser().upperAgePreference.intValue {
+                ageRangeSlider?.upperValue = Float(SMBUser.currentUser().lowerAgePreference.intValue+1)
+            }
+            ageRangeSlider?.lowerValue = Float(SMBUser.currentUser().lowerAgePreference.intValue)
+            ageRangeSlider?.tintColor = UIColor.simbiBlueColor()
+            ageRangeSlider?.addTarget(self, action: "agePreferenceDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+            ageRangeView.addSubview(ageRangeSlider!)
         }
-        ageRangeSlider?.lowerValue = Float(SMBUser.currentUser().lowerAgePreference.intValue)
-        ageRangeSlider?.tintColor = UIColor.simbiBlueColor()
-        ageRangeSlider?.addTarget(self, action: "agePreferenceDidChange:", forControlEvents: UIControlEvents.ValueChanged)
-        ageRangeView.addSubview(ageRangeSlider!)
         
-        ageRangeLabel = UILabel(frame: CGRect(x: ageRangeView.frame.size.width/4*3+3, y: 0, width: ageRangeView.frame.size.width/4-3, height: ageRangeView.frame.height))
-        ageRangeLabel?.font = UIFont.boldSystemFontOfSize(12)
-        ageRangeLabel?.textColor = UIColor(red: 74/256, green: 74/256, blue: 74/256, alpha: 1)
-        ageRangeView.addSubview(ageRangeLabel!)
-
+        if ageRangeLabel == nil {
+            ageRangeLabel = UILabel(frame: CGRect(x: ageRangeView.frame.size.width/4*3+3, y: 0, width: ageRangeView.frame.size.width/4-3, height: ageRangeView.frame.height))
+            ageRangeLabel?.font = UIFont.boldSystemFontOfSize(12)
+            ageRangeLabel?.textColor = UIColor(red: 74/256, green: 74/256, blue: 74/256, alpha: 1)
+            ageRangeView.addSubview(ageRangeLabel!)
+        }
+        
         agePreferenceDidChange(ageRangeSlider!)
     }
 
