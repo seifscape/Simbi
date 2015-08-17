@@ -97,35 +97,39 @@
             _isLoading = NO;
             
             /*
-                modified by zhy at 2015-06-17
-                
-                add a condition "&& objects.count > 0"
+             modified by zhy at 2015-06-17
+             
+             add a condition "&& objects.count > 0"
              
              */
-            if (objects && objects.count > 0)
-            {
-                _objects = objects;
-                _errorLoadingObjects = NO;
+            if (!error) {
                 
-                if ([_className isEqualToString:@"Chat"]) {
-                    NSLog(@"--[SMBManager  fetch  Chats]--");
-                    [SMBChat drawConnectionsForChatsInArray:_objects];
-                }
-                if ([_className isEqualToString:@"_User"]) {
-                    NSLog(@"--[SMBManager  fetch  Users]--");
-                    __unused NSInteger cut = _objects.count;
-                    __unused BOOL vis = [_objects[0][@"visbible"] boolValue];
+                if (objects && objects.count > 0) {
+                    _objects = objects;
+                    _errorLoadingObjects = NO;
                     
+                    if ([_className isEqualToString:@"Chat"]) {
+                        NSLog(@"--[SMBManager  fetch  Chats]--");
+                        [SMBChat drawConnectionsForChatsInArray:_objects];
+                    }
+                    if ([_className isEqualToString:@"_User"]) {
+                        NSLog(@"--[SMBManager  fetch  Users]--");
+                        __unused NSInteger cut = _objects.count;
+                        __unused BOOL vis = [_objects[0][@"visbible"] boolValue];
+                        
+                    }
+                    
+                    [self objectsDidLoad];
+                    [self updateDelegates];
+                    
+                   
                 }
-
-                [self objectsDidLoad];
-                [self updateDelegates];
                 
-                if (callback)
+                if (callback) {
                     callback(YES);
-            }
-            else
-            {
+                }
+                
+            } else {
                 NSLog(@"%s - ERROR: %@", __PRETTY_FUNCTION__, error);
                 _errorLoadingObjects = YES;
                 

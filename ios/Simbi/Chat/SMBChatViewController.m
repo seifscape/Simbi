@@ -291,6 +291,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 {
     [super viewWillAppear:animated];
     
+    [[SMBAppDelegate instance] enableSideMenuGesture:NO];
+
     //for new design
     if (_isPushedFromRandomOrMap) {
         SMBHomeNavigationController *nav = (SMBHomeNavigationController *)self.navigationController;
@@ -380,6 +382,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+
+    [[SMBAppDelegate instance] enableSideMenuGesture:YES];
     
     //for new design
     if (_isPushedFromRandomOrMap) {
