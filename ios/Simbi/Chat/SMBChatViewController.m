@@ -810,7 +810,8 @@ typedef enum SMBChatViewAlertType : NSInteger
     
     [PFCloud callFunctionInBackground:@"revealUserInChat" withParameters:@{ @"chatId" : _chat.objectId } block:^(id object, NSError *error) {
         
-        if (object)
+        //cloud code will return a nil object although it succeed
+        if (!error)
         {
             [_chat setThisUsersHasRevealed:YES];
             
