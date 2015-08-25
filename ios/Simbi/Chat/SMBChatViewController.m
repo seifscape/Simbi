@@ -110,26 +110,26 @@ typedef enum SMBChatViewAlertType : NSInteger
     
     CGFloat width = self.view.frame.size.width;
     
-    _timerView = [[SMBChatCircleTimerView alloc] initWithFrame:CGRectMake(width-44+4, 4, 36, 36) chat:_chat];
-    [_timerView setBackgroundColor:[UIColor clearColor]];
-    [_timerView.layer setCornerRadius:_timerView.frame.size.width/2.f];
-    [_timerView.layer setMasksToBounds:YES];
-    [_timerView.layer setBorderColor:[UIColor clearColor].CGColor];
-    [_timerView.layer setBorderWidth:.66f];
-    [self.navigationController.navigationBar addSubview:_timerView];
-    
-    _profilePictureView = [[SMBImageView alloc] initWithFrame:CGRectMake(width-44+6, 6, 32, 32)];
-    [_profilePictureView setBackgroundColor:[UIColor blackColor]];
-    [_profilePictureView.layer setMasksToBounds:YES];
-    [_profilePictureView.layer setCornerRadius:_profilePictureView.frame.size.width/2.f];
-    [_profilePictureView setClipsToBounds:YES];
-    
-    if (_isFriend || [_chat otherUserHasRevealed] || _chat.forceRevealed)
-        [_profilePictureView setParseImage:[_chat otherUser].profilePicture];
-    else
-        [_profilePictureView setRawImage:[UIImage imageNamed:@"Silhouette.png"]];
-    
-    [self.navigationController.navigationBar addSubview:_profilePictureView];
+//    _timerView = [[SMBChatCircleTimerView alloc] initWithFrame:CGRectMake(width-44+4, 4, 36, 36) chat:_chat];
+//    [_timerView setBackgroundColor:[UIColor clearColor]];
+//    [_timerView.layer setCornerRadius:_timerView.frame.size.width/2.f];
+//    [_timerView.layer setMasksToBounds:YES];
+//    [_timerView.layer setBorderColor:[UIColor clearColor].CGColor];
+//    [_timerView.layer setBorderWidth:.66f];
+//    [self.navigationController.navigationBar addSubview:_timerView];
+//    
+//    _profilePictureView = [[SMBImageView alloc] initWithFrame:CGRectMake(width-44+6, 6, 32, 32)];
+//    [_profilePictureView setBackgroundColor:[UIColor blackColor]];
+//    [_profilePictureView.layer setMasksToBounds:YES];
+//    [_profilePictureView.layer setCornerRadius:_profilePictureView.frame.size.width/2.f];
+//    [_profilePictureView setClipsToBounds:YES];
+//    
+//    if (_isFriend || [_chat otherUserHasRevealed] || _chat.forceRevealed)
+//        [_profilePictureView setParseImage:[_chat otherUser].profilePicture];
+//    else
+//        [_profilePictureView setRawImage:[UIImage imageNamed:@"Silhouette.png"]];
+//    
+//    [self.navigationController.navigationBar addSubview:_profilePictureView];
     
     
     // Configure JSQ
