@@ -613,7 +613,7 @@
     
     [PFCloud callFunctionInBackground:@"sendMessage" withParameters:params block:^(NSString *response, NSError *error) {
         
-        if (response)
+        if (!error)
         {
             [chatCollection.chat setLastMessage:text];
             [message setObjectId:response];
@@ -623,16 +623,8 @@
         }
         else
         {
-            /*
-                modified by zhy at 2015-06-17
-                
-                bug:  On the Chat window when sending a chat, it indicates that the chat does not go through and ask if you want to tretry, but the other party actually do receive the message.
-             
-                fix: kSMBNotificationMessageFailed -> kSMBNotificationMessageSent
-                     I didnt find the reason, so this is a method of evasion.
-             */
             NSLog(@"%s - ERROR: %@", __PRETTY_FUNCTION__, error);
-            [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationMessageSent object:nil userInfo:@{ @"message": message }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationMessageFailed object:nil userInfo:@{ @"message": message }];
             if (callback)
                 callback(NO);
         }
