@@ -59,33 +59,18 @@ class SMBFriendsListModel: NSObject {
         if cell == nil {
             cell = SMBFriendsListCell(style: .Default, reuseIdentifier: SMBFriendsListModel.cellReuse())
         }
-        
-        //invite people who are not simbi users
-        if type == 3 {
-            cell?.nameLabel.text = self.fullname
-            cell?.emailLabel.text = self.phoneNo
-            cell?.profilePicture.setParseImage(nil, withType: kImageTypeThumbnail)
 
-            cell?.inviteButton.hidden = false
-            cell?.requesetButton.hidden = true
-            cell?.acceptButton.hidden = true
-            cell?.chatButton.hidden = true
-            cell!.activityIndicator.hidden = true
-            cell?.inviteButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-
-            cell!.inviteButton.addTarget(self, action: "inviteFriends:", forControlEvents: .TouchUpInside)
-            return cell!
-        }
-        
-        
         cell!.user = user
-        
-        cell!.profilePicture.setParseImage(user.profilePicture, withType: kImageTypeThumbnail)
         cell!.nameLabel.text = user.name
         cell!.emailLabel.text = user.email
+        for v:UIView in cell!.profilePicture.subviews as! [UIView] {
+            v.removeFromSuperview()
+        }
         
         //already friend
         if type == 0 {
+            cell!.profilePicture.setParseImage(user.profilePicture, withType: kImageTypeThumbnail)
+            
             cell?.chatButton.hidden = false
             cell?.acceptButton.hidden = true
             cell?.inviteButton.hidden = true
@@ -97,6 +82,8 @@ class SMBFriendsListModel: NSObject {
         
         //waiting accept
         if type == 1 {
+            cell!.profilePicture.setParseImage(user.profilePicture, withType: kImageTypeThumbnail)
+            
             cell?.acceptButton.hidden = false
             cell?.inviteButton.hidden = true
             cell?.requesetButton.hidden = true
@@ -114,6 +101,11 @@ class SMBFriendsListModel: NSObject {
         
         //add simbi user to friend
         if type == 2 {
+            cell?.profilePicture.setParseImage(nil, withType: kImageTypeThumbnail)
+            var randomAvatar = UIImageView(frame: cell!.profilePicture.bounds)
+            randomAvatar.image = UIImage(named: "Silhouette")
+            cell?.profilePicture.addSubview(randomAvatar)
+            
             cell?.requesetButton.hidden = false
             cell?.acceptButton.hidden = true
             cell?.inviteButton.hidden = true
@@ -121,6 +113,26 @@ class SMBFriendsListModel: NSObject {
             cell!.activityIndicator.hidden = true
             
             cell!.requesetButton.addTarget(self, action: "requestFriend:", forControlEvents: .TouchUpInside)
+        }
+        
+        //invite people who are not simbi users
+        if type == 3 {
+            cell?.nameLabel.text = self.fullname
+            cell?.emailLabel.text = self.phoneNo
+            cell?.profilePicture.setParseImage(nil, withType: kImageTypeThumbnail)
+            var randomAvatar = UIImageView(frame: cell!.profilePicture.bounds)
+            randomAvatar.image = UIImage(named: "random_user")
+            cell?.profilePicture.addSubview(randomAvatar)
+            
+            cell?.inviteButton.hidden = false
+            cell?.requesetButton.hidden = true
+            cell?.acceptButton.hidden = true
+            cell?.chatButton.hidden = true
+            cell!.activityIndicator.hidden = true
+            cell?.inviteButton.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+            
+            cell!.inviteButton.addTarget(self, action: "inviteFriends:", forControlEvents: .TouchUpInside)
+            return cell!
         }
         
         return cell!
@@ -217,11 +229,11 @@ class SMBFriendsListModel: NSObject {
         newChat?.save() //have to wait
         
         //add an empty message to new chat
-        var msg: SMBMessage = SMBMessage()
-        msg.fromUser = SMBUser.currentUser()
-        msg.toUser = user
-        msg.chat = newChat
-        msg.messageText = ""
+//        var msg: SMBMessage = SMBMessage()
+//        msg.fromUser = SMBUser.currentUser()
+//        msg.toUser = user
+//        msg.chat = newChat
+//        msg.messageText = ""
         
         SMBChatManager.sharedManager().addChat(newChat)
         
