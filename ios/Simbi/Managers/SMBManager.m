@@ -103,27 +103,25 @@
              
              */
             if (!error) {
+                _objects = objects;
+                _errorLoadingObjects = NO;
                 
                 if (objects && objects.count > 0) {
-                    _objects = objects;
-                    _errorLoadingObjects = NO;
                     
                     if ([_className isEqualToString:@"Chat"]) {
                         NSLog(@"--[SMBManager  fetch  Chats]--");
                         [SMBChat drawConnectionsForChatsInArray:_objects];
                     }
+                    
                     if ([_className isEqualToString:@"_User"]) {
                         NSLog(@"--[SMBManager  fetch  Users]--");
                         __unused NSInteger cut = _objects.count;
                         __unused BOOL vis = [_objects[0][@"visbible"] boolValue];
-                        
                     }
-                    
-                    [self objectsDidLoad];
-                    [self updateDelegates];
-                    
-                   
                 }
+                
+                [self objectsDidLoad];
+                [self updateDelegates];
                 
                 if (callback) {
                     callback(YES);
