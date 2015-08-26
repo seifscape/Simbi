@@ -159,6 +159,8 @@ class SMBFriendsListViewController: UITableViewController {
                 
                 if (object as! SMBUser).objectId != SMBUser.currentUser().objectId {
                     self.simbiUserPhoneInContact.addObject(phoneNo)
+                } else {
+                    continue
                 }
                 
                 for friendId in SMBFriendsManager.sharedManager().friendsObjectIds(){
