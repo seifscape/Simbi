@@ -168,7 +168,7 @@ class SMBFriendsListModel: NSObject {
                 (sender as! UIButton).hidden = true
                 hud.dismissWithMessage("Request sucuss!")
             }else{
-                hud.dismissWithMessage("Request failed!")
+                hud.dismissWithMessage("Request already exists!")
             }
         }
         println(self.user.objectId)
