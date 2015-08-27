@@ -362,61 +362,61 @@
     
     if ([userInfo[@"pushType"] isEqualToString:@"MessageReceived"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationMessageReceived object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"QuestionReceived"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationQuestionReceived object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"ChallengeReceived"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationChallengeReceived object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"ChallengeAction"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationChallengeAction object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"ChatRevealed"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationChatRevealed object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
@@ -428,25 +428,25 @@
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"ChallengeAccepted"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationChallengeAccepted object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
     else if ([userInfo[@"pushType"] isEqualToString:@"QuestionAccepted"])
     {
-        if (![self isAtHomeOrChat])
-        {
-            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
-            [[SMBUser currentUser] setHasNewMessage:YES];
-        }
+//        if (![self isAtHomeOrChat])
+//        {
+//            [[SMBUser currentUser] setUnreadMessageCount:[NSNumber numberWithInt:[SMBUser currentUser].unreadMessageCount.intValue+1]];
+//            [[SMBUser currentUser] setHasNewMessage:YES];
+//        }
         [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationQuestionAccepted object:nil userInfo:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kSMBNotificationShowChatIcon object:nil];
         
         completionHandler(UIBackgroundFetchResultNewData);
     }
