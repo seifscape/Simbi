@@ -169,9 +169,20 @@ typedef enum SMBChatViewAlertType : NSInteger
     
     
     // Add self as delegate to the chat manager to receive updates
-    
+
     [[SMBChatManager sharedManager] addChatDelegate:self forChat:_chat];
-    _messages = [NSMutableArray arrayWithArray:[[SMBChatManager sharedManager] messagesForChat:_chat]];
+    
+    NSMutableArray *arr = [[SMBChatManager sharedManager] messagesForChat:_chat];
+    if (arr && arr.count > 0) {
+        // I dont know why _messages[0] is always <null>
+        if (arr[0] == [NSNull null]) {
+            [arr removeObjectAtIndex:0];
+        }
+        _messages = [NSMutableArray arrayWithArray:arr];
+    } else {
+        _messages = [NSMutableArray arrayWithCapacity:0];
+    }
+
     _gameMessages = [NSMutableArray arrayWithArray:[[SMBChatManager sharedManager] gameMessagesForChat:_chat]];
     
     
@@ -253,7 +264,7 @@ typedef enum SMBChatViewAlertType : NSInteger
     
     // Load the other user's profile picture if they are revealed, otherwise just use the silhouette view
     
-    if ([_chat otherUserHasRevealed] || _chat.forceRevealed)
+    if (_isFriend || [_chat otherUserHasRevealed] || _chat.forceRevealed)
     {
         if (![[_chat otherUser].profilePicture isDataAvailable])
         {
@@ -417,9 +428,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) // First message is empty
-        return [JSQMessage messageWithText:@"\n\n\n" sender:@"___no one"];
-    
+//    if (indexPath.row == 0) // First message is empty
+//        return [JSQMessage messageWithText:@"\n\n\n" sender:@"___no one"];
     
     return ((SMBMessage *)[(_isViewingChat ? _messages : _gameMessages) objectAtIndex:indexPath.row]).JSQMessage;
 }
@@ -427,8 +437,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 
 - (UIImageView *)collectionView:(JSQMessagesCollectionView *)collectionView bubbleImageViewForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) // First message is empty
-        return nil;
+//    if (indexPath.row == 0) // First message is empty
+//        return nil;
     
     
     SMBMessage *message = [(_isViewingChat ? _messages : _gameMessages) objectAtIndex:indexPath.row];
@@ -472,8 +482,8 @@ typedef enum SMBChatViewAlertType : NSInteger
 
 - (UIImageView *)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageViewForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) // First message is empty
-        return nil;
+//    if (indexPath.row == 0) // First message is empty
+//        return nil;
     
     
     SMBMessage *message = [(_isViewingChat ? _messages : _gameMessages) objectAtIndex:indexPath.row];
@@ -489,6 +499,11 @@ typedef enum SMBChatViewAlertType : NSInteger
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
+    // I dont know why _messages[0] is always <null>
+    if (_messages && _messages.count > 0 && _messages[0] == [NSNull null]) {
+        [_messages removeObjectAtIndex:0];
+    }
+    
     if (_messages && _isViewingChat)
         return _messages.count;
     else if (_gameMessages && !_isViewingChat)
@@ -509,17 +524,17 @@ typedef enum SMBChatViewAlertType : NSInteger
     [cell.textView setTextColor:[UIColor whiteColor]];
     
     
-    if (indexPath.row == 0) // First message is empty
-    {
-        if (cell.selectButton)
-            [cell.selectButton setEnabled:NO];
-        if (cell.avatarButton)
-            [cell.avatarButton setEnabled:NO];
-        if (cell.chatStatusView)
-            [cell.chatStatusView removeFromSuperview];
-        
-        return cell;
-    }
+//    if (indexPath.row == 0) // First message is empty
+//    {
+//        if (cell.selectButton)
+//            [cell.selectButton setEnabled:NO];
+//        if (cell.avatarButton)
+//            [cell.avatarButton setEnabled:NO];
+//        if (cell.chatStatusView)
+//            [cell.chatStatusView removeFromSuperview];
+//        
+//        return cell;
+//    }
 
     
     if ([message.fromUser.objectId isEqualToString:[SMBUser currentUser].objectId])
@@ -600,15 +615,16 @@ typedef enum SMBChatViewAlertType : NSInteger
 
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1)
-        return 16;
+    if (0 == indexPath.row)
+        return _topView.frame.size.height;
     else if (_isViewingChat
              && indexPath.row == _forcedRevealIndex.integerValue
              && (!_chat.userOneRevealed || !_chat.userTwoRevealed)
-             && indexPath.row > 1)
+             && indexPath.row > 0)
         return 44;
     else
         return 0;
+   
 }
 
 

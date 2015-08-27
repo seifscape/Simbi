@@ -250,7 +250,13 @@
         [self updateDelegates];
     }
     else
-        [self noChatCollectionWarning:__PRETTY_FUNCTION__];
+    {
+        [[SMBChatManager sharedManager] addChatWithId:notification.userInfo[@"chatId"] callback:^(BOOL succeeded) {
+            
+        }];
+        
+//        [self noChatCollectionWarning:__PRETTY_FUNCTION__];
+    }
 }
 
 
