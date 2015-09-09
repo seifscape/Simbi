@@ -27,8 +27,13 @@ class SMBHomeNavigationController: UINavigationController {
         
         if self.viewControllers.first!.isKindOfClass(SMBRandomUsersViewController) {
             filtersView?.delegateForSearch = self.viewControllers.first as! SMBRandomUsersViewController
+            
+            listOrMapBtn.setImage(UIImage(named: "map_btn"), forState: UIControlState.Normal)
+
         } else {
             filtersView?.delegateForSearch = self.viewControllers.first as! SMBMapViewController
+            
+            listOrMapBtn.setImage(UIImage(named: "list_btn"), forState: UIControlState.Normal)
         }
     }
     
@@ -45,7 +50,6 @@ class SMBHomeNavigationController: UINavigationController {
         filtersBtn.addTarget(self, action: "filtersAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         listOrMapBtn.frame = CGRect(x: self.view.frame.width-44, y: 0, width: 44, height: 44)
-        listOrMapBtn.setImage(UIImage(named: "map_btn"), forState: UIControlState.Normal)
         listOrMapBtn.addTarget(self, action: "listOrMapAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         self.navigationBar.addSubview(menuBtn)
@@ -112,6 +116,7 @@ class SMBHomeNavigationController: UINavigationController {
             filtersView?.removeFromSuperview()
             filtersView?.isShowing = false
         }
+        
         delegateForSwitchListAndMap?.switchListAndMap(sender)
     }
     

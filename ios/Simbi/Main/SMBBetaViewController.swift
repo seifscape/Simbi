@@ -84,19 +84,11 @@ extension SMBBetaViewController: SMBHomeNavDelegate {
     func switchListAndMap(sender: UIButton) {
         
         if isShowingList {
-            
-            sender.setImage(UIImage(named: "list_btn"), forState: UIControlState.Normal)
-            
             self.viewControllers = self.controllersWithMap
-
             isShowingList = false
             
         } else {
-            
-            sender.setImage(UIImage(named: "map_btn"), forState: UIControlState.Normal)
-            
             self.viewControllers = self.controllersWithList
-            
             isShowingList = true
         }
     }
