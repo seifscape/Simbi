@@ -18,7 +18,7 @@ import Foundation
     let ethnicityArray = ["Caucasian","African American", "Latino", "East Asian", "South Asian", "Pacific Islander", "Middle Eastern","Native American"]
     let ethnicityPickerView = UIPickerView()
     
-    let ageArray = ["18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","50"]
+    let ageArray = ["18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","50+"]
     let agePickerView =  UIPickerView()
     
     let heightArray:NSMutableArray = ["5’"," 5’1\""," 5’2\""," 5’3\""," 5’4\"","5’5\""," 5’6\""," 5’7\"","5’8\"","5’9\"","5’10\"","5’11\"","6’0\"","6’1\""," 6’2\"","6’3\"","6’4\"","6’5\"","6’6\"","6’7\"","6’8\"","6’9\"","6’10\""," 6’11\"",">7’"]
@@ -475,14 +475,21 @@ import Foundation
             hud.dismissWithMessage("save failed!")
             return
         }
-        let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
-            if !(err==nil){
-                hud.dismissWithMessage("save failed!")
-                return
-            }
+//        let query = PFQuery(className: "_User")
+//        query.getObjectInBackgroundWithId(obid!) { (obj, err) -> Void in
+//            if !(err==nil){
+//                hud.dismissWithMessage("save failed!")
+//                return
+//            }
+        if self.currentUS.isDataAvailable() {
+            var obj:SMBUser? = self.currentUS
+            
             obj!["gender"] = self.genderButton.titleLabel?.text?.lowercaseString
-            obj!["age"] = self.ageButton.titleLabel?.text?.toInt()
+            if self.ageButton.titleLabel?.text == "50+" {
+                obj!["age"] = 51 //revert to "50+" when loading age
+            } else {
+                obj!["age"] = self.ageButton.titleLabel?.text?.toInt()
+            }
             let heightStr = self.heightButton.titleLabel?.text
             obj!["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]
             obj!["ethnicity"] = self.ethnicityButton.titleLabel?.text
@@ -496,11 +503,6 @@ import Foundation
             obj!["MeetUpTimes"] = self.meetUpTimeSelectedArray
             
             obj!.saveInBackgroundWithBlock({ (succ, err) -> Void in
-//                let alert = UIAlertView()
-//                alert.title = "Tip"
-//                alert.message = succ ? "save success!":"save failed!"
-//                alert.addButtonWithTitle("Ok")
-//                alert.show()
                 if succ == true{
                  hud.dismissWithMessage("save success!")
                 }else{
@@ -655,7 +657,11 @@ import Foundation
             }
         }
         self.genderButton.setTitle(self.currentUS.gender, forState: UIControlState.allZeros)
-        self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
+        if 51 == self.currentUS.age {
+            self.ageButton.setTitle("50+", forState: UIControlState.allZeros)
+        } else {
+            self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
+        }
         if !(self.currentUS.height == nil){
             self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as? String, forState: UIControlState.allZeros)
         }
