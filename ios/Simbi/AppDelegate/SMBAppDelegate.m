@@ -121,7 +121,6 @@
     [[SMBFriendRequestsManager sharedManager] loadObjects:nil];
     [[SMBChatManager sharedManager] loadObjects:nil];
     
-    
     // Set up side menu
     
     SMBSideMenuViewController *sideMenuViewController = [[SMBSideMenuViewController alloc] init];
@@ -352,12 +351,12 @@
     
     // If inactive, don't handle it
     
-//    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive)
-//    {
-//        NSLog(@"Application Inactive. Ignoring Push Notification");
-//        completionHandler(UIBackgroundFetchResultNoData);
-//        return;
-//    }
+    if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateInactive)
+    {
+        NSLog(@"Application Inactive. Ignoring Push Notification");
+        completionHandler(UIBackgroundFetchResultNoData);
+        return;
+    }
     
     
     if ([userInfo[@"pushType"] isEqualToString:@"MessageReceived"])

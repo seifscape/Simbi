@@ -62,7 +62,7 @@ class SMBRandomUsersViewController: UIViewController {
             self.view.frame.width-44,
             self.view.frame.height/2+22,
             44,
-            self.view.frame.height/2-44
+            self.view.frame.height/2-66
         ), labelSide: .Left)
         
         rangeSlider!.values = [

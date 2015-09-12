@@ -212,7 +212,7 @@ class SMBFriendsListModel: NSObject {
         var chats:[SMBChat]? = SMBChatManager.sharedManager().objects as? [SMBChat]
         
         for chat:SMBChat in chats! {
-            if chat.otherUser().objectId == user.objectId {
+            if chat.userOne.objectId == user.objectId || chat.userTwo.objectId == user.objectId {
                 var chatVC = SMBChatViewController.messagesViewControllerWithChat(chat, isViewingChat: true)
                 chatVC.isFriend = true
                 chatVC.isPushedFromRandomOrMap = false

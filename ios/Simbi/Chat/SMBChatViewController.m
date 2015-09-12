@@ -195,11 +195,11 @@ typedef enum SMBChatViewAlertType : NSInteger
     /*added by zhy at 2015-07-11 for different topView*/
     
     if (self.isFriend) {
-        
-        UILabel *friendLabel = [[UILabel alloc] initWithFrame:_topView.bounds];
-        friendLabel.textAlignment = NSTextAlignmentCenter;
-        friendLabel.text = @"Friend";
-        [_topView addSubview:friendLabel];
+        _topView.frame = CGRectMake(0, 0, 0, 0);
+//        UILabel *friendLabel = [[UILabel alloc] initWithFrame:_topView.bounds];
+//        friendLabel.textAlignment = NSTextAlignmentCenter;
+//        friendLabel.text = @"Friend";
+//        [_topView addSubview:friendLabel];
         
     } else {
         
@@ -237,9 +237,11 @@ typedef enum SMBChatViewAlertType : NSInteger
         [_removeButton addTarget:self action:@selector(promptRemoveAction:) forControlEvents:UIControlEventTouchUpInside];
         [_removeButton roundSide:kSMBSideRight];
         [_topView addSubview:_removeButton];
+        
+        [self.view addSubview:_topView];
     }
     
-    [self.view addSubview:_topView];
+    
     
     
     // Load the current user's profile picture
@@ -616,7 +618,7 @@ typedef enum SMBChatViewAlertType : NSInteger
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
     if (0 == indexPath.row)
-        return _topView.frame.size.height;
+        return _topView.frame.size.height + 20;
     else if (_isViewingChat
              && indexPath.row == _forcedRevealIndex.integerValue
              && (!_chat.userOneRevealed || !_chat.userTwoRevealed)

@@ -129,7 +129,7 @@ class SMBMapViewController: UIViewController {
             0,
             self.view.frame.height/2+22,
             44,
-            self.view.frame.height/2-44
+            self.view.frame.height/2-66
         ), labelSide: .Right)
         rangeSlider!.values = [
             ("500 Feet",       500/kFeetInMile),

@@ -253,16 +253,17 @@ class SMBFriendsListViewController: UITableViewController {
             }
             obj?["ContactList"] = contacts
             obj?.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
-                if succ == true{
+                if succ == true {
                     let userdefaults = NSUserDefaults.standardUserDefaults()
                     userdefaults.setBool(true, forKey: "HasDownLoadContact")
                     userdefaults.synchronize()
+                } else {
+                    let alert = UIAlertView()
+                    alert.title = "Error"
+                    alert.message = "upload contact's failed!  [ERR:\(err)]"
+                    alert.addButtonWithTitle("Ok")
+                    alert.show()
                 }
-                let alert = UIAlertView()
-                alert.title = "Tip"
-                alert.message = succ ? "upload contact's success!" : "upload contact's failed!  [ERR:\(err)]"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
             })
         }
     }
