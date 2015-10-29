@@ -10,7 +10,7 @@
 #import <ParseUI/ParseUI.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 #import <Parse/PFObject+Subclass.h>
-#import <FacebookSDK.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "NMRangeSlider.h"
 #import "iCarousel.h"
 
