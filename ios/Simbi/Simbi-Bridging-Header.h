@@ -8,12 +8,11 @@
 
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
-#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/PFObject+Subclass.h>
-#import <FacebookSDK.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "NMRangeSlider.h"
 #import "iCarousel.h"
-
 // Categories
 
 #import "MBProgressHUD+Simbi.h"

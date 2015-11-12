@@ -73,11 +73,11 @@ class SMBChatButton: UIButton {
     // MARK: - View Lifecycle
     
     required init(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    
-    convenience init() {
-        self.init()
-        loadView()
-    }
+//    
+//    convenience init() {
+//        self.init()
+//        loadView()
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -141,7 +141,8 @@ class SMBChatButton: UIButton {
             
             notificationLabel.text = SMBUser.currentUser().unreadMessageCount.stringValue
             
-            if count(notificationLabel.text!) > 2 {
+            
+            if (notificationLabel.text?.characters.count) > 2 {
                 notificationLabel.text = "99+"
             }
             
@@ -159,7 +160,7 @@ class SMBChatButton: UIButton {
             notificationLabel.text = ""
         }
         
-        if count(notificationLabel.text!) > 2 {
+        if (notificationLabel.text?.characters.count) > 2 {
             notificationLabel.text = "99+"
         }
         
@@ -192,7 +193,7 @@ class SMBChatButton: UIButton {
         
         UIView.animateWithDuration(0.33, animations: { () -> Void in
             
-            self.notificationView.frame = count(self.notificationLabel.text!) > 1 ?
+            self.notificationView.frame = (self.notificationLabel.text?.characters.count) > 1 ?
                 self.notificationWideFrame : self.notificationNormalFrame
 
             self.notificationView.layer.cornerRadius = self.notificationView.frame.height/2

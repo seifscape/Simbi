@@ -125,10 +125,10 @@ class SMBRandomUsersViewController: UIViewController {
             query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
         }
         else {
-            println("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
+            print("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
         }
         
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
 
             self.carousel.userInteractionEnabled = true
             
@@ -137,7 +137,7 @@ class SMBRandomUsersViewController: UIViewController {
             
             if let users = objects {
             
-                self.users = users as [SMBUser]
+                self.users = users as! [SMBUser]
                 self.carousel.reloadData()
                 // v Causes crashes
                 //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)
@@ -191,12 +191,12 @@ extension SMBRandomUsersViewController: iCarouselDataSource {
             return UInt(users.count)
         }
     }
-    
+
     
     func carousel(carousel: iCarousel!, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        return option.value == iCarouselOptionWrap.value && carousel.numberOfItems > 3 ? 1 : value
+        return option.rawValue == iCarouselOptionWrap.rawValue && carousel.numberOfItems > 3 ? 1 : value
     }
-    
+     
     
     func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {
         

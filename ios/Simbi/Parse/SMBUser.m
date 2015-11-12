@@ -188,23 +188,25 @@
 {
     // Method to retrieve and set the user's name, email, gender, and profile picture to the same as on their Facebook profile.
     
-    [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *FBuser, NSError *error) {
-        
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me"
+                                                                   parameters:nil];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        // TODO: handle results or error of request.
         if (!error)
-        {            
-            [self setFirstName:FBuser.first_name];
-            [self setLastName:FBuser.last_name];
-            [self setEmail:FBuser[@"email"]];
-            [self setFacebookId:FBuser[@"id"]];
+        {
+            [self setFirstName:result[@"first_name"]];
+            [self setLastName:result[@"last_name"]];
+            [self setEmail:result[@"email"]];
+            [self setFacebookId:result[@"id"]];
             
-            if ([[FBuser[@"gender"] lowercaseString] isEqualToString:@"male"])
+            if ([[result[@"gender"] lowercaseString] isEqualToString:@"male"])
                 [self setGenderType:kSMBUserGenderMale];
-            else if ([[FBuser[@"gender"] lowercaseString] isEqualToString:@"female"])
+            else if ([[result[@"gender"] lowercaseString] isEqualToString:@"female"])
                 [self setGenderType:kSMBUserGenderFemale];
             else
                 [self setGenderType:kSMBUserGenderOther];
             
-            NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", FBuser[@"id"]];
+            NSString *userImageURL = [NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", result[@"id"]];
             
             NSData *pictureData = [NSData dataWithContentsOfURL:[NSURL URLWithString:userImageURL]];
             

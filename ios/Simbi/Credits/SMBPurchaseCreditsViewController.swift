@@ -50,22 +50,26 @@ class SMBPurchaseCreditsViewController: UITableViewController {
             self.tableView.addSubview(activityIndicator!)
         }
         
-        let query = PFProduct.query()
-        
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        if let query = PFProduct.query() {
+           
             
-            if sender is UIRefreshControl {
-                (sender as UIRefreshControl).endRefreshing()
-            }
-            
-            activityIndicator?.stopAnimating()
-            activityIndicator?.removeFromSuperview()
-            
-            if let products = objects {
-                self.products = products as [PFProduct]
-                self.tableView.reloadData()
+            query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if sender is UIRefreshControl {
+                    (sender as! UIRefreshControl).endRefreshing()
+                }
+                
+                activityIndicator?.stopAnimating()
+                activityIndicator?.removeFromSuperview()
+                
+                if let products = objects {
+                    self.products = products as! [PFProduct]
+                    self.tableView.reloadData()
+                }
             }
         }
+        
+
         
     }
     
@@ -74,13 +78,13 @@ class SMBPurchaseCreditsViewController: UITableViewController {
     
     func purchaseCreditsAction(productIdentifier: String) {
                 
-        PFCloud.callFunctionInBackground("echo", withParameters: [:]) { (response: AnyObject!, error: NSError!) -> Void in
+        PFCloud.callFunctionInBackground("echo", withParameters: [:]) { (response: AnyObject?, error: NSError?) -> Void in
             
             if response != nil {
                 
                 self.hud = MBProgressHUD.HUDwithMessage("Processing...", parent: self)
                 
-                SMBPurchase.buyProduct(productIdentifier, block: { (error: NSError!) -> Void in
+                SMBPurchase.buyProduct(productIdentifier, block: { (error: NSError?) -> Void in
                     if error != nil {
                         self.hud?.dismissQuickly()
                     }
@@ -186,7 +190,7 @@ class SMBPurchaseCreditsViewController: UITableViewController {
                 creditsTotalLabel.text = "0"
             }
             else {
-                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                     creditsTotalLabel.text = "\(SMBUser.currentUser().credits.balance)"
                 })
             }

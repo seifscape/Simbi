@@ -53,7 +53,7 @@ class SMBRandomUserItemView: UIView {
         imageContainerView.frame = CGRectMake(40, (self.frame.height-110)/2, 110, 110)
         imageContainerView.alpha = 0.5
         imageContainerView.transform = CGAffineTransformMakeScale(0.95, 0.95)
-        var tapGr:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"viewTapped:")
+        let tapGr:UITapGestureRecognizer = UITapGestureRecognizer(target:self, action:"viewTapped:")
         tapGr.numberOfTapsRequired = 1
         self.imageContainerView.addGestureRecognizer(tapGr)
         
@@ -106,7 +106,7 @@ class SMBRandomUserItemView: UIView {
         let currentusr = SMBUser.currentUser()
         if (currentusr != nil && currentusr.tags != nil){
             for tag in SMBUser.currentUser().tags{
-                println(tag)
+                print(tag)
                 if user.tags.indexOfObject(tag) != NSNotFound {
                     sharedCount++
                 }
@@ -125,7 +125,7 @@ class SMBRandomUserItemView: UIView {
         )
         self.distanceLabel.center = CGPointMake(interestLabel.center.x, self.frame.height/2+22)
         //var dis = 0.0
-        var dis = self.user.geoPoint.distanceInMilesTo(SMBUser.currentUser().geoPoint)
+        let dis = self.user.geoPoint.distanceInMilesTo(SMBUser.currentUser().geoPoint)
         var disText = ""
         if dis<0.01{
             disText = NSString(format: "%.2f ft",dis*5280) as String
@@ -179,7 +179,7 @@ class SMBRandomUserItemView: UIView {
     
     // MARK: - Public Methods
     func viewTapped(sender: UITapGestureRecognizer?){
-        println("img clicked")
+        print("img clicked")
     }
 
     func fadeIn() {

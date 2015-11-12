@@ -24,5 +24,5 @@ func heightString(feet: Int, inches: Int) -> String {
 
 
 func heightString(value: Int) -> String {
-    return heightString(value/12, value%12)
+    return heightString(value/12, inches: value%12)
 }

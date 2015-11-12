@@ -75,7 +75,7 @@
     
     // Set up Facebook
     
-    [PFFacebookUtils initializeFacebook];
+    [PFFacebookUtils initialize];
     
     // Set up pushes
     
@@ -283,13 +283,17 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication withSession:[PFFacebookUtils session]];
+    return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                          openURL:url
+                                                sourceApplication:sourceApplication
+                                                       annotation:annotation];
 }
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+//    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
+    [FBSDKAppEvents activateApp];
 }
 
 

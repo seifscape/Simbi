@@ -99,18 +99,18 @@ class SMBSignUpViewController: SMBFormViewController {
         
         // Validate name
         
-        if count(firstNameTextField.text) < 2 {
+        if firstNameTextField.text!.characters.count < 2 {
             MBProgressHUD.showMessage("Please enter your name", parent: self)
             return
         }
-        if count(lastNameTextField.text) < 2 {
+        if lastNameTextField.text!.characters.count < 2 {
             MBProgressHUD.showMessage("Please enter your name", parent: self)
             return
         }
         
         // Validate email
         
-        if count(emailTextField.text) == 0 {
+        if emailTextField.text!.characters.count == 0 {
             MBProgressHUD.showMessage("Please enter your email", parent: self)
             return
         }
@@ -125,7 +125,7 @@ class SMBSignUpViewController: SMBFormViewController {
         
         // Validate password
         
-        if count(passwordTextField.text) < 6 {
+        if passwordTextField.text!.characters.count < 6 {
             MBProgressHUD.showMessage("Passwords need to be longer", parent: self)
             return
         }
@@ -135,17 +135,17 @@ class SMBSignUpViewController: SMBFormViewController {
         let newUser = SMBUser()
         newUser.firstName = firstNameTextField.text
         newUser.lastName = lastNameTextField.text
-        newUser.email = emailTextField.text.lowercaseString
-        newUser.username = emailTextField.text.lowercaseString
+        newUser.email = emailTextField.text!.lowercaseString
+        newUser.username = emailTextField.text!.lowercaseString
         newUser.password = passwordTextField.text
         
         let hud = MBProgressHUD.HUDwithMessage("Signing Up...", parent: self)
         
-        newUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+        newUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             
             if succeeded {
                 
-                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                     
                     if object != nil {
                         
@@ -160,13 +160,13 @@ class SMBSignUpViewController: SMBFormViewController {
                         self.navigationController!.pushViewController(SMBConfirmPhoneViewController(), animated: true)
                     }
                     else {
-                        println("ERROR: \(error)")
+                        print("ERROR: \(error)")
                         hud.dismissWithError()
                     }
                 })
             }
             else {
-                println("ERROR: \(error)")
+                print("ERROR: \(error)")
                 hud.dismissWithError()
             }
         }
@@ -179,8 +179,9 @@ class SMBSignUpViewController: SMBFormViewController {
         
         let permissions = ["email", "public_profile", "user_friends"]
         
-        PFFacebookUtils.logInWithPermissions(permissions, block: { (user: PFUser!, error: NSError!) -> Void in
-            
+        
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: { (user: PFUser?, error: NSError?) -> Void in
+        
             if user != nil {
                 
                 SMBAppDelegate.instance().syncUserInstallation()
@@ -189,7 +190,7 @@ class SMBSignUpViewController: SMBFormViewController {
                 SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                 SMBChatManager.sharedManager().loadObjects(nil)
                 
-                if user.isNew || !(user as SMBUser).isConfirmed {
+                if user!.isNew || !(user as! SMBUser).isConfirmed {
                     
                     SMBUser.currentUser().syncWithFacebook({ (succeeded: Bool) -> Void in
                         
@@ -210,9 +211,10 @@ class SMBSignUpViewController: SMBFormViewController {
                 }
             }
             else {
-                println("ERROR: \(error)")
+                print("ERROR: \(error)")
                 hud.dismissWithError()
             }
+        
         })
     }
 }

@@ -150,7 +150,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         
         if SMBUser.currentUser().isAuthenticated() && self.navigationController!.visibleViewController is SMBSignUpViewController {
             
-            SMBUser.currentUser().deleteInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+            SMBUser.currentUser().deleteInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
                 
                 if !succeeded {
                     let user = SMBUser.currentUser()
@@ -164,16 +164,18 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
     
     override func submitAction() {
         
-        var phoneNumber = phoneNumberTextField.text.stringByReplacingOccurrencesOfString("[^0-9]*",
+        var phoneNumber = phoneNumberTextField.text!.stringByReplacingOccurrencesOfString("[^0-9]*",
             withString: "",
             options: .RegularExpressionSearch,
-            range: Range(start: phoneNumberTextField.text.startIndex, end: phoneNumberTextField.text.endIndex)
+            range: Range(start: phoneNumberTextField.text!.startIndex, end: phoneNumberTextField.text!.endIndex)
         )
         
-        println("phoneNumber: \(phoneNumber)")
+        print("phoneNumber: \(phoneNumber)")
         
-        if count(phoneNumber) == 11 {
-            
+//        if count(phoneNumber) == 11 {
+        
+        if phoneNumber.characters.count  == 11 {
+        
             self.view.endEditing(true)
             
             let hud = MBProgressHUD.HUDwithMessage("Sending Confirmation Code...", parent: self)
@@ -183,15 +185,15 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
             
             let params: [String: AnyObject] = ["phoneNumber": phoneNumber]
             
-            PFCloud.callFunctionInBackground("phoneNumberExists", withParameters: params, block: { (response: AnyObject!, error: NSError!) -> Void in
+            PFCloud.callFunctionInBackground("phoneNumberExists", withParameters: params, block: { (response: AnyObject?, error: NSError?) -> Void in
                 
                 if response != nil {
                     
-                    if response as String == "NO" {
+                    if response as! String == "NO" {
                         
                         let params = ["phoneNumber": phoneNumber]
                         
-                        PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result: AnyObject!, error: NSError!) -> Void in
+                        PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result: AnyObject?, error: NSError?) -> Void in
                             
                             if error == nil {
                                 
@@ -225,13 +227,14 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         if textField == phoneNumberTextField {
             
             var str: String
-            if count(string) > 0 {
+            if string.characters.count > 0 {
                 str = phoneNumber + string
             }
-            else if count(phoneNumber) > 0 {
+            else if phoneNumber.characters.count > 0 {
                 str = phoneNumber.substringWithRange(Range(
                     start: phoneNumber.startIndex,
-                    end: advance(phoneNumber.endIndex, -1)
+                    end: phoneNumber.endIndex.advancedBy(-1)
+//                    end: advance(phoneNumber.endIndex, -1)
                 ))
             }
             else {
@@ -245,10 +248,11 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
                 range: Range(start: str.startIndex, end: str.endIndex)
             )
             
-            if count(nStr) > 10 {
+            if nStr.characters.count > 10 {
                 nStr = nStr.substringWithRange(Range(
                     start: nStr.startIndex,
-                    end: advance(nStr.startIndex, 10)
+                    end: nStr.startIndex.advancedBy(10)
+//                    end: advance(nStr.startIndex, 10)
                 ))
             }
             
@@ -268,12 +272,14 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
         
         var pStr = phoneNumber
         
-        if count(pStr) >= 3 {
-            pStr.insert(" ", atIndex: advance(pStr.startIndex, 3))
+        if pStr.characters.count >= 3 {
+//            pStr.insert(" ", atIndex: advance(pStr.startIndex, 3))
+            pStr.insert(" ", atIndex: pStr.startIndex.advancedBy(3))
         }
         
-        if count(pStr) >= 7 {
-            pStr.insert(" ", atIndex: advance(pStr.startIndex, 7))
+        if pStr.characters.count >= 7 {
+//            pStr.insert(" ", atIndex: advance(pStr.startIndex, 7))
+            pStr.insert(" ", atIndex: pStr.startIndex.advancedBy(7))
         }
         
         return "+\(intCode) \(pStr)"

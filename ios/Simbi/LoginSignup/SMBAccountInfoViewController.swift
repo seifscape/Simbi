@@ -82,7 +82,7 @@ class SMBAccountInfoViewController: UITableViewController {
         
         let hud = MBProgressHUD.HUDwithMessage("Saving...", parent: self)
         
-        PFGeoPoint.geoPointForCurrentLocationInBackground { (geoPoint: PFGeoPoint!, error: NSError!) -> Void in
+        PFGeoPoint.geoPointForCurrentLocationInBackground { (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
             
             if geoPoint != nil {
                 SMBUser.currentUser().geoPoint = geoPoint
@@ -90,10 +90,13 @@ class SMBAccountInfoViewController: UITableViewController {
             
             let geoCoder = CLGeocoder()
             
-            geoCoder.reverseGeocodeLocation(CLLocation(latitude: geoPoint.latitude, longitude: geoPoint.longitude), completionHandler: { (placemarks: [AnyObject]!, error: NSError!) -> Void in
+            let coordinates = CLLocation(latitude: geoPoint!.latitude, longitude: geoPoint!.longitude)
+
+            
+            geoCoder.reverseGeocodeLocation(coordinates, completionHandler: {(placemarks, error) -> Void in
                 
                 if placemarks != nil {
-                    let placemark = placemarks.first as CLPlacemark
+                    let placemark = placemarks!.first as CLPlacemark!
                     SMBUser.currentUser().city = placemark.locality
                     SMBUser.currentUser().state = placemark.administrativeArea
                 }
@@ -102,14 +105,14 @@ class SMBAccountInfoViewController: UITableViewController {
                     SMBUser.currentUser().state = ""
                 }
                 
-                SMBUser.currentUser().saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError!) -> Void in
+                SMBUser.currentUser().saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError?) -> Void in
                     
                     if succeeded {
                         hud.dismissQuickly()
                         SMBAppDelegate.instance().animateToMain()
                     }
                     else {
-                        println(error)
+                        print(error)
                         hud.dismissWithError()
                     }
                 })
@@ -525,7 +528,7 @@ class SMBAccountInfoViewController: UITableViewController {
             cell.textLabel?.textAlignment = .Center
             
         default:
-            println("Invalid indexPath")
+            print("Invalid indexPath")
         }
         
         return cell
@@ -571,14 +574,13 @@ extension SMBAccountInfoViewController: UIAlertViewDelegate {
 
 extension SMBAccountInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
-        
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         picker.dismissViewControllerAnimated(true, completion: { () -> Void in
             
             let image = info[UIImagePickerControllerEditedImage] as! UIImage
             
             let profileImage = SMBImage()
-            profileImage.originalImage = PFFile(data: UIImageJPEGRepresentation(image, 0.8))
+            profileImage.originalImage = PFFile(data: UIImageJPEGRepresentation(image, 0.8)!)
             
             self.profilePictureView.parseImage = profileImage
             self.profilePictureView.saveImageInBackgroundWithBlock({ (image: SMBImage!) -> Void in
@@ -590,8 +592,7 @@ extension SMBAccountInfoViewController: UIImagePickerControllerDelegate, UINavig
             })
         })
     }
-    
-    
+
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         picker.dismissViewControllerAnimated(true, completion: nil)
     }

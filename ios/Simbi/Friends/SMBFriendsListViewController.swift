@@ -44,14 +44,14 @@ class SMBFriendsListViewController: UITableViewController {
         ContactsArray = getSysContacts()
         //self.downLoadsContactToServer(array)
         for contact in ContactsArray {
-            var ph:NSArray = contact["Phone"] as! NSArray
+            let ph:NSArray = contact["Phone"] as! NSArray
             for phone in ph {
-               var ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+               let ppp =  (phone as! String).stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions())
                 self.contantPhoneNumberArray.addObject(ppp)
             }
         }
-        println("========================")
-        println(self.contantPhoneNumberArray)
+        print("========================")
+        print(self.contantPhoneNumberArray)
         let userdefaults = NSUserDefaults.standardUserDefaults()
         if userdefaults.objectForKey("HasDownLoadContact") == nil{
             userdefaults.setBool(false, forKey: "HasDownLoadContact")
@@ -69,23 +69,23 @@ class SMBFriendsListViewController: UITableViewController {
     func loadContactNotInSimi(contacts:NSArray){
         self.objectsNotInSimbiAndButInContacts = []
             for contact in contacts {
-            var ph:NSArray = contact["Phone"] as! NSArray
+            let ph:NSArray = contact["Phone"] as! NSArray
             var isSimbiUser = false
-            var name = contact["fullName"]
+            let name = contact["fullName"]
             var phoneNo:String = ""
-            println(name)
+            print(name)
             for phone in ph {
                 phoneNo = phone as! String
-                phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions.allZeros)
+                phoneNo = phoneNo.stringByReplacingOccurrencesOfString("-", withString: "", options: NSStringCompareOptions())
                 print("check:")
-                println(phoneNo)
+                print(phoneNo)
                 if !(self.simbiUserPhoneInContact.indexOfObject(phoneNo) == NSNotFound){
                     isSimbiUser = true
                     break
                 }
             }
             if isSimbiUser == false{
-                var model:SMBFriendsListModel = SMBFriendsListModel()
+                let model:SMBFriendsListModel = SMBFriendsListModel()
                 model.fullname = name as! String
                 model.phoneNo = phoneNo
                 model.type = 2
@@ -97,15 +97,13 @@ class SMBFriendsListViewController: UITableViewController {
     }
     func loadSimbiUserNotSimbiFriendButIncontact(contacts:NSArray){
         let query:PFQuery = PFQuery(className: "_User")
-        query.whereKey("phoneNumber", containedIn: self.contantPhoneNumberArray as [AnyObject])
-        //query.whereKey(<#key: String!#>, containedIn: <#[AnyObject]!#>)
-        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, err:NSError?) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, err:NSError?) -> Void in
             self.objectsInSimbiAndContactsButNotSimbiFrieds = []
             self.simbiUserPhoneInContact = []
             for object in objects! {
                 //SMBFriendsManager.sharedManager().friendsObjectIds().IndexOfObject((object as SMBUser).objectId)
                 var isSimibiFriend = false
-                var phoneNo = (object as! SMBUser).phoneNumber as String
+                let phoneNo = (object as! SMBUser).phoneNumber as String
                 if !((object as! SMBUser).objectId == SMBUser.currentUser().objectId){
                         self.simbiUserPhoneInContact.addObject(phoneNo)
                     }
@@ -138,8 +136,8 @@ class SMBFriendsListViewController: UITableViewController {
             if obj==nil{
                 return
             }
-            obj["ContactList"] = contacts
-            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
+            obj!["ContactList"] = contacts
+            obj!.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
                 if succ == true{
                     let userdefaults = NSUserDefaults.standardUserDefaults()
                     userdefaults.setBool(true, forKey: "HasDownLoadContact")
@@ -184,7 +182,7 @@ class SMBFriendsListViewController: UITableViewController {
         
         var allObjects = SMBFriendsManager.sharedManager().objects + SMBFriendRequestsManager.sharedManager().objects
         
-        allObjects = sorted(allObjects) { a, b in
+        allObjects = allObjects.sort({a , b in
             
             var aName: String
             var bName: String
@@ -196,7 +194,7 @@ class SMBFriendsListViewController: UITableViewController {
             else            { bName = (b as! SMBFriendRequest).fromUser.name }
             
             return aName < bName
-        }
+        })
         
         // Put each item in the model object
         
@@ -226,16 +224,14 @@ class SMBFriendsListViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section{
+       
+    switch (section){
         case 0:
             return objects.count
-            break
         case 1:
             return self.objectsInSimbiAndContactsButNotSimbiFrieds.count
-            break
         case 2:
             return self.objectsNotInSimbiAndButInContacts.count
-            break
         default:
             return 0
         }
@@ -245,13 +241,10 @@ class SMBFriendsListViewController: UITableViewController {
         switch section{
         case 0:
             return "Simbi Friends"
-            break
         case 1:
             return "Simbi User"
-            break
         case 2:
             return "Contact Friends"
-            break
         default:
             return ""
         }
@@ -332,54 +325,54 @@ class SMBFriendsListViewController: UITableViewController {
             var allContacts:Array = [[String:AnyObject]]()
             
             func analyzeContactProperty(contact:ABRecordRef, property:ABPropertyID) -> [AnyObject]? {
-                var propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, property)?.takeRetainedValue()
+                let propertyValues:ABMultiValueRef? = ABRecordCopyValue(contact, property)?.takeRetainedValue()
                 if propertyValues != nil {
                     var values:Array<AnyObject> = Array()
                     for i in 0 ..< ABMultiValueGetCount(propertyValues) {
-                        var value = ABMultiValueCopyValueAtIndex(propertyValues, i)
+                        let value = ABMultiValueCopyValueAtIndex(propertyValues, i)
                         switch property {
                             // 地址
                         case kABPersonAddressProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var addrNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Country"] = addrNSDict.valueForKey(kABPersonAddressCountryKey) as? String ?? ""
-                            valueDictionary["_State"] = addrNSDict.valueForKey(kABPersonAddressStateKey) as? String ?? ""
-                            valueDictionary["_City"] = addrNSDict.valueForKey(kABPersonAddressCityKey) as? String ?? ""
-                            valueDictionary["_Street"] = addrNSDict.valueForKey(kABPersonAddressStreetKey) as? String ?? ""
-                            valueDictionary["_Contrycode"] = addrNSDict.valueForKey(kABPersonAddressCountryCodeKey) as? String ?? ""
+                            let addrNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
+                            valueDictionary["_Country"] = addrNSDict.valueForKey(kABPersonAddressCountryKey as String) as? String ?? ""
+                            valueDictionary["_State"] = addrNSDict.valueForKey(kABPersonAddressStateKey as String) as? String ?? ""
+                            valueDictionary["_City"] = addrNSDict.valueForKey(kABPersonAddressCityKey as String) as? String ?? ""
+                            valueDictionary["_Street"] = addrNSDict.valueForKey(kABPersonAddressStreetKey as String) as? String ?? ""
+                            valueDictionary["_Contrycode"] = addrNSDict.valueForKey(kABPersonAddressCountryCodeKey as String) as? String ?? ""
                             
                             // 地址整理
-                            var fullAddress:String = (valueDictionary["_Country"]! == "" ? valueDictionary["_Contrycode"]! : valueDictionary["_Country"]!) + ", " + valueDictionary["_State"]! + ", " + valueDictionary["_City"]! + ", " + valueDictionary["_Street"]!
+                            let fullAddress:String = (valueDictionary["_Country"]! == "" ? valueDictionary["_Contrycode"]! : valueDictionary["_Country"]!) + ", " + valueDictionary["_State"]! + ", " + valueDictionary["_City"]! + ", " + valueDictionary["_Street"]!
                             values.append(fullAddress)
                             
                             // SNS
                         case kABPersonSocialProfileProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var snsNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey) as? String ?? ""
-                            valueDictionary["_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey) as? String ?? ""
-                            valueDictionary["_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey) as? String ?? ""
+                            let snsNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
+                            valueDictionary["_Username"] = snsNSDict.valueForKey(kABPersonSocialProfileUsernameKey as String) as? String ?? ""
+                            valueDictionary["_URL"] = snsNSDict.valueForKey(kABPersonSocialProfileURLKey as String) as? String ?? ""
+                            valueDictionary["_Serves"] = snsNSDict.valueForKey(kABPersonSocialProfileServiceKey as String) as? String ?? ""
                             
                             values.append(valueDictionary)
                             // IM
                         case kABPersonInstantMessageProperty :
                             var valueDictionary:Dictionary = [String:String]()
                             
-                            var imNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
-                            valueDictionary["_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey) as? String ?? ""
-                            valueDictionary["_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey) as? String ?? ""
+                            let imNSDict:NSMutableDictionary = value.takeRetainedValue() as! NSMutableDictionary
+                            valueDictionary["_Serves"] = imNSDict.valueForKey(kABPersonInstantMessageServiceKey as String) as? String ?? ""
+                            valueDictionary["_Username"] = imNSDict.valueForKey(kABPersonInstantMessageUsernameKey as String) as? String ?? ""
                             
                             values.append(valueDictionary)
                             // Date
                         case kABPersonDateProperty :
-                            var date:String? = (value.takeRetainedValue() as? NSDate)?.description
+                            let date:String? = (value.takeRetainedValue() as? NSDate)?.description
                             if date != nil {
                                 values.append(date!)
                             }
                         default :
-                            var val:String = value.takeRetainedValue() as? String ?? ""
+                            let val:String = value.takeRetainedValue() as? String ?? ""
                             values.append(val)
                         }
                     }
@@ -395,11 +388,11 @@ class SMBFriendsListViewController: UITableViewController {
                 部分单值属性
                 */
                 // 姓、姓氏拼音
-                var FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
+                let FirstName:String = ABRecordCopyValue(contact, kABPersonFirstNameProperty)?.takeRetainedValue() as! String? ?? ""
                 currentContact["FirstName"] = FirstName
                 currentContact["FirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonFirstNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 // 名、名字拼音
-                var LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
+                let LastName:String = ABRecordCopyValue(contact, kABPersonLastNameProperty)?.takeRetainedValue() as! String? ?? ""
                 currentContact["LastName"] = LastName
                 currentContact["LirstNamePhonetic"] = ABRecordCopyValue(contact, kABPersonLastNamePhoneticProperty)?.takeRetainedValue() as! String? ?? ""
                 // 昵称
@@ -423,34 +416,34 @@ class SMBFriendsListViewController: UITableViewController {
                 部分多值属性
                 */
                 // 电话
-                var Phone:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonPhoneProperty)
+                let Phone:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonPhoneProperty)
                 if Phone != nil {
                     currentContact["Phone"] = Phone
                 }
                 
                 // 地址
-                var Address:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonAddressProperty)
+                let Address:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonAddressProperty)
                 if Address != nil {
                     currentContact["Address"] = Address
                 }
                 
                 // E-mail
-                var Email:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonEmailProperty)
+                let Email:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonEmailProperty)
                 if Email != nil {
                     currentContact["Email"] = Email
                 }
                 // 纪念日
-                var Date:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonDateProperty)
+                let Date:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonDateProperty)
                 if Date != nil {
                     currentContact["Date"] = Date
                 }
                 // URL
-                var URL:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonURLProperty)
+                let URL:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonURLProperty)
                 if URL != nil{
                     currentContact["URL"] = URL
                 }
                 // SNS
-                var SNS:Array<AnyObject>? = analyzeContactProperty(contact, kABPersonSocialProfileProperty)
+                let SNS:Array<AnyObject>? = analyzeContactProperty(contact, property: kABPersonSocialProfileProperty)
                 if SNS != nil {
                     currentContact["SNS"] = SNS
                 }

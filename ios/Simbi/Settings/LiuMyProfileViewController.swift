@@ -79,7 +79,11 @@ import Foundation
     
     // MARK: - ViewController Lifecycle
     
-    override convenience init() {
+//    override convenience init() {
+//        self.init(nibName: nil, bundle: nil)
+//    }
+//    
+    convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
     
@@ -252,46 +256,46 @@ import Foundation
         self.scrollInfoView.addSubview(tagsLabel)
         
         genderButton.tag = 149
-        genderButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        genderButton.setTitleColor(UIColor.blackColor(), forState: UIControlState())
         genderButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        genderButton.setTitle(self.genderArray[0],forState:UIControlState.allZeros)
+        genderButton.setTitle(self.genderArray[0],forState:UIControlState())
         genderButton.frame.size = CGSize(width: 100,height: 30)
         genderButton.frame.origin = CGPoint(x: 110,y: 265)
         genderButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
         genderButton.backgroundColor = UIColor.whiteColor()
         
         ageButton.tag = 150
-        ageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        ageButton.setTitleColor(UIColor.blackColor(), forState: UIControlState())
         ageButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        ageButton.setTitle(self.ageArray[0],forState:UIControlState.allZeros)
+        ageButton.setTitle(self.ageArray[0],forState:UIControlState())
         ageButton.frame.size = CGSize(width: 50,height: 30)
         ageButton.frame.origin = CGPoint(x: ageLabel.frame.origin.x+50,y: ageLabel.frame.origin.y+5)
         ageButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
         ageButton.backgroundColor = UIColor.whiteColor()
         
         heightButton.tag = 151
-        heightButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        heightButton.setTitleColor(UIColor.blackColor(), forState: UIControlState())
         
         heightButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        heightButton.setTitle(self.heightArray.objectAtIndex(0) as! String,forState:UIControlState.allZeros)
+        heightButton.setTitle(self.heightArray.objectAtIndex(0) as! String,forState:UIControlState())
         heightButton.frame.size = CGSize(width: 50,height: 30)
         heightButton.frame.origin = CGPoint(x: heightLabel.frame.origin.x+70,y: heightLabel.frame.origin.y+5)
         heightButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
         heightButton.backgroundColor = UIColor.whiteColor()
         
         ethnicityButton.tag = 152
-        ethnicityButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        ethnicityButton.setTitleColor(UIColor.blackColor(), forState: UIControlState())
         ethnicityButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        ethnicityButton.setTitle("ethnicity",forState:UIControlState.allZeros)
+        ethnicityButton.setTitle("ethnicity",forState:UIControlState())
         ethnicityButton.frame.size = CGSize(width: 170,height: 30)
         ethnicityButton.frame.origin = CGPoint(x:ethnicityLabel.frame.origin.x+100,y: ethnicityLabel.frame.origin.y+5)
         ethnicityButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
         ethnicityButton.backgroundColor = UIColor.whiteColor()
         
         degreeButton.tag = 153
-        degreeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.allZeros)
+        degreeButton.setTitleColor(UIColor.blackColor(), forState: UIControlState())
         degreeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
-        degreeButton.setTitle(self.degreeArray[0],forState:UIControlState.allZeros)
+        degreeButton.setTitle(self.degreeArray[0],forState:UIControlState())
         degreeButton.frame.size = CGSize(width: 200,height: 30)
         degreeButton.frame.origin = CGPoint(x:degreeLabel.frame.origin.x+80,y: degreeLabel.frame.origin.y+5)
         degreeButton.addTarget(self, action:"selectButtonDown:", forControlEvents: UIControlEvents.TouchDown)
@@ -338,7 +342,7 @@ import Foundation
 
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             buttonX = buttonX + mysize.width + 20
-            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitle(location, forState:UIControlState())
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
@@ -366,7 +370,7 @@ import Foundation
             
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             buttonX = buttonX + mysize.width + 20
-            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitle(location, forState:UIControlState())
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
@@ -394,7 +398,7 @@ import Foundation
             
             button.frame.origin = CGPoint(x: buttonX, y: buttonY)
             buttonX = buttonX + mysize.width + 20
-            button.setTitle(location, forState:UIControlState.allZeros)
+            button.setTitle(location, forState:UIControlState())
             button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
             button.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Selected)
             button.backgroundColor = UIColor(red: 235.0/255, green: 235.0/255, blue: 235.0/255, alpha: 1)
@@ -457,7 +461,7 @@ import Foundation
         //add save button
         saveButton.frame.size = CGSize(width: 200, height: 30)
         saveButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        saveButton.setTitle("Save", forState: UIControlState.allZeros)
+        saveButton.setTitle("Save", forState: UIControlState())
         saveButton.center = CGPoint(x: self.scrollInfoView.frame.size.width/2, y: buttonY+45)
         saveButton.backgroundColor = UIColor.greenColor()
 
@@ -470,32 +474,32 @@ import Foundation
     func saveButtonClicked(sender:UIButton){
         let hud = MBProgressHUD.HUDwithMessage("Saving ....", parent: self)
         let obid = SMBUser.currentUser().objectId
-        println(obid)
+        print(obid)
         if obid=="" {
             hud.dismissWithMessage("save failed!")
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj:PFObject?, err:NSError?) -> Void in
             if !(err==nil){
                 hud.dismissWithMessage("save failed!")
                 return
             }
-            obj["gender"] = self.genderButton.titleLabel?.text
-            obj["age"] = self.ageButton.titleLabel?.text?.toInt()
+            obj!["gender"] = self.genderButton.titleLabel?.text
+            obj!["age"] = Int((self.ageButton.titleLabel?.text)!)
             let heightStr = self.heightButton.titleLabel?.text
-            obj["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]
-            obj["ethnicity"] = self.ethnicityButton.titleLabel?.text
-            obj["aboutme"] = self.aboutEdit.text
-            obj["degree"] = self.degreeButton.titleLabel?.text
-            obj["school"] = self.schoolEdit.text
-            obj["occupation"] = self.occupationEdit.text
-            obj["employer"] = self.employerEdit.text
-            obj["tags"] = self.tagsSelectedArray
-            obj["MeetUpLocations"] = self.meetUpLocationsSelectedArray
-            obj["MeetUpTimes"] = self.meetUpTimeSelectedArray
+            obj!["height"] = self.heightDoubleArray[self.heightArray.indexOfObject(heightStr!)]
+            obj!["ethnicity"] = self.ethnicityButton.titleLabel?.text
+            obj!["aboutme"] = self.aboutEdit.text
+            obj!["degree"] = self.degreeButton.titleLabel?.text
+            obj!["school"] = self.schoolEdit.text
+            obj!["occupation"] = self.occupationEdit.text
+            obj!["employer"] = self.employerEdit.text
+            obj!["tags"] = self.tagsSelectedArray
+            obj!["MeetUpLocations"] = self.meetUpLocationsSelectedArray
+            obj!["MeetUpTimes"] = self.meetUpTimeSelectedArray
             
-            obj.saveInBackgroundWithBlock({ (succ:Bool, err:NSError!) -> Void in
+            obj!.saveInBackgroundWithBlock({ (succ:Bool, err:NSError?) -> Void in
 //                let alert = UIAlertView()
 //                alert.title = "Tip"
 //                alert.message = succ ? "save success!":"save failed!"
@@ -610,19 +614,19 @@ import Foundation
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView.tag == 99{
-            genderButton.setTitle(genderArray[row], forState: UIControlState.allZeros)
+            genderButton.setTitle(genderArray[row], forState: UIControlState())
         }
         if pickerView.tag == 100{
-            ethnicityButton.setTitle(ethnicityArray[row], forState: UIControlState.allZeros)
+            ethnicityButton.setTitle(ethnicityArray[row], forState: UIControlState())
         }
         if pickerView.tag == 101{
-            ageButton.setTitle(ageArray[row], forState: UIControlState.allZeros)
+            ageButton.setTitle(ageArray[row], forState: UIControlState())
         }
         if pickerView.tag == 102{
-            heightButton.setTitle(heightArray[row] as! String, forState: UIControlState.allZeros)
+            heightButton.setTitle(heightArray[row] as! String, forState: UIControlState())
         }
         if pickerView.tag == 103{
-            degreeButton.setTitle(degreeArray[row], forState: UIControlState.allZeros)
+            degreeButton.setTitle(degreeArray[row], forState: UIControlState())
         }
         
     }
@@ -654,37 +658,37 @@ import Foundation
                 meetUpLocationsSelectedArray.addObject(obj)
             }
         }
-        self.genderButton.setTitle(self.currentUS.gender?, forState: UIControlState.allZeros)
-        self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState.allZeros)
+        self.genderButton.setTitle(self.currentUS.gender, forState: UIControlState())
+        self.ageButton.setTitle(self.currentUS.age?.stringValue, forState: UIControlState())
         if !(self.currentUS.height == nil){
-            self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as! String, forState: UIControlState.allZeros)
+            self.heightButton.setTitle(self.heightArray[self.heightDoubleArray.indexOfObject(self.currentUS.height)] as? String, forState: UIControlState())
         }
-        self.ethnicityButton.setTitle(self.currentUS.ethnicity?, forState: UIControlState.allZeros)
-        self.aboutEdit.text = self.currentUS.aboutme?
-        self.occupationEdit.text = self.currentUS.occupation?
-        self.employerEdit.text = self.currentUS.employer?
-        self.degreeButton.setTitle(self.currentUS.degree?, forState: UIControlState.allZeros)
-        self.schoolEdit.text = self.currentUS.school?
+        self.ethnicityButton.setTitle(self.currentUS.ethnicity, forState: UIControlState())
+        self.aboutEdit.text = self.currentUS.aboutme
+        self.occupationEdit.text = self.currentUS.occupation
+        self.employerEdit.text = self.currentUS.employer
+        self.degreeButton.setTitle(self.currentUS.degree, forState: UIControlState())
+        self.schoolEdit.text = self.currentUS.school
         for object in self.scrollInfoView.subviews{
             if object.tag == 190{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.meetUpLocationsSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 191{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.meetUpTimeSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
                            }
             if object.tag == 192{
                 let str = (object as! UIButton).titleLabel?.text
                 if self.tagsSelectedArray.indexOfObject(str!) != NSNotFound{
-                    (object as UIButton).selected = true
-                    (object as UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
+                    (object as! UIButton).selected = true
+                    (object as! UIButton).backgroundColor = UIColor(red: 64.0/255, green: 155.0/255, blue: 207.0/255, alpha: 1)
                 }
             }
         }
@@ -699,8 +703,8 @@ import Foundation
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
-            self.currentUS = obj as SMBUser
+        query.getObjectInBackgroundWithId(obid!) { (obj:PFObject?, err:NSError?) -> Void in
+            self.currentUS = obj as! SMBUser
             self.updateViewData()
             hud.dismissQuickly()
         }

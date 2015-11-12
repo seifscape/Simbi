@@ -20,7 +20,7 @@ class SMBHomeBackgroundView : UIView {
     let imageView = UIImageView()
     let fadeView = UIView()
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -63,6 +63,9 @@ class SMBHomeBackgroundView : UIView {
             static var filteredImage: UIImage?
         }
         
+        
+        
+        
         if SMBUser.exists() {
             
             if let backgroundImage = SMBUser.currentUser().backgroundImage {
@@ -80,19 +83,23 @@ class SMBHomeBackgroundView : UIView {
                     
                     let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
                     activityIndicatorView.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
-                    activityIndicatorView.autoresizingMask = UIViewAutoresizing.FlexibleWidth|UIViewAutoresizing.FlexibleHeight
+                    activityIndicatorView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
                     activityIndicatorView.startAnimating()
                     self.addSubview(activityIndicatorView)
                     
                     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)) {
                         
-                        backgroundImage.fetchIfNeeded()
-                        
+                       // http://stackoverflow.com/questions/31420209/xcode-7-swift-call-can-throw-it-it-is-not-markedwith-try-and-the-error-is-n
+                        do{
+                           try backgroundImage.fetchIfNeeded()
+                        } catch let error as NSError {
+                            print(error)
+                        }
                         // Get the data and apply the filter.
                         
-                        if let data = backgroundImage.mediumSquareImage.getData() {
+                        if let data:NSData? = try! backgroundImage.mediumSquareImage.getData() {
                             
-                            let image = UIImage(data: data)
+                            let image = UIImage(data: data!)
                             ImageInfo.filteredImage = image?.filteredBlueImage()
                             ImageInfo.imageId = backgroundImage.objectId
                             

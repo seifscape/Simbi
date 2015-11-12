@@ -93,9 +93,9 @@ class SMBLogInViewController: SMBFormViewController {
     
     override func submitAction() {
         //get the info in the input field
-        print("email:"+textFieldForRow(0)!.text)
-        print("pass:"+textFieldForRow(1)!.text)
-        print("email:"+textFieldForRow(2)!.text)
+        print("email:"+textFieldForRow(0)!.text!)
+        print("pass:"+textFieldForRow(1)!.text!)
+        print("email:"+textFieldForRow(2)!.text!)
         
     
         let password = self.passwordTextField.text
@@ -103,16 +103,16 @@ class SMBLogInViewController: SMBFormViewController {
         let hello = self.helloTextField.text
         let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
 
-        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text.lowercaseString, password: textFieldForRow(1)!.text) { (user: PFUser?, error: NSError!) -> Void in
+        SMBUser.logInWithUsernameInBackground(textFieldForRow(0)!.text!.lowercaseString, password: textFieldForRow(1)!.text!) { (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {
                 
                 hud.dismissQuickly()
                 
-                if (user as SMBUser).isConfirmed {
-                    println("aboutme:")
-                    println((user as SMBUser).aboutme)
-                    println("=======")
+                if (user as! SMBUser).isConfirmed {
+                    print("aboutme:")
+                    print((user as! SMBUser).aboutme)
+                    print("=======")
                     SMBAppDelegate.instance().syncUserInstallation()
                     
                     SMBFriendsManager.sharedManager().loadObjects(nil)
@@ -126,9 +126,9 @@ class SMBLogInViewController: SMBFormViewController {
                 }
             }
             else {
-                println("ERROR: \(error)")
+                print("ERROR: \(error)")
                 
-                if error.code == 0/*kPFErrorObjectNotFound*/ {//modified by zhy
+                if error!.code == 0/*kPFErrorObjectNotFound*/ {//modified by zhy
                     hud.dismissWithMessage("Couldn't Log In!")
                 }
                 else {
@@ -145,7 +145,7 @@ class SMBLogInViewController: SMBFormViewController {
         
         let permissions = ["email", "public_profile", "user_friends"]
         
-        PFFacebookUtils.logInWithPermissions(permissions, block: { (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: { (user: PFUser?, error: NSError?) -> Void in
             
             if user != nil {
                 
@@ -155,7 +155,7 @@ class SMBLogInViewController: SMBFormViewController {
                 SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                 SMBChatManager.sharedManager().loadObjects(nil)
                 
-                if user.isNew || !(user as SMBUser).isConfirmed {
+                if user!.isNew || !(user as! SMBUser).isConfirmed {
                     
                     SMBUser.currentUser().syncWithFacebook({ (succeeded: Bool) -> Void in
                         
@@ -174,9 +174,11 @@ class SMBLogInViewController: SMBFormViewController {
                 }
             }
             else {
-                println("ERROR: \(error)")
+                print("ERROR: \(error)")
                 hud.dismissWithError()
             }
+            
+            
         })
     }
 }

@@ -43,8 +43,8 @@ class SMBCountryPicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelega
         
         var str = String(code)
         
-        if count(str) > 3 {
-            str.insert(" ", atIndex: advance(str.endIndex, -3))
+        if str.characters.count > 3 {
+            str.insert(" ", atIndex: str.endIndex.advancedBy(-3))
         }
         
         return str
@@ -63,7 +63,7 @@ class SMBCountryPicker: UIPickerView, UIPickerViewDataSource, UIPickerViewDelega
     }
     
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         let countryName = countriesKeys[row]
         let countryCode = formatCountryCode(kCountriesDict[countryName]!)

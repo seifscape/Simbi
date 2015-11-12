@@ -17,7 +17,7 @@ import UIKit
 class SMBSplitViewController: UIViewController {
     
     let scrollView = UIScrollView()
-    
+
     var currentIndex = 0
     var viewControllers: [UIViewController] = [] {
         
@@ -33,7 +33,7 @@ class SMBSplitViewController: UIViewController {
             
             currentIndex = 0
             
-            for (index, vc) in enumerate(viewControllers) {
+            for (index, vc) in viewControllers.enumerate() {
                 self.addChildViewController(vc)
                 scrollView.addSubview(vc.view)
                 vc.view.frame = CGRectMake(self.view.frame.size.width*index.CG, 0, vc.view.frame.width, vc.view.frame.height)
@@ -89,20 +89,19 @@ class SMBSplitViewController: UIViewController {
 }
 
 
+
 // MARK: - UIScrollViewDelegate Extension
 
 extension SMBSplitViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
-        for (index, vc) in enumerate(viewControllers) {
+        for (index, vc) in viewControllers.enumerate() {
             if vc is SMBSplitViewChild {
                 (vc as! SMBSplitViewChild).splitViewDidScroll(self, position: scrollView.contentOffset.x-index.CG*scrollView.frame.width)
             }
         }
     }
-    
-    
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
         self.view.endEditing(true)
@@ -122,4 +121,3 @@ extension SMBSplitViewController: UIScrollViewDelegate {
         // Empty implementation
     }
 }
-

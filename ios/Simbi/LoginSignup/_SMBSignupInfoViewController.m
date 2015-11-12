@@ -205,8 +205,11 @@
                     {
                         // If from Facebook, get a list of all their friends
                         
-                        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                            
+                        FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/friends"
+                                                                                       parameters:nil];
+                        
+                        [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+                            // TODO: handle results or error of request.
                             if (!error)
                             {
                                 NSArray *friends = [result objectForKey:@"data"];

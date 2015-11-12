@@ -70,19 +70,18 @@ class SMBNavigationController: UINavigationController {
     }
     
     
-    override func popToRootViewControllerAnimated(animated: Bool) -> [AnyObject]? {
+    override func popToRootViewControllerAnimated(animated: Bool) -> [UIViewController]? {
         let value = super.popToRootViewControllerAnimated(animated)
         updateNavigationBarButtons(animated)
         return value
     }
     
-    
-    override func popToViewController(viewController: UIViewController, animated: Bool) -> [AnyObject]? {
+    override func popToViewController(viewController: UIViewController, animated: Bool) -> [UIViewController]? {
         let value = super.popToViewController(viewController, animated: animated)
         updateNavigationBarButtons(animated)
         return value
+
     }
-    
     
     // MARK: - User Actions
     
@@ -111,7 +110,7 @@ class SMBNavigationController: UINavigationController {
         else {
             menuButton.removeFromViewAndAnimate(animated)
             
-            if self.visibleViewController.navigationItem.rightBarButtonItem != nil || !showsChat {
+            if self.visibleViewController!.navigationItem.rightBarButtonItem != nil || !showsChat {
                 chatButton.removeFromViewAndAnimate(animated)
             }
         }
@@ -120,6 +119,6 @@ class SMBNavigationController: UINavigationController {
     
     func updateNavigationBarButtons(animated: Bool) {
         
-        showButtons(self.visibleViewController == self.viewControllers.first as! UIViewController, animated: animated)
+        showButtons(self.visibleViewController == self.viewControllers.first as UIViewController!, animated: animated)
     }
 }

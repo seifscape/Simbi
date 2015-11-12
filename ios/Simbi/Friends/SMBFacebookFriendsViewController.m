@@ -15,7 +15,6 @@
 #import "SMBChatListViewController.h"
 #import "SMBUserDetailViewController.h"
 
-
 @interface SMBFacebookFriendsViewController ()
 
 @property (nonatomic, strong) NSArray *users;
@@ -122,8 +121,11 @@ static NSString *CellIdentifier = @"Cell";
     [activityIndicatorView startAnimating];
     [self.tableView addSubview:activityIndicatorView];
     
-    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        
+    
+    FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/friends"
+                                                                   parameters:nil];
+    [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+        // TODO: handle results or error of request.
         if (!error)
         {
             NSArray *friends = [result objectForKey:@"data"];
@@ -164,6 +166,7 @@ static NSString *CellIdentifier = @"Cell";
             [activityIndicatorView stopAnimating];
             [activityIndicatorView removeFromSuperview];
         }
+        
     }];
 }
 

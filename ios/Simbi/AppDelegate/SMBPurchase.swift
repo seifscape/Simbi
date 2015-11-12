@@ -73,22 +73,24 @@ class SMBPurchase: PFPurchase {
             receipt.data = receiptFile
         }
         else {
-            println("\(__FUNCTION__) - No App Store receipt!")
+            print("\(__FUNCTION__) - No App Store receipt!")
         }
         
-        receipt.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+        receipt.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             
             if succeeded {
                 
                 let params: [String: AnyObject] = ["amount"      : amount,
-                                                   "receiptId"   : receipt.objectId,
+                                                   "receiptId"   : receipt.objectId!,
                                                    "information" : "Apple IAP \(amount) Credits"]
                 
-                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response: AnyObject!, error: NSError!) -> Void in
+                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response: AnyObject?, error: NSError?) -> Void in
                     
                     if response != nil {
-                        SMBUser.currentUser().fetch()
-                        SMBUser.currentUser().credits.fetch()
+        
+                        try! SMBUser.currentUser().fetch()
+                        try! SMBUser.currentUser().credits.fetch()
+
                         
                         NSNotificationCenter.defaultCenter().postNotificationName("purchaseSucceeded", object: nil)
                     }

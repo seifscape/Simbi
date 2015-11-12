@@ -108,9 +108,9 @@ class SMBFriendsListModel: NSObject {
 
         var dic:NSMutableDictionary = NSMutableDictionary()
         dic.setValue(self.phoneNo, forKey: "phoneNumber")
-        PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic) { (obj:AnyObject!, err:NSError!) -> Void in
+        PFCloud.callFunctionInBackground("sendInviteMsg", withParameters:dic as [NSObject : AnyObject]) { (obj:AnyObject?, err:NSError?) -> Void in
             if err==nil {
-                (sender as UIButton).hidden = true
+                (sender as! UIButton).hidden = true
                 hud.dismissWithMessage("Invited sucuss!")
             }else{
                 hud.dismissWithMessage("Invited failed!")
@@ -122,16 +122,16 @@ class SMBFriendsListModel: NSObject {
         var dic:NSMutableDictionary = NSMutableDictionary()
         var userid = self.user.objectId
         dic.setValue(userid, forKey: "toUser")
-        PFCloud.callFunctionInBackground("sendFriendRequest", withParameters: dic) { (obj:AnyObject!, err:NSError!) -> Void in
+        PFCloud.callFunctionInBackground("sendFriendRequest", withParameters: dic as [NSObject : AnyObject]) { (obj:AnyObject?, err:NSError?) -> Void in
             //sender.setTitle("requested", forState: .Normal)
             if err==nil {
-                (sender as UIButton).hidden = true
+                (sender as! UIButton).hidden = true
                 hud.dismissWithMessage("Request sucuss!")
             }else{
                 hud.dismissWithMessage("Request failed!")
             }
         }
-        println(self.user.objectId)
+        print(self.user.objectId)
     }
     
     func acceptFriendRequest(sender: AnyObject) {
@@ -150,18 +150,18 @@ class SMBFriendsListModel: NSObject {
                 
                 if object != nil {
                     
-                    SMBFriendRequestsManager.sharedManager().removeObject(self.request?)
+                    SMBFriendRequestsManager.sharedManager().removeObject(self.request)
                     SMBFriendsManager.sharedManager().addObject(self.request?.fromUser)
                     
                     self.request = nil
                     
-                    if self.user == self.cell?.user? {
+                    if self.user == self.cell?.user {
                         
                         self.cell?.nameLabel.text = self.user.name
                         self.cell?.activityIndicator.stopAnimating()
                     }
                 }
-                else if self.user == self.cell?.user? {
+                else if self.user == self.cell?.user {
                     
                     self.cell?.acceptButton.hidden = false
                     self.cell?.activityIndicator.stopAnimating()

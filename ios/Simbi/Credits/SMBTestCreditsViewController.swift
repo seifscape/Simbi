@@ -39,18 +39,18 @@ class SMBTestCreditsViewController: UITableViewController {
         receipt.user = SMBUser.currentUser()
         receipt.data = dataFile
         
-        receipt.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError!) -> Void in
+        receipt.saveInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
             
             if succeeded {
                 
-                let params: [String: AnyObject] = ["amount": amount, "receiptId": receipt.objectId, "information": "Debug Purchase"]
+                let params: [String: AnyObject] = ["amount": amount, "receiptId": receipt.objectId!, "information": "Debug Purchase"]
             
-                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response: AnyObject!, error: NSError!) -> Void in
+                PFCloud.callFunctionInBackground("purchaseCredits", withParameters: params, block: { (response: AnyObject?, error: NSError?) -> Void in
                     
                     if response != nil {
                         
-                        SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
-                            SMBUser.currentUser().credits.fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                        SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                            SMBUser.currentUser().credits.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                                 hud.dismissWithSuccess()
                                 self.tableView.reloadData()
                             })
@@ -74,19 +74,19 @@ class SMBTestCreditsViewController: UITableViewController {
         
         let params: [String: AnyObject] = ["amount": amount, "information": "Debug Spend"]
         
-        PFCloud.callFunctionInBackground("spendCredits", withParameters: params) { (response: AnyObject!, error: NSError!) -> Void in
+        PFCloud.callFunctionInBackground("spendCredits", withParameters: params) { (response: AnyObject?, error: NSError?) -> Void in
             
             if response != nil {
                 
-                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
-                    SMBUser.currentUser().credits.fetchInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    SMBUser.currentUser().credits.fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                         hud.dismissWithSuccess()
                         self.tableView.reloadData()
                     })
                 })
             }
             else {
-                if error.userInfo != nil && error.userInfo!["error"] as String == "CANNOT_AFFORD" {
+                if error?.userInfo != nil && error?.userInfo["error"] as! String == "CANNOT_AFFORD" {
                     hud.dismissWithMessage("Not enough credits!")
                 }
                 else {
@@ -129,7 +129,7 @@ class SMBTestCreditsViewController: UITableViewController {
             
             if SMBUser.currentUser().credits != nil {
                 
-                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject!, error: NSError!) -> Void in
+                SMBUser.currentUser().credits.fetchIfNeededInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
                     
                     if object != nil {
                         cell.textLabel?.text = "Balance: \(SMBUser.currentUser().credits.balance)"

@@ -26,7 +26,7 @@ class SMB360SwipeControl : UIControl
     private var relativeAngle = 0.0
     
     
-    required init(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    required init(coder aDecoder: NSCoder) { super.init(coder: aDecoder)! }
     
     
     override init(frame: CGRect) {
@@ -38,9 +38,9 @@ class SMB360SwipeControl : UIControl
         
         controlView = UIView(frame: CGRectMake(0, 0, 66, 66))
         
-        var r = Double((self.frame.width-2*padding)/2.0 - radius/2.0)
-        var y = r * -sin(7*M_PI/8) + Double(self.frame.width/2.0)
-        var x = r *  cos(7*M_PI/8) + Double(self.frame.width/2.0)
+        let r = Double((self.frame.width-2*padding)/2.0 - radius/2.0)
+        let y = r * -sin(7*M_PI/8) + Double(self.frame.width/2.0)
+        let x = r *  cos(7*M_PI/8) + Double(self.frame.width/2.0)
         
         controlView!.center = CGPointMake(x.CG, y.CG)
         
@@ -66,10 +66,10 @@ class SMB360SwipeControl : UIControl
     
     override func drawRect(rect: CGRect) {
         
-        var context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()
         
         CGContextSetStrokeColorWithColor(context, unselectedColor.CGColor)
-        var path = CGPathCreateMutable()
+        let path = CGPathCreateMutable()
         CGContextSetLineWidth(context, CGFloat(radius))
         CGPathAddArc(path, nil, rect.size.width/2, rect.size.height/2, (rect.size.width-radius-2*padding)/2, 0, 2*M_PI.CG, false)
         CGContextAddPath(context, path)
@@ -78,7 +78,7 @@ class SMB360SwipeControl : UIControl
         if self.isDragging {
             
             CGContextSetStrokeColorWithColor(context, selectedColor.CGColor)
-            var path = CGPathCreateMutable()
+            let path = CGPathCreateMutable()
             CGContextSetLineWidth(context, CGFloat(radius))
             CGPathAddArc(path, nil, rect.size.width/2, rect.size.height/2, (rect.size.width-radius-2*padding)/2, -CGFloat(startingAngle), -CGFloat(currentAngle), isClockwise)
             CGContextAddPath(context, path)
@@ -93,7 +93,7 @@ class SMB360SwipeControl : UIControl
     
     func setControlView(view: UIView) {
         
-        var oldView = controlView
+        let oldView = controlView
         controlView = view
         
         self.addSubview(controlView!)
@@ -120,49 +120,48 @@ class SMB360SwipeControl : UIControl
         return angle
     }
     
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
+    /*
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         var touch: AnyObject? = touches.anyObject()
         var point = touch!.locationInView(self)
         
         // If touched inside the control view, begin moving
         if abs(point.x-controlView!.center.x) < controlView!.frame.width &&
-           abs(point.y-controlView!.center.y) < controlView!.frame.height {
-            
-            self.sendActionsForControlEvents(UIControlEvents.TouchDown)
-            
-            // Shift coordinate space so the center of the control is (0,0)
-            point.x =   point.x-self.frame.width  / 2.0
-            point.y = -(point.y-self.frame.height / 2.0)
-            
-            startingAngle = getAngle(point)
-            relativeAngle = 0.0
-            isDragging = true
-            
-            newTouch(touches)
-            
-            self.layer.shadowOpacity = 0
-            self.layer.shadowColor = UIColor.whiteColor().CGColor
-            self.layer.shadowRadius = CGFloat(radius)
-            
-            UIView.animateWithDuration(0.33, animations: { () -> Void in
-                self.layer.shadowOpacity = 1
-            })
+            abs(point.y-controlView!.center.y) < controlView!.frame.height {
+                
+                self.sendActionsForControlEvents(UIControlEvents.TouchDown)
+                
+                // Shift coordinate space so the center of the control is (0,0)
+                point.x =   point.x-self.frame.width  / 2.0
+                point.y = -(point.y-self.frame.height / 2.0)
+                
+                startingAngle = getAngle(point)
+                relativeAngle = 0.0
+                isDragging = true
+                
+                newTouch(touches)
+                
+                self.layer.shadowOpacity = 0
+                self.layer.shadowColor = UIColor.whiteColor().CGColor
+                self.layer.shadowRadius = CGFloat(radius)
+                
+                UIView.animateWithDuration(0.33, animations: { () -> Void in
+                    self.layer.shadowOpacity = 1
+                })
         }
     }
+    */
     
     
-    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-        
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if isDragging {
             newTouch(touches)
         }
     }
     
     
-    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
-        
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
         
         isDragging = false
@@ -173,9 +172,10 @@ class SMB360SwipeControl : UIControl
         self.layer.shadowColor = UIColor.clearColor().CGColor
         
         self.setNeedsDisplay()
+
     }
     
-    
+
     private func newTouch(touches: NSSet) {
         
         if isDragging {
@@ -242,9 +242,9 @@ class SMB360SwipeControl : UIControl
                     }
                 }
                 
-                var lastAngle = relativeAngle
+                let lastAngle = relativeAngle
                 
-                relativeAngle = relativeAngleCalc(startingAngle, currentAngle, isClockwise)
+                relativeAngle = relativeAngleCalc(startingAngle, currentAngle: currentAngle, isClockwise: isClockwise)
                 
                 // Check if they made the full circle
                 

@@ -67,7 +67,7 @@ class SMBFormViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         
-        if self != self.navigationController?.viewControllers.first as! UIViewController {
+        if self != self.navigationController?.viewControllers.first as UIViewController! {
             
             backButton.frame = CGRectMake(0, 20, 66, 44)
             backButton.setTitle("Back", forState: .Normal)
@@ -183,7 +183,7 @@ class SMBFormViewController: UIViewController, UITableViewDataSource, UITableVie
 
 // MARK: - UITableViewDataSource/Delegate
 
-extension SMBFormViewController: UITableViewDataSource, UITableViewDelegate {
+extension SMBFormViewController {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

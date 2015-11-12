@@ -175,7 +175,7 @@ class SMBHomeViewController: UIViewController {
                 coverView.removeFromSuperview()
                 
                 let navigationController = UINavigationController(rootViewController: SMBPinLocationViewController())
-                navigationController.view.backgroundColor = navigationController.visibleViewController.view.backgroundColor
+                navigationController.view.backgroundColor = navigationController.visibleViewController!.view.backgroundColor
                 navigationController.setNavigationBarHidden(true, animated: false)
                 
                 self.parent!.navigationController!.presentViewControllerByGrowingView(navigationController, growingView: topLevelCoverView)

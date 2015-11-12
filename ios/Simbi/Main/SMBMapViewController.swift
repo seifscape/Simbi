@@ -73,21 +73,25 @@ class SMBMapViewController: UIViewController {
         
         locationManager.delegate = self
         
-        if CLLocationManager.authorizationStatus() == .AuthorizedAlways/*modified by zhy*/ ||
-           CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            
-            locationManager.startUpdatingLocation()
-            mapView.showsUserLocation = CLLocationManager.locationServicesEnabled()
-        }
-        else if CLLocationManager.authorizationStatus() == .Denied ||
-                CLLocationManager.authorizationStatus() == .Restricted {
-                    
-            let message = "Simbi needs your location to work properly! Please enable location services for Simbi in\n\nSettings → Privacy → Location Services → Simbi\n\nWe promise we're chill."
-            let alertView = UIAlertView(title: "Location Services", message: message, delegate: nil, cancelButtonTitle: "Ok")
-            alertView.show()
-        }
-        else {
-            locationManager.requestWhenInUseAuthorization()
+        if #available(iOS 8.0, *) {
+            if CLLocationManager.authorizationStatus() == .AuthorizedAlways/*modified by zhy*/ ||
+               CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+                
+                locationManager.startUpdatingLocation()
+                mapView.showsUserLocation = CLLocationManager.locationServicesEnabled()
+            }
+            else if CLLocationManager.authorizationStatus() == .Denied ||
+                    CLLocationManager.authorizationStatus() == .Restricted {
+                        
+                let message = "Simbi needs your location to work properly! Please enable location services for Simbi in\n\nSettings → Privacy → Location Services → Simbi\n\nWe promise we're chill."
+                let alertView = UIAlertView(title: "Location Services", message: message, delegate: nil, cancelButtonTitle: "Ok")
+                alertView.show()
+            }
+            else {
+                locationManager.requestWhenInUseAuthorization()
+            }
+        } else {
+            // Fallback on earlier versions
         }
         
         mapView.showsPointsOfInterest = false
@@ -174,11 +178,11 @@ class SMBMapViewController: UIViewController {
         //set the current user's visible or invisible
         let obid = SMBUser.currentUser().objectId
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj:PFObject?, err:NSError?) -> Void in
             if obj==nil{
                 return
             }
-            if (obj as SMBUser).visible {
+            if (obj as! SMBUser).visible {
                 switchVisibleButton.selected = false
             }else{
                 switchVisibleButton.selected = true
@@ -239,12 +243,12 @@ class SMBMapViewController: UIViewController {
             return
         }
         let query = PFQuery(className: "_User")
-        query.getObjectInBackgroundWithId(obid) { (obj:PFObject!, err:NSError!) -> Void in
+        query.getObjectInBackgroundWithId(obid!) { (obj:PFObject?, err:NSError?) -> Void in
             if obj==nil{
             return
             }
-            obj["visible"] = sender.selected
-            obj.saveInBackgroundWithBlock({ (suss:Bool, err:NSError!) -> Void in
+            obj!["visible"] = sender.selected
+            obj!.saveInBackgroundWithBlock( {(success: Bool, error: NSError?) -> Void in
                 sender.selected = !sender.selected
             })
         }
@@ -308,20 +312,20 @@ class SMBMapViewController: UIViewController {
  //       return
         for object in SMBFriendsManager.sharedManager().objects {
             let friend = object as! SMBUser
-            println("==================================")
+            print("==================================")
             print("name:")
-            println(friend.username)
+            print(friend.username)
             print("visible:")
-            println(friend.visible)
+            print(friend.visible)
             print("lat:")
-            println(friend.geoPoint.latitude)
+            print(friend.geoPoint.latitude)
             print("lon:")
-            println(friend.geoPoint.longitude)
+            print(friend.geoPoint.longitude)
             print("profitpic:")
-            println(friend.profilePicture)
+            print(friend.profilePicture)
             print("aboutme:")
-            println(friend.aboutme)
-            println("==================================")
+            print(friend.aboutme)
+            print("==================================")
             if friend.geoPoint != nil && friend.visible {
                 
                 let annotation = SMBAnnotation(user: friend)
@@ -347,10 +351,14 @@ class SMBMapViewController: UIViewController {
 
 extension SMBMapViewController: CLLocationManagerDelegate {
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         
-        if status == .AuthorizedAlways/*modified by zhy*/ || status == .AuthorizedWhenInUse {
-            mapView.showsUserLocation = true
+        if #available(iOS 8.0, *) {
+            if status == .AuthorizedAlways/*modified by zhy*/ || status == .AuthorizedWhenInUse {
+                mapView.showsUserLocation = true
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
 }
@@ -360,7 +368,7 @@ extension SMBMapViewController: CLLocationManagerDelegate {
 
 extension SMBMapViewController: MKMapViewDelegate {
     
-    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
+    func mapView(mapView: MKMapView, didUpdateUserLocation userLocation: MKUserLocation) {
         
         if !didUpdateLocation {
         
@@ -374,7 +382,7 @@ extension SMBMapViewController: MKMapViewDelegate {
     }
     
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is SMBAnnotation {
             

@@ -288,8 +288,8 @@
     
     NSArray *permissions = @[@"email", @"public_profile", @"user_friends"];
     
-    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
-        
+    [PFFacebookUtils logInInBackgroundWithReadPermissions:permissions block:^(PFUser *user, NSError *error) {
+    
         if (user)
         {
             [[SMBAppDelegate instance] syncUserInstallation];
@@ -319,7 +319,7 @@
             else
             {
                 [hud dismissQuickly];
-
+                
                 [[SMBAppDelegate instance] animateToMain];
             }
         }
@@ -328,6 +328,7 @@
             NSLog(@"%s - ERROR: %@", __PRETTY_FUNCTION__, error);
             [hud dismissWithMessage:@"D'oh!"];
         }
+    
     }];
 }
 

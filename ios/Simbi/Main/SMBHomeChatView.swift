@@ -23,7 +23,7 @@ class SMBHomeChatView: UIView, SMBChatBallDelegate {
     
     let chatBallViews: [SMBChatBallPositions]
     
-    required init(coder aDecoder: NSCoder) { fatalError("Init with NSCoder is not supported") }
+    required init?(coder aDecoder: NSCoder) { fatalError("Init with NSCoder is not supported") }
     
     override init(frame: CGRect) {
         
