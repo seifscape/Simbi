@@ -8,6 +8,7 @@
 
 @class SMBImage;
 
+#import "PFImageView+Simbi.h"
 
 @interface PFImageView (Simbi)
 

@@ -24,11 +24,13 @@ class SMBHomeBackgroundView : UIView {
         super.init(coder: aDecoder)
     }
     
+
+    // http://stackoverflow.com/questions/30798642/overriding-init-in-a-customuiview-crashes-app-exc-bad-access
     convenience init() {
-        self.init()
+        self.init(frame: CGRectZero)
         loadView()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()

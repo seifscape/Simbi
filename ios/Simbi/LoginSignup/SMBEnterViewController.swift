@@ -1,4 +1,4 @@
-//
+ //
 //  SMBEnterViewController.swift
 //  Simbi
 //
@@ -14,15 +14,23 @@ class SMBEnterViewController: UIViewController {
     let simbiLogoLabel = UILabel()
     let backgroundImageView = UIImageView()
     
-    let signUpButton = UIButton()
+    let  signUpButton = UIButton()
     let logInButton = UIButton()
+    
+    // Interface Builder
+    @IBOutlet weak var signUpBtn: UIButton?
+    @IBOutlet weak var loginBtn: UIButton?
+
+    
     
     // MARK: - ViewController Lifecycle
     
+    /*
     convenience init() { self.init(nibName: nil, bundle: nil) }
     
     override func loadView() {
         super.loadView()
+        
         
         backgroundImageView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         backgroundImageView.image = UIImage(named: "opening_background")
@@ -51,13 +59,32 @@ class SMBEnterViewController: UIViewController {
         logInButton.addTarget(self, action: "logInAction:", forControlEvents: .TouchUpInside)
         self.view.addSubview(logInButton)
     }
+    */
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         SMBAppDelegate.instance().enableSideMenuGesture(false)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func signup(sender: UIButton) {
+        let navigationController = UINavigationController()
+        navigationController.pushViewController(SMBSignUpViewController(), animated: true)
+    }
+    
+    @IBAction func login(sender: UIButton) {
+        self.navigationController?.pushViewController(SMBLogInViewController(), animated: true)
     }
     
     
@@ -81,5 +108,16 @@ class SMBEnterViewController: UIViewController {
     func logInAction(sender: AnyObject) {
         
         self.navigationController?.pushViewController(SMBLogInViewController(), animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+       /*
+        let svc = segue.destinationViewController as! SignUpViewController;
+        if (segue.identifier == "signup") {
+            svc.isSignup = true
+        } else if (segue.identifier == "login") {
+            svc.isLogin = true
+        }
+        */
     }
 }

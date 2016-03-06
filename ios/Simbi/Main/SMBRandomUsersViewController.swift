@@ -44,7 +44,7 @@ class SMBRandomUsersViewController: UIViewController {
         // Make carousel bigger than view so the views get created as they scroll.
         carousel.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height+220)
         carousel.center = self.view.center
-        carousel.type = iCarouselTypeLinear
+        carousel.type = iCarouselType.Linear
         carousel.vertical = true
         carousel.dataSource = self
         carousel.delegate = self
@@ -182,36 +182,57 @@ class SMBRandomUsersViewController: UIViewController {
 
 extension SMBRandomUsersViewController: iCarouselDataSource {
     
-    func numberOfItemsInCarousel(carousel: iCarousel!) -> UInt {
-        
+    func numberOfItemsInCarousel(carousel: iCarousel) -> Int {
         if users.count > 3 {
-            return UInt(users.count)*2
+            return (users.count)*2
         }
         else {
-            return UInt(users.count)
+            return (users.count)
         }
+    }
+    
+    func numberOfPlaceholdersInCarousel(carousel: iCarousel) -> Int {
+        return 0
     }
 
     
-    func carousel(carousel: iCarousel!, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
-        return option.rawValue == iCarouselOptionWrap.rawValue && carousel.numberOfItems > 3 ? 1 : value
-    }
-     
-    
-    func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {
+    func carousel(carousel: iCarousel, valueForOption option: iCarouselOption, withDefault value: CGFloat) -> CGFloat {
         
-        let frame = CGRectMake(0, 0, carousel.frame.width, 154)
-        let user = users[Int(index) % users.count]
+        if (option == .Count && carousel.numberOfItems > 3){
+            return 1
+        }
+        else {
+            return value
+        }
         
-        let view = SMBRandomUserItemView(frame: frame, user: user)
-        view.delegate = self
-        
-        return view
+//        return option.rawValue == iCarouselOption.rawValue && carousel.numberOfItems > 3 ? 1 : value
     }
     
     
-    func carousel(carousel: iCarousel!, didSelectItemAtIndex index: Int) {
-        
+//    func carousel(carousel: iCarousel!, viewForItemAtIndex index: UInt, reusingView view: UIView!) -> UIView! {
+//        
+//        let frame = CGRectMake(0, 0, carousel.frame.width, 154)
+//        let user = users[Int(index) % users.count]
+//        
+//        let view = SMBRandomUserItemView(frame: frame, user: user)
+//        view.delegate = self
+//
+//        return view
+//    }
+    
+    func carousel(carousel: iCarousel, viewForItemAtIndex index: Int, reusingView view: UIView?) -> UIView {
+        let newView = view
+        if newView == nil {
+            //create new view
+            let frame = CGRectMake(0, 0, carousel.frame.width, 154)
+            let user = users[Int(index) % users.count]
+            
+            let view = SMBRandomUserItemView(frame: frame, user: user)
+            view.delegate = self
+
+        }
+        //update data
+        return newView!
     }
 }
 

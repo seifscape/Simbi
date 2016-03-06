@@ -1,15 +1,26 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
-#use_frameworks!
+platform :ios, '8.4'
+use_frameworks!
 
-pod 'AFNetworking'
-pod 'iCarousel', '~> 1.7.6'
+#pod 'Former'
+pod 'AFNetworking', '2.6.3'
+pod 'iCarousel'
 pod 'MBProgressHUD', '~> 0.8'
 pod 'MMDrawerController', '~> 0.5.7'
 pod 'Parse'
 pod 'ParseUI'
-pod 'FBSDKCoreKit', '~> 4.7'
-pod 'ParseFacebookUtilsV4', '~> 1.9'
-pod 'NMRangeSlider', '~> 1.2.1'
+pod 'FBSDKCoreKit', '~> 4.8'
+pod 'ParseFacebookUtilsV4', '1.8.5'
+#pod 'ParseFacebookUtils'
+pod 'NMRangeSlider'
+#pod 'Eureka'
+pod 'libPhoneNumber-iOS', '~> 0.8'
+pod 'ActionSheetPicker-3.0', '~> 2.0.4'
+pod 'TTRangeSlider'
+#pod 'MisterFusion'
+pod 'BMASliders'
+#pod 'MARKRangeSlider'
 
+#bolts-ios #reactivecocoa mvvm
+#objectivesugar
 link_with 'Simbi', 'SimbiTests'

@@ -7,7 +7,6 @@
 //
 
 #import "SMBFourSquareObject.h"
-
 #import "SMBFourSquareCategory.h"
 
 

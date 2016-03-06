@@ -41,7 +41,7 @@ class SMBHomeViewController: UIViewController {
     
     convenience init() { self.init(nibName: nil, bundle: nil) }
     
-    override func viewDidLoad() {
+     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.backgroundColor = UIColor.simbiBlueColor()

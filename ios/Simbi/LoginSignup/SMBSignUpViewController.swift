@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Parse
+import Bolts
+import FBSDKCoreKit
+import ParseFacebookUtilsV4
 
 
 class SMBSignUpViewController: SMBFormViewController {

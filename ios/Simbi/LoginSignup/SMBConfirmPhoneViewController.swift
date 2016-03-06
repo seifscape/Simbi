@@ -148,7 +148,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
     override func backAction(sender: AnyObject) {
         super.backAction(sender)
         
-        if SMBUser.currentUser().isAuthenticated() && self.navigationController!.visibleViewController is SMBSignUpViewController {
+        if SMBUser.currentUser().isConfirmed && self.navigationController!.visibleViewController is SMBSignUpViewController {
             
             SMBUser.currentUser().deleteInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
                 
@@ -164,7 +164,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
     
     override func submitAction() {
         
-        var phoneNumber = phoneNumberTextField.text!.stringByReplacingOccurrencesOfString("[^0-9]*",
+        let phoneNumber = phoneNumberTextField.text!.stringByReplacingOccurrencesOfString("[^0-9]*",
             withString: "",
             options: .RegularExpressionSearch,
             range: Range(start: phoneNumberTextField.text!.startIndex, end: phoneNumberTextField.text!.endIndex)

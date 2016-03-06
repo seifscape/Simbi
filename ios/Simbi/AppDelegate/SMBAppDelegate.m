@@ -76,6 +76,7 @@
     // Set up Facebook
     
     [PFFacebookUtils initialize];
+    [PFFacebookUtils initializeFacebookWithApplicationLaunchOptions:launchOptions];
     
     // Set up pushes
     
@@ -83,10 +84,6 @@
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound|UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
-    else
-    {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert)];
     }
     
     // Custom appearance
@@ -111,6 +108,9 @@
     [[UITextField appearance] setTextColor:[UIColor simbiDarkGrayColor]];
     [[UITextField appearance] setTintColor:[UIColor simbiDarkGrayColor]];
     
+    
+    
+
     
     
     
@@ -168,11 +168,13 @@
     
     
     // Create Window and launch
+    /*
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setBackgroundColor:[UIColor simbiWhiteColor]];
     [self.window makeKeyAndVisible];
     [self.window setRootViewController:_drawerController];
+    */
     return YES;
 }
 
