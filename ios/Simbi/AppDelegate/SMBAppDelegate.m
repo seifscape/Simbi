@@ -17,6 +17,8 @@
 #import "SMBFriendRequestsManager.h"
 #import "SMBActivityManager.h"
 #import "MMDrawerVisualState.h"
+#import "IQKeyboardManager.h"
+
 
 #import "Simbi-Swift.h"
 
@@ -53,6 +55,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+
     // Set up Parse
     
     [SMBActivity registerSubclass];

@@ -20,6 +20,7 @@ pod 'TTRangeSlider'
 #pod 'MisterFusion'
 pod 'BMASliders'
 #pod 'MARKRangeSlider'
+pod 'IQKeyboardManager'
 
 #bolts-ios #reactivecocoa mvvm
 #objectivesugar

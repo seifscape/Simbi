@@ -26,12 +26,6 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
     weak var confirmPasswordField: UITextField?
     weak var firstNameField: UITextField?
     weak var lastNameField: UITextField?
-
-
-//    weak var emailField: UITextField?
-
-    var isComplete = false
-    
     
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint?
 
@@ -77,16 +71,6 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidAppear(animated: Bool) {
             super.viewDidAppear(animated)
             self.adjustTableViewHeight()
-
-            // Do any additional setup after loading the view.
-//            let lightBlur = UIBlurEffect(style: UIBlurEffectStyle.Light)
-//            // 2
-//            let blurView = UIVisualEffectView(effect: lightBlur)
-//            blurView.frame = backgroundImage!.bounds
-//            // 3
-//            backgroundImage!.addSubview(blurView)
-//            backgroundImage?.sendSubviewToBack(backgroundImage!)
-
     }
 
     @IBAction func cancel(sender: AnyObject) {
@@ -105,12 +89,14 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        
+        if section == 0
+        {
             return 1
         }
-        else {
+        else
+        {
             return self.itemsString.count + 1
-
         }
     }
     
@@ -132,35 +118,36 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                 cell = self.tableView.dequeueReusableCellWithIdentifier("emailFieldCell")! as! SMBSignUpTableViewCell
                 cell.cellTextField!.delegate = self
                 cell.cellTextField?.tag = indexPath.row
+                cell.cellTextField!.returnKeyType = .Next
+                self.emailField = cell.cellTextField
                 return cell
             case 1:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("passwordFieldCell")! as! SMBSignUpTableViewCell
                 cell.cellTextField!.delegate = self
                 cell.cellTextField?.tag = indexPath.row
+                cell.cellTextField!.returnKeyType = .Next
+                self.passwordField = cell.cellTextField
             case 2:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("confirmPasswordFieldCell")! as! SMBSignUpTableViewCell
                 cell.cellTextField!.delegate = self
                 cell.cellTextField?.tag = indexPath.row
+                cell.cellTextField!.returnKeyType = .Next
+                self.confirmPasswordField = cell.cellTextField
             case 3:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("firstNameFieldCell")! as! SMBSignUpTableViewCell
                 cell.cellTextField!.delegate = self
                 cell.cellTextField?.tag = indexPath.row
+                cell.cellTextField!.returnKeyType = .Next
+                self.firstNameField = cell.cellTextField
             case 4:
                 cell = self.tableView.dequeueReusableCellWithIdentifier("lastNameFieldCell")! as! SMBSignUpTableViewCell
                 cell.cellTextField!.delegate = self
                 cell.cellTextField?.tag = indexPath.row
+                cell.cellTextField!.returnKeyType = .Done
+                self.lastNameField = cell.cellTextField
             case 5:
-                if(isComplete)
-                {
-                    let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("signUpCell")!
-                    return cell
-                }
-                else
-                {
-                    let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("signUpCell")!
-                    cell.hidden = true
-                    return cell
-                }
+                let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("signUpCell")!
+                return cell
             default:
                 break
             }
@@ -168,118 +155,18 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
             return cell
         }
     }
-    
-    /*
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        
-        if !userSigningUp {
-            userSigningUp  = true
-            items = ["Email", "Password", "Confirm Password", "First Name", "Last Name"]
-            self.tableView.beginUpdates()
-            self.tableView?.insertRowsAtIndexPaths(
-                [NSIndexPath(forRow: 1, inSection: 1),
-                    NSIndexPath(forRow: 2, inSection: 1),
-                    NSIndexPath(forRow: 3, inSection: 1),
-                    NSIndexPath(forRow: 4, inSection: 1),
-                    NSIndexPath(forRow: 4, inSection: 1)],
-                withRowAnimation: .Automatic)
-            // Insert or delete rows
-            self.tableView.endUpdates()
-            print(self.tableView.numberOfRowsInSection(1))
-            self.tableView?.reloadRowsAtIndexPaths([NSIndexPath(forRow: 1, inSection: 1),
-                NSIndexPath(forRow: 2, inSection: 1),
-                NSIndexPath(forRow: 3, inSection: 1),
-                NSIndexPath(forRow: 4, inSection: 1),
-                NSIndexPath(forRow: 4, inSection: 1)], withRowAnimation: UITableViewRowAnimation.Automatic)
-            return true
-        }
-        else {
-            return false
-        }
-    }
 
-    func textFieldDidBeginEditing(textField: UITextField) {
-        userSigningUp  = true
-        items = ["Email", "Password", "Confirm Password", "First Name", "Last Name"]
-        self.tableView.beginUpdates()
-        let indexPath1 = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView?.insertRowsAtIndexPaths(
-            [NSIndexPath(forRow: 0, inSection: 0),
-                NSIndexPath(forRow: 1, inSection: 0),
-                NSIndexPath(forRow: 2, inSection: 0),
-                NSIndexPath(forRow: 3, inSection: 0),
-                NSIndexPath(forRow: 4, inSection: 0)],
-            withRowAnimation: .None)
-        self.tableView?.deleteSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Automatic)
-        self.tableView?.deleteRowsAtIndexPaths([indexPath1], withRowAnimation: UITableViewRowAnimation.Automatic)
-        // Insert or delete rows
-        self.tableView.endUpdates()
-        self.tableView.reloadData()
-        self.adjustTableViewHeight()
-    }
-    */
-    
     func textFieldDidEndEditing(textField: UITextField) {
         
-        switch(textField.tag){
-        case 0:
-            if(textField.text != nil){
-                self.isEmptyFields[textField.tag] = true;
-                break
-            }
-        case 1:
-            if(textField.text != nil){
-                self.isEmptyFields[textField.tag] = true;
-                break
-            }
-        case 2:
-            if(textField.text != nil){
-                self.isEmptyFields[textField.tag] = true;
-                break
-            }
-        case 3:
-            if(textField.text != nil){
-                self.isEmptyFields[textField.tag] = true;
-                break
-            }
-        case 4:
-            if(textField.text != nil){
-                self.isEmptyFields[textField.tag] = true;
-                break
-            }
-        default:
-            break
-        }
-        
-        var currentBoolValue = false
-        for x in self.isEmptyFields {
-            if (x){
-                currentBoolValue = true
-            }
-            else
-            {
-                currentBoolValue = false
-            }
-        }
-        
-        let indexPath = NSIndexPath(forRow: 5, inSection: 1)
-        let cellRect = tableView.rectForRowAtIndexPath(indexPath)
-        let completelyVisible = tableView.bounds.contains(cellRect)
-        
-        if (currentBoolValue && !completelyVisible){
-            self.isComplete = true
-            let indexPath = NSIndexPath(forRow: 5, inSection: 1)
-            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Top)
 
-//            self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
-
-        }
-        
     }
     
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             self.signUpWithFacebookLogin()
+        }
+        else if (indexPath.section == 1 && indexPath.row == 5) {
+            self.submitAction()
         }
     }
     
@@ -345,6 +232,24 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        let nextTage=textField.tag+1;
+        // Try to find next responder
+        let nextResponder=textField.superview?.superview?.superview?.viewWithTag(nextTage) as UIResponder!
+        
+        if (nextResponder != nil){
+            // Found next responder, so set it.
+            nextResponder?.becomeFirstResponder()
+        }
+        else
+        {
+            // Not found, so remove keyboard
+            textField.resignFirstResponder()
+        }
+        return false // We do not want UITextField to insert line-breaks.
+    }
+    
     
     func signUpWithFacebookLogin() {
         let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
@@ -389,6 +294,93 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
             
         })
     }
+    
+    // MARK: - User Actions
+    
+     func submitAction() {
+        
+        // Validate name
+        
+        if self.firstNameField!.text!.characters.count < 2 {
+            MBProgressHUD.showMessage("Please enter your name", parent: self)
+            return
+        }
+        if self.lastNameField!.text!.characters.count < 2 {
+            MBProgressHUD.showMessage("Please enter your name", parent: self)
+            return
+        }
+        
+        // Validate email
+        
+        if self.emailField!.text!.characters.count == 0 {
+            MBProgressHUD.showMessage("Please enter your email", parent: self)
+            return
+        }
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        
+        if !emailTest.evaluateWithObject(self.emailField!.text) {
+            MBProgressHUD.showMessage("Please enter your email", parent: self)
+            return
+        }
+        
+        // Validate password
+        
+        if self.passwordField!.text!.characters.count < 6 {
+            MBProgressHUD.showMessage("Passwords need to be longer", parent: self)
+            return
+        }
+        else {
+            if(self.passwordField?.text != self.confirmPasswordField?.text){
+                return
+            }
+        }
+        
+        // All good! Sign up and push
+        
+        let newUser = SMBUser()
+        newUser.firstName = self.firstNameField!.text
+        newUser.lastName = self.lastNameField!.text
+        newUser.email = self.emailField!.text!.lowercaseString
+        newUser.username = self.emailField!.text!.lowercaseString
+        newUser.password = self.passwordField!.text
+        
+        print(newUser)
+        
+        let hud = MBProgressHUD.HUDwithMessage("Signing Up...", parent: self)
+        
+        newUser.signUpInBackgroundWithBlock { (succeeded: Bool, error: NSError?) -> Void in
+            
+            if succeeded {
+                
+                SMBUser.currentUser().fetchInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+                    
+                    if object != nil {
+                        
+                        SMBAppDelegate.instance().syncUserInstallation()
+                        
+                        SMBFriendsManager.sharedManager().loadObjects(nil)
+                        SMBFriendRequestsManager.sharedManager().loadObjects(nil)
+                        SMBChatManager.sharedManager().loadObjects(nil)
+                        
+                        hud.dismissQuickly()
+                        
+                        self.navigationController!.pushViewController(SMBConfirmPhoneViewController(), animated: true)
+                    }
+                    else {
+                        print("ERROR: \(error)")
+                        hud.dismissWithError()
+                    }
+                })
+            }
+            else {
+                print("ERROR: \(error)")
+                hud.dismissWithError()
+            }
+        }
+    }
+
     
     
     override func updateViewConstraints() {

@@ -470,50 +470,23 @@
                                                     </tableViewCellContentView>
                                                     <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </tableViewCell>
-                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="signUpCell" id="d4n-Pz-a47">
+                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="signUpCell" textLabel="YdQ-lO-SBT" style="IBUITableViewCellStyleDefault" id="d4n-Pz-a47">
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d4n-Pz-a47" id="kOh-Ap-vcU">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAq-e9-fsy">
-                                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                                <color key="backgroundColor" red="0.77850948952879584" green="0.19394223658767465" blue="0.16148230338506833" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                                <state key="normal" title="Sign Up">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                            </button>
+                                                            <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sign Up!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YdQ-lO-SBT">
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <variation key="heightClass=regular-widthClass=compact">
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                                </variation>
+                                                            </label>
                                                         </subviews>
                                                         <color key="backgroundColor" red="0.77850948949999998" green="0.19394223660000001" blue="0.1614823034" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="dAq-e9-fsy" secondAttribute="trailing" id="0Gg-3r-aKC"/>
-                                                            <constraint firstItem="dAq-e9-fsy" firstAttribute="leading" secondItem="kOh-Ap-vcU" secondAttribute="leading" id="Bf8-CQ-iNk"/>
-                                                            <constraint firstAttribute="bottom" secondItem="dAq-e9-fsy" secondAttribute="bottom" id="IoY-KS-7J0"/>
-                                                            <constraint firstItem="dAq-e9-fsy" firstAttribute="top" secondItem="kOh-Ap-vcU" secondAttribute="top" id="Q09-bA-QkM"/>
-                                                        </constraints>
-                                                        <variation key="default">
-                                                            <mask key="subviews">
-                                                                <exclude reference="dAq-e9-fsy"/>
-                                                            </mask>
-                                                            <mask key="constraints">
-                                                                <exclude reference="0Gg-3r-aKC"/>
-                                                                <exclude reference="Bf8-CQ-iNk"/>
-                                                                <exclude reference="IoY-KS-7J0"/>
-                                                                <exclude reference="Q09-bA-QkM"/>
-                                                            </mask>
-                                                        </variation>
-                                                        <variation key="heightClass=regular-widthClass=compact">
-                                                            <mask key="subviews">
-                                                                <include reference="dAq-e9-fsy"/>
-                                                            </mask>
-                                                            <mask key="constraints">
-                                                                <include reference="0Gg-3r-aKC"/>
-                                                                <include reference="Bf8-CQ-iNk"/>
-                                                                <include reference="IoY-KS-7J0"/>
-                                                                <include reference="Q09-bA-QkM"/>
-                                                            </mask>
-                                                        </variation>
                                                     </tableViewCellContentView>
                                                     <color key="backgroundColor" red="0.77850948949999998" green="0.19394223660000001" blue="0.1614823034" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
