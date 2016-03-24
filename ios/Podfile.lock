@@ -28,9 +28,9 @@ PODS:
   - Bolts/AppLinks (1.6.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.6.0)
-  - FBSDKCoreKit (4.10.0):
+  - FBSDKCoreKit (4.10.1):
     - Bolts (~> 1.5)
-  - FBSDKLoginKit (4.10.0):
+  - FBSDKLoginKit (4.10.1):
     - FBSDKCoreKit
   - iCarousel (1.8.2)
   - IQKeyboardManager (4.0.0)
@@ -48,7 +48,7 @@ PODS:
     - MMDrawerController/Core
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
-  - NMRangeSlider (1.2.1)
+  - NMRangeSlider (1.2.2)
   - Parse (1.8.5):
     - Bolts/Tasks (>= 1.2.2)
   - ParseFacebookUtilsV4 (1.8.5):
@@ -59,6 +59,9 @@ PODS:
   - ParseUI (1.1.6):
     - Bolts/Tasks (~> 1.2)
     - Parse (~> 1.8)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
   - TTRangeSlider (1.0.3)
 
 DEPENDENCIES:
@@ -71,28 +74,39 @@ DEPENDENCIES:
   - libPhoneNumber-iOS (~> 0.8)
   - MBProgressHUD (~> 0.8)
   - MMDrawerController (~> 0.5.7)
-  - NMRangeSlider
+  - NMRangeSlider (from `https://github.com/muZZkat/NMRangeSlider.git`)
   - Parse
   - ParseFacebookUtilsV4 (= 1.8.5)
   - ParseUI
+  - SDWebImage (~> 3.7)
   - TTRangeSlider
+
+EXTERNAL SOURCES:
+  NMRangeSlider:
+    :git: https://github.com/muZZkat/NMRangeSlider.git
+
+CHECKOUT OPTIONS:
+  NMRangeSlider:
+    :commit: 56e86760bfac4b0747cf1df55ed6669aff263855
+    :git: https://github.com/muZZkat/NMRangeSlider.git
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: 8312778b6815578e6a86d630fbcf31dc94c534e7
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   BMASliders: 6a6d6ca5f3f6fefce7ec9823d9c456fd03e106cc
   Bolts: f52a250053bb517ca874523c3913776359ab3def
-  FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
-  FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
+  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
+  FBSDKLoginKit: 699ff169080e3072de4b9b0faca90bf23dc36deb
   iCarousel: 67c8a43da5a46795b56aadfc96cd36a16f6149b2
   IQKeyboardManager: b91928f7927ba55a5829b4dcf4b7a6736ac9fc22
   libPhoneNumber-iOS: ded33fab2c51ee847979556aa504c9e70f32d703
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
-  NMRangeSlider: 317ded652431eb90501c8421d9cddc3930d891e6
+  NMRangeSlider: 02bb205d0c7f9bea09b5cf00fbcbc2bc2e3e10ff
   Parse: 17ad8e0677ed682f7f00503860fcda0f4eb74168
   ParseFacebookUtilsV4: cc51857cf984c6fc743e7f17c2ddebdb6f02f963
   ParseUI: 8a22e448c03f825203d8c379c80523517f68baa3
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   TTRangeSlider: a12d0ac242a785cf96d4c7dacfe07e42a161251e
 
 COCOAPODS: 0.39.0

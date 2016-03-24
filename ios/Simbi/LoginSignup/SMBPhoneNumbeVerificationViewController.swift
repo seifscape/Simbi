@@ -103,7 +103,8 @@ class SMBPhoneNumbeVerificationViewController: UIViewController, UITextFieldDele
                             if (error == nil) {
                                 hud.dismissQuickly()
                                 SMBUser.currentUser().confirmingPhoneNumber = phoneNumber
-                                self.navigationController!.pushViewController(SMBValidateSMSCodeViewController(), animated: true)
+                                self.performSegueWithIdentifier("validateSMS", sender: nil)
+//                                self.navigationController!.pushViewController(SMBValidateSMSCodeViewController(), animated: true)
                             }
                             else {
                                 hud.dismissWithError()
@@ -130,13 +131,13 @@ class SMBPhoneNumbeVerificationViewController: UIViewController, UITextFieldDele
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let svc = segue.destinationViewController as! SMBValidateSMSCodeViewController;
-
-        if (segue.identifier == "validate_sms") {
-            self.navigationController?.pushViewController(svc, animated: true)
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        let svc = segue.destinationViewController as! SMBValidateSMSCodeViewController;
+//
+//        if (segue.identifier == "validateSMS") {
+//            self.navigationController?.pushViewController(svc, animated: true)
+//        }
+//    }
 }

@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.4'
+platform :ios, '9.0'
 use_frameworks!
 
 #pod 'Former'
@@ -12,7 +12,7 @@ pod 'ParseUI'
 pod 'FBSDKCoreKit', '~> 4.8'
 pod 'ParseFacebookUtilsV4', '1.8.5'
 #pod 'ParseFacebookUtils'
-pod 'NMRangeSlider'
+pod 'NMRangeSlider', :git => 'https://github.com/muZZkat/NMRangeSlider.git'
 #pod 'Eureka'
 pod 'libPhoneNumber-iOS', '~> 0.8'
 pod 'ActionSheetPicker-3.0', '~> 2.0.4'
@@ -21,6 +21,8 @@ pod 'TTRangeSlider'
 pod 'BMASliders'
 #pod 'MARKRangeSlider'
 pod 'IQKeyboardManager'
+pod 'SDWebImage', '~>3.7'
+
 
 #bolts-ios #reactivecocoa mvvm
 #objectivesugar

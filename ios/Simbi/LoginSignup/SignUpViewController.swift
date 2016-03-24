@@ -152,6 +152,12 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                 break
             }
             
+            // Disable UITableViewCell Selection Color
+            // Circular Array / Social Network Algo / Cycle Sort 
+            // Linked List // What Makes good programmer
+            // Art of programming
+            cell.selectionStyle = .None
+            
             return cell
         }
     }
@@ -168,6 +174,8 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
         else if (indexPath.section == 1 && indexPath.row == 5) {
             self.submitAction()
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     
@@ -252,7 +260,7 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     func signUpWithFacebookLogin() {
-        let hud = MBProgressHUD.HUDwithMessage("Logging In...", parent: self)
+        let hud = MBProgressHUD.HUDwithMessage("Signing Up...", parent: self)
         
         let permissions = ["email", "public_profile", "user_friends"]
         
@@ -267,6 +275,7 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                 SMBFriendRequestsManager.sharedManager().loadObjects(nil)
                 SMBChatManager.sharedManager().loadObjects(nil)
                 
+                // New User
                 if user!.isNew || !(user as! SMBUser).isConfirmed {
                     
                     SMBUser.currentUser().syncWithFacebook({ (succeeded: Bool) -> Void in
@@ -274,8 +283,9 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                         if succeeded {
                             
                             hud.dismissQuickly()
+                            self.performSegueWithIdentifier("enterPhoneNumber", sender: nil)
                             
-                            self.navigationController!.pushViewController(SMBConfirmPhoneViewController(), animated: true)
+//                            self.navigationController?.pushViewController(SMBPhoneNumbeVerificationViewController(), animated: true)
                         }
                         else {
                             hud.dismissWithError()
@@ -284,6 +294,7 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 else {
                     hud.dismissQuickly()
+                    // Go to Home Screen
                     SMBAppDelegate.instance().animateToMain()
                 }
             }
@@ -366,7 +377,7 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                         
                         hud.dismissQuickly()
                         
-                        self.navigationController!.pushViewController(SMBConfirmPhoneViewController(), animated: true)
+                        self.navigationController!.pushViewController(SMBPhoneNumbeVerificationViewController(), animated: true)
                     }
                     else {
                         print("ERROR: \(error)")
@@ -395,15 +406,5 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
         cell.layoutMargins = UIEdgeInsetsZero
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -125,7 +125,7 @@ class SMBRandomUsersViewController: UIViewController {
             query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
         }
         else {
-            print("\(__FUNCTION__) - Warning: Current user does not have geoPoint")
+            print("\(#function) - Warning: Current user does not have geoPoint")
         }
         
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in

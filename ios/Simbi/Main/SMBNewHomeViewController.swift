@@ -15,11 +15,12 @@ import FBSDKCoreKit
 import ParseFacebookUtilsV4
 import BMASliders
 import NMRangeSlider
+import SDWebImage
 
-class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate {
+class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var tableView:UITableView!
-    
+    @IBOutlet weak var blurUIImageView: UIImageView?
     @IBOutlet var profileImageView:UIImageView!
     
     var isCurrentUser = false
@@ -29,9 +30,12 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
     var heightPrefSelector:BMASlider?
     var ageTextField:UITextField?
     var isComplete = false
-    
+    var heightPickerView:UIPickerView?
     
     var structPref:ProfilePreferences?
+    
+    var feetOption = ["0","1","2","3","4","5","6","7"]
+    var inchesOption = ["0","1","2","3","4","5","6","7","8","9","10","11"]
     
     
     struct Contact {
@@ -47,6 +51,96 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //        tableView.rowHeight = UITableViewAutomaticDimension
+        //        maskRoundedImage(profileImageView.image!, radius: 100)
+        //        self.profileImageView.image = [ImageHelper getImage]; //retrieve image
+        self.profileImageView.layer.cornerRadius = 60
+        self.profileImageView.layer.masksToBounds = true
+        self.profileImageView.layer.borderWidth = 3
+        self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        // Delegates
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.initialSetup()
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    func initialSetup() {
+        let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large", parameters: nil)
+        pictureRequest.startWithCompletionHandler({
+            (connection, result, error: NSError!) -> Void in
+            if error == nil {
+//                let photo_url = result["data"]!["url"]! as? [String: AnyObject]
+                let photoURL = result.objectForKey("data")?.objectForKey("url") as? String
+                let url: NSURL = NSURL(string: photoURL!)!
+                self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFit
+                self.profileImageView.sd_setImageWithURL(url)
+                self.blurUIImageView?.image = self.profileImageView.image
+                print("\(result)")
+            } else {
+                print("\(error)")
+            }
+        })
+        
+
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+        //set your View. Here is an example ..
+        if component == 0
+        {
+            let pickerviewtemp: UIView = UIView(frame: CGRectZero)
+            let lbl: UILabel = UILabel(frame: CGRectMake(0, 0, 100, 50))
+            lbl.backgroundColor = UIColor.clearColor()
+            lbl.text = "Feet"
+            lbl.font = UIFont.boldSystemFontOfSize(16)
+            pickerviewtemp.addSubview(lbl)
+            return pickerviewtemp
+        }
+        else
+        {
+            let pickerviewtemp: UIView = UIView(frame: CGRectZero)
+            let lbl: UILabel = UILabel(frame: CGRectMake(0, 0, 100, 50))
+            lbl.backgroundColor = UIColor.clearColor()
+            lbl.text = "Inches"
+            lbl.font = UIFont.boldSystemFontOfSize(16)
+            pickerviewtemp.addSubview(lbl)
+            return pickerviewtemp
+        }
+
+    }
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0
+        {
+            return self.feetOption.count
+        }
+        else
+        {
+            return self.inchesOption.count
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0
+        {
+            return self.feetOption[row];
+        }
+        else
+        {
+            return self.inchesOption[row];
+        }
+    }
     
     func userHeightDidChange(slider: BMASlider) {
         
@@ -107,23 +201,6 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        tableView.rowHeight = UITableViewAutomaticDimension
-//        maskRoundedImage(profileImageView.image!, radius: 100)
-//        self.profileImageView.image = [ImageHelper getImage]; //retrieve image
-        self.profileImageView.layer.cornerRadius = 60
-        self.profileImageView.layer.masksToBounds = true
-        self.profileImageView.layer.borderWidth = 3
-        self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        // Delegates
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        // Do any additional setup after loading the view.
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
@@ -176,25 +253,25 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell = tableView.dequeueReusableCellWithIdentifier("heightCell")! as UITableViewCell
                 let titleLableFrame = (cell.textLabel?.frame.width)! + 40
                 let detailLableFrame = (cell.detailTextLabel?.frame.width)! + 30
-                let sliderView = NMRangeSlider(frame: CGRectMake(titleLableFrame,(cell.textLabel?.frame.height)!, tableView.frame.width-(titleLableFrame + detailLableFrame), 44))
-                sliderView.minimumValue = 48
-                sliderView.maximumValue = 84
-                sliderView.minimumRange = 1
-                sliderView.tag = 100
-                sliderView.frame = CGRectMake(titleLableFrame,(cell.textLabel?.frame.height)!, tableView.frame.width-(titleLableFrame + detailLableFrame), 44)
-
-                cell.addSubview(sliderView)
-
-//                sliderView.clipsToBounds = true
-                sliderView.tintColor = UIColor.blueColor()
-                if(cell.contentView.viewWithTag(100) == nil){
-                    cell.addSubview(sliderView)
-                }
-                else {
-                    cell.viewWithTag(100)?.removeFromSuperview()
-                }
-//                userHeightDidChange(sliderView)
-                sliderView.addTarget(self, action: "userHeightDidChange:", forControlEvents: .ValueChanged)
+//                let sliderView = NMRangeSlider(frame: CGRectMake(titleLableFrame,(cell.textLabel?.frame.height)!, tableView.frame.width-(titleLableFrame + detailLableFrame), 44))
+//                sliderView.minimumValue = 48
+//                sliderView.maximumValue = 84
+//                sliderView.minimumRange = 1
+//                sliderView.tag = 100
+//                sliderView.frame = CGRectMake(titleLableFrame,(cell.textLabel?.frame.height)!, tableView.frame.width-(titleLableFrame + detailLableFrame), 44)
+//
+//                cell.addSubview(sliderView)
+//
+////                sliderView.clipsToBounds = true
+//                sliderView.tintColor = UIColor.blueColor()
+//                if(cell.contentView.viewWithTag(100) == nil){
+//                    cell.addSubview(sliderView)
+//                }
+//                else {
+//                    cell.viewWithTag(100)?.removeFromSuperview()
+//                }
+////                userHeightDidChange(sliderView)
+//                sliderView.addTarget(self, action: "userHeightDidChange:", forControlEvents: .ValueChanged)
             case (1, 0):
                 cell = tableView.dequeueReusableCellWithIdentifier("genderCellPref")! as UITableViewCell
                 let items = ["Male", "Female", "Both"]
@@ -241,14 +318,14 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 sliderView.maximumValue = 84
                 sliderView.setUpperValue(sliderView.maximumValue, animated: false)
                 sliderView.setLowerValue(sliderView.minimumValue, animated: false)
-                
                 sliderView.clipsToBounds = true
-                sliderView.tag = 100
-                if((cell.contentView.viewWithTag(100)) != nil){
-                    cell.viewWithTag(100)?.removeFromSuperview()
+                sliderView.tag = 200
+                if((cell.contentView.viewWithTag(200)) == nil){
+                    cell.addSubview(sliderView)
                 }
                 else {
-                    cell.addSubview(sliderView)
+                    cell.viewWithTag(200)?.removeFromSuperview()
+
                 }
 
 //                sliderView.sizeToFit()
@@ -274,9 +351,26 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 
         
         if(indexPath.section == 0 && indexPath.row == 2){
+//            UIView.animateWithDuration(1, animations: { () -> Void in
+//                // And set final frame here
+//                self.heightPickerView = UIPickerView()
+//                //        self.heightPickerView?.frame = CGRectMake(100, 100, 100, 162)
+//                self.heightPickerView!.delegate = self
+//                self.heightPickerView?.backgroundColor = UIColor.whiteColor()
+//                self.heightPickerView!.dataSource = self
+//                let viewFrame: CGRect = self.view.frame
+//                let pickerHeight = self.heightPickerView!.frame.size.height
+//                // assume you have an outlet called picker
+//                self.heightPickerView?.frame = CGRectMake(0, viewFrame.size.height - pickerHeight, viewFrame.size.width, pickerHeight)
+//                self.view.addSubview(self.heightPickerView!)
+////                self.heightPickerView!.superview!.bringSubviewToFront(self.heightPickerView!)
+//
+//
+//            })
+            
             self.multipleStringPickerClicked(selectedCell, completionClosure: { (value) -> () in
-                selectedCell.detailTextLabel?.text = (value[0] + "'" + value[1])
-                self.structPref?.height = value[0] + "'" + value[1]
+                selectedCell.detailTextLabel?.text = (value[0] + " " + value[1])
+                self.structPref?.height = value[0] + " " + value[1]
                 self.isComplete = true
                 self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
                 selectedCell.layoutIfNeeded()
@@ -348,9 +442,9 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         
         
-        ActionSheetMultipleStringPicker.showPickerWithTitle("Feet - Inches ", rows: [
-            ["1", "2", "3", "4", "5", "6", "7"],
-            ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
+        ActionSheetMultipleStringPicker.showPickerWithTitle("Height ", rows: [
+            ["1 ft", "2 ft", "3 ft", "4 ft", "5 ft", "6 ft", "7 ft"],
+            ["0 in", "1 in", "2 in", "3 in", "4 in", "5 in", "6 in", "7 in", "8 in", "9 in", "10 in", "11 in"]
             ], initialSelection: [2, 2], doneBlock: {
                 picker, values, indexes in
                 
@@ -410,8 +504,25 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
             self.structPref?.genderPref = sender.selectedSegmentIndex
         }
     }
-}
+    
+    /*
+    Image Resizing Techniques: http://bit.ly/1Hv0T6i
+    https://gist.github.com/tomasbasham/10533743
+    */
+    func scaleUIImageToSize(let image: UIImage, let size: CGSize) -> UIImage {
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+        image.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
 
+}
 
 
 extension UIView {
