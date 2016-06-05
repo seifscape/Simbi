@@ -10,13 +10,6 @@
 
 #import "PFImageView+Simbi.h"
 
-@interface PFImageView (Simbi)
-
-// Methods to help interface with the "Image" class on Parse
-
-// these methods will load the image safely without crashing the
-// app if the image is not yet fetched.
-
 typedef enum kImageType : NSInteger
 {
     kImageTypeThumbnail,
@@ -24,6 +17,14 @@ typedef enum kImageType : NSInteger
     kImageTypeMediumSquare,
     kImageTypeOriginalImage
 } kImageType;
+
+
+@interface PFImageView (Simbi)
+
+// Methods to help interface with the "Image" class on Parse
+
+// these methods will load the image safely without crashing the
+// app if the image is not yet fetched.
 
 typedef void (^PFImageSimbiBlock)(SMBImage *image, NSError *error);
 

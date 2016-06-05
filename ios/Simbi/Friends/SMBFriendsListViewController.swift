@@ -69,9 +69,9 @@ class SMBFriendsListViewController: UITableViewController {
     func loadContactNotInSimi(contacts:NSArray){
         self.objectsNotInSimbiAndButInContacts = []
             for contact in contacts {
-            let ph:NSArray = contact["Phone"] as! NSArray
+            let ph:NSArray = contact["Phone"]! as! NSArray
             var isSimbiUser = false
-            let name = contact["fullName"]
+            let name = contact["fullName"]! as! NSArray
             var phoneNo:String = ""
             print(name)
             for phone in ph {

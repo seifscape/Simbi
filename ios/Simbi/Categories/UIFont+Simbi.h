@@ -6,20 +6,12 @@
 //  Copyright (c) 2014 SimbiSocial. All rights reserved.
 //
 
+#import "SMBFontType.h"
+
+
 @interface UIFont (Simbi)
 
 // Font attribute bitmask
-
-typedef enum : NSUInteger {
-    kFontRegular    = (1 << 0),
-    kFontBlack      = (1 << 1),
-    kFontBold       = (1 << 2),
-    kFontItalic     = (1 << 3),
-    kFontCondensed  = (1 << 4),
-    kFontLight      = (1 << 5),
-    kFontMedium     = (1 << 6)
-} SMBFontAttribute;
-
 + (UIFont *)simbiFontWithAttributes:(SMBFontAttribute)attributes size:(CGFloat)size;
 
 + (UIFont *)simbiFontWithSize:(CGFloat)size;
@@ -27,3 +19,4 @@ typedef enum : NSUInteger {
 + (UIFont *)simbiLightFontWithSize:(CGFloat)size;
 
 @end
+

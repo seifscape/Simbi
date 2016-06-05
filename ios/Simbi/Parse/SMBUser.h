@@ -17,9 +17,6 @@
 @class SMBUserPrivate;
 @class SMBUserCredits;
 
-
-@interface SMBUser : PFUser <PFSubclassing>
-
 typedef enum SMBUserGenderType : NSInteger
 {
     kSMBUserGenderMale = 0,
@@ -35,6 +32,8 @@ typedef enum SMBUserPreference : NSInteger
     kSMBUserPreferenceThird,
     kSMBUserPreferenceNone
 } SMBUserPreference;
+
+@interface SMBUser : PFUser <PFSubclassing>
 
 + (SMBUser *)currentUser;
 + (BOOL)exists;

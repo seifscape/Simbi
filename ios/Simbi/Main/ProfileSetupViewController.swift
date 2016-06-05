@@ -13,15 +13,17 @@ import Parse
 import Bolts
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
-import BMASliders
-import NMRangeSlider
-import SDWebImage
+//import BMASliders
+//import NMRangeSlider
+//import SDWebImage
 
-class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var tableView:UITableView!
-    @IBOutlet weak var blurUIImageView: UIImageView?
+    @IBOutlet weak var blurUIImageView: UIImageView!
     @IBOutlet var profileImageView:UIImageView!
+    
+    var submitButton:UIButton?
     
     var isCurrentUser = false
     var genderSegment:UISegmentedControl?
@@ -56,19 +58,29 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         //        tableView.rowHeight = UITableViewAutomaticDimension
         //        maskRoundedImage(profileImageView.image!, radius: 100)
         //        self.profileImageView.image = [ImageHelper getImage]; //retrieve image
-        self.profileImageView.layer.cornerRadius = 60
-        self.profileImageView.layer.masksToBounds = true
-        self.profileImageView.layer.borderWidth = 3
-        self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
-        self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        self.profileImageView?.layer.cornerRadius = 60
+        self.profileImageView?.layer.masksToBounds = true
+        self.profileImageView?.layer.borderWidth = 3
+        self.profileImageView?.layer.borderColor = UIColor.whiteColor().CGColor
+        self.profileImageView?.contentMode = UIViewContentMode.ScaleAspectFill
+        let btn: UIButton = UIButton(frame: self.profileImageView!.frame)
+        btn.layer.cornerRadius = 60
+        btn.layer.masksToBounds = true
+        btn.contentMode = UIViewContentMode.ScaleAspectFill
+        btn.setTitle("Upload Photo", forState: UIControlState.Normal)
+        btn.addTarget(self, action: #selector(ProfileSetupViewController.uploadImage), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.tag = 99               // change tag property
+        self.profileImageView!.addSubview(btn) // add to view as subview
+        
         
         // Delegates
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+        self.tableView!.dataSource = self
+        self.tableView!.delegate = self
         self.initialSetup()
         // Do any additional setup after loading the view.
     }
     
+
     
     func initialSetup() {
         let pictureRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large", parameters: nil)
@@ -78,9 +90,9 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 //                let photo_url = result["data"]!["url"]! as? [String: AnyObject]
                 let photoURL = result.objectForKey("data")?.objectForKey("url") as? String
                 let url: NSURL = NSURL(string: photoURL!)!
-                self.profileImageView.contentMode = UIViewContentMode.ScaleAspectFit
-                self.profileImageView.sd_setImageWithURL(url)
-                self.blurUIImageView?.image = self.profileImageView.image
+                self.profileImageView?.contentMode = UIViewContentMode.ScaleAspectFit
+                self.profileImageView?.sd_setImageWithURL(url)
+                self.blurUIImageView?.image = self.profileImageView?.image
                 print("\(result)")
             } else {
                 print("\(error)")
@@ -148,7 +160,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 
         currentCell.detailTextLabel!.text = heightString(Int(slider.currentValue))
         
-//        SMBUser.currentUser().height = NSNumber(integer: Int(slider.currentValue))
+        SMBUser.currentUser().height = NSNumber(integer: Int(slider.currentValue))
     }
     
     
@@ -159,8 +171,8 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         currentCell.detailTextLabel!.text = heightString(Int(slider.lowerValue)) + "-" + heightString(Int(slider.upperValue))
         
-//        SMBUser.currentUser().lowerHeightPreference = NSNumber(integer: Int(slider.lowerValue))
-//        SMBUser.currentUser().upperHeightPreference = NSNumber(integer: Int(slider.upperValue))
+        SMBUser.currentUser().lowerHeightPreference = NSNumber(integer: Int(slider.lowerValue))
+        SMBUser.currentUser().upperHeightPreference = NSNumber(integer: Int(slider.upperValue))
     }
     
     func agePreferenceDidChange(slider: BMARangeSlider) {
@@ -172,6 +184,9 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         else {
             currentCell.detailTextLabel!.text = "\(Int(slider.currentLowerValue))-\(Int(slider.currentUpperValue))"
         }
+        
+        SMBUser.currentUser().lowerAgePreference = NSNumber(integer: Int(slider.currentLowerValue))
+        SMBUser.currentUser().upperAgePreference = NSNumber(integer: Int(slider.currentUpperValue))
 
         
     }
@@ -191,8 +206,8 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         query.getObjectInBackgroundWithId(obid!) { (userObject: PFObject?, error: NSError?) -> Void in
             userObject!["lookingto"] = self.genderPrefSegment?.selectedSegmentIndex
             userObject!["genderPreference"] = self.genderSegment?.selectedSegmentIndex
-//            userObject!["upperAgePreference"] = self.ageSelector!.maxValue
-//            userObject!["lowerAgePreference"] = self.ageSelector!.maxValue
+            userObject!["upperAgePreference"] = self.ageSelector!.maxValue
+            userObject!["lowerAgePreference"] = self.ageSelector!.maxValue
             userObject?.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 if (success){
                     hud.dismissWithMessage("Save success!")
@@ -225,14 +240,26 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         switch shortPath {
             case (0, 0):
                 cell = tableView.dequeueReusableCellWithIdentifier("genderCell")! as UITableViewCell
-                let items = ["Male", "Female"]
+                let items = ["Male", "Female", "+"]
                 genderSegment = UISegmentedControl(items: items)
 //                genderSegment!.selectedSegmentIndex = 0
-                genderSegment!.addTarget(self, action: "indexChanged:", forControlEvents: .ValueChanged)
+                genderSegment!.addTarget(self, action: #selector(ProfileSetupViewController.userGenderDidChange(_:)), forControlEvents: .ValueChanged)
                 cell.accessoryType = .None
                 genderSegment!.frame = CGRectZero
                 genderSegment!.sizeToFit()
                 cell.accessoryView = genderSegment!
+            
+                if SMBUser.currentUser().gender != nil {
+                    switch SMBUser.currentUser().gender {
+                    case "male":
+                        genderSegment!.selectedSegmentIndex = 0
+                    case "female":
+                        genderSegment!.selectedSegmentIndex = 1
+                    default:
+                        genderSegment!.selectedSegmentIndex = 2
+                    }
+            }
+            
             case (0, 1):
                 cell = tableView.dequeueReusableCellWithIdentifier("ageCell")! as UITableViewCell
                 let sampleTextField = UITextField(frame: CGRectMake(20, 100, 300, 40))
@@ -251,8 +278,8 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell.accessoryView = sampleTextField
             case (0, 2):
                 cell = tableView.dequeueReusableCellWithIdentifier("heightCell")! as UITableViewCell
-                let titleLableFrame = (cell.textLabel?.frame.width)! + 40
-                let detailLableFrame = (cell.detailTextLabel?.frame.width)! + 30
+                (cell.textLabel?.frame.width)! + 40
+                (cell.detailTextLabel?.frame.width)! + 30
 //                let sliderView = NMRangeSlider(frame: CGRectMake(titleLableFrame,(cell.textLabel?.frame.height)!, tableView.frame.width-(titleLableFrame + detailLableFrame), 44))
 //                sliderView.minimumValue = 48
 //                sliderView.maximumValue = 84
@@ -276,7 +303,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 cell = tableView.dequeueReusableCellWithIdentifier("genderCellPref")! as UITableViewCell
                 let items = ["Male", "Female", "Both"]
                 genderPrefSegment = UISegmentedControl(items: items)
-                genderPrefSegment!.addTarget(self, action: "indexChanged:", forControlEvents: .ValueChanged)
+                genderPrefSegment!.addTarget(self, action: #selector(ProfileSetupViewController.userGenderPrefDidChange(_:)), forControlEvents: .ValueChanged)
 //                genderPrefSegment!.selectedSegmentIndex = 0
                 cell.accessoryType = .None
                 genderPrefSegment!.frame = CGRectZero
@@ -306,7 +333,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
 
                 self.agePreferenceDidChange(sliderView)
-                sliderView.addTarget(self, action: "agePreferenceDidChange:", forControlEvents: .ValueChanged)
+                sliderView.addTarget(self, action: #selector(ProfileSetupViewController.agePreferenceDidChange(_:)), forControlEvents: .ValueChanged)
 
 //                self.ageSelector = sliderView
             case (1, 2):
@@ -332,7 +359,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 //                sliderView.rangeFormatter = BMARangeFormatter()
                 heightPreferenceDidChange(sliderView)
                 cell.layoutIfNeeded()
-                sliderView.addTarget(self, action: "heightPreferenceDidChange:", forControlEvents: .ValueChanged)
+                sliderView.addTarget(self, action: #selector(ProfileSetupViewController.heightPreferenceDidChange(_:)), forControlEvents: .ValueChanged)
             default:
                 cell = tableView.dequeueReusableCellWithIdentifier("genderCell")! as UITableViewCell
                 }
@@ -342,6 +369,8 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 //    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return 70
 //    }
+    
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -372,11 +401,15 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
                 selectedCell.detailTextLabel?.text = (value[0] + " " + value[1])
                 self.structPref?.height = value[0] + " " + value[1]
                 self.isComplete = true
-                self.tableView.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
+                self.tableView!.reloadSections(NSIndexSet(index: 1), withRowAnimation: UITableViewRowAnimation.Fade)
                 selectedCell.layoutIfNeeded()
                 return
             })
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        else if (indexPath.section == 1 && isComplete)
+        {
+            
         }
     }
     
@@ -399,6 +432,13 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
             let containerView = UIView(frame:footerView.frame)
             footerView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             containerView.addSubview(footerView)
+            let btn: UIButton = UIButton(frame: footerView.frame)
+            btn.backgroundColor = UIColor.clearColor()
+            btn.setTitle("", forState: UIControlState.Normal)
+            btn.addTarget(self, action: #selector(ProfileSetupViewController.submitAction), forControlEvents: UIControlEvents.TouchUpInside)
+            btn.tag = 1               // change tag property
+            footerView.addSubview(btn) // add to view as subview
+
             return containerView
 
 //            let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("saveCell")!
@@ -430,7 +470,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
 
-        if(tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height)) {
+        if(tableView?.contentOffset.y >= ((tableView?.contentSize.height)! - (tableView?.frame.size.height)!)) {
             //user has scrolled to the bottom
         }
 
@@ -487,6 +527,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
     func textFieldDidEndEditing(textField: UITextField) {
         if (textField.isEqual(self.ageTextField)){
             structPref?.age = Int(textField.text!)!
+            SMBUser.currentUser().age = structPref?.age
         }
     }
     
@@ -495,15 +536,32 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         return false
     }
     
-    func indexChanged(sender : UISegmentedControl) {
+    func userGenderDidChange(sender : UISegmentedControl) {
         
         if (sender.isEqual(self.genderSegment)){
+            
             self.structPref?.gender = sender.selectedSegmentIndex
+            switch sender.selectedSegmentIndex {
+            case 0:  SMBUser.currentUser().setGenderType(kSMBUserGenderMale)
+            case 1:  SMBUser.currentUser().setGenderType(kSMBUserGenderFemale)
+            default: SMBUser.currentUser().setGenderType(kSMBUserGenderOther)
+            }
         }
         else {
             self.structPref?.genderPref = sender.selectedSegmentIndex
         }
     }
+    
+    func userGenderPrefDidChange(sender : UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:  SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderMale)
+        case 1:  SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderFemale)
+        default: SMBUser.currentUser().setGenderPreferenceType(kSMBUserGenderOther)
+        }
+    }
+    
+    
+    
     
     /*
     Image Resizing Techniques: http://bit.ly/1Hv0T6i
@@ -521,6 +579,7 @@ class SMBNewHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         return scaledImage
     }
+    
 
 }
 

@@ -55,7 +55,21 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+//    [UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName :
+//                                                          [UIColor lightTextColor] } forState:UIControlStateNormal];
+//    
+//    [UITabBarItem.appearance setTitleTextAttributes:@{NSForegroundColorAttributeName :
+//                                                          [UIColor whiteColor] }     forState:UIControlStateSelected];
+
+    [[UITabBar appearance] setBarTintColor:[UIColor clearColor]];
+    [[UITabBar appearance] setBackgroundImage:[UIImage new]];
+
+//    UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.grayColor()], forState:.Normal)
+//    
+//    UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.redColor()], forState:.Selected)
+
     [[IQKeyboardManager sharedManager] setEnable:YES];
 
     // Set up Parse

@@ -377,7 +377,7 @@ class SignUpViewController: UIViewController, UITableViewDataSource, UITableView
                         
                         hud.dismissQuickly()
                         
-                        self.navigationController!.pushViewController(SMBPhoneNumbeVerificationViewController(), animated: true)
+                        self.navigationController?.pushViewController(SMBPhoneNumbeVerificationViewController(), animated: true)
                     }
                     else {
                         print("ERROR: \(error)")

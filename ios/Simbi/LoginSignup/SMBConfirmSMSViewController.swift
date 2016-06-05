@@ -58,8 +58,11 @@ class SMBConfirmSMSViewController: UIViewController {
                     SMBUser.currentUser().isConfirmed = true
                 
                     hud.dismissQuickly()
-                    self.performSegueWithIdentifier("onBoarding", sender: nil)
-//                    self.navigationController!.pushViewController(SMBAccountInfoViewController(), animated: true)
+//                    self.dismissViewController(self)
+                    self.performSegueWithIdentifier("profileSetup", sender: nil)
+//                    self.navigationController!.pushViewController(ProfileSetupViewController(), animated: true)
+//                    self.navigationController!.pushViewController(ProfileSetupViewController(), animated: true)
+
                 }
                 else {
                     hud.dismissWithMessage("Try Again!")
@@ -101,3 +104,4 @@ class SMBConfirmSMSViewController: UIViewController {
     */
 
 }
+

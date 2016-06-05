@@ -15,6 +15,7 @@
 #import "NBPhoneNumberUtil.h"
 #import "NBPhoneNumber.h"
 #import "NMRangeSlider.h"
+#import <APAddressBook/APAddressBook-Bridging.h>
 
 // Categories
 
@@ -62,7 +63,7 @@
 #import "SMBManagerTableView.h"
 
 // Others
-
+#import "SMBFontType.h"
 #import "SMBAppDelegate.h"
 #import "_SMBRandomUsersView.h"
 #import "_SMBLoginSignupViewController.h"

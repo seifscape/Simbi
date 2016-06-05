@@ -21,7 +21,7 @@ class SMBPhoneNumbeVerificationViewController: UIViewController, UITextFieldDele
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.numberField?.delegate = self
-        self.numberField?.addTarget(self, action: "textFieldDidChange:", forControlEvents: .EditingChanged)
+        self.numberField?.addTarget(self, action: #selector(SMBPhoneNumbeVerificationViewController.textFieldDidChange(_:)), forControlEvents: .EditingChanged)
 
 
     }
@@ -97,7 +97,8 @@ class SMBPhoneNumbeVerificationViewController: UIViewController, UITextFieldDele
             PFCloud.callFunctionInBackground("phoneNumberExists", withParameters: params, block: { (response: AnyObject?, error: NSError?) -> Void in
                 
                 if response != nil {
-                    if response as! String == "NO" {
+                    // YES for now
+                    if response as! String == "YES" {
                         let params = ["phoneNumber": phoneNumber]
                         PFCloud.callFunctionInBackground("sendConfirmationCode", withParameters: params, block: { (result: AnyObject?, error: NSError?) -> Void in
                             if (error == nil) {

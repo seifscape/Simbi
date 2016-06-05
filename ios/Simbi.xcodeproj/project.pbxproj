@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1835FB181AA99C550068F60A /* selfInvisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB161AA99C550068F60A /* selfInvisible.png */; };
 		1835FB1A1AA99CB90068F60A /* selfVisible.png in Resources */ = {isa = PBXBuildFile; fileRef = 1835FB191AA99CB90068F60A /* selfVisible.png */; };
-		183DBD5F3D1D992892AA8A09 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E19103C85D5390C9951DCC9A /* Pods.framework */; };
 		18472BB21AB27EDC0006BC5C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18472BB11AB27EDC0006BC5C /* AddressBook.framework */; };
 		18472BB41AB27EE40006BC5C /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18472BB31AB27EE40006BC5C /* AddressBookUI.framework */; };
 		18472BB61AB289AB0006BC5C /* SMBContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18472BB51AB289AB0006BC5C /* SMBContactModel.swift */; };
@@ -26,25 +25,35 @@
 		18DEBB891AADD23000EEE7C5 /* LiuMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB881AADD23000EEE7C5 /* LiuMyProfileViewController.swift */; };
 		18DEBB8D1AADD45400EEE7C5 /* SMBMyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DEBB8B1AADD45400EEE7C5 /* SMBMyProfile.m */; };
 		18DEBB8E1AADD45400EEE7C5 /* SMBMyProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DEBB8C1AADD45400EEE7C5 /* SMBMyProfile.xib */; };
+		280177971CC70DAE00E98001 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280177961CC70DAE00E98001 /* UserProfileController.swift */; };
 		2812383E1C0FEEB00070A2A6 /* SMBValidateSMSCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812383D1C0FEEB00070A2A6 /* SMBValidateSMSCodeViewController.swift */; };
-		282407E01C0BB9C500BD83CA /* SMBNewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282407DF1C0BB9C500BD83CA /* SMBNewHomeViewController.swift */; };
+		282407E01C0BB9C500BD83CA /* ProfileSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282407DF1C0BB9C500BD83CA /* ProfileSetupViewController.swift */; };
 		282407E31C0BBC5300BD83CA /* SMBHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282407E21C0BBC5300BD83CA /* SMBHomeTableViewCell.swift */; };
+		2833AC8B1CA4C38A001E6D92 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2833AC8A1CA4C38A001E6D92 /* LoginViewController.swift */; };
 		283CB1461CA2375A006740B7 /* SimbiCommons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283CB1451CA2375A006740B7 /* SimbiCommons.swift */; };
-		283DD2C41C01234900279B4B /* SMBSignUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD2C31C01234900279B4B /* SMBSignUpTableViewCell.swift */; };
-		283FC9D61C002A5B00FBF891 /* SMBCellTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FC9D51C002A5B00FBF891 /* SMBCellTextField.swift */; };
+		284CC3C01CC451B100E8E8D4 /* ConversationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284CC3BF1CC451B100E8E8D4 /* ConversationsController.swift */; };
+		284F55B51CA8C36700537A3E /* SimbiUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284F55B41CA8C36700537A3E /* SimbiUser.swift */; };
+		284F55B71CA8C46D00537A3E /* HomeFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284F55B61CA8C46D00537A3E /* HomeFeedController.swift */; };
 		285688ED1BF82789001EF715 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 285688EC1BF82789001EF715 /* Login.storyboard */; };
-		286CDE331C093A35001F321B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 286CDE321C093A35001F321B /* Home.storyboard */; };
 		2872B85A1C0678E300380403 /* SMBHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2872B8591C0678E300380403 /* SMBHeaderTableViewCell.swift */; };
 		287E0D921C14FF2800558F39 /* SMBProfileCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E0D911C14FF2800558F39 /* SMBProfileCreationViewController.swift */; };
-		28888E341C1CB37200E3ADAE /* SMBHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28888E331C1CB37200E3ADAE /* SMBHeightCell.xib */; };
+		289C71041CA9D67800CB3949 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C71031CA9D67800CB3949 /* MyProfileViewController.swift */; };
+		289C71061CA9E81500CB3949 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289C71051CA9E81500CB3949 /* FriendsViewController.swift */; };
 		28B9E3F91BF835FC00DD2F69 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B9E3F81BF835FC00DD2F69 /* Launch Screen.storyboard */; };
-		28B9E3FD1BF843F800DD2F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9E3FC1BF843F800DD2F69 /* SignUpViewController.swift */; };
+		28C4B4D61CAB409900243340 /* SMBFontType.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C4B4D51CAB409900243340 /* SMBFontType.m */; };
+		28C51D4C1D0395D200F72EFA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B9E3FC1BF843F800DD2F69 /* SignUpViewController.swift */; };
 		28C9BAEA1C2E40700055F0F8 /* ProfilePreferences .swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C9BAE91C2E40700055F0F8 /* ProfilePreferences .swift */; };
 		28D7E28F1C2C9728000E585F /* SMBAgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7E28E1C2C9728000E585F /* SMBAgeTableViewCell.swift */; };
+		28DE445B1CA5DB2700BD4188 /* HomeFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE445A1CA5DB2700BD4188 /* HomeFeedCell.swift */; };
 		28E30E3A1C1BC429003A91F7 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30E391C1BC429003A91F7 /* Profile.swift */; };
 		28E399171C12A35A00B02B1E /* SMBConfirmSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E399161C12A35900B02B1E /* SMBConfirmSMSViewController.swift */; };
 		28E8AE691C0EAAA8005CD088 /* SMBPhoneNumbeVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E8AE681C0EAAA8005CD088 /* SMBPhoneNumbeVerificationViewController.swift */; };
 		28EA82FD1BFD8807007CC7B9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EA82FC1BFD8807007CC7B9 /* QuartzCore.framework */; };
+		28ECD49B1D03900900F64CD1 /* SMBCellTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283FC9D51C002A5B00FBF891 /* SMBCellTextField.swift */; };
+		28F6EEFC1CA4C75500A235A1 /* _SMBLoginSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F6EEF91CA4C75500A235A1 /* _SMBLoginSignupViewController.m */; };
+		28F6EEFD1CA4C75500A235A1 /* _SMBSignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F6EEFB1CA4C75500A235A1 /* _SMBSignupInfoViewController.m */; };
+		28F6EF001CA4E25000A235A1 /* Home_Simbi .storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F6EEFF1CA4E25000A235A1 /* Home_Simbi .storyboard */; };
+		28F6EF021CA59D0800A235A1 /* RoundableUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F6EF011CA59D0800A235A1 /* RoundableUIImageView.swift */; };
 		5201CC5B198187170079FFDA /* SMBPinLocationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC5A198187170079FFDA /* SMBPinLocationButton.m */; };
 		5201CC64198192CA0079FFDA /* _SMBAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC63198192CA0079FFDA /* _SMBAnnotation.m */; };
 		5201CC67198192D60079FFDA /* _SMBMapsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5201CC66198192D60079FFDA /* _SMBMapsView.m */; };
@@ -62,7 +71,6 @@
 		5214230719FAD5AD00DC658D /* SMBSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5214230619FAD5AD00DC658D /* SMBSignUpViewController.swift */; };
 		5214230919FAD5BA00DC658D /* SMBConfirmPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5214230819FAD5BA00DC658D /* SMBConfirmPhoneViewController.swift */; };
 		521EF71819F9ABE900D6A53F /* SMBChatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EF71719F9ABE900D6A53F /* SMBChatButton.swift */; };
-		521EF71B19F9C45100D6A53F /* SMBCreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521EF71A19F9C45100D6A53F /* SMBCreditsViewController.swift */; };
 		5222D26419B0C43100DC5E76 /* SMBFriendsListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5222D26319B0C43100DC5E76 /* SMBFriendsListTableView.m */; };
 		5222D27819B0CFCD00DC5E76 /* DINOT-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5222D26919B0CFCD00DC5E76 /* DINOT-Black.otf */; };
 		5222D27919B0CFCD00DC5E76 /* DINOT-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5222D26A19B0CFCD00DC5E76 /* DINOT-BlackItalic.otf */; };
@@ -103,7 +111,6 @@
 		522DA5FD19FADF0E0086A25C /* signin_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 522DA5FC19FADF0E0086A25C /* signin_background.png */; };
 		522DA5FF19FAE3A50086A25C /* SMBFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DA5FE19FAE3A50086A25C /* SMBFormViewController.swift */; };
 		522DA60319FB0DCD0086A25C /* exploding_phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 522DA60219FB0DCD0086A25C /* exploding_phone.png */; };
-		522DA60519FB13060086A25C /* SMBConfirmationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522DA60419FB13060086A25C /* SMBConfirmationCodeViewController.swift */; };
 		5233EA101948D41900C4095C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5233EA0F1948D41900C4095C /* Foundation.framework */; };
 		5235C84719E587BE0022CF8D /* SMBMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5235C84619E587BE0022CF8D /* SMBMainViewController.swift */; };
 		523B90B219E5E41A00D0EB6F /* SMBHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 523B90B119E5E41A00D0EB6F /* SMBHomeViewController.swift */; };
@@ -179,9 +186,7 @@
 		529FE85B1922B6D400A7C5C4 /* SMBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE85A1922B6D400A7C5C4 /* SMBImageView.m */; };
 		529FE85E1922B70700A7C5C4 /* SMBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE85D1922B70700A7C5C4 /* SMBUser.m */; };
 		529FE8611922B71300A7C5C4 /* SMBImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE8601922B71300A7C5C4 /* SMBImage.m */; };
-		529FE8641922B73600A7C5C4 /* _SMBLoginSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE8631922B73600A7C5C4 /* _SMBLoginSignupViewController.m */; };
 		529FE86A1922B75300A7C5C4 /* SMBSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE8691922B75300A7C5C4 /* SMBSettingsViewController.m */; };
-		529FE86D1922B76F00A7C5C4 /* _SMBSignupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE86C1922B76F00A7C5C4 /* _SMBSignupInfoViewController.m */; };
 		529FE8771922BC4400A7C5C4 /* SMBHairColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 529FE8761922BC4400A7C5C4 /* SMBHairColor.m */; };
 		52A6A5071950791200843DE6 /* SMBImageFullscreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A6A5061950791200843DE6 /* SMBImageFullscreenView.m */; };
 		52A81024195B274100CA4027 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A8101C195B274100CA4027 /* Icon-60.png */; };
@@ -197,7 +202,6 @@
 		52AC78D719266E770027EFC6 /* FacebookIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AC78D519266E770027EFC6 /* FacebookIcon.png */; };
 		52AC78D819266E770027EFC6 /* FacebookIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52AC78D619266E770027EFC6 /* FacebookIcon@2x.png */; };
 		52B106E219D073BF00EFEC50 /* SMBChatBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B106E119D073BF00EFEC50 /* SMBChatBallView.swift */; };
-		52B106E419D073D100EFEC50 /* SMBHomeChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B106E319D073D100EFEC50 /* SMBHomeChatView.swift */; };
 		52B3807219585ECF00A0C26D /* simbilogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B3807119585ECF00A0C26D /* simbilogo.png */; };
 		52B380751958881700A0C26D /* SMBDrinkRouletteGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B380741958881700A0C26D /* SMBDrinkRouletteGameView.m */; };
 		52B380771958894C00A0C26D /* wheel_temp.png in Resources */ = {isa = PBXBuildFile; fileRef = 52B380761958894C00A0C26D /* wheel_temp.png */; };
@@ -318,8 +322,7 @@
 		52E395921A15471400496AC9 /* credits_facebook_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 52E395901A15471400496AC9 /* credits_facebook_logo.png */; };
 		52F53056195DAC1E001E6ABA /* SMBChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F53055195DAC1E001E6ABA /* SMBChatManager.m */; };
 		52F53059195DB54E001E6ABA /* SMBChatCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F53058195DB54E001E6ABA /* SMBChatCollection.m */; };
-		6E3AC64BCFEE40649759D345 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB80C851DF004AC3B82F70F3 /* libPods.a */; };
-		C8F19119392CDCB6EFA503D1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37BB053F314970B76FD392DF /* Pods.framework */; };
+		A612B84D17566DD8FD63B631 /* Pods_Simbi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6D9BCBB20A915A777372D3 /* Pods_Simbi.framework */; };
 		CD160107193E3E1D00736A2A /* SMBFourSquareObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160106193E3E1D00736A2A /* SMBFourSquareObject.m */; };
 		CD160116193E586700736A2A /* SMBFourSquareLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160115193E586700736A2A /* SMBFourSquareLocation.m */; };
 		CD6C376B1942421F0007123D /* blueBox.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6C37681942421F0007123D /* blueBox.png */; };
@@ -357,27 +360,42 @@
 		18DEBB8A1AADD45400EEE7C5 /* SMBMyProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBMyProfile.h; sourceTree = "<group>"; };
 		18DEBB8B1AADD45400EEE7C5 /* SMBMyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBMyProfile.m; sourceTree = "<group>"; };
 		18DEBB8C1AADD45400EEE7C5 /* SMBMyProfile.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMBMyProfile.xib; sourceTree = "<group>"; };
+		280177961CC70DAE00E98001 /* UserProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		2812383D1C0FEEB00070A2A6 /* SMBValidateSMSCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBValidateSMSCodeViewController.swift; sourceTree = "<group>"; };
-		282407DF1C0BB9C500BD83CA /* SMBNewHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBNewHomeViewController.swift; sourceTree = "<group>"; };
+		282407DF1C0BB9C500BD83CA /* ProfileSetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSetupViewController.swift; path = ../Main/ProfileSetupViewController.swift; sourceTree = "<group>"; };
 		282407E21C0BBC5300BD83CA /* SMBHomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBHomeTableViewCell.swift; sourceTree = "<group>"; };
+		2833AC8A1CA4C38A001E6D92 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		283CB1451CA2375A006740B7 /* SimbiCommons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimbiCommons.swift; path = Commons/SimbiCommons.swift; sourceTree = "<group>"; };
-		283DD2C31C01234900279B4B /* SMBSignUpTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBSignUpTableViewCell.swift; sourceTree = "<group>"; };
 		283FC9D51C002A5B00FBF891 /* SMBCellTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMBCellTextField.swift; path = CustomVIews/SMBCellTextField.swift; sourceTree = "<group>"; };
+		284CC3BF1CC451B100E8E8D4 /* ConversationsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationsController.swift; sourceTree = "<group>"; };
+		284F55B41CA8C36700537A3E /* SimbiUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimbiUser.swift; path = Models/SimbiUser.swift; sourceTree = "<group>"; };
+		284F55B61CA8C46D00537A3E /* HomeFeedController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeFeedController.swift; sourceTree = "<group>"; };
 		285688EC1BF82789001EF715 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		286CDE321C093A35001F321B /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		287166B11C22685200FD49C6 /* Simbi-Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "Simbi-Playground.playground"; path = "Playground/Simbi-Playground.playground"; sourceTree = "<group>"; };
 		2872B8591C0678E300380403 /* SMBHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SMBHeaderTableViewCell.swift; path = Cells/SMBHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		287E0D911C14FF2800558F39 /* SMBProfileCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBProfileCreationViewController.swift; sourceTree = "<group>"; };
-		28888E331C1CB37200E3ADAE /* SMBHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SMBHeightCell.xib; path = Cells/SMBHeightCell.xib; sourceTree = "<group>"; };
+		289C71031CA9D67800CB3949 /* MyProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		289C71051CA9E81500CB3949 /* FriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		28B9E3F81BF835FC00DD2F69 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		28B9E3FC1BF843F800DD2F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		28C4B4D41CAB409900243340 /* SMBFontType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFontType.h; sourceTree = "<group>"; };
+		28C4B4D51CAB409900243340 /* SMBFontType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBFontType.m; sourceTree = "<group>"; };
 		28C9BAE91C2E40700055F0F8 /* ProfilePreferences .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ProfilePreferences .swift"; path = "Models/ProfilePreferences .swift"; sourceTree = "<group>"; };
 		28D7E28E1C2C9728000E585F /* SMBAgeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBAgeTableViewCell.swift; sourceTree = "<group>"; };
+		28DE445A1CA5DB2700BD4188 /* HomeFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeFeedCell.swift; path = CustomCells/HomeFeedCell.swift; sourceTree = "<group>"; };
 		28E30E391C1BC429003A91F7 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile.swift; path = Models/Profile.swift; sourceTree = "<group>"; };
 		28E399161C12A35900B02B1E /* SMBConfirmSMSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBConfirmSMSViewController.swift; sourceTree = "<group>"; };
 		28E8AE681C0EAAA8005CD088 /* SMBPhoneNumbeVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBPhoneNumbeVerificationViewController.swift; sourceTree = "<group>"; };
 		28EA82FC1BFD8807007CC7B9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		37BB053F314970B76FD392DF /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28F6EEF81CA4C75500A235A1 /* _SMBLoginSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _SMBLoginSignupViewController.h; path = Old/_SMBLoginSignupViewController.h; sourceTree = "<group>"; };
+		28F6EEF91CA4C75500A235A1 /* _SMBLoginSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _SMBLoginSignupViewController.m; path = Old/_SMBLoginSignupViewController.m; sourceTree = "<group>"; };
+		28F6EEFA1CA4C75500A235A1 /* _SMBSignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _SMBSignupInfoViewController.h; path = Old/_SMBSignupInfoViewController.h; sourceTree = "<group>"; };
+		28F6EEFB1CA4C75500A235A1 /* _SMBSignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = _SMBSignupInfoViewController.m; path = Old/_SMBSignupInfoViewController.m; sourceTree = "<group>"; };
+		28F6EEFF1CA4E25000A235A1 /* Home_Simbi .storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Home_Simbi .storyboard"; sourceTree = "<group>"; };
+		28F6EF011CA59D0800A235A1 /* RoundableUIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundableUIImageView.swift; path = CustomVIews/RoundableUIImageView.swift; sourceTree = "<group>"; };
+		3E6D9BCBB20A915A777372D3 /* Pods_Simbi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simbi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		46D6E93197CB3AF2A090D396 /* Pods-Simbi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simbi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simbi/Pods-Simbi.debug.xcconfig"; sourceTree = "<group>"; };
+		4944A3D714A20020D44DC625 /* Pods-Simbi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simbi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simbi/Pods-Simbi.release.xcconfig"; sourceTree = "<group>"; };
 		5201CC59198187170079FFDA /* SMBPinLocationButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBPinLocationButton.h; sourceTree = "<group>"; };
 		5201CC5A198187170079FFDA /* SMBPinLocationButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBPinLocationButton.m; sourceTree = "<group>"; };
 		5201CC62198192CA0079FFDA /* _SMBAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _SMBAnnotation.h; path = Simbi/Main/_SMBAnnotation.h; sourceTree = SOURCE_ROOT; };
@@ -573,12 +591,8 @@
 		529FE85D1922B70700A7C5C4 /* SMBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBUser.m; sourceTree = "<group>"; };
 		529FE85F1922B71300A7C5C4 /* SMBImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBImage.h; sourceTree = "<group>"; };
 		529FE8601922B71300A7C5C4 /* SMBImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBImage.m; sourceTree = "<group>"; };
-		529FE8621922B73600A7C5C4 /* _SMBLoginSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SMBLoginSignupViewController.h; sourceTree = "<group>"; };
-		529FE8631922B73600A7C5C4 /* _SMBLoginSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SMBLoginSignupViewController.m; sourceTree = "<group>"; };
 		529FE8681922B75300A7C5C4 /* SMBSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBSettingsViewController.h; sourceTree = "<group>"; };
 		529FE8691922B75300A7C5C4 /* SMBSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBSettingsViewController.m; sourceTree = "<group>"; };
-		529FE86B1922B76F00A7C5C4 /* _SMBSignupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _SMBSignupInfoViewController.h; sourceTree = "<group>"; };
-		529FE86C1922B76F00A7C5C4 /* _SMBSignupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _SMBSignupInfoViewController.m; sourceTree = "<group>"; };
 		529FE8751922BC4400A7C5C4 /* SMBHairColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBHairColor.h; sourceTree = "<group>"; };
 		529FE8761922BC4400A7C5C4 /* SMBHairColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBHairColor.m; sourceTree = "<group>"; };
 		52A6A5051950791200843DE6 /* SMBImageFullscreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBImageFullscreenView.h; sourceTree = "<group>"; };
@@ -771,7 +785,6 @@
 		52F53055195DAC1E001E6ABA /* SMBChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBChatManager.m; sourceTree = "<group>"; };
 		52F53057195DB54E001E6ABA /* SMBChatCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBChatCollection.h; sourceTree = "<group>"; };
 		52F53058195DB54E001E6ABA /* SMBChatCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBChatCollection.m; sourceTree = "<group>"; };
-		8515A07F1A43ABEBAE1F303A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD160105193E3E1D00736A2A /* SMBFourSquareObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFourSquareObject.h; sourceTree = "<group>"; };
 		CD160106193E3E1D00736A2A /* SMBFourSquareObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBFourSquareObject.m; sourceTree = "<group>"; };
 		CD160114193E586700736A2A /* SMBFourSquareLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBFourSquareLocation.h; sourceTree = "<group>"; };
@@ -779,9 +792,7 @@
 		CD6C37681942421F0007123D /* blueBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueBox.png; sourceTree = "<group>"; };
 		CD6C37691942421F0007123D /* redBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redBox.png; sourceTree = "<group>"; };
 		CD6C376A1942421F0007123D /* yellowBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellowBox.png; sourceTree = "<group>"; };
-		D82428AA4996DB70C56896E9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E19103C85D5390C9951DCC9A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB80C851DF004AC3B82F70F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9556B987A983C75D8641D14 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -797,7 +808,7 @@
 				52454C11192E71840043EA71 /* MapKit.framework in Frameworks */,
 				529FE8161922B13000A7C5C4 /* CoreGraphics.framework in Frameworks */,
 				529FE8181922B13000A7C5C4 /* UIKit.framework in Frameworks */,
-				C8F19119392CDCB6EFA503D1 /* Pods.framework in Frameworks */,
+				A612B84D17566DD8FD63B631 /* Pods_Simbi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,8 +817,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				529FE82F1922B13000A7C5C4 /* UIKit.framework in Frameworks */,
-				6E3AC64BCFEE40649759D345 /* libPods.a in Frameworks */,
-				183DBD5F3D1D992892AA8A09 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,7 +842,6 @@
 		283DD2C21C01232A00279B4B /* SignupCell */ = {
 			isa = PBXGroup;
 			children = (
-				283DD2C31C01234900279B4B /* SMBSignUpTableViewCell.swift */,
 			);
 			name = SignupCell;
 			sourceTree = "<group>";
@@ -842,8 +850,25 @@
 			isa = PBXGroup;
 			children = (
 				283FC9D51C002A5B00FBF891 /* SMBCellTextField.swift */,
+				28F6EF011CA59D0800A235A1 /* RoundableUIImageView.swift */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		284CC3BD1CC450F500E8E8D4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				284CC3BE1CC4519B00E8E8D4 /* Conversations */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		284CC3BE1CC4519B00E8E8D4 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				284CC3BF1CC451B100E8E8D4 /* ConversationsController.swift */,
+			);
+			name = Conversations;
 			sourceTree = "<group>";
 		};
 		287166B01C22682E00FD49C6 /* Playground */ = {
@@ -858,7 +883,7 @@
 			isa = PBXGroup;
 			children = (
 				2872B8591C0678E300380403 /* SMBHeaderTableViewCell.swift */,
-				28888E331C1CB37200E3ADAE /* SMBHeightCell.xib */,
+				28DE445A1CA5DB2700BD4188 /* HomeFeedCell.swift */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -876,8 +901,32 @@
 			children = (
 				28E30E391C1BC429003A91F7 /* Profile.swift */,
 				28C9BAE91C2E40700055F0F8 /* ProfilePreferences .swift */,
+				284F55B41CA8C36700537A3E /* SimbiUser.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		28F6EEF71CA4C6ED00A235A1 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				28F6EEF81CA4C75500A235A1 /* _SMBLoginSignupViewController.h */,
+				28F6EEF91CA4C75500A235A1 /* _SMBLoginSignupViewController.m */,
+				28F6EEFA1CA4C75500A235A1 /* _SMBSignupInfoViewController.h */,
+				28F6EEFB1CA4C75500A235A1 /* _SMBSignupInfoViewController.m */,
+			);
+			name = Old;
+			sourceTree = "<group>";
+		};
+		28F6EEFE1CA4E1F200A235A1 /* Home_Seif */ = {
+			isa = PBXGroup;
+			children = (
+				28F6EEFF1CA4E25000A235A1 /* Home_Simbi .storyboard */,
+				284F55B61CA8C46D00537A3E /* HomeFeedController.swift */,
+				289C71031CA9D67800CB3949 /* MyProfileViewController.swift */,
+				289C71051CA9E81500CB3949 /* FriendsViewController.swift */,
+				280177961CC70DAE00E98001 /* UserProfileController.swift */,
+			);
+			name = Home_Seif;
 			sourceTree = "<group>";
 		};
 		5201CC58198186780079FFDA /* SMBPinLocationButton */ = {
@@ -892,10 +941,9 @@
 		5201CC5F19818CBE0079FFDA /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				28F6EEFE1CA4E1F200A235A1 /* Home_Seif */,
 				5283F8D519CF29400079B67D /* Components */,
 				523B90B119E5E41A00D0EB6F /* SMBHomeViewController.swift */,
-				286CDE321C093A35001F321B /* Home.storyboard */,
-				282407DF1C0BB9C500BD83CA /* SMBNewHomeViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -956,17 +1004,6 @@
 				521422F719FA986C00DC658D /* SMBNavigationController.swift */,
 			);
 			name = SMBNavigationController;
-			sourceTree = "<group>";
-		};
-		521422F919FAD51C00DC658D /* Old */ = {
-			isa = PBXGroup;
-			children = (
-				529FE8621922B73600A7C5C4 /* _SMBLoginSignupViewController.h */,
-				529FE8631922B73600A7C5C4 /* _SMBLoginSignupViewController.m */,
-				529FE86B1922B76F00A7C5C4 /* _SMBSignupInfoViewController.h */,
-				529FE86C1922B76F00A7C5C4 /* _SMBSignupInfoViewController.m */,
-			);
-			name = Old;
 			sourceTree = "<group>";
 		};
 		521EF71919F9C42300D6A53F /* Credits */ = {
@@ -1613,7 +1650,7 @@
 				529FE8321922B13000A7C5C4 /* SimbiTests */,
 				529FE8121922B13000A7C5C4 /* Frameworks */,
 				529FE8111922B13000A7C5C4 /* Products */,
-				B75C0EEAA9BF75444B1215ED /* Pods */,
+				72F0A64D13EEF91F62AD38CA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1637,7 +1674,8 @@
 				52454C10192E71840043EA71 /* MapKit.framework */,
 				529FE8151922B13000A7C5C4 /* CoreGraphics.framework */,
 				529FE8171922B13000A7C5C4 /* UIKit.framework */,
-				37BB053F314970B76FD392DF /* Pods.framework */,
+				E9556B987A983C75D8641D14 /* Pods.framework */,
+				3E6D9BCBB20A915A777372D3 /* Pods_Simbi.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1645,6 +1683,7 @@
 		529FE8191922B13000A7C5C4 /* Simbi */ = {
 			isa = PBXGroup;
 			children = (
+				28F6EEF71CA4C6ED00A235A1 /* Old */,
 				283CB1441CA2373B006740B7 /* Commons */,
 				287166B01C22682E00FD49C6 /* Playground */,
 				28E30E381C1BC408003A91F7 /* Models */,
@@ -1718,6 +1757,7 @@
 			children = (
 				52CB1F691A02A28C002FDA99 /* Components */,
 				5214230219FAD59A00DC658D /* SMBEnterViewController.swift */,
+				2833AC8A1CA4C38A001E6D92 /* LoginViewController.swift */,
 				28B9E3FC1BF843F800DD2F69 /* SignUpViewController.swift */,
 				5214230419FAD5A500DC658D /* SMBLogInViewController.swift */,
 				28E8AE681C0EAAA8005CD088 /* SMBPhoneNumbeVerificationViewController.swift */,
@@ -1726,10 +1766,10 @@
 				522DA60419FB13060086A25C /* SMBConfirmationCodeViewController.swift */,
 				5282617019FD94D800BD7058 /* SMBAccountInfoViewController.swift */,
 				28E399161C12A35900B02B1E /* SMBConfirmSMSViewController.swift */,
-				521422F919FAD51C00DC658D /* Old */,
 				285688EC1BF82789001EF715 /* Login.storyboard */,
 				28B9E3F81BF835FC00DD2F69 /* Launch Screen.storyboard */,
 				287E0D911C14FF2800558F39 /* SMBProfileCreationViewController.swift */,
+				282407DF1C0BB9C500BD83CA /* ProfileSetupViewController.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -1737,6 +1777,7 @@
 		529FE8441922B3D100A7C5C4 /* Main View */ = {
 			isa = PBXGroup;
 			children = (
+				284CC3BD1CC450F500E8E8D4 /* Profile */,
 				5235C84619E587BE0022CF8D /* SMBMainViewController.swift */,
 				52CF39D319E8302D00F5EEE1 /* Maps */,
 				5201CC5F19818CBE0079FFDA /* Home */,
@@ -2264,6 +2305,15 @@
 			name = "Chat Manager";
 			sourceTree = "<group>";
 		};
+		72F0A64D13EEF91F62AD38CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				46D6E93197CB3AF2A090D396 /* Pods-Simbi.debug.xcconfig */,
+				4944A3D714A20020D44DC625 /* Pods-Simbi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		83510BE7192532980098BF30 /* MBProgressHUD+Simbi */ = {
 			isa = PBXGroup;
 			children = (
@@ -2296,6 +2346,8 @@
 			children = (
 				529FE84F1922B5A100A7C5C4 /* UIFont+Simbi.h */,
 				529FE8501922B5A100A7C5C4 /* UIFont+Simbi.m */,
+				28C4B4D41CAB409900243340 /* SMBFontType.h */,
+				28C4B4D51CAB409900243340 /* SMBFontType.m */,
 			);
 			name = "UIFont+Simbi";
 			sourceTree = "<group>";
@@ -2307,15 +2359,6 @@
 				529FE85A1922B6D400A7C5C4 /* SMBImageView.m */,
 			);
 			name = SMBImageView;
-			sourceTree = "<group>";
-		};
-		B75C0EEAA9BF75444B1215ED /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8515A07F1A43ABEBAE1F303A /* Pods.debug.xcconfig */,
-				D82428AA4996DB70C56896E9 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		CD160104193E3C9900736A2A /* FourSquare */ = {
@@ -2337,12 +2380,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 529FE83C1922B13000A7C5C4 /* Build configuration list for PBXNativeTarget "Simbi" */;
 			buildPhases = (
-				841886E63FB34927822A6EA5 /* Check Pods Manifest.lock */,
+				2245B5C0AB11F34886E90735 /* 📦 Check Pods Manifest.lock */,
 				529FE80C1922B13000A7C5C4 /* Sources */,
 				529FE80D1922B13000A7C5C4 /* Frameworks */,
 				529FE80E1922B13000A7C5C4 /* Resources */,
-				39FA8319592F4420BE47E486 /* Copy Pods Resources */,
-				4CE7FE0395C3B8B736BA150F /* Embed Pods Frameworks */,
+				497A07C1653AC1AD87FB6846 /* 📦 Embed Pods Frameworks */,
+				4E92D9E2D63525DC3D33E718 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2357,12 +2400,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 529FE83F1922B13000A7C5C4 /* Build configuration list for PBXNativeTarget "SimbiTests" */;
 			buildPhases = (
-				5B798BE553F7434D9A15B5EF /* Check Pods Manifest.lock */,
 				529FE8271922B13000A7C5C4 /* Sources */,
 				529FE8281922B13000A7C5C4 /* Frameworks */,
 				529FE8291922B13000A7C5C4 /* Resources */,
-				E1D4CA35726B46DE815A236F /* Copy Pods Resources */,
-				8143B7D2472D1C048BF5AA13 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2386,6 +2426,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = SimbiSocial;
 				TargetAttributes = {
+					529FE80F1922B13000A7C5C4 = {
+						DevelopmentTeam = 55KEXMK3QR;
+					};
 					529FE82A1922B13000A7C5C4 = {
 						DevelopmentTeam = P6LCGC9VU2;
 						TestTargetID = 529FE80F1922B13000A7C5C4;
@@ -2461,7 +2504,6 @@
 				5222D27F19B0CFCD00DC5E76 /* DINOT-CondMedium.otf in Resources */,
 				527E5D3D1959B94A00F0F58B /* Silhouette.png in Resources */,
 				1835FB181AA99C550068F60A /* selfInvisible.png in Resources */,
-				28888E341C1CB37200E3ADAE /* SMBHeightCell.xib in Resources */,
 				52B9B30119F80908009E8CE2 /* bubble_stroked_tailless@2x.png in Resources */,
 				52A81026195B274100CA4027 /* Icon-40.png in Resources */,
 				52B4401E19A25237008B4AFE /* simbi_bubble.png in Resources */,
@@ -2483,9 +2525,9 @@
 				5222D27819B0CFCD00DC5E76 /* DINOT-Black.otf in Resources */,
 				52B9B32D19F80A05009E8CE2 /* chat_icon.png in Resources */,
 				52B9B2FB19F80908009E8CE2 /* bubble_min@2x.png in Resources */,
-				286CDE331C093A35001F321B /* Home.storyboard in Resources */,
 				52B9B33919F80A74009E8CE2 /* chat_icon_white.png in Resources */,
 				189398211AB30DE40081F8A7 /* homeButton@2x.png in Resources */,
+				28F6EF001CA4E25000A235A1 /* Home_Simbi .storyboard in Resources */,
 				5222D29F19B0E2DE00DC5E76 /* pulluparrow.png in Resources */,
 				525D2F421925563F00BBE955 /* SimbiLogo_temp@2x.png in Resources */,
 				52B9B32E19F80A05009E8CE2 /* chat_icon@2x.png in Resources */,
@@ -2566,44 +2608,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39FA8319592F4420BE47E486 /* Copy Pods Resources */ = {
+		2245B5C0AB11F34886E90735 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4CE7FE0395C3B8B736BA150F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5B798BE553F7434D9A15B5EF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2611,49 +2623,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8143B7D2472D1C048BF5AA13 /* Embed Pods Frameworks */ = {
+		497A07C1653AC1AD87FB6846 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simbi/Pods-Simbi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		841886E63FB34927822A6EA5 /* Check Pods Manifest.lock */ = {
+		4E92D9E2D63525DC3D33E718 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E1D4CA35726B46DE815A236F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Simbi/Pods-Simbi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2663,17 +2660,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				283FC9D61C002A5B00FBF891 /* SMBCellTextField.swift in Sources */,
-				283DD2C41C01234900279B4B /* SMBSignUpTableViewCell.swift in Sources */,
 				5201CC64198192CA0079FFDA /* _SMBAnnotation.m in Sources */,
 				52B9B31C19F80908009E8CE2 /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				52CF39D619E8305A00F5EEE1 /* SMBFriendsListViewController.swift in Sources */,
 				524837AE19250B9600E1A747 /* SMBFriendRequest.m in Sources */,
 				529FE8771922BC4400A7C5C4 /* SMBHairColor.m in Sources */,
 				527E5D421959C4EF00F0F58B /* SMBDrinkWheelView.m in Sources */,
-				52B106E419D073D100EFEC50 /* SMBHomeChatView.swift in Sources */,
-				522DA60519FB13060086A25C /* SMBConfirmationCodeViewController.swift in Sources */,
 				524837BA19250BC100E1A747 /* SMBMessage.m in Sources */,
+				289C71061CA9E81500CB3949 /* FriendsViewController.swift in Sources */,
 				5214230719FAD5AD00DC658D /* SMBSignUpViewController.swift in Sources */,
 				520C7A6B1982F525002CBAFF /* SMBChatCircleTimerView.m in Sources */,
 				52B9B31619F80908009E8CE2 /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
@@ -2684,7 +2678,6 @@
 				5201CC711981A2950079FFDA /* NSDate+Simbi.m in Sources */,
 				52A6A5071950791200843DE6 /* SMBImageFullscreenView.m in Sources */,
 				52B380751958881700A0C26D /* SMBDrinkRouletteGameView.m in Sources */,
-				521EF71B19F9C45100D6A53F /* SMBCreditsViewController.swift in Sources */,
 				5227757F192FC24600CFE510 /* SMBSelectChallengeViewController.m in Sources */,
 				52B8D87F19CC965F00096E94 /* SMBFacebookFriendsViewController.m in Sources */,
 				52B9B31419F80908009E8CE2 /* JSQMessagesTimestampFormatter.m in Sources */,
@@ -2712,8 +2705,11 @@
 				52454C23192E8A580043EA71 /* SMBQuestion.m in Sources */,
 				529B5DE71948993300FD20D7 /* SMBGameView.m in Sources */,
 				529FE8611922B71300A7C5C4 /* SMBImage.m in Sources */,
+				284F55B51CA8C36700537A3E /* SimbiUser.swift in Sources */,
 				5201CC6A198192E10079FFDA /* _SMBMutualFriendsView.m in Sources */,
+				280177971CC70DAE00E98001 /* UserProfileController.swift in Sources */,
 				52454C21192E8A580043EA71 /* SMBChallenge.m in Sources */,
+				284F55B71CA8C46D00537A3E /* HomeFeedController.swift in Sources */,
 				52099B4C198FEA250002F078 /* _SMBFriendCardView.m in Sources */,
 				52B9B32019F80908009E8CE2 /* JSQMessagesComposerTextView.m in Sources */,
 				52B9B30A19F80908009E8CE2 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
@@ -2727,19 +2723,24 @@
 				283CB1461CA2375A006740B7 /* SimbiCommons.swift in Sources */,
 				524837B419250BAC00E1A747 /* SMBLocation.m in Sources */,
 				52B9B31E19F80908009E8CE2 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
+				28DE445B1CA5DB2700BD4188 /* HomeFeedCell.swift in Sources */,
 				52DCF04D1A16B5EE00782266 /* SMBUserCredits.swift in Sources */,
 				52B9B32119F80908009E8CE2 /* JSQMessagesInputToolbar.m in Sources */,
 				52B9B31519F80908009E8CE2 /* JSQMessagesToolbarButtonFactory.m in Sources */,
 				5214230319FAD59A00DC658D /* SMBEnterViewController.swift in Sources */,
 				5214230919FAD5BA00DC658D /* SMBConfirmPhoneViewController.swift in Sources */,
+				28F6EEFD1CA4C75500A235A1 /* _SMBSignupInfoViewController.m in Sources */,
 				527F23FD194B813500C204B1 /* SMBChatStatusView.m in Sources */,
 				52C1E13A1939204D005826E5 /* SMBQuestionChatListTableView.m in Sources */,
 				28E8AE691C0EAAA8005CD088 /* SMBPhoneNumbeVerificationViewController.swift in Sources */,
 				52E0E1C8195CA808008AA19B /* SMBFriendRequestsManager.m in Sources */,
+				28F6EEFC1CA4C75500A235A1 /* _SMBLoginSignupViewController.m in Sources */,
 				5282617119FD94D800BD7058 /* SMBAccountInfoViewController.swift in Sources */,
 				52CB1F681A027089002FDA99 /* SMBRandomUserItemView.swift in Sources */,
 				52B9B30D19F80908009E8CE2 /* UIImage+JSQMessages.m in Sources */,
 				5201CC6D198192EB0079FFDA /* _SMBRandomUsersView.m in Sources */,
+				28C4B4D61CAB409900243340 /* SMBFontType.m in Sources */,
+				28ECD49B1D03900900F64CD1 /* SMBCellTextField.swift in Sources */,
 				5291447719649D9400870B4E /* SMBActivityManager.m in Sources */,
 				52E0E1C5195C8B80008AA19B /* SMBFourSquareCategory.m in Sources */,
 				5201CC5B198187170079FFDA /* SMBPinLocationButton.m in Sources */,
@@ -2760,6 +2761,7 @@
 				28E399171C12A35A00B02B1E /* SMBConfirmSMSViewController.swift in Sources */,
 				529FE8571922B63000A7C5C4 /* PFImageView+Simbi.m in Sources */,
 				5282CC361A19428800EF7EF6 /* SMBCountryPicker.swift in Sources */,
+				289C71041CA9D67800CB3949 /* MyProfileViewController.swift in Sources */,
 				5291447B19649DEF00870B4E /* SMBActivityTableView.m in Sources */,
 				52764121194A345200B37597 /* SMBTimerLabel.m in Sources */,
 				52B9B32719F80908009E8CE2 /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
@@ -2769,11 +2771,10 @@
 				52C1E1361938FF08005826E5 /* UIView+Simbi.m in Sources */,
 				52CB1F641A026E13002FDA99 /* SMBRandomUsersViewController.swift in Sources */,
 				52B9B31B19F80908009E8CE2 /* JSQMessagesCollectionViewCell.m in Sources */,
-				529FE86D1922B76F00A7C5C4 /* _SMBSignupInfoViewController.m in Sources */,
 				CD160116193E586700736A2A /* SMBFourSquareLocation.m in Sources */,
 				52DCF04B1A16B59400782266 /* SMBTestCreditsViewController.swift in Sources */,
 				52B9B31719F80908009E8CE2 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
-				282407E01C0BB9C500BD83CA /* SMBNewHomeViewController.swift in Sources */,
+				282407E01C0BB9C500BD83CA /* ProfileSetupViewController.swift in Sources */,
 				529FE8541922B5C400A7C5C4 /* MBProgressHUD+Simbi.m in Sources */,
 				5279A38C199BD6C7008F2338 /* UITableViewController+Simbi.m in Sources */,
 				52B8D87919CC964E00096E94 /* SMBFriendDetailViewController.m in Sources */,
@@ -2783,7 +2784,6 @@
 				52277591192FC2DA00CFE510 /* SMBQuestionViewController.m in Sources */,
 				5282617419FD955600BD7058 /* StringFormats.swift in Sources */,
 				5283F8D719CF295F0079B67D /* SMBHomeBackgroundView.swift in Sources */,
-				28B9E3FD1BF843F800DD2F69 /* SignUpViewController.swift in Sources */,
 				52501D9B193CEE6900C5B36E /* SMBChallengeCell.m in Sources */,
 				524837B719250BB700E1A747 /* SMBChat.m in Sources */,
 				52B9B31A19F80908009E8CE2 /* JSQMessagesCollectionView.m in Sources */,
@@ -2792,6 +2792,7 @@
 				52B9B31019F80908009E8CE2 /* JSQMessagesViewController.m in Sources */,
 				52B8D87619CC964000096E94 /* SMBFriendRequestDetailViewController.m in Sources */,
 				5214230519FAD5A500DC658D /* SMBLogInViewController.swift in Sources */,
+				28C51D4C1D0395D200F72EFA /* SignUpViewController.swift in Sources */,
 				52793E1C1982C923007D732B /* SMBLocationCell.m in Sources */,
 				52C87CA61A0FF0A1005FB341 /* SMBLabeledSlider.swift in Sources */,
 				52793E151982B839007D732B /* SMBPinLocationViewController.m in Sources */,
@@ -2801,6 +2802,7 @@
 				52B7FE90199AA29000712C13 /* SMBFriendsListCell.m in Sources */,
 				52B9B30E19F80908009E8CE2 /* UIView+JSQMessages.m in Sources */,
 				52B9B30C19F80908009E8CE2 /* UIColor+JSQMessages.m in Sources */,
+				284CC3C01CC451B100E8E8D4 /* ConversationsController.swift in Sources */,
 				52B8D86719CC959700096E94 /* SMBUserCell.m in Sources */,
 				52DCF0511A16BB1A00782266 /* SMBReceipt.swift in Sources */,
 				52B9B32319F80908009E8CE2 /* JSQMessagesLoadEarlierHeaderView.m in Sources */,
@@ -2812,6 +2814,7 @@
 				52277582192FC25100CFE510 /* SMBChallengeViewController.m in Sources */,
 				52B380821958AD4A00A0C26D /* SMBFriendsManager.m in Sources */,
 				529FE86A1922B75300A7C5C4 /* SMBSettingsViewController.m in Sources */,
+				2833AC8B1CA4C38A001E6D92 /* LoginViewController.swift in Sources */,
 				523B90B219E5E41A00D0EB6F /* SMBHomeViewController.swift in Sources */,
 				52E0E1CE195CA90A008AA19B /* SMBManager.m in Sources */,
 				52B8D87319CC963400096E94 /* SMBFriendRequestsTableView.m in Sources */,
@@ -2826,11 +2829,11 @@
 				52B8D87019CC962B00096E94 /* _SMBFriendsListViewController.m in Sources */,
 				52CF39D819E8309200F5EEE1 /* SMBMapViewController.swift in Sources */,
 				521EF71819F9ABE900D6A53F /* SMBChatButton.swift in Sources */,
-				529FE8641922B73600A7C5C4 /* _SMBLoginSignupViewController.m in Sources */,
 				52E1E3A31A17C14400F26546 /* SMBPurchaseCreditsViewController.swift in Sources */,
 				529FE84E1922B59500A7C5C4 /* UIColor+Simbi.m in Sources */,
 				529FE85B1922B6D400A7C5C4 /* SMBImageView.m in Sources */,
 				2872B85A1C0678E300380403 /* SMBHeaderTableViewCell.swift in Sources */,
+				28F6EF021CA59D0800A235A1 /* RoundableUIImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2949,14 +2952,14 @@
 		};
 		529FE83D1922B13000A7C5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8515A07F1A43ABEBAE1F303A /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 46D6E93197CB3AF2A090D396 /* Pods-Simbi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2965,10 +2968,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simbi/Simbi-Prefix.pch";
 				INFOPLIST_FILE = "Simbi/Simbi-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simbisocial.simbi.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simbi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simbi/Simbi-Bridging-Header.h";
@@ -2979,14 +2982,14 @@
 		};
 		529FE83E1922B13000A7C5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D82428AA4996DB70C56896E9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 4944A3D714A20020D44DC625 /* Pods-Simbi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2995,10 +2998,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Simbi/Simbi-Prefix.pch";
 				INFOPLIST_FILE = "Simbi/Simbi-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.simbisocial.simbi.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simbi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Simbi/Simbi-Bridging-Header.h";
@@ -3008,7 +3011,6 @@
 		};
 		529FE8401922B13000A7C5C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8515A07F1A43ABEBAE1F303A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Simbi.app/Simbi";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3033,7 +3035,6 @@
 		};
 		529FE8411922B13000A7C5C4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D82428AA4996DB70C56896E9 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Simbi.app/Simbi";
 				FRAMEWORK_SEARCH_PATHS = (
