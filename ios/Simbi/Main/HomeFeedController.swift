@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import GPUImage
-import FXBlurView
-import SnapKit
-import ActionButton
-import KCFloatingActionButton
+//import GPUImage
+//import FXBlurView
+//import ActionButton
+//import KCFloatingActionButton
 
 // AppCoda PFSubclassing
 //Bolts-Swift BoltsExtra
@@ -21,9 +20,9 @@ class HomeFeedController: UIViewController,UITableViewDataSource, UITableViewDel
     @IBOutlet var tableView: UITableView!
     var userArray = [SimbiUser]()
     var testList = [SMBUser]()
-    var actionButton:ActionButton!
+//    var actionButton:ActionButton!
     var DynamicView = UIView(frame: CGRectZero)
-    var fab = KCFloatingActionButton()
+//    var fab = KCFloatingActionButton()
 
     
     override func viewDidLoad() {
@@ -46,55 +45,55 @@ class HomeFeedController: UIViewController,UITableViewDataSource, UITableViewDel
         
     }
     
-    /*
-    func loadUsers() {
-        
+    
+//    func loadUsers() {
+//        
+//  
+//        let users = []
+//        
+//        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
+//        activityIndicatorView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+//        activityIndicatorView.startAnimating()
+//        self.view.addSubview(activityIndicatorView)
+//        
+//        let query = PFQuery(className: "_User")
+//        //        query.cachePolicy = kPFCachePolicyNetworkOnly
+//        query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
+//        query.includeKey("profilePicture")
+//        query.includeKey("hairColor")
+//        
+//        
+//        if SMBUser.currentUser().geoPoint != nil {
+//            query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
+//        }
+//        else {
+//            //            print("\(#function) - Warning: Current user does not have geoPoint")
+//            print(" - Warning: Current user does not have geoPoint")
+//            
+//        }
+//        
+//        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+//            
+//            
+//            activityIndicatorView.stopAnimating()
+//            activityIndicatorView.removeFromSuperview()
+//            
+//            if let users = objects {
+//                
+//                self.users = users as! [SMBUser]
+//                self.carousel.reloadData()
+//                // v Causes crashes
+//                //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)
+//                UIView.animateWithDuration(0.33, animations: { () -> Void in
+//                    self.lineView.alpha = 1
+//                })
+//            }
+//            else {
+//                self.showError()
+//            }
+//        }
+//    }
   
-        let users = []
-        
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        activityIndicatorView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        activityIndicatorView.startAnimating()
-        self.view.addSubview(activityIndicatorView)
-        
-        let query = PFQuery(className: "_User")
-        //        query.cachePolicy = kPFCachePolicyNetworkOnly
-        query.whereKey("objectId", notEqualTo: SMBUser.currentUser().objectId!)
-        query.includeKey("profilePicture")
-        query.includeKey("hairColor")
-        
-        
-        if SMBUser.currentUser().geoPoint != nil {
-            query.whereKey("geoPoint", nearGeoPoint: SMBUser.currentUser().geoPoint, withinMiles: value)
-        }
-        else {
-            //            print("\(#function) - Warning: Current user does not have geoPoint")
-            print(" - Warning: Current user does not have geoPoint")
-            
-        }
-        
-        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            
-            activityIndicatorView.stopAnimating()
-            activityIndicatorView.removeFromSuperview()
-            
-            if let users = objects {
-                
-                self.users = users as! [SMBUser]
-                self.carousel.reloadData()
-                // v Causes crashes
-                //self.carousel.scrollToItemAtIndex(Int(arc4random())%self.carousel.numberOfItems, animated: true)
-                UIView.animateWithDuration(0.33, animations: { () -> Void in
-                    self.lineView.alpha = 1
-                })
-            }
-            else {
-                self.showError()
-            }
-        }
-    }
-  */
     
     /*
     func changeTabBar(hidden:Bool, animated: Bool){
@@ -131,33 +130,33 @@ class HomeFeedController: UIViewController,UITableViewDataSource, UITableViewDel
      func scrollViewDidScroll(scrollView: UIScrollView){
 
 
-        var frame: CGRect = self.fab.frame
-        frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.fab.frame.size.height - 15
-        fab.frame = frame
+//        var frame: CGRect = self.fab.frame
+//        frame.origin.y = scrollView.contentOffset.y + self.tableView.frame.size.height - self.fab.frame.size.height - 15
+//        fab.frame = frame
 //        print(scrollView.contentOffset.y)
-        tableView.bringSubviewToFront(fab)
-        self.fab.layoutIfNeeded()
+//        tableView.bringSubviewToFront(fab)
+//        self.fab.layoutIfNeeded()
     }
     
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        fab.addItem("Filter", icon: UIImage(named: "filter_icon")!)
-        fab.plusColor = UIColor.whiteColor()
-        self.tableView.addSubview(fab)
+//        fab.addItem("Filter", icon: UIImage(named: "filter_icon")!)
+//        fab.plusColor = UIColor.whiteColor()
+//        self.tableView.addSubview(fab)
         
-//
+
 //        let filter = ActionButtonItem(title: "filter", image: (UIImage (named: "filter_icon")))
 //        filter.action = { item in print("Sharing...") }
-//        
-//        
-//        
+        
+        
+        
 //        actionButton = ActionButton(attachedToView: (self.navigationController?.view.subviews[0])!, items: [filter])
 //        actionButton.action = { button in button.toggleMenu() }
 //        
-//        
-//        self.navigationController!.hidesBarsOnSwipe = true;
-//
+        
+        self.navigationController!.hidesBarsOnSwipe = true;
+
 //        print(actionButton)
         
     }

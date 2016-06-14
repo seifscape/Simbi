@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Parse
-import Bolts
-import FBSDKCoreKit
-import ParseFacebookUtilsV4
-import NMRangeSlider
+//import Parse
+//import Bolts
+//import FBSDKCoreKit
+//import ParseFacebookUtilsV4
+//import NMRangeSlider
 
 class SMBAccountInfoViewController: UITableViewController {
     

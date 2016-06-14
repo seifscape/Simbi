@@ -7,10 +7,10 @@
 //
 
 import UIKit
-import Parse
-import Bolts
-import FBSDKCoreKit
-import ParseFacebookUtilsV4
+//import Parse
+//import Bolts
+//import FBSDKCoreKit
+//import ParseFacebookUtilsV4
 
 
 class SignUpViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {

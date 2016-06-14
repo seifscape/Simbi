@@ -16,6 +16,12 @@
 #import "NBPhoneNumber.h"
 #import "NMRangeSlider.h"
 #import <APAddressBook/APAddressBook-Bridging.h>
+#import <TTRangeSlider.h>
+#import <BMASliders/BMALabeledRangeSlider.h>
+#import <BMASliders/BMALabeledSlider.h>
+#import "FXBlurView.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
 
 // Categories
 

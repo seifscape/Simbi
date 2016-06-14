@@ -13,6 +13,7 @@
 @class SMBUser;
 
 
+
 @interface SMBActivity : PFObject <PFSubclassing>
 
 + (NSString *)parseClassName;

@@ -231,7 +231,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>
@@ -280,7 +280,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>
@@ -329,7 +329,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>
@@ -378,7 +378,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>
@@ -427,7 +427,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>
@@ -1724,7 +1724,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
                                                                 </variation>
                                                             </textField>
                                                         </subviews>

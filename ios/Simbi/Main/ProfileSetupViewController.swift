@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import ActionSheetPicker_3_0
-import TTRangeSlider
-import Parse
-import Bolts
-import FBSDKCoreKit
-import ParseFacebookUtilsV4
+//import ActionSheetPicker_3_0
+//import TTRangeSlider
+//import Parse
+//import Bolts
+//import FBSDKCoreKit
+//import ParseFacebookUtilsV4
 //import BMASliders
 //import NMRangeSlider
 //import SDWebImage
@@ -63,14 +63,14 @@ class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITable
         self.profileImageView?.layer.borderWidth = 3
         self.profileImageView?.layer.borderColor = UIColor.whiteColor().CGColor
         self.profileImageView?.contentMode = UIViewContentMode.ScaleAspectFill
-        let btn: UIButton = UIButton(frame: self.profileImageView!.frame)
-        btn.layer.cornerRadius = 60
-        btn.layer.masksToBounds = true
-        btn.contentMode = UIViewContentMode.ScaleAspectFill
-        btn.setTitle("Upload Photo", forState: UIControlState.Normal)
-        btn.addTarget(self, action: #selector(ProfileSetupViewController.uploadImage), forControlEvents: UIControlEvents.TouchUpInside)
-        btn.tag = 99               // change tag property
-        self.profileImageView!.addSubview(btn) // add to view as subview
+//        let btn: UIButton = UIButton(frame: self.profileImageView!.frame)
+//        btn.layer.cornerRadius = 60
+//        btn.layer.masksToBounds = true
+//        btn.contentMode = UIViewContentMode.ScaleAspectFill
+//        btn.setTitle("Upload Photo", forState: UIControlState.Normal)
+//        btn.addTarget(self, action: #selector(ProfileSetupViewController.uploadImage), forControlEvents: UIControlEvents.TouchUpInside)
+//        btn.tag = 99               // change tag property
+//        self.profileImageView!.addSubview(btn) // add to view as subview
         
         
         // Delegates
@@ -206,8 +206,8 @@ class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITable
         query.getObjectInBackgroundWithId(obid!) { (userObject: PFObject?, error: NSError?) -> Void in
             userObject!["lookingto"] = self.genderPrefSegment?.selectedSegmentIndex
             userObject!["genderPreference"] = self.genderSegment?.selectedSegmentIndex
-            userObject!["upperAgePreference"] = self.ageSelector!.maxValue
-            userObject!["lowerAgePreference"] = self.ageSelector!.maxValue
+            userObject!["upperAgePreference"] = self.ageSelector!.maximumValue
+            userObject!["lowerAgePreference"] = self.ageSelector!.minimumValue
             userObject?.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
                 if (success){
                     hud.dismissWithMessage("Save success!")
@@ -321,9 +321,9 @@ class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITable
                 sliderView.setUpperBound(sliderView.maximumValue, animated: true)
                 sliderView.setLowerBound(sliderView.minimumValue, animated: true)
                 sliderView.step = 1
-//                sliderView.clipsToBounds = true
+                sliderView.clipsToBounds = true
                 sliderView.tag = 100
-//                sliderView.sizeToFit()
+                sliderView.sizeToFit()
 //                sliderView.rangeFormatter = BMARangeFormatter()
                 if((cell.contentView.viewWithTag(100)) != nil){
                     cell.viewWithTag(100)?.removeFromSuperview()
@@ -432,12 +432,12 @@ class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITable
             let containerView = UIView(frame:footerView.frame)
             footerView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
             containerView.addSubview(footerView)
-            let btn: UIButton = UIButton(frame: footerView.frame)
-            btn.backgroundColor = UIColor.clearColor()
-            btn.setTitle("", forState: UIControlState.Normal)
-            btn.addTarget(self, action: #selector(ProfileSetupViewController.submitAction), forControlEvents: UIControlEvents.TouchUpInside)
-            btn.tag = 1               // change tag property
-            footerView.addSubview(btn) // add to view as subview
+//            let btn: UIButton = UIButton(frame: footerView.frame)
+//            btn.backgroundColor = UIColor.clearColor()
+//            btn.setTitle("", forState: UIControlState.Normal)
+//            btn.addTarget(self, action: #selector(ProfileSetupViewController.submitAction), forControlEvents: UIControlEvents.TouchUpInside)
+//            btn.tag = 1               // change tag property
+//            footerView.addSubview(btn) // add to view as subview
 
             return containerView
 
@@ -482,21 +482,21 @@ class ProfileSetupViewController: UIViewController, UITableViewDelegate, UITable
         
         
         
-        ActionSheetMultipleStringPicker.showPickerWithTitle("Height ", rows: [
-            ["1 ft", "2 ft", "3 ft", "4 ft", "5 ft", "6 ft", "7 ft"],
-            ["0 in", "1 in", "2 in", "3 in", "4 in", "5 in", "6 in", "7 in", "8 in", "9 in", "10 in", "11 in"]
-            ], initialSelection: [2, 2], doneBlock: {
-                picker, values, indexes in
-                
-                print("values = \(values)")
-                print("indexes = \(indexes)")
-                print("picker = \(picker)")
-                
-                returnString = indexes as! [String]
-                completionClosure(value: returnString)
-
-                return
-            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
+//        ActionSheetMultipleStringPicker.showPickerWithTitle("Height ", rows: [
+//            ["1 ft", "2 ft", "3 ft", "4 ft", "5 ft", "6 ft", "7 ft"],
+//            ["0 in", "1 in", "2 in", "3 in", "4 in", "5 in", "6 in", "7 in", "8 in", "9 in", "10 in", "11 in"]
+//            ], initialSelection: [2, 2], doneBlock: {
+//                picker, values, indexes in
+//                
+//                print("values = \(values)")
+//                print("indexes = \(indexes)")
+//                print("picker = \(picker)")
+//                
+//                returnString = indexes as! [String]
+//                completionClosure(value: returnString)
+//
+//                return
+//            }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
 
         return
     }

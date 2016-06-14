@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import IBCircularImageView
+//import IBCircularImageView
 
 class HomeFeedCell: UITableViewCell {
     

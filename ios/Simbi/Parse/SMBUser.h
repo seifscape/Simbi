@@ -7,7 +7,6 @@
 //
 
 #import <Parse/PFObject+Subclass.h>
-
 #import "SMBUserCell.h"
 
 

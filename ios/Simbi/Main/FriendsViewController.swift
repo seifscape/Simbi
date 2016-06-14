@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import APAddressBook
+//import APAddressBook
 
 class FriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

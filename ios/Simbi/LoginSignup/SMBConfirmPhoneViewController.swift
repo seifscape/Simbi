@@ -201,7 +201,7 @@ class SMBConfirmPhoneViewController: SMBFormViewController {
                                 
                                 SMBUser.currentUser().confirmingPhoneNumber = phoneNumber
                                 
-                                self.navigationController!.pushViewController(SMBConfirmationCodeViewController(), animated: true)
+//                                self.navigationController!.pushViewController(SMBConfirmationCodeViewController(), animated: true)
                             }
                             else {
                                 hud.dismissWithError()

@@ -9,6 +9,7 @@
 #import "SMBImageView.h"
 
 #import "SMBImageFullscreenView.h"
+#import <Parse/PFObject+Subclass.h>
 
 
 @interface SMBImageView()
